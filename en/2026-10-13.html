@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 13.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">6 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">13.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Huntley: instead of editing AGENTS.md, use a pre-commit hook that fails the commit and tells the agent which library to use</a></li><li><a href="#s2">Strands Box: a Rust agent sandbox with Dogwood policies and secret injection kept outside the agent</a></li><li><a href="#s3">claude-code-mods repo: hook-based plugins that show context, cache, limits and subagents live above the prompt</a></li><li><a href="#s4">answer-me-with-html skill: the agent writes a short Markdown draft and a CLI renders an offline HTML page with diagrams in ~50 ms</a></li><li><a href="#s5">Claude Code plugin shows images and plays videos inside the Ghostty terminal</a></li></ol>
+<h2 class="section-title">Python and backend</h2><ol class="contents" style="counter-reset: item 5"><li><a href="#s6">Python 3.15 released Oct 9: lazy imports, UTF-8 by default, Tachyon sampling profiler</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Simon Willison</span><span>13.10</span></div>
+      <h2>Huntley: instead of editing AGENTS.md, use a pre-commit hook that fails the commit and tells the agent which library to use</h2>
+      <div class="gist"><p>Simon Willison quoted Geoffrey Huntley&#x27;s post &quot;nobody should type code by hand anymore. here&#x27;s what&#x27;s left.&quot; (ghuntley.com/agency/) on 13 October 2026. The problem: the agent ignores his diagnostics library and calls observability modules directly. He could update AGENTS.md, but there would still be a gap between the written rule and actual behavior, and it would drift over time.</p><p>Instead he writes a pre-commit hook. The hook inspects the git diff for direct calls to observability modules that bypass his diagnostics module. If it finds one, the commit fails and a prompt is injected into the output telling the agent to use the library. He says this brings the agent to full compliance. The principle: a rule that can be checked mechanically belongs in a check, not in instructions.</p><p>You already have Claude Code hooks and CLAUDE.md, so &quot;hook over instruction&quot; is familiar. What&#x27;s new is a git-level pre-commit hook that parses the diff itself and puts the fix directly into the error message for the agent. First step: pick one rule from CLAUDE.md that the agent keeps breaking (for example a direct call instead of your wrapper), and write a pre-commit script that searches `git diff --cached` for the violation and prints what to use instead.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Take one often-broken rule from CLAUDE.md (direct call bypassing our wrapper) and turn it into a pre-commit hook over `git diff --cached`</li><li>Have the hook&#x27;s error message tell the agent exactly what to use instead, as Huntley does</li><li>Add a rule to the settings-change skill: if a rule can be checked on the diff, make it a hook first and keep CLAUDE.md text only as a fallback</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Oct/13/geoffrey-huntley/" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>13.10</span></div>
+      <h2>Strands Box: a Rust agent sandbox with Dogwood policies and secret injection kept outside the agent</h2>
+      <div class="gist"><p>Strands Box (strands-agents/box, Apache-2.0, Rust, preview, created 2026-10-02, 393 stars) runs any agent binary under OS-level isolation and restricts files, programs and network. Setup is two files: box.toml (environment and direct grants) and policy.dw (Dogwood permit/forbid rules). Anything checked by policy is denied by default, and a matching forbid overrides a permit. Rules can depend on operation arguments, earlier actions and elapsed time: reading a file can cause a later HTTP request to be denied. The egress gateway checks connections and HTTP requests by method and path, and MCP tool calls by arguments. The gateway injects credentials itself (API keys or AWS SigV4), so the agent never sees the secrets. Decisions are logged as OTLP JSON (private/telemetry/records.jsonl). Limits: macOS on Apple silicon only, Linux &quot;planned&quot;; direct filesystem grants in box.toml are enforced by the OS and produce no Dogwood decisions. The page has no full policy.dw sample and no Claude Code instructions; the only worked example is the Strands CLI.</p><p>For you this is an alternative to Claude Code&#x27;s built-in sandbox and permissions, especially for the Telegram bot and background agents, where keys (Keychain, Vault) are better kept outside the agent process. It also offers sequence-aware rules (read a secret, then no network), which PreToolUse hooks don&#x27;t give you. First step on your Mac: curl -fsSL https://raw.githubusercontent.com/strands-agents/box/main/download.sh | sh, then ./box-core/box --version. The script installs into ./box-core and doesn&#x27;t touch PATH. Next, try a low-risk agent such as claude -p in box.toml and inspect records.jsonl.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install Box (download.sh, ./box-core/box --version) and run a headless claude -p from one of your scripts inside it with default-deny network</li><li>Try credential injection via the egress gateway instead of passing Keychain/Vault tokens into the bot agent&#x27;s environment</li><li>Borrow the Dogwood idea &quot;after reading a secret file, deny HTTP&quot; as a sequence-aware PreToolUse hook rule</li><li>Use records.jsonl (OTLP) as a denial log to tune minimal permissions for background agents</li></ul></div>
+      <a class="source" href="https://github.com/strands-agents/box" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>13.10</span></div>
+      <h2>claude-code-mods repo: hook-based plugins that show context, cache, limits and subagents live above the prompt</h2>
+      <div class="gist"><p>hamzafer/claude-code-mods (MIT, 225 stars, created 2026-10-02) is a marketplace of Claude Code plugins built on hooks. They draw live lines above the prompt. Among them: context-bar (context fill as a color-coded bar), token-weather (fill from Clear to Compact soon plus a prompt-cache countdown), cache-clock (time left before the cache goes cold, hit rate, tokens re-cached), usage-meter (5-hour and 7-day plan usage, reset countdown, session cost), agent-radar (`/radar`, one line per running subagent), review-watch (one line per running review, Codex or subagent, with a toast of findings at the end), replay-theater (`/replay`, last turn&#x27;s edits one diff at a time), next-steps (2–3 likely next prompts on keys 1/2/3). There is also blast-radius: it holds `rm -r`, force pushes and migrations, shows what they would delete, and cancels after 60 seconds with no answer. It needs Claude Code 2.1.287+ (cache-clock: 2.1.251+ and Node). Some mods need Chrome, `gh`, the Codex CLI or macOS. The &quot;My setup&quot; mods (merge-gate, rulebook-guard) are built around the author&#x27;s own tools, and the page advises reading community mods&#x27; code before installing.</p><p>You already have hooks, Codex review and your own observability skill, so what is new is ready-made statusline-style lines and a guard for destructive commands with a timeout. cache-clock and blast-radius are the most useful; the rest work as implementation examples. First step: `claude plugin marketplace add hamzafer/claude-code-mods`, then `claude plugin install cache-clock@claude-code-mods` and `claude plugin install blast-radius@claude-code-mods`. Restart Claude Code and run `/cache-clock setup`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install cache-clock to see when the prompt cache goes cold and how many tokens were re-cached. It covers the session-cost questions your observability skill handles.</li><li>Install blast-radius and compare it with your PreToolUse hooks: it holds `rm -r`, force pushes and migrations, shows what they would delete, and cancels after 60 s with no answer. Adopt the timeout-cancel?</li><li>Borrow the review-watch idea: one live line per running review (Codex or subagent) and a findings toast at the end. Add it to your vendor-review skill?</li><li>Try usage-meter to watch the 5-hour and 7-day limits and session cost while a Workflow runs parallel subagents.</li></ul></div>
+      <a class="source" href="https://github.com/hamzafer/claude-code-mods" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>13.10</span></div>
+      <h2>answer-me-with-html skill: the agent writes a short Markdown draft and a CLI renders an offline HTML page with diagrams in ~50 ms</h2>
+      <div class="gist"><p>QingYunA/answer-me-with-html (MIT, 3.3k stars, repo created 2026-10-02) is a skill that makes the agent answer a hard question with one HTML page instead of a wall of text. The model writes only a Markdown draft with frontmatter and component blocks (flow, er, sequence, tree, timeline, limits, annot, kv, callout, ask, real code quoted via src= and lines=, tables with ok/no/warn cells). A bundled `am` CLI (Node 20+, marked and dagre already inside) handles layout, CSS and SVG. The point is token savings: in the author&#x27;s count of 9 hand-written pages, 47% of tokens were SVG coordinates, 15% CSS, 17% tags and only 21% text. The project&#x27;s own benchmark (3 topics × 3 runs, Sonnet 5.5 in Claude Code): 612 output tokens on average vs 4,893 for hand-written HTML, median 12 s vs 31 s; total cost drops only ~15%. On a draft error the CLI returns the line, the component and a correct example. There are blueprint/shadcn/paper themes, per-panel comments, an `ask` block with the agent&#x27;s suggestion preselected, and a Reply button that bundles answers into one message. Pages are saved in ~/.answer-me-with-html/pages/. An always-on mode (off by default) appends a 2–4 panel mini page with a file:// link to answers; you enable it with a rule in CLAUDE.md, and it makes no pages in plan mode.</p><p>You already publish artifacts from Claude Code and use plannotator to annotate HTML, so what is new is the pattern of the model writing a compact DSL with a deterministic renderer, plus the interactive `ask`/Reply loop. First step: `/plugin marketplace add QingYunA/answer-me-with-html`, then `/plugin install answer-me-with-html@answer-me-with-html`, and ask it to &quot;Explain the TCP three-way handshake&quot; or map your repo&#x27;s modules.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install the plugin and run it on one real code question (a module map of a repo), then compare with our artifacts flow.</li><li>Add the always-on rule from the README to one project&#x27;s CLAUDE.md for a week and see whether it bloats replies.</li><li>Borrow the pattern of the model writing a compact DSL with a deterministic renderer for our reports (digest, observability): is page.html generated differently now?</li><li>Take the `ask` block idea (preselected suggestion plus a Reply button that bundles answers) for the grilling and council skills.</li></ul></div>
+      <a class="source" href="https://github.com/QingYunA/answer-me-with-html" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>GitHub</span><span>13.10</span></div>
+      <h2>Claude Code plugin shows images and plays videos inside the Ghostty terminal</h2>
+      <div class="gist"><p>claude-show-your-work is a plugin (MIT, 173 stars, created 2026-10-08) that gives Claude two tools: show_image and show_video. Images are drawn in the Ghostty terminal and never sent to the model, so they cost no tokens. Video is decoded with ffmpeg at up to 12 frames per second, window width up to 2400 px, capped at 900 frames. The oldest files are deleted once the cache reaches about 1 GB.</p><p>Notable part: Claude tests a feature with Playwright, records the run and plays it in the chat. A list of changes sits beside it, clicking one jumps to that moment, and checks turn green or red as the video reaches them. For bug fixes, compare mode plays the old and new versions side by side in sync. Parameters: path, compare, title, url, changes [{title, at}], summary [{label, ok, passed, total}], with summary limited to three lines. A page can be shown at desktop, tablet and phone widths in one image.</p><p>For you: Playwright and Chrome automation are already in your setup; what&#x27;s new is showing the result in the terminal with synced before/after. Requirements: macOS, Ghostty (the repo&#x27;s About mentions kitty too), Claude Code 2.1.287+, ffmpeg. In tmux you need set -g allow-passthrough on. The plugin auto-updates only from its own repo and sends anonymous telemetry; turn them off with env SHOW_YOUR_WORK_AUTO_UPDATE=0 and SHOW_YOUR_WORK_TELEMETRY=0.</p><p>First step: /plugin marketplace add https://github.com/iamumeransari/claude-show-your-work.git#releases, then /plugin install show-your-work@iamumeransari.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install the plugin and run /show-your-work tour, then try the synced before/after on one of your own bug fixes.</li><li>Add a rule to the testing skill: after a Playwright run, call show_video with changes and summary [{label, ok, passed, total}] so the result is visible without opening files.</li><li>In the frontend skill, show a page at desktop, tablet and phone widths in one image via show_image instead of separate screenshots.</li><li>Set SHOW_YOUR_WORK_AUTO_UPDATE=0 and SHOW_YOUR_WORK_TELEMETRY=0 in the settings.json env before first use, if you don&#x27;t want auto-update or telemetry.</li></ul></div>
+      <a class="source" href="https://github.com/iamumeransari/claude-show-your-work" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>    <article class="story" id="s6">
+      <div class="meta"><span class="number">06</span><span>PyCoder&#x27;s Weekly</span><span>13.10</span></div>
+      <h2>Python 3.15 released Oct 9: lazy imports, UTF-8 by default, Tachyon sampling profiler</h2>
+      <div class="gist"><p>This PyCoder&#x27;s Weekly issue is a link roundup; the substance is Python 3.15, released on 9 October 2026. New: PEP 810 — `lazy import json` defers loading a module until first use (module scope only; enable globally with `-X lazy_imports=all` or `PYTHON_LAZY_IMPORTS`). PEP 686 — UTF-8 is the default for I/O without `encoding` (revert with `PYTHONUTF8=0`). PEP 798 — `[*L for L in lists]`. Built-in `frozendict` (PEP 814) and `sentinel` (PEP 661), `TaskGroup.cancel`, tomllib with TOML 1.1. PEP 799: a `profiling` package with the Tachyon sampler for running processes (up to 1,000,000 Hz, wall/CPU/GIL/exception modes, flame graphs, pstats); the `profile` module goes away in 3.17.</p><p>Miguel Grinberg&#x27;s benchmark: fibo(40) takes 6.94 s on 3.15 vs 7.17 s on 3.14, so almost no gain. The JIT is 20–28% faster. The free-threading build with 4 threads is about 4.5x faster than the standard build (fibo) and 1.74x (bubble), but single-threaded bubble is slower (0.74x).</p><p>For you: asyncio and TaskGroup are familiar; what is new is `TaskGroup.cancel`, Tachyon, and lazy imports for faster Celery worker and CLI startup. The risk is UTF-8: check containers with a non-default locale. First step: run your tests on 3.15: `python3.15 -X lazy_imports=all -m pytest`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add a Python 3.15 job to CI plus a separate run with `PYTHONUTF8=0` to catch encoding differences in files and logs.</li><li>Try `lazy import` for heavy modules (pandas, SQLAlchemy models) in Celery worker and CLI entry points and measure startup time.</li><li>Attach Tachyon (`profiling.sampling`) to a live FastAPI or Celery process instead of cProfile and capture a flame graph.</li><li>Replace hand-rolled `_MISSING = object()` with the built-in `sentinel`, and immutable config dicts with `frozendict`.</li></ul></div>
+      <a class="source" href="https://pycoders.com/issues/756" target="_blank" rel="noopener">Source</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>
