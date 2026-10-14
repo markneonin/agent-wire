@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 14.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">14.10.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Плагин effortless сам выбирает reasoning effort на каждый промпт и показывает остаток prompt cache</a></li><li><a href="#s2">Разработчик игр описал, как сделать игру «обвязкой» для агента: сид, odiff по скриншотам, команды, samply</a></li><li><a href="#s3">VibeStart: CLI собирает TypeScript-проект под AI-агентов с AGENTS.md и проверенными комбинациями стека</a></li><li><a href="#s4">Вышел llm-gemini 0.35 с поддержкой Gemini 4 Argon: $2/$10 за миллион токенов, с 1 декабря цена вырастет вдвое</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>14.10</span></div>
+      <h2>Плагин effortless сам выбирает reasoning effort на каждый промпт и показывает остаток prompt cache</h2>
+      <div class="gist"><p>effortless (MIT, HeyCubit) — плагин для Claude Code на хуках. Перед каждым промптом «судья» (по умолчанию Haiku 5.5 на твоём логине, опционально Jev от TypeSafe по API-ключу, Haiku — запасной) ставит effort: простой вопрос — Low, тяжёлая задача — High. Короткие «ок/да» effort не меняют. Ручная смена effort выключает Auto. Работает только на Opus 5.5 и Sonnet 5.5; на Fable 5.1 и старых моделях Auto на паузе. Над промптом — полоса: effort, модель, заполненность контекста в % и таймер до остывания prompt cache. Когда кэш остыл и чат большой, предлагает Compact или Handoff (Quick — быстрая сводка, Full — ещё смотрит git и пишет HANDOFF.md). Сводки пишет Haiku 5.5, при сбое — обычный compact. Предупреждает, когда лимиты выше 80%, и включает Save mode с потолком Medium.</p><p>Цифры автора (прогон 2026-10-10, 4 задачи × 3 запуска, все 12 верны): на Opus 5.5 $0.149 за задачу против $0.190 на medium, $0.209 на high, $0.257 на xhigh (−21/−29/−42%). Точность судьи на 73 размеченных кейсах: Haiku ~92–93%, Jev 99%, «всегда medium» 44%. Оговорки автора: выборка мала и задачи лёгкие, на сложных экономия меньше, тесты шли на свежих API-чатах, а не на длинных сессиях подписки; Haiku ошибается на «да/спасибо» после тяжёлой работы.</p><p>Для тебя это ближе всего к ручной привязке effort в агентах (high/xhigh), но на уровне основной сессии, плюс видимость кэша и контекста, чего у тебя нет. Попробовать: `/plugin marketplace add HeyCubit/effortless`, затем `/plugin install effortless@effortless`, `/reload-plugins`, `/effortless setup`. В терминале может понадобиться `CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=1`. Ключ Jev из мастера настройки лежит в `~/.config/jev/.env` открытым текстом.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить effortless на одну неделю и сравнить расход с обычным ручным effort — у нас нет авто-выбора effort для основной сессии.</li><li>Взять идею таймера prompt cache: хук/статусную строку, которая показывает, сколько осталось до остывания кэша, и предупреждает перед возвратом в большой чат.</li><li>Добавить в наш handoff-процесс вариант Full: сводка + проверка git + запись HANDOFF.md, а сводку делать через Haiku 5.5, как в плагине.</li><li>Скопировать правило Save mode: при лимитах выше 80% ограничивать effort уровнем Medium.</li></ul></div>
+      <a class="source" href="https://github.com/HeyCubit/effortless" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Hacker News</span><span>13.10</span></div>
+      <h2>Разработчик игр описал, как сделать игру «обвязкой» для агента: сид, odiff по скриншотам, команды, samply</h2>
+      <div class="gist"><p>Кайл Кукштель (пост от 10.10.2026, по мотивам доклада в Калгари 12.09.2026) утверждает: LLM плохо справляются с играми, потому что значительная часть игры — не код (ассеты, сцены, баланс), а агенту нужна среда, где он может действовать, наблюдать и проверять себя. Его набор приёмов: один сид для всей случайности, чтобы любое состояние воспроизводилось; встроенный скриншот движка и переключатели слоёв UI; odiff (CLI) выдаёт diff-картинку и число сходства (пример «85% similar») — после кропа это количественная метрика на каждый ход вместо шумного сравнения «до/после» глазами модели; сохранение/загрузка точного состояния с первого дня; один тип Thing на всё; каждое изменение состояния как сериализуемая команда (можно воспроизвести баг и «рулить» запущенной игрой без компиляции); статические числа вне кода; симуляция отдельной библиотекой без движка; samply сбрасывает профили в текст, и агент сам крутит цикл «замер — правка».</p><p>Целый цикл (правка, симуляция, diff скриншота, профиль) по его словам занимает секунды за один ход агента. В HN-обсуждении добавляют: headless-запуск для параллельных тестов, бот-игроки для баланса, чексуммы состояния между платформами в CI, экспорт метрик как временных рядов. Критика: модели ломают код при мелких правках, «Thing» не потянет производительность без ECS, а «ощущение» игры словами не описать.</p><p>Для твоего сетапа игры вторичны, но принцип переносится на Remotion-пайплайн и ботов: дать агенту числовую проверку результата. Первый шаг: поставить odiff и прогнать им кадр из bot/video/ до и после правки Gfx.tsx.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Числовая проверка кадров: odiff до/после правки графики в Remotion-пайплайне (bot/video) — добавить в скилл montage шаг со сравнением и порогом сходства?</li><li>Сид и воспроизводимость: зафиксировать единый seed в генерации видео/графики, чтобы агент мог перезапустить ровно то же состояние при отладке — добавить в тесты montage?</li><li>Профили как текст: для медленных скриптов (montage.py) снимать профиль в текстовом виде и отдавать агенту на цикл «замер — правка» — завести такой скилл?</li></ul></div>
+      <a class="source" href="https://kylekukshtel.com/ai-harness-engineering-game-development-claude-code" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>14.10</span></div>
+      <h2>VibeStart: CLI собирает TypeScript-проект под AI-агентов с AGENTS.md и проверенными комбинациями стека</h2>
+      <div class="gist"><p>VibeStart (MIT, 151 звезды, репозиторий создан 2026-10-04) - CLI и веб-студия, которые собирают full-stack TypeScript-проект из выбранных слоёв. Слои: React SPA (TanStack Router), TanStack Start или Next.js; Electron и Expo; бэкенд Hono или встроенный; API oRPC/OpenAPI; PostgreSQL, MySQL, SQLite, MongoDB; Drizzle, Prisma, Mongoose; Better Auth; Docker; shadcn + Tailwind 4; Vitest, Playwright или TesterArmy; Vite+, Oxlint, Knip. Результат - обычный репозиторий без рантайм-зависимости от VibeStart.</p><p>Для агентов внутри лежит AGENTS.md (куда и как вносить изменения) и единая команда `vp run ready`: типы, lint и тесты, самые быстрые первыми. CLI отказывается от невозможных комбинаций и называет минимальную правку. Перед релизом каждую поддерживаемую комбинацию и каждую тройку выборов ставят, проверяют типы, lint, тесты, браузерные тесты и сборку в CI; результаты с отпечатками лежат в ветке `verification`. Команда `upgrade` делает трёхстороннее сравнение шаблона, вашего проекта и нового шаблона и показывает превью, не трогая прикладной код. CLAUDE.md и хуки в README не упомянуты.</p><p>Для твоего сетапа: скиллы, хуки и субагенты у тебя уже есть, новое здесь - готовый стартовый шаблон с быстрым единым gate для агента. Полезно, когда нужно быстро поднять новый TS-проект, в котором агент сразу получает обратную связь за секунды. Первый шаг: `npx vibestart-cli my-app --list`, затем `--dry-run`; или `npx skills add VinkyDev/vibestart --skill vibestart`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Перенять идею одной команды `vp run ready` (типы, lint, тесты, быстрые первыми) как обязательный gate в CLAUDE.md и Stop-хуке для TS-проектов?</li><li>Попробовать `npx vibestart-cli my-app --dry-run` и сравнить сгенерированный AGENTS.md с нашими CLAUDE.md - что стоит забрать?</li><li>Добавить в скилл feature-build правило: отказ от невозможных комбинаций с причиной и минимальной правкой, как в CLI?</li></ul></div>
+      <a class="source" href="https://github.com/VinkyDev/vibestart" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>Simon Willison</span><span>13.10</span></div>
+      <h2>Вышел llm-gemini 0.35 с поддержкой Gemini 4 Argon: $2/$10 за миллион токенов, с 1 декабря цена вырастет вдвое</h2>
+      <div class="gist"><p>Саймон Уиллисон выпустил llm-gemini 0.35: плагин для CLI `llm` теперь умеет работать с новой моделью Gemini 4 Argon. Модель доступна 13 октября 2026 через Gemini API и для подписчиков тарифа Google за $100 в месяц. Сейчас Argon стоит $2 за миллион входных и $10 за миллион выходных токенов: как GPT-6 Sol и вдвое дешевле Claude Opus 5.5. С 1 декабря цена удвоится и сравняется с Opus 5.5.</p><p>Уиллисон подчёркивает, что цена за токен мало говорит о стоимости. Важнее, сколько токенов модель тратит на задачу в агентной обвязке. Artificial Analysis оценил прогон своего бенчмарка на Argon в $2 407. Это близко к GLM-5.3 и заметно ниже последних моделей OpenAI, Anthropic и Meta. Даже после повышения цены Argon, по его ожиданию, останется чуть дешевле GPT-6 Astra. Пеликаны на велосипеде (SVG) на уровнях low, medium и high получились отличными, high обошёлся в 17,166 цента. Страница не перечисляет опции плагина и не описывает, как модель ведёт себя в агентных задачах, так что про кодинг по ней судить нельзя.</p><p>Для вас это повод проверить Argon как второго рецензента рядом с Gemini CLI, пока действует цена $2/$10. Первый шаг: `llm install -U llm-gemini`, затем `llm models`, чтобы найти идентификатор Argon. Точное имя в посте не приведено, его надо смотреть в списке.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить Argon в скилл vendor-review как ещё одного рецензента через `llm`, пока цена $2/$10 до 1 декабря.</li><li>Мерить стоимость по токенам на задачу, а не по цене за токен: в observability-скилле сравнить расход Argon и Opus 5.5 на одном и том же ревью.</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Oct/13/llm-gemini/" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
