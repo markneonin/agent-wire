@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 15.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">3 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">15.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">agentplay: a local viewer that replays Claude Code, Codex and other agent sessions as a map and a timeline</a></li><li><a href="#s2">OpenCode 2.0 ships: always-on local service, Code Mode for MCP, background subagents and hot-reloading plugins</a></li><li><a href="#s3">Claude Code 2.1.300: mod hooks, cache-write tokens in OTel, strict updatedInput validation</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>15.10</span></div>
+      <h2>agentplay: a local viewer that replays Claude Code, Codex and other agent sessions as a map and a timeline</h2>
+      <div class="gist"><p>agentplay (Entelligence-AI, Apache-2.0, repo created 14 October 2026, 151 stars) reads local agent session logs (~/.claude, ~/.codex, ~/.cursor) and opens two views in the browser at http://127.0.0.1:7317/. The map is a radial tree of repos, files, shell verbs, MCP servers, subagents, errors, models and outputs such as commits and PRs. The timeline plays back at 1x/4x/16x with scrubbing and lanes for prompts, errors, edits, tokens, cost and compactions. The keys E/X/D/O/R jump to edits, errors, delays, outputs and retries; there is an Errors tab and scoping by task, model or subagent. Supported: Claude Code (highest fidelity, subagent lanes), Codex, Cursor, Copilot CLI, Copilot in VS Code, OpenCode, Kiro; the others show only the main lane. Python 3.11+, no dependencies. Per the README, data never leaves the machine, there is no telemetry, and the map excludes prompt text, file contents and command arguments (shell is stored as the verb only). Limits: cost is an estimate from public list prices, sessions are capped at 20,000 events, transcripts over 512 MB are skipped, and Write can&#x27;t always tell create from overwrite.</p><p>You already have the observability skill and Workflow with nested leads, but that is analysis, not a visual replay. What is new is seeing where a multi-agent run had retries, errors and delays, which MCP servers were actually called, and how cost grew before compactions. First step: run `uvx agentplay` (or `pipx run agentplay`), then `agentplay list --agents claude --since` with your period, and open a session that used Workflow or several subagents.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run `uvx agentplay` on your latest Workflow/subagent session to find retries and delays, and feed what you find into the observability skill as a source?</li><li>Use the Errors tab and the MCP nodes on the map to check which MCP servers (codebase-memory, Telegram, Chrome) are actually called, and drop unused ones from always-loaded config during settings-cleanup?</li><li>Use the tokens, cost and compaction lanes to find where the Telegram bot session bloats, and tune the CLAUDE.md rules accordingly?</li></ul></div>
+      <a class="source" href="https://github.com/Entelligence-AI/agentplay" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Hacker News</span><span>14.10</span></div>
+      <h2>OpenCode 2.0 ships: always-on local service, Code Mode for MCP, background subagents and hot-reloading plugins</h2>
+      <div class="gist"><p>OpenCode 2.0 is a major update to the open-source coding agent. The server now always runs as a single background process on your machine, and the TUI, web and desktop apps all connect to it; other hosts can connect via /pair or opencode pair. The API was rebuilt from scratch and the agent can call it on itself (worktree_create, session_move, session_prompt, session_interrupt and so on). New packages: @opencode/client and @opencode/sdk (the same code as the CLI, embeddable in your own server).</p><p>The key new piece is Code Mode (@opencode/codemode): a minimal JavaScript interpreter turns MCP servers and OpenAPI endpoints into functions, so the model writes one script (call a tool, map over results, call another) instead of a chain of separate tool calls. All MCP servers are opted in by default, and the author says you can add a thousand with minimal context bloat. Also: background subagents (including on a different model), background shell commands, and Ctrl+B to push a slow command or subagent to the background. 80+ internal plugins, everything hot-reloads, so the agent can write a plugin for itself mid-session. Downsides: 1.0 plugins break and the server API is different. From the HN thread: plugin tools reportedly ignore permission settings, sandboxing needs --standalone, and users report high RAM and stuck sessions.</p><p>You already have Workflow, background agents, hooks, MCP and claude -p; what&#x27;s new is Code Mode and the persistent local service with its API. First step: on a test machine update to the latest 1.x, run opencode upgrade --major, connect a couple of MCP servers and see how Code Mode cuts the number of tool calls.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Code Mode: for multi-step MCP chains (Google Workspace, Telegram) try the pattern of one script instead of a series of calls, and test in opencode whether such a layer is worth it for our MCP servers</li><li>In the cross-vendor review skill, run opencode 2.0 with --standalone as a sandbox, given reports that plugin tools bypass permission settings</li><li>Try opencode api / @opencode/client for scheduled runs as an alternative to claude -p in scripts and compare ergonomics</li></ul></div>
+      <a class="source" href="https://anoma.ly/notes/opencode-2-0/" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Claude Code releases</span><span>14.10</span></div>
+      <h2>Claude Code 2.1.300: mod hooks, cache-write tokens in OTel, strict updatedInput validation</h2>
+      <div class="gist"><p>Release 2.1.300 (14 Oct 2026) is mostly fixes, but a few items matter if you build on top of Claude Code. For mods: the `agent.spawn` hook can now rewrite `prompt` and `model` of Workflow agents (before it could only refuse them), there is a new `prompt.change` hook (fires when the prompt text changes without typing: history recall, clear, undo, a plugin&#x27;s fill), `virtualText` in prompt decorations, and `$.ui.view({ agentId })` to show an agent&#x27;s transcript in the main view. In OpenTelemetry the `api_request` event gains `cache_creation_5m_tokens` and `cache_creation_1h_tokens` (cache writes split by lifetime), and trace spans get GenAI attributes: `gen_ai.provider.name`, `gen_ai.conversation.id`, `gen_ai.tool.name`, `error.type`.</p><p>Behaviour changes: `updatedInput` from PreToolUse and PermissionRequest hooks is now validated like the tool&#x27;s own input — unknown keys are dropped, and input the tool rejects denies the call. Agent hooks now honor their `model` (aliases like `haiku` resolve, an unavailable model falls back to the caller&#x27;s). SessionEnd hooks run more reliably when you exit with a background command, and those commands are force-killed 1.5 s after the stop request. Background sessions resume a carried workflow through the Workflow tool&#x27;s approval. Fixed: `ENABLE_TOOL_SEARCH=auto` switching off mid-conversation, `--worktree` starting from the wrong commit, subagents vanishing from `/tasks`. Local transcripts now record each request&#x27;s system prompt, tools and parameters. `CLAUDE_CODE_GZIP_REQUEST_BODIES=0` disables the new gzip on large requests.</p><p>For your setup: you have many PreToolUse hooks and use worktrees, so check that your `updatedInput` carries no extra keys — such a call may now be denied. First step: update Claude Code and rerun the hooks that modify tool input.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run every PreToolUse/PermissionRequest hook that returns `updatedInput` and strip extra keys — unknown keys are now dropped and input the tool rejects denies the call.</li><li>Surface `cache_creation_5m_tokens` and `cache_creation_1h_tokens` in the observability skill to see how much goes into cache writes by lifetime.</li><li>If you use mods with Workflow: try the `agent.spawn` hook to rewrite `model` and `prompt` of workflow agents, e.g. a cheaper model for small steps.</li></ul></div>
+      <a class="source" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.300" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  <footer class="problems"><span>Sources with problems</span><ul><li>Codex CLI releases: nothing new for 30 days</li></ul></footer>
+</main>
+
+</body>
+</html>
