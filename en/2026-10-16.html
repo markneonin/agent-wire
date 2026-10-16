@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 16.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">16.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Meta releases Muse Spark Open weights: 816B parameters, 1M context, restricted license</a></li><li><a href="#s2">open_scion released: an open-source implementation of Scion, a version-control server for coding agents at scale</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>15.10</span></div>
+      <h2>Meta releases Muse Spark Open weights: 816B parameters, 1M context, restricted license</h2>
+      <div class="gist"><p>On October 15, 2026 Meta published the weights of Muse Spark Open: a natively multimodal model with 816B total parameters (42B active) and a 1M-token context, aimed at coding and long-horizon agentic work. It ships under the Muse Model License with limited commercial terms; per the HN thread the key clause bars offering it as a service once company revenue passes $20M. Weights are on Hugging Face, SageMaker, Google Cloud Model Garden and Microsoft Foundry; hosted APIs are Baseten, Fireworks, Groq, Modal, Nebius, OpenRouter and Together. It supports SGLang, vLLM, TensorRT-LLM, Transformers, MLX, llama.cpp and Unsloth. The page has no numeric benchmarks; a full evaluation report is promised later. Meta&#x27;s demo: Muse Code fixing and fully building iOS changes to the Ice Cubes app on-device.</p><p>Running it locally is heavy: Meta used two Apple M5 Ultra Mac Studios with 512 GB each (commenters estimate $20–30k). HN opinion on quality is mixed: Artificial Analysis puts it below GLM 5.3 Flash and Qwen 3.8 Flash Next, and for coding people mostly recommend GLM 5.3 Flash and DeepSeek V4.1 Flash. For your setup it is not an Opus 5.5 replacement, but a possible cheap second opinion or worker via OpenRouter. First step: add Muse Spark Open through OpenRouter to the vendor-review skill and compare its review with Codex and Gemini on the same diff.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add Muse Spark Open (via OpenRouter) to the vendor-review skill as another reviewer and compare it with Codex/Gemini on the same diff.</li><li>Test tool-call reliability in your own scripts across several providers: HN reports failed tool calls and stray tokens from third-party hosts, likely due to aggressive quantization.</li></ul></div>
+      <a class="source" href="https://research.meta.ai/blog/muse-spark-open" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>16.10</span></div>
+      <h2>open_scion released: an open-source implementation of Scion, a version-control server for coding agents at scale</h2>
+      <div class="gist"><p>open_scion (MIT, v0.1.0, ~1000 stars in a day, 6 commits) is an independent implementation of Scion, the system Anthropic described publicly but keeps internal. The premise: classic Git assumes a human who clones, works for hours and pushes once, while agents run thousands of short tasks touching a few files on the same branches. So the work moves to the server. It is a fork of GitLab&#x27;s Gitaly, with ordinary Git repositories underneath. Inside: sparse clones of only the needed paths (`graft clone`, `graft sparse`); blame, history and search computed server-side and memoized per commit; instead of a merge queue, `UserLand` rebases and lands with a compare-and-swap, batching concurrent lands; conflicts go to a resolver you pick (an LLM, a deterministic tool, or none); `graft-verify` tests the tip, bisects failures and reverts the culprit; each agent gets its own token, RPC allowlist and branch policies; a changeset log can be watched live. The server never calls a model itself. Storage is SQLite/PostgreSQL plus S3/GCS/Azure. Limits: interfaces will change before 1.0, no pack garbage collection yet, needs Go 1.26, Meson and Ninja.</p><p>For your setup (a worktree per writer, parallel agents) it is not a replacement but a view of what breaks at scale: merging and post-land verification. You likely don&#x27;t need a server with a handful of agents, but the patterns carry over. First step: `git clone https://github.com/feder-cr/open_scion &amp;&amp; cd open_scion &amp;&amp; make build &amp;&amp; examples/graft/quickstart.sh` — a demo with a server, two agents and a land.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Post-land verification like `graft-verify`: after merging branches from parallel writers, run tests on the tip, bisect on failure and revert the culprit commit — make it a skill or Stop hook in our feature-build pipeline?</li><li>Semantic review rules: require less review for comment-only or docs changes than for logic changes — add this rule to our reviewer agents (quality-reviewer, business-reviewer)?</li><li>Per-agent permissions (like the RPC allowlist and branch policies): define in a PreToolUse hook which branches and git commands each custom agent may use?</li></ul></div>
+      <a class="source" href="https://github.com/feder-cr/open_scion" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
