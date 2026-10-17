@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 17.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">17.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Claude Code team describes its code review process: multi-agent reviewer with voting, REVIEW.md, risk tiers and incidents turned into evals</a></li><li><a href="#s2">earshot: local &quot;ears&quot; for coding agents — an MCP server that listens to, measures and synthesizes audio on CPU</a></li><li><a href="#s3">Open-source implementation of server-side version control for agents, following Anthropic&#x27;s design: gitai (graft)</a></li></ol>
+<h2 class="section-title">Python and backend</h2><ol class="contents" style="counter-reset: item 3"><li><a href="#s4">ty 0.0.89 adds opt-in return type inference for unannotated functions</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>16.10</span></div>
+      <h2>Claude Code team describes its code review process: multi-agent reviewer with voting, REVIEW.md, risk tiers and incidents turned into evals</h2>
+      <div class="gist"><p>Anthropic (Addy Osmani and others, post dated Oct 15, 2026) says Claude writes about 90% of Claude Code&#x27;s code. Changes landing in the monorepo grew from ~2,500 a day (May) to 30,000+ (September). The goal is the minimum human review time that doesn&#x27;t raise reverts or incidents. From June to September the share of reverted changes fell by more than 40% while merged PRs more than doubled. The review layer works like this: parallel agents hunt bugs, a separate group votes on each finding, and only findings with enough agreement get posted. Style and cleanup findings are dropped. Comments are tagged Important, Nit or Pre-existing. A separate security pass runs too, and open findings block merge. The number of human approvals depends on the risk of the change, not the author: none, one or two people. An agent&#x27;s approval never counts as a human one, and an approval covers one specific commit. Repo rules live in a short CLAUDE.md and in a REVIEW.md written by code owners: what failure looks like, a cap on nits, paths to skip, file and line as evidence, and a summary that starts with a count. Every incident or revert becomes an eval case, and the reviewer is re-scored whenever its prompts, tools or model change. One PR went through 50+ review rounds overnight, so they added a 3-round cap, diff-only re-review and no repeated findings. HN commenters doubt the numbers and the SOC2 fit, call the post marketing, and mention Goodhart&#x27;s law.</p><p>You already have /code-review, ultrareview and cross-vendor review. What is new is REVIEW.md, evals built from incidents, and guards against endless author-agent versus reviewer-agent loops. First step: add a REVIEW.md to one project with the post&#x27;s items (what failure looks like, nit cap, paths to skip, file:line evidence) and feed it to your review skill.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add REVIEW.md to your projects and make the review skill read it: what failure looks like, nit cap, paths to skip, required file:line, summary starting with a count.</li><li>Start an eval set from your own reverts and bugs, and re-run the review skill against it whenever its prompt or model changes: keep a change only if the score rises.</li><li>Add to loop-design and the review pipeline a 3-round cap, diff-only re-review and no repeated findings, so author and reviewer agents don&#x27;t loop.</li><li>In the review skill, add Important, Nit and Pre-existing tags and a vote by separate subagents on each finding, dropping findings without agreement.</li></ul></div>
+      <a class="source" href="https://claude.dev/blog/solving-code-review-at-anthropic/" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>17.10</span></div>
+      <h2>earshot: local &quot;ears&quot; for coding agents — an MCP server that listens to, measures and synthesizes audio on CPU</h2>
+      <div class="gist"><p>earshot (Leonxlnx, MIT, created 2026-10-15) is a CLI, Python API and MCP server that lets a coding agent &quot;hear&quot; audio on CPU only. It describes sounds (AudioSet labels, measurements), scores how well a sound fits a text description (CLAP), ranks candidate files and finds the best moments in long recordings; it estimates whether a sound is a real recording or code-synthesized; `measure` gives loudness, true peak, spectrum, tempo/key with no models; `timeline` gives a second-by-second transcript of a film, `sheet` an annotated image, `critique` scores a launch video against seven reference films. It also has `forge` (code-based synthesis recipes, a critic and evolutionary search) and `fit` (writes a recipe that re-renders a recording).</p><p>README numbers: a &quot;strong&quot; library-search match was the right kind of sound 98% of the time and the exact variant 61%; real-vs-synth ROC-AUC 0.92; about 93% of effects placed in a 60-second mix were detected. Blind tests are small: a forge sound was picked 8 of 15 times (about chance). It can&#x27;t judge taste, emotion, speech or licensing; busy mixes give only hints; the forge critic can be &quot;pleased&quot; without improvement.</p><p>For your setup: you have a Remotion pipeline, montage, ElevenLabs and speak, but the agent reviews audio blind. earshot gives checkable metrics. First step: follow the README (Python 3.10+, ffmpeg, CPU torch, `pip install -e &quot;.[mcp,llm,dev]&quot;`), run `earshot doctor --load` (first run downloads ~1.4 GB of models), then `claude mcp add earshot` pointing to the venv&#x27;s Python and the mcp module. The MCP server keeps models loaded, avoiding a 20–40 s load per call.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add earshot as an MCP server and give the montage skill a post-render step running `measure` (loudness, true peak) and `timeline` before delivering a clip?</li><li>Give the visual-meaning-reviewer agent an audio check: `critique`/`sheet` on the finished Remotion video against reference films?</li><li>Pull the two skills shipped in the repo&#x27;s `skills/` (`earshot`, `real-sound`) as a template and adapt them to our voiceover and soundtrack pipeline?</li><li>Follow the author&#x27;s caveat: trust the metrics for loudness, timing and isolated sounds, keep taste and naturalness for human listening, and write that into the skill&#x27;s rules.</li></ul></div>
+      <a class="source" href="https://github.com/Leonxlnx/earshot" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>17.10</span></div>
+      <h2>Open-source implementation of server-side version control for agents, following Anthropic&#x27;s design: gitai (graft)</h2>
+      <div class="gist"><p>feder-cr/git-ai (gitai, MIT, version 0.1.0, created Oct 15, 9 commits, 1.1k stars) is an independent implementation of the server-centric source control design from Anthropic&#x27;s &quot;Redesigning source control&quot;. Anthropic&#x27;s internal system, Scion, is not public, and the project is not affiliated with Anthropic. Clients (agents, CI, sparse workspaces) talk to the server over gRPC, optionally through a graft-cache daemon. The server keeps a changeset log in SQLite/PostgreSQL, objects live in file/S3/GCS/Azure storage, and local git repos are just rebuildable caches. The server never calls a model itself.</p><p>Features: sparse fetch of only the requested paths, server-side blame, path history and code search, landing without a merge queue (rebase onto the tip plus compare-and-swap, batching concurrent lands), conflict resolution through a pluggable resolver (any LLM, a deterministic tool, or none), post-land tests with bisection and automatic revert of the culprit, per-agent tokens, an RPC allowlist and branch policies. Limits: interfaces may change before 1.0, known gaps are in LIMITATIONS.md (e.g. pack garbage collection), it needs Go 1.26, Meson and Ninja, builds its own Git, and is based on a Gitaly fork.</p><p>For you this is mostly reference reading: your worktree-per-writer setup solves the same parallel-agent problem more simply, and gitai matters once dozens of agents share one monorepo. First step: git clone https://github.com/feder-cr/git-ai.git &amp;&amp; cd git-ai &amp;&amp; make build &amp;&amp; examples/graft/quickstart.sh, which starts a server, a cache, two agents and one land in a temp directory.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Auto-revert after landing: bisect and revert the culprit commit. Add that step to our fix-until-green loops (loop-design) or a Stop hook after merging writer branches?</li><li>A log of every ref update with agent and operation: set up the same journal (commit trailer or file) for our worktree writers, so we can see which subagent landed what?</li><li>Per-agent token and RPC allowlist: check whether a similarly narrow permission policy is worth adding to our subagent files?</li></ul></div>
+      <a class="source" href="https://github.com/feder-cr/git-ai" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>ty releases</span><span>16.10</span></div>
+      <h2>ty 0.0.89 adds opt-in return type inference for unannotated functions</h2>
+      <div class="gist"><p>ty is Astral&#x27;s Python type checker. Release 0.0.89 (2026-10-16) adds return type inference for functions and methods without a return annotation (#29253). It is off by default and is enabled with analysis.return-type-inference = &quot;always&quot;. In pyproject.toml: [tool.ty.analysis] return-type-inference = &quot;always&quot;; in ty.toml: [analysis] return-type-inference = &quot;always&quot;. The authors ask for problem reports in astral-sh/ty#4739.</p><p>Also in this release: updated vendored typeshed (#29402); a panic when negating dynamic type aliases is fixed (#29427); tuple literal lengths are widened when other collection elements contain nested tuples (#29147); ty now reports invalid Generic and Protocol arguments containing nested variadic type variables (#29146); narrowing for generic class patterns is faster (#29240).</p><p>For your stack this helps if your FastAPI/Celery code has many unannotated helpers, service functions and tests: ty will see their results and catch errors at call sites without code changes. It is an early feature, so false positives are possible. First step: add [tool.ty.analysis] with return-type-inference = &quot;always&quot; to pyproject.toml, run ty check on one service and compare the number of diagnostics before and after.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Enable return-type-inference = &quot;always&quot; under [tool.ty.analysis] on one service and compare diagnostic counts before/after - want me to try it?</li><li>If false positives show up, file a minimal example in astral-sh/ty#4739 - add this to the ty upgrade checklist?</li><li>Pin ty 0.0.89 in dev dependencies and re-run typeshed-dependent checks with it - should I do that?</li></ul></div>
+      <a class="source" href="https://github.com/astral-sh/ty/releases/tag/0.0.89" target="_blank" rel="noopener">Source</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 17.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">17.10.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Команда Claude Code описала свой процесс ревью: многоагентный ревьюер с голосованием, REVIEW.md, риск-тиры и инциденты как eval</a></li><li><a href="#s2">earshot: локальные «уши» для кодинг-агентов — MCP-сервер, который слушает, измеряет и синтезирует звук на CPU</a></li><li><a href="#s3">Открытая реализация серверного контроля версий для агентов по описанию Anthropic: репозиторий gitai (graft)</a></li></ol>
+<h2 class="section-title">Python и backend</h2><ol class="contents" style="counter-reset: item 3"><li><a href="#s4">ty 0.0.89: опциональный вывод типов возвращаемого значения для функций без аннотаций</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>16.10</span></div>
+      <h2>Команда Claude Code описала свой процесс ревью: многоагентный ревьюер с голосованием, REVIEW.md, риск-тиры и инциденты как eval</h2>
+      <div class="gist"><p>Anthropic (Addy Osmani и др., пост от 15 октября 2026) пишет, что Claude создаёт около 90% кода Claude Code. Поток изменений в монорепо вырос с ~2500 в день (май) до 30 000+ (сентябрь). Цель команды: минимум человеческого времени на ревью без роста реверта и инцидентов. Доля ревертов с июня по сентябрь упала более чем на 40%, а число мерженных PR выросло больше чем вдвое. Слой ревью устроен так: параллельные агенты ищут баги, отдельная группа голосует по каждой находке, публикуются только находки с достаточным согласием. Стиль и «уборка» отбрасываются. Комментарии помечаются Important, Nit или Pre-existing. Отдельный security-проход, и открытые находки блокируют мерж. Уровень одобрения людьми зависит от риска самого изменения, а не от автора: ноль, один или два человека. Одобрение агента не считается человеческим, одобрение привязано к конкретному коммиту. Репо-правила лежат в коротком CLAUDE.md и в REVIEW.md от владельцев кода: что считать провалом, лимит на nit, пути для пропуска, доказательство в виде файла и строки, сводка начинается со счёта. Каждый инцидент или ревёрт превращается в eval-кейс, на нём прогоняют ревьюера при смене промпта, инструментов или модели. Один PR прошёл 50+ раундов ревью за ночь, поэтому добавили лимит в 3 раунда, повторный просмотр только нового diff и запрет повторов. В HN-обсуждении сомневаются в цифрах и в SOC2, называют пост маркетингом и пишут про Goodhart.</p><p>Скрипты ревью в духе /code-review, ultrareview и cross-vendor у вас уже есть. Нового здесь три вещи: REVIEW.md, eval из инцидентов и защита от бесконечных циклов агент-автор против агент-ревьюер. Первый шаг: добавьте в один проект REVIEW.md с пунктами из поста (что считать провалом, лимит nit, пути для пропуска, требование file:line) и подайте его на вход своему ревью-скиллу.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить REVIEW.md в проекты и научить ревью-скилл его читать: что считать провалом, лимит nit, пути для пропуска, обязательные file:line, сводка начинается со счёта.</li><li>Завести папку eval-кейсов из своих ревёртов и багов и прогонять на ней ревью-скилл при смене промпта или модели: оставлять правку, только если счёт вырос.</li><li>Добавить в loop-design и ревью-пайплайн лимит в 3 раунда, повторную проверку только нового diff и запрет повторных находок, чтобы агент-автор и агент-ревьюер не зациклились.</li><li>Ввести в ревью-скилле метки Important, Nit, Pre-existing и голосование отдельных субагентов по каждой находке, отбрасывая находки без согласия.</li></ul></div>
+      <a class="source" href="https://claude.dev/blog/solving-code-review-at-anthropic/" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>17.10</span></div>
+      <h2>earshot: локальные «уши» для кодинг-агентов — MCP-сервер, который слушает, измеряет и синтезирует звук на CPU</h2>
+      <div class="gist"><p>earshot (Leonxlnx, MIT, создан 15.10.2026) — CLI, Python API и MCP-сервер, чтобы агент мог «слышать» аудио без GPU. Умеет: описывать звук (метки AudioSet, замеры), оценивать, насколько звук подходит текстовому описанию (CLAP), ранжировать файлы и искать лучшие моменты в длинной записи; отличать живую запись от синтезированной кодом; `measure` — громкость, true peak, спектр, темп/тональность без моделей; `timeline` — посекундная расшифровка фильма, `sheet` — аннотированная картинка, `critique` — оценка ролика по семи референсным фильмам. Плюс `forge` (синтез звука по рецептам с критиком и эволюционным отбором) и `fit` (рецепт, который воспроизводит запись).</p><p>Цифры из README: «сильное» совпадение при поиске по библиотеке — верный тип звука в 98%, точный вариант в 61%; real-vs-synth ROC-AUC 0.92; найдено ~93% эффектов в 60-секундном миксе. Слепые тесты маленькие: forge-звук выбирали 8 из 15 раз (≈случай). Не судит вкус, эмоции, речь, лицензии; в плотных миксах лишь намёки; критик forge может быть «доволен» без улучшения.</p><p>Для тебя: есть Remotion-пайплайн, montage, ElevenLabs и speak, а агент ревьюит звук вслепую. earshot даёт проверяемые метрики. Первый шаг: README (Python 3.10+, ffmpeg, CPU-torch, `pip install -e &quot;.[mcp,llm,dev]&quot;`), `earshot doctor --load` (первый запуск тянет ~1.4 ГБ моделей), затем `claude mcp add earshot` с python из venv и модулем mcp; MCP держит модели в памяти, без 20–40 с загрузки на вызов.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Подключить earshot как MCP и добавить в скилл montage шаг: после рендера прогнать `measure` (громкость, true peak) и `timeline` перед отдачей ролика?</li><li>Дать visual-meaning-reviewer аудио-проверку: `critique`/`sheet` по готовому видео из Remotion против референсов?</li><li>Взять два готовых скилла из `skills/` репозитория (`earshot`, `real-sound`) как образец и адаптировать под наш пайплайн озвучки и саундтрека?</li><li>Учесть оговорку автора: метрикам доверять для громкости, тайминга и одиночных звуков, а вкус и естественность оставлять на ручное прослушивание — записать в правило скилла.</li></ul></div>
+      <a class="source" href="https://github.com/Leonxlnx/earshot" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>17.10</span></div>
+      <h2>Открытая реализация серверного контроля версий для агентов по описанию Anthropic: репозиторий gitai (graft)</h2>
+      <div class="gist"><p>feder-cr/git-ai (gitai, MIT, версия 0.1.0, создан 15 октября, 9 коммитов, 1.1k звёзд) — независимая реализация серверной схемы контроля версий из статьи Anthropic «Redesigning source control». Внутренняя система Anthropic Scion закрыта, проект с Anthropic не связан. Клиенты (агенты, CI, sparse-воркспейсы) ходят по gRPC на сервер, возможно через демон graft-cache. Сервер ведёт лог изменений в SQLite/PostgreSQL, объекты лежат в file/S3/GCS/Azure, локальные git-репозитории — просто пересобираемый кэш. Сервер сам модели не вызывает.</p><p>Что умеет: sparse-выгрузка только нужных путей, blame, история и поиск по коду на сервере, приземление изменений без merge queue (ребейз на tip и compare-and-swap с батчингом), разрешение конфликтов подключаемым резолвером (любой LLM, детерминированный инструмент или никакого), тесты после landing с бисекцией и автооткатом виновника, токены на агента, allowlist RPC, политики веток. Лимиты: интерфейсы могут меняться до 1.0, известные пробелы в LIMITATIONS.md (например, GC паков), нужны Go 1.26, Meson, Ninja, сборка собственного Git, основан на форке Gitaly.</p><p>Для тебя это скорее справочный материал: твои worktree на писателя решают ту же проблему параллельных агентов проще, а gitai нужен при десятках агентов на одном монорепо. Первый шаг: git clone https://github.com/feder-cr/git-ai.git &amp;&amp; cd git-ai &amp;&amp; make build &amp;&amp; examples/graft/quickstart.sh — поднимет сервер, кэш, двух агентов и один land во временной папке.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Автооткат после landing: бисекция и revert виновного коммита — добавить такой шаг в наши fix-until-green циклы (loop-design) или в Stop-хук после мержа веток писателей?</li><li>Лог каждого обновления ссылки с указанием агента и операции — завести такой журнал (commit-trailer или файл) для наших worktree-писателей, чтобы видеть, какой субагент что приземлил?</li><li>Токен и allowlist на агента — прикинуть, нужна ли аналогичная узкая политика прав для субагентов в наших agent-файлах?</li></ul></div>
+      <a class="source" href="https://github.com/feder-cr/git-ai" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>ty releases</span><span>16.10</span></div>
+      <h2>ty 0.0.89: опциональный вывод типов возвращаемого значения для функций без аннотаций</h2>
+      <div class="gist"><p>ty — type checker от Astral для Python. В релизе 0.0.89 (16.10.2026) появился вывод возвращаемого типа для функций и методов без аннотации (#29253). По умолчанию он выключен, включается настройкой analysis.return-type-inference = &quot;always&quot;. В pyproject.toml: [tool.ty.analysis] return-type-inference = &quot;always&quot;; в ty.toml: [analysis] return-type-inference = &quot;always&quot;. Авторы просят сообщать о проблемах в issue astral-sh/ty#4739.</p><p>Кроме того: обновлён vendored typeshed (#29402); исправлена паника при отрицании динамических type alias (#29427); длины tuple-литералов расширяются, если другие элементы коллекции содержат вложенные tuple (#29147); ty теперь сообщает о неверных аргументах Generic и Protocol с вложенными variadic type variables (#29146); ускорено сужение типов для generic class-pattern (#29240).</p><p>Для твоего стека это полезно, если в FastAPI/Celery-коде много хелперов, сервисных функций и тестов без аннотаций: ty начнёт видеть их результат и ловить ошибки на вызовах, не требуя правок кода. Это ранняя функция, поэтому ложные срабатывания возможны. Первый шаг: добавить в pyproject.toml секцию [tool.ty.analysis] с return-type-inference = &quot;always&quot;, прогнать ty check на одном сервисе и сравнить число диагностик до и после.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Включить return-type-inference = &quot;always&quot; в [tool.ty.analysis] на одном сервисе и сравнить число диагностик до/после - сделать это?</li><li>Если найдутся ложные срабатывания, завести отчёт в astral-sh/ty#4739 с минимальным примером - добавить это в чек-лист обновления ty?</li><li>Закрепить версию ty 0.0.89 в dev-зависимостях и обновить typeshed-зависимые проверки вместе с ней - сделать?</li></ul></div>
+      <a class="source" href="https://github.com/astral-sh/ty/releases/tag/0.0.89" target="_blank" rel="noopener">Источник</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>
