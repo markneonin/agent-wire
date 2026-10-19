@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 19.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">19.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Sphinx: a git hook that quizzes you on your agent&#x27;s diff before push</a></li><li><a href="#s2">DeepSeek ships V4.1-Flash-1017: 763B, 1M context, MIT license, Terminal-Bench 4.0 up from 31.2 to 42.3</a></li><li><a href="#s3">DeepSeek launches search and fetch APIs at $0.75 per 1,000 successful requests</a></li></ol>
+<h2 class="section-title">Python and backend</h2><ol class="contents" style="counter-reset: item 3"><li><a href="#s4">FastAPI 0.146.0 deprecates the root_path parameter of FastAPI()</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>18.10</span></div>
+      <h2>Sphinx: a git hook that quizzes you on your agent&#x27;s diff before push</h2>
+      <div class="gist"><p>Sphinx is a free open-source (MIT) git hook. When you or your agent pushes to a protected branch, git pauses and a reviewer model reads the diff (it hasn&#x27;t seen your chat with the agent) and asks what the change does when things go wrong. The site&#x27;s example: a webhook handler saves an event ID before calling `charge()`, and the question is what happens on a retry. A wrong answer gets an explanation and a new scenario; a correct one lets the push through. Install: `npm install -g sphinx-understand` (Node 22.19+, macOS, Linux or WSL), then `sphinx install`, which connects git and your agents (Codex, Claude Code, Cursor, OpenCode, Pi) and asks which model reviews: your existing agent, OpenRouter, or any OpenAI-compatible endpoint. `sphinx yolo` turns the questions off and logs every skip. Your answers are never sent to the coding agent, and `.env` files and keys are never opened. The page doesn&#x27;t describe grading criteria. On HN (246 points) skeptics say the questions can be pasted into an agent, multiple choice invites guessing, and the quiz misses diff-level junk (leftover debug code, weakened assertions, hallucinated imports). Suggestions: gate PRs rather than production pushes, and test whether the reviewer can spot wrong assumptions. Alternatives mentioned: PR descriptions split into why/what/how, and a &quot;quiz me on the PR&quot; skill.</p><p>You already have review layers (`/code-review`, vendor-review, quality-reviewer), but they check the code, not your understanding. Sphinx targets exactly that: the hook makes you understand the diff before it ships. First step: run `npm install -g sphinx-understand &amp;&amp; sphinx install` in one non-critical repo and pick Claude Code as the reviewer.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install Sphinx on one repo and see whether its diff questions beat your review skills, which only check the code.</li><li>Write your own &quot;quiz me on the PR&quot; skill for large agent PRs: questions about failure scenarios (retry, partial failure) on a diff you didn&#x27;t write.</li><li>Add a why/what/how block to the PR/commit skill template, as suggested in the discussion: it surfaces hidden LLM decisions.</li></ul></div>
+      <a class="source" href="https://sphinx-six-theta.vercel.app/" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Hacker News</span><span>17.10</span></div>
+      <h2>DeepSeek ships V4.1-Flash-1017: 763B, 1M context, MIT license, Terminal-Bench 4.0 up from 31.2 to 42.3</h2>
+      <div class="gist"><p>DeepSeek-V4.1-Flash-1017 is a &quot;minor update&quot; to V4.1-Flash. The weights are open under MIT, 763B parameters (BF16/F32/F8/I8), 1M-token context, recommended max_tokens 256K+, sampling temperature 1.0 and top_p 1.0. DeepSeek claims gains in reasoning, coding, agentic tasks and vision, plus shorter output and faster task execution, so each task costs less. The card&#x27;s table: Terminal-Bench 4.0 (Claude Code harness) 42.3 vs 31.2 for the previous version; DeepSWE v1.1 77.0 (Opus 5 74.0, GPT-5.6 Sol 73.0); ProgramBench 29.1; NL2Repo 68.2; Automation-Bench 60.5. Opus 5 still leads most rows: Terminal-Bench 51.8, HLE 56.3 vs 42.6, NL2Repo 75.3. The card gives no API price. It runs on vLLM, SGLang (OpenAI-compatible API) and Docker Model Runner, and has 64 community quantizations for llama.cpp/Ollama/LM Studio. There is also deepseek-recipe: Rust libraries with Python bindings that convert Messages, Chat Completions and Responses requests into the model&#x27;s prompt format and parse tool calls and thinking; no Jinja template is shipped.</p><p>On HN (944 points) people praise speed, low cost and &quot;developer-like&quot; code that isn&#x27;t too clever; one user ported games to Rust for about 3 euros. Complaints: DeepSeek&#x27;s own API reportedly logs inputs and trains on them (some third-party hosts offer zero-data retention), claims of heavy hallucination, and on local runs Q3_XS loops badly while Q4_K_S is stable. For you this is not an Opus 5.5 replacement but a cheap candidate for an executor or second-opinion role next to Codex, Gemini and opencode. First step: connect the model through OpenRouter or Fireworks in opencode, run one backlog task, and compare time and cost against Sonnet 5.5.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add DeepSeek V4.1-Flash-1017 to the vendor-review skill as another reviewer through a zero-data-retention provider (Fireworks) — a near-free second opinion?</li><li>Run the same backlog task on Sonnet 5.5 and on DeepSeek through opencode, measure time, output length and cost, and log the result in observability?</li><li>Don&#x27;t send private repos or secrets to DeepSeek&#x27;s own API: add a rule to the secrets/vendor-review skills to use only zero-data-retention providers?</li></ul></div>
+      <a class="source" href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Hacker News</span><span>18.10</span></div>
+      <h2>DeepSeek launches search and fetch APIs at $0.75 per 1,000 successful requests</h2>
+      <div class="gist"><p>DeepSeek opened two raw JSON endpoints with Bearer auth: POST https://api.deepseek.com/v1/tools/search (its in-house search engine) and POST .../v1/tools/fetch (a page returned as Markdown). Search takes query up to 128 chars, count 1–50, need_content for full page text, and ori_question to help query understanding. Operators: site:, -site:, &quot;phrase&quot;, lang:, after:, before:. Each result carries rerank_score 0–3 (≥1.5 is high quality), a 600–800 char summary, date, and authority 0–4.</p><p>Price is $0.75 per 1,000 successful requests for both search and fetch. Billing happens only on HTTP 200 with a non-empty result; empty results, errors and timeouts are free. Limits: search 100 QPS, fetch 25 QPS plus a per-domain cap. Through DeepSeek Harness, Claude Code or Codex, server-side calls are free for now and become paid on 1 Nov 2026 (00:00 Beijing). The page does not document function-calling integration or supported models. HN commenters compare prices per 1,000: Brave $5, Exa ~$4, Serper ~$1, Ceramic $0.25. For quality they rank Exa and Tavily first. The main objection is that DeepSeek&#x27;s API is not zero data retention, so sensitive queries are risky.</p><p>For you this is a cheap fallback search and fetch for your own scripts and headless agents, where built-in WebSearch is costly or unavailable. First step: curl https://api.deepseek.com/v1/tools/search -H &quot;Authorization: Bearer $DEEPSEEK_API_KEY&quot; -H &quot;Content-Type: application/json&quot; -d &#x27;{&quot;query&quot;:&quot;claude code hooks after:2026&quot;,&quot;count&quot;:5}&#x27;. Keep the key via your secrets skill.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Build a skill or MCP wrapper around /v1/tools/search and /v1/tools/fetch, key via the secrets skill, as a cheap fallback search for claude -p scripts.</li><li>Filter results by rerank_score ≥ 1.5 and authority ≥ 3, and pull full text only via need_content or fetch for selected URLs, to keep context tokens down.</li><li>Add a CLAUDE.md rule: never send private queries (personal data, names, internal code) to DeepSeek search, since it is not zero data retention.</li></ul></div>
+      <a class="source" href="https://api-docs.deepseek.com/guides/search/" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>FastAPI releases</span><span>18.10</span></div>
+      <h2>FastAPI 0.146.0 deprecates the root_path parameter of FastAPI()</h2>
+      <div class="gist"><p>FastAPI 0.146.0 (released 18 October) marks the root_path parameter of the FastAPI() constructor as deprecated. The notes list it under Breaking Changes (PR #16520 by @tiangolo). The replacement is to set the root path when you start the server: fastapi run --root-path /api/v1. The notes say nothing else: no reason, no removal date, no migration examples.</p><p>This matters if your app sits behind a proxy or API gateway with a prefix such as /api/v1 and your code has FastAPI(root_path=&quot;/api/v1&quot;). After upgrading, that code will emit a deprecation warning, and the parameter will probably be removed later (the release gives no date). If your pytest config turns warnings into errors (filterwarnings = error), CI may fail right away. First step: run grep -rn &quot;root_path&quot; across your services, find FastAPI(root_path=...), move the value into the launch command (fastapi run --root-path /api/v1) or into your Dockerfile/manifest, then check that /docs and openapi.json still load with the right prefix. If a service is started directly with uvicorn instead of fastapi run, the notes don&#x27;t say how to set the prefix there; check the docs.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Grep all FastAPI services for FastAPI(root_path=...) and list what must move into the launch command</li><li>Replace the parameter in Dockerfile/compose/k8s manifests with fastapi run --root-path /api/v1 and check /docs behind the proxy</li><li>Check whether the pytest config turns warnings into errors before bumping FastAPI to 0.146.0</li></ul></div>
+      <a class="source" href="https://github.com/fastapi/fastapi/releases/tag/0.146.0" target="_blank" rel="noopener">Source</a>
+    </article>
+  </section>
+  <footer class="problems"><span>Sources with problems</span><ul><li>PyCoder&#x27;s Weekly: The read operation timed out</li><li>GitHub: Command &#x27;[&#x27;gh&#x27;, &#x27;api&#x27;, &#x27;-X&#x27;, &#x27;GET&#x27;, &#x27;search/repositories&#x27;, &#x27;-f&#x27;, &#x27;q=topic:mcp created:&gt;2026-10-05 stars:&gt;=150&#x27;, &#x27;-f&#x27;, &#x27;sort=stars&#x27;, &#x27;-f&#x27;, &#x27;per_page=20&#x27;]&#x27; returned non-zero exit status 1.</li></ul></footer>
+</main>
+
+</body>
+</html>
