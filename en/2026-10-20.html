@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 20.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">7 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">20.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Scrawl: screen recording with voice and drawn marks that an agent reads as a bundle of frames and text</a></li><li><a href="#s2">Superlite: a Claude Code plugin that builds from a spec with one approval and parallel agents</a></li><li><a href="#s3">audio-studio-mcp is an MCP server that generates music and sound effects locally with Stable Audio 3</a></li><li><a href="#s4">Read-only WhatsApp MCP on Cloudflare Workers: search your own chats from Claude Code (not actually free)</a></li><li><a href="#s5">Guide to tmux for Claude Code: send-keys, capture-pane and six limits of the approach</a></li><li><a href="#s6">MiniMax releases M3.1 Flash: a cheap, fast agentic model, weights later</a></li><li><a href="#s7">Reason Network: a p2p daemon that lets coding agents of different people and vendors message each other</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>20.10</span></div>
+      <h2>Scrawl: screen recording with voice and drawn marks that an agent reads as a bundle of frames and text</h2>
+      <div class="gist"><p>Scrawl (kitlangton/scrawl, Rust + GPUI, MIT, created 14 Oct 2026) lets you show an agent a problem instead of describing it. Press ⌥⇧S to record screen and voice; holding Shift and moving draws a red stroke, Shift-click drops a numbered pin. The output is a bundle: contact-sheet.png (annotated keyframes), frames/frame-XX.png, summary.md (time-aligned transcript and interaction timeline) and scrawl.json. The agent navigates it with scrawl zoom &lt;bundle&gt; --at 0:12 (or --at &quot;a phrase&quot;), scrawl frames --from --to, and scrawl send --clipboard or --session ses_.... It also has auto-crop to the active area, cabled iPhone recording and ScrawlKit for iOS 18+. scrawl export writes an MP4 with the marks burned in. Transcription is on-device by default (Apple SpeechAnalyzer). Auto-send targets only OpenCode sessions; everything else goes via the clipboard. Requires Apple silicon and macOS 26+; Windows is an unsigned preview. Media goes to Trash after 7 days, bundles after 30.</p><p>For you this fills a gap on visual UI bugs and Remotion video: instead of screenshots and a retelling, Claude Code gets a marked-up frame plus the spoken remark on one timeline. There is no auto-delivery to Claude Code, only the clipboard or a bundle path, and it doesn&#x27;t replace Claude in Chrome (that acts; Scrawl only shows). First step: brew install --cask kitlangton/tap/scrawl, then bunx skills add kitlangton/scrawl, record 20 seconds of a bug and hand the agent the bundle path.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install the skill with bunx skills add kitlangton/scrawl, or read it via scrawl skill and fold it into your frontend/process skills as a step: for a UI bug, start with a Scrawl bundle.</li><li>Add a rule to subagent briefs: read summary.md and contact-sheet.png first, and expand only the needed moments with scrawl zoom --at instead of loading every frame into context.</li><li>Try scrawl export --zoom for Remotion video fixes: record what is wrong and give the agent the bundle instead of a text description of timecodes.</li></ul></div>
+      <a class="source" href="https://github.com/kitlangton/scrawl" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Hacker News</span><span>19.10</span></div>
+      <h2>Superlite: a Claude Code plugin that builds from a spec with one approval and parallel agents</h2>
+      <div class="gist"><p>Superlite (github.com/iha2/superlite) is a Claude Code plugin in the Superpowers mold, aimed at autonomous builds: you hand over a spec, approve the plan once, and it builds, tests and reviews on its own. Every decision it would normally ask about is logged as a &quot;ruling&quot; with a rationale and the cost if wrong. Plan tasks list owned files, interfaces and required tests; independent tasks run in parallel. Roles: Opus coordinates and may not edit code, Sonnet builds and reviews, Haiku takes only small fully specified tasks, a fresh Opus reads a packet built from logs and only reports findings, and tiered fix-only agents repair them. Rules are enforced by hooks, not prompts: no code edits by the coordinator, test runs moved to the background, no killing processes by name, and the plan must pass `lint --stable`. Tokens, cost and time per agent go to `.superlite/metrics.jsonl`, with a soft warning at 70% of the budget.</p><p>Author&#x27;s benchmark (one project, one harness, 177 hidden tests): 16.1 min versus 33.6 for stock Superpowers and 23.5 for orchestrated; 177/177 passed, 21 agents, up to 18 at once. On a smaller project: 8.8 vs 34.4 min. The author calls it &quot;a strong hint rather than peer-reviewed science&quot;. HN skeptics call heavy process &quot;planning theater&quot; and say newer models need it less. You already have Workflow, subagents, hooks and superpowers, so what&#x27;s new is enforcement in code and the decision log. First step: `/plugin marketplace add iha2/superlite`, then `/plugin install superlite@superlite-dev` (don&#x27;t enable it alongside Superpowers in one session).</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>A PreToolUse hook that forbids the lead/orchestrator from editing project files (as in Superlite) — add it to our task-lead and subagents skill?</li><li>A &quot;rulings&quot; log (decision, rationale, cost if wrong) in tasks/&lt;slug&gt;/decisions.md for hands-off &quot;decide yourself&quot; runs — adopt that format?</li><li>A hook that moves raw test runs to the background and writes the result to a file like test-summary.json — add it to our testing/feature-build skills?</li><li>A per-agent metrics hook (tokens, cost, time into metrics.jsonl) with a soft warning at 70% of budget — wire it into the observability skill?</li></ul></div>
+      <a class="source" href="https://contextfirst.blog/superlite-hand-an-agent-a-spec/" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>20.10</span></div>
+      <h2>audio-studio-mcp is an MCP server that generates music and sound effects locally with Stable Audio 3</h2>
+      <div class="gist"><p>audio-studio-mcp (created 18 Oct 2026, 281 stars) is an MCP server that runs Stable Audio 3 locally to make background music, loops and sound effects. No cloud, no API key. Tools: generate_audio (text to music/loop/SFX, 1–4 candidates, optional BPM), edit_audio (variation, inpaint for a time range, continue to extend), process_audio (trim, silence trim, mono, LUFS, seamless loops, fades, WAV/OGG/FLAC export; never modifies the input), unload_models. The medium model (1.4B) goes up to 380 s; sm-music and sm-sfx are faster, up to 120 s. Output is 44.1 kHz 24-bit stereo WAV with a JSON sidecar holding prompt and seed.</p><p>Requirements: Apple Silicon (M1+, 16 GB recommended, about 6 GB disk) or an NVIDIA GPU with 8 GB+ VRAM on Windows. Intel Macs and AMD are unsupported. Speed on M1 16 GB: 20 s of music in about 10 s warm. Instrumental only, no vocals. Code is MIT, weights use the Stability AI Community License. Limits: timing instructions in prompts are unreliable, so generate first and fix with inpaint/continue; use WAV/OGG for loops, not MP3.</p><p>For you: you already have Remotion, ElevenLabs and MLX on your Mac, so this fills the missing layer: free local music and SFX for videos (mediaresource). First step: git clone https://github.com/kanaworksai-hue/audio-studio-mcp.git, then ./install.sh and claude mcp add --scope user audio-studio -- /path/to/audio-studio-mcp/.venv/bin/audio-studio-mcp.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Connect the audio-studio MCP and write a video sound-design skill: English prompts under ~45 words, for SFX state source, action, material and space, then process_audio to the target LUFS.</li><li>Add a step to the Remotion pipeline: music via generate_audio, seamless loop via process_audio in WAV/OGG (not MP3), length fixes via edit_audio continue/inpaint instead of timing in the prompt.</li><li>Copy their JSON sidecar habit (prompt and seed next to each file) and keep sidecars beside channel tracks so good sounds are reproducible.</li><li>With many sessions, run one warm server with --http 8765 --preload and set AUDIO_STUDIO_IDLE_UNLOAD_MIN so 5–7 GB of memory isn&#x27;t held next to local LLMs.</li></ul></div>
+      <a class="source" href="https://github.com/kanaworksai-hue/audio-studio-mcp" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>Hacker News</span><span>18.10</span></div>
+      <h2>Read-only WhatsApp MCP on Cloudflare Workers: search your own chats from Claude Code (not actually free)</h2>
+      <div class="gist"><p>finereli/whatsapp-mcp is a small read-only MCP server: you deploy it to your own Cloudflare account, link it like WhatsApp Web (QR), and an agent can search and read your messages. It cannot send. Inside: Baileys (unofficial WhatsApp Web protocol) with three shims for Workers, one Durable Object with SQLite (FTS5 index), and KV for OAuth. There is no persistent connection: it connects when the agent asks and once daily at 04:00 UTC via cron. Tools: list_chats, get_messages, search_messages, unnamed_chats, set_contact_names, sync_now, link_status, relink. Read tools refresh first if the copy is over 10 minutes old.</p><p>Limits: the &quot;free&quot; in the title is disputed. It needs Workers Paid (&quot;a few dollars a month&quot;); the author hasn&#x27;t tried the free plan. Media is not downloaded or transcribed. History is delivered once per link. Tested on one real account. The README says it violates WhatsApp&#x27;s ToS, ban risk is low but &quot;isn&#x27;t zero&quot;; HN commenters reported bans with unofficial clients generally, though none confirmed for this project. Another criticism: the people you chat with never agreed to their messages going to an AI.</p><p>For you: you already have Telegram and Google MCPs and a chatting skill for WhatsApp, so this adds searchable chat history as context. First step: npm install, wrangler kv namespace create OAUTH_KV, wrangler secret put OWNER_PASSWORD, npm run deploy, then claude mcp add --transport http whatsapp https://your-url/mcp. Preferably use a secondary number.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Wire this MCP into the chatting skill: before replying to a real person on WhatsApp, look up the history with search_messages / get_messages</li><li>Add a CLAUDE.md rule: WhatsApp MCP is read-only, never send, and chat contents must not go to external services (cross-vendor review, Codex, Gemini)</li><li>Copy the set_contact_names pattern: the agent matches phone numbers to names via the Google Workspace MCP you already have and saves them so search works by name</li></ul></div>
+      <a class="source" href="https://github.com/finereli/whatsapp-mcp" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>Hacker News</span><span>19.10</span></div>
+      <h2>Guide to tmux for Claude Code: send-keys, capture-pane and six limits of the approach</h2>
+      <div class="gist"><p>A guide from crystl (a macOS terminal; the end promotes their product) on running Claude Code in tmux. Basics: one tmux session per repo (`new-session -A` attaches or creates), a window per task, panes only for the 2–4 agents you watch side by side. Claude Code has `--worktree` and `--tmux` (requires `--worktree`; on iTerm2 `--tmux` gives native panes, use `--tmux=classic` for real tmux). Driving an agent: `send-keys -l` for literal text, Enter as a separate call after ~0.3 s (otherwise the agent&#x27;s input box swallows it), `C-c` to interrupt. Reading: `capture-pane -p -J -S -`; logging via `pipe-pane`. Config: history-limit 100000, escape-time 10, allow-rename off, monitor-activity. Limits: you can&#x27;t tell a waiting agent from a working one, no completion notification, capture-pane is brittle screen scraping, no shared state, scrollback eats memory, everything dies on reboot. monitor-silence is only a proxy for &quot;done&quot;: a thinking agent is silent too.</p><p>The HN thread (155 points) calls the piece an ad; suggested alternatives are Zellij, Herdr, workmux, and `claude agents` (a daemon that survives SSH drops). One commenter argues agents should run as headless daemons, not be scraped through a TUI. With your Workflow, SendMessage, background agents and `claude -p`, this mostly confirms that tmux scraping is a dead end; the only new bits are around remote sessions. First step: on a remote box run `ssh -t &lt;host&gt; tmux new-session -A -s &lt;repo&gt;` and try `claude agents` as the alternative.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Try `claude agents` (a daemon that survives SSH drops) for long remote tasks instead of tmux, and note the result in the subagents skill?</li><li>If you ever have to automate an interactive TUI through tmux, record the rule: `send-keys -l`, ~0.3 s pause, then a separate Enter; read with `capture-pane -p -J -S -`.</li><li>Take the HN tip of wrapping frequent commands in scripts the agent calls from a skill instead of long instructions, and check which of your skills have long instructions that a script could replace.</li></ul></div>
+      <a class="source" href="https://crystl.dev/guides/tmux-for-ai-agents/" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s6">
+      <div class="meta"><span class="number">06</span><span>Hacker News</span><span>19.10</span></div>
+      <h2>MiniMax releases M3.1 Flash: a cheap, fast agentic model, weights later</h2>
+      <div class="gist"><p>On 2026-10-19 MiniMax announced M3.1 Flash, a model aimed at agentic tasks, coding, computer use and cybersecurity. It claims 200+ tokens/s in everyday use (P50 170+) and online inference nearly three times faster than before. Price per 1M tokens: $0.15 input, $0.60 output, $0.015 cached input; MiniMax says agentic tasks cost 70% less than on the predecessor. Benchmarks from the page: DeepSWE v1.1 73.7%, OSWorld V2 61.7 (first among Chinese models), Agents&#x27; Last Exam 29.6, BankerToolBench 76.2, CyberGym 82%. It is available via the MiniMax API, the M Plan subscription and MiniMax Code. Weights are promised later with no date; context length and parameter count are not on the page. MiniMax Pro comes later.</p><p>The HN discussion is skeptical: people who tried the stealth version &quot;Space Bunny&quot; in OpenCode Go found it weaker than the benchmarks suggest. One data-analytics test put it level with Opus 5.5 on accuracy but the slowest, because it burns many tokens. DeepSeek V4.1 Flash is the usual comparison, and many find it more reliable and better value. Comments mention ~428B parameters (23B active), but that is not from the page itself. For your setup this is not a replacement for Opus 5.5 or Sonnet 5.5, but a candidate for a cheap second opinion or a bulk worker in Workflow. First step: get a key at platform.minimax.io and run 2–3 of your real tasks through opencode next to your current model, measuring tokens and time.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add M3.1 Flash to the vendor-review skill as another cheap reviewer (via opencode) and compare its findings with Gemini and Codex.</li><li>Run 2–3 real tasks on M3.1 Flash and your current model, logging tokens and time: HN says it is verbose, so it may not end up cheaper.</li></ul></div>
+      <a class="source" href="https://www.minimax.io/blog/minimax-m31f" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s7">
+      <div class="meta"><span class="number">07</span><span>GitHub</span><span>20.10</span></div>
+      <h2>Reason Network: a p2p daemon that lets coding agents of different people and vendors message each other</h2>
+      <div class="gist"><p>reason-network (formerly tincan, by Lars Talian of Reason, MIT/Apache-2.0, 512 stars, Rust) is a small daemon on each machine. It links a team&#x27;s computers directly over iroh (same Wi-Fi or internet), with no central server. If a direct connection fails, traffic goes through a relay that sees only encrypted bytes. The default relay is run by n0; you can set your own with `reason-network relay &lt;url&gt;`. Messages to offline people wait until they return.</p><p>The installer adds an MCP server `reason-network` and hooks to the agents on the machine. Tools: `list_team`, `send_message`, `ask_user`, plus `check_inbox` where push isn&#x27;t possible. Session status (repo, branch, busy/idle) comes from the session&#x27;s own title and todo list. Supported: Claude Code, Codex, Cursor, Gemini CLI, Copilot CLI, Grok CLI, opencode, pi, DeepSeek Harness. Messages reach a live session immediately in Claude Code, Codex, opencode and pi, and wake an idle one. Cursor, Gemini, Copilot and Grok get them at the next step. `ask_user` shows the human an Approve/Deny pop-up, and the answer goes back to the requesting agent as the person&#x27;s decision, not an ordinary message. Commands: `reason-network who`, `send alice/api-claude &quot;...&quot;`, `send &#x27;*&#x27;` (broadcast, only from a human), `send repo:api`.</p><p>What&#x27;s new for you: your SendMessage works inside one session, while this connects agents of different people and machines, including Codex and Gemini. It&#x27;s useful if you run several machines (Mac and a server) or get a teammate. First step: run the installer from the latest GitHub release, run `reason-network init &#x27;test&#x27; --as mark` on two machines, then try `reason-network who` and `send`. The README also covers Reason&#x27;s cloud agents, but without an account you only install the engine.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install reason-network on the Mac and on a RunPod/server box and check that Claude Code on one machine can message a session on the other via `send`</li><li>Try `ask_user` as an approval channel: a background agent asks Approve/Deny instead of waiting in a terminal, and compare it with our Telegram bot</li><li>Set your own relay with `reason-network relay &lt;url&gt;` if you don&#x27;t want traffic going through n0</li><li>Borrow the idea of deriving session status from the session title and todo list for our observability hooks</li></ul></div>
+      <a class="source" href="https://github.com/reason-machines/reason-network" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
