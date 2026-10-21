@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 21.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">21.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Harp: a Warp terminal fork with a sidebar for running many Claude Code and Codex agents</a></li></ol>
+<h2 class="section-title">Python and backend</h2><ol class="contents" style="counter-reset: item 1"><li><a href="#s2">FastAPI 0.154.0: request parameters get Pydantic validation options</a></li><li><a href="#s3">FastAPI 0.155.0 removes deprecated **extra from Path, Query, Header and the rest; unknown arguments now raise TypeError</a></li><li><a href="#s4">FastAPI 0.151.0: explicit JSON null in request bodies no longer falls back to the default</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>21.10</span></div>
+      <h2>Harp: a Warp terminal fork with a sidebar for running many Claude Code and Codex agents</h2>
+      <div class="gist"><p>Harp is an unofficial, macOS-only fork of the open-source Warp terminal. A sidebar replaces the tab bar and shows, for each Claude Code or Codex session, whether it is working, waiting for you, or done. An unread mark stays until you look; a dot means background work is still running; a moon marks a tab you set aside. Tabs can go into named groups. With the tmux integration on, group and order are stored on the tmux sessions and survive restarts, and agents are detected by polling every 10 seconds. A session started over SSH from a phone can request a tab with `tmux set-option @warp_adopt 1`. The footer shows two rings per provider (5-hour window and weekly limit); Harp does not fetch the numbers, it reads a local JSON file, format in `docs/limit-rings.md`. For Claude Code there is a hook in `integrations/claude-code` that reports background tasks. Mostly AGPL-3.0. Warp&#x27;s AI and cloud features still talk to Warp&#x27;s servers; login through Harp is untested. It runs alongside Warp with its own bundle ID and `~/.harp` folder.</p><p>You already have workflows, subagents and background agents inside one session; Harp solves something else: an overview of many separate sessions in different tabs, showing which one waits for input. It helps if you run several parallel Claude Code sessions in worktrees. First step: download `Harp-&lt;version&gt;.dmg` from Releases, set `[integrations.tmux] enabled = true` in `~/.harp/settings.toml`, and look at the hook in `integrations/claude-code`. For debugging statuses: `WARPOSS_STATUS_TRACE=1`, log at `~/Library/Logs/harp.log`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Look at the hook in Harp&#x27;s `integrations/claude-code` and compare it with our Stop/UserPromptSubmit hooks: could we emit a &#x27;waiting for you&#x27; status to an external indicator the same way?</li><li>Enable `integrations.tmux` in `~/.harp/settings.toml` and run parallel worktree sessions in tmux so groups and order survive restarts.</li><li>Produce a JSON file with the remaining 5-hour and weekly limits in the `docs/limit-rings.md` format and point `integrations.limit_rings.file` at it.</li></ul></div>
+      <a class="source" href="https://github.com/dominikmartn/harp" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>FastAPI releases</span><span>20.10</span></div>
+      <h2>FastAPI 0.154.0: request parameters get Pydantic validation options</h2>
+      <div class="gist"><p>You already use FastAPI and Pydantic, so the only new thing is this: release 0.154.0 came out on 20 October 2026. It has a single change, the feature &quot;Add Pydantic validation options to request parameters&quot; (PR #16542 by @tiangolo). Going by the title, request parameters (Query, Path and similar) now accept Pydantic validation options directly in their declaration.</p><p>Neither the release page nor the PR says which options exist or which parameter types get them. The PR description is only an AI-use disclaimer, and the changed files were not visible. The release has no bug fixes and no code examples. CI passed (41 checks) and CodSpeed showed no performance change. No breaking changes are declared in the notes, but there are no details either.</p><p>For your stack: if you now tune validation through separate Pydantic models or Depends, some of it may become simpler. Until you read the diff, that is a guess. First step: open https://github.com/fastapi/fastapi/pull/16542, go to Files changed and read the signatures and tests. Then on a branch run pip install -U fastapi==0.154.0 and run pytest.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Read Files changed in PR #16542 and note which Pydantic options Query/Path/Header/Cookie now accept before using them.</li><li>Bump fastapi to 0.154.0 on a separate branch and run pytest to confirm current parameter validation behaves the same.</li></ul></div>
+      <a class="source" href="https://github.com/fastapi/fastapi/releases/tag/0.154.0" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>FastAPI releases</span><span>20.10</span></div>
+      <h2>FastAPI 0.155.0 removes deprecated **extra from Path, Query, Header and the rest; unknown arguments now raise TypeError</h2>
+      <div class="gist"><p>You already use FastAPI, so I&#x27;ll skip the framework and cover only the change. Release 0.155.0 came out on 20 October 2026 and has a single item, a breaking one (PR #16545 by @tiangolo). The deprecated arbitrary keyword arguments (**extra) were removed from Path, Query, Header, Cookie, Body, Form and File. Before, an extra kwarg was accepted and ended up in the schema with a deprecation warning. Now an unknown argument raises TypeError.</p><p>What to change: any extra JSON Schema properties go into json_schema_extra. Query(custom=&quot;value&quot;) becomes Query(json_schema_extra={&quot;custom&quot;: &quot;value&quot;}). This matters for you because the error fires when the module declaring the endpoint is imported, so the service won&#x27;t start, rather than failing on a request. If fastapi is unpinned in pyproject or the lock file, an upgrade in CI or an image build can break the build. First step: before upgrading, grep the code for non-standard kwargs in Query(, Path(, Header(, Cookie(, Body(, Form(, File( and move them to json_schema_extra. Then bump to 0.155.0 and run pytest. If you get a TypeError about an unexpected argument after the upgrade, look at exactly that spot.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Grep the repos for custom kwargs in Query/Path/Header/Cookie/Body/Form/File and move them to json_schema_extra before upgrading</li><li>Pin the fastapi version in pyproject and the lock file, and bump to 0.155.0 in a separate PR with a pytest run</li><li>Add a CI test that imports the whole app, so a TypeError in endpoint declarations is caught before deploy</li></ul></div>
+      <a class="source" href="https://github.com/fastapi/fastapi/releases/tag/0.155.0" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>FastAPI releases</span><span>20.10</span></div>
+      <h2>FastAPI 0.151.0: explicit JSON null in request bodies no longer falls back to the default</h2>
+      <div class="gist"><p>FastAPI 0.151.0 (released 20 October) is a breaking change, PR #16536 by tiangolo. JSON request bodies now distinguish an explicit null from an omitted value. For individual Body parameters, null is validated as None: nullable types accept it, and non-nullable types reject it even when a default is defined. Defaults and default factories apply only when the value is omitted. This covers parameters inside JSON objects and parameters that represent the whole body. If a JSON object is expected (Body(embed=True) or several body parameters) and the client sends null as the entire body, it now returns a validation error.</p><p>Previously, null on a field with a default could effectively yield that default. If you have clients, a frontend or other services that send null to mean &quot;use the default&quot;, they will start getting 422 after the upgrade. You already use Pydantic and FastAPI, so only this behavior is new. First step: before bumping to 0.151.0, run your pytest endpoint tests for body parameters with added cases for explicit null and for a missing field. Clients that used null to request a default should omit the field instead, as the release notes advise.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add parametrized pytest cases for every endpoint with Body: field omitted / explicit null / null as the whole body, and assert the expected 200 or 422.</li><li>Find schema fields with default or default_factory that are not declared nullable, and decide: allow None in the type, or fix clients so they stop sending null.</li><li>Pin the fastapi version in the lock file before upgrading and roll out to staging first, watching for a rise in 422s in logs and metrics.</li></ul></div>
+      <a class="source" href="https://github.com/fastapi/fastapi/releases/tag/0.151.0" target="_blank" rel="noopener">Source</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>
