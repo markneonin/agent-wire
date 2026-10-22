@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 22.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">6 новостей за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">22.10.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Claude Code 2.1.307: событие OTel safety_event, /claude-api api-version и пачка фиксов MCP и субагентов</a></li><li><a href="#s2">axuse: MCP-сервер для управления браузером через дерево доступности и CDP, без скриншотов</a></li><li><a href="#s3">Каталог из 12 866 open-source проектов, созданных реверс-инжинирингом, с поиском и скиллом для агента</a></li></ol>
+<h2 class="section-title">Python и backend</h2><ol class="contents" style="counter-reset: item 3"><li><a href="#s4">Вышел Postgres 19 RC1: REPACK CONCURRENTLY, ON CONFLICT DO SELECT, релиз 19 ноября</a></li><li><a href="#s5">FastAPI 0.159.0: модели параметров query, header и cookie можно делать необязательными</a></li><li><a href="#s6">FastAPI 0.158.0: можно объединять несколько Pydantic-моделей форм в одном эндпоинте</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Claude Code releases</span><span>21.10</span></div>
+      <h2>Claude Code 2.1.307: событие OTel safety_event, /claude-api api-version и пачка фиксов MCP и субагентов</h2>
+      <div class="gist"><p>Релиз от 21 октября 2026. Новое: команда `/claude-api api-version` переводит код с Claude API на версию API `2026-10-21`. Ещё добавлено OpenTelemetry-событие `claude_code.safety_event`: оно создаётся на каждый вызов инструмента, который остановило, переспросило или вернуло назад правило разрешений, auto mode, safety check, хук или песочница.</p><p>Фиксы, которые касаются headless и MCP: в `claude -p` на macOS серверы MCP больше не пишут «needs authentication» при заблокированном keychain (теперь пишут причину, а следующий запуск после разблокировки подключается без нового входа). Серверы не считаются зависшими, если комп уснул во время подключения. HTTP MCP-вызовы при обрыве соединения повторяются только для read-only или идемпотентных инструментов, раньше уходили дважды. Модельный алиас `opus[1m]` не падает с model-not-found при `CLAUDE_CODE_DISABLE_1M_CONTEXT`. Битые вызовы инструментов теперь повторяются до двух раз, прежде чем ход завершится ошибкой. Форк-субагенты, запущенные пачкой, теперь знают, какой запуск их собственный, и реже лезут в работу друг друга. В транскриптах субагентов теперь настоящие токены и stop reason. Исправлены и некоторые ошибки «Autocompact is thrashing» при чтении многих PDF-страниц и картинок.</p><p>Для твоей связки это в основном стабильность: у тебя много `claude -p` в скриптах, MCP (Chrome, Telegram, RunPod) и параллельные субагенты через Workflow. Первый шаг: обновиться и прогнать `/claude-api api-version` в проекте, где есть код на Claude API; для `safety_event` включить OTel-экспорт и посмотреть, какие вызовы режут хуки и auto mode.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Включить OTel-экспорт и собирать `claude_code.safety_event` - скормить это в скилл observability, чтобы видеть, какие вызовы режут хуки, auto mode и песочница?</li><li>Прогнать `/claude-api api-version` в проектах с кодом на Claude API (например, в скриптах с `claude -p --json-schema`) и посмотреть дифф перед коммитом?</li><li>Перепроверить Workflow-скрипты с пачкой форк-субагентов: после фикса их брифы можно не страховать от пересечения работы вручную?</li></ul></div>
+      <a class="source" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.307" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>22.10</span></div>
+      <h2>axuse: MCP-сервер для управления браузером через дерево доступности и CDP, без скриншотов</h2>
+      <div class="gist"><p>axuse (ctoldigital/axuse, 246 звёзд, создан 14 октября 2026) — MCP-сервер для браузера и десктопа, работает с Codex, Claude Code, OpenCode, Antigravity. Вместо цикла «скриншот → клик» читает DOM и accessibility tree через CDP. ax_open отдаёт полный снапшот с ссылками вроде [ref=e7]; после действий возвращается только диф (что удалено, добавлено, изменено). Ссылки привязаны к идентичности элемента и переживают вставки в DOM. Ввод идёт через CDP Input.dispatch*, то есть события isTrusted. Ошибки типизированы: REF_NOT_FOUND, STALE_STATE, DIALOG_OPEN, с подсказкой retry (reobserve, retry, never) и флагом action_sent. ax_fill заполняет всю форму одним вызовом. Нужны Node.js 22+ и Chromium-браузер, зависимостей нет.</p><p>Бенчмарк авторский (16 задач, Codex CLI, одна модель): 17 с медианы против 26 с у Codex + Chrome extension и 56 с у browser-use; токенов 4.7M против 9.8M и 8.8M; медиана вызовов 5 против 7 и 12. На сложном наборе из 7 задач axuse прошёл 7/7, Codex+Chrome провалил 2, browser-use 1. Это один прогон автора, с Playwright MCP и Chrome DevTools MCP не сравнивали. Ограничения: антибот-защиты нет, macOS-десктоп только по opt-in, расширенный бэкенд не заходит в кросс-доменные iframe. Лицензия PolyForm Noncommercial: коммерческое использование требует отдельной лицензии.</p><p>Для тебя это альтернатива Claude in Chrome и Chrome MCP, если упираешься в токены на скриншотах. Первый шаг: git clone https://github.com/ctoldigital/axuse.git, cd axuse, node src/cli.js doctor, затем claude mcp add --scope user axuse -- node &lt;path&gt;/src/cli.js mcp.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Подключить axuse как MCP рядом с Claude in Chrome и прогнать одну и ту же веб-задачу в обоих, сравнив токены и время через скилл observability?</li><li>Взять из axuse паттерн типизированных ошибок с подсказкой retry (reobserve/retry/never) и флагом action_sent в наши самописные MCP и скрипты claude -p — добавить в code-style или скилл loop-design?</li><li>Взять паттерн «после действия возвращать только диф» для наших скриптов автоматизации браузера (avito, Playwright) вместо повторных полных снапшотов?</li></ul></div>
+      <a class="source" href="https://github.com/ctoldigital/axuse" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>22.10</span></div>
+      <h2>Каталог из 12 866 open-source проектов, созданных реверс-инжинирингом, с поиском и скиллом для агента</h2>
+      <div class="gist"><p>alexgaoth/awesome-reverse-engineered (репозиторий создан 11 октября 2026) - список проектов, которые появились из реверса закрытых приложений, API, устройств, протоколов, форматов файлов и игр. Девиз: «Don&#x27;t reverse engineer it twice». Сейчас 12 866 проектов, суммарно около 10,7 млн звёзд: 7 078 активных, 1 951 замедлившихся, 2 491 заброшенных, 898 в архиве. 20 категорий; крупнейшие - декомпиляции игр (3 034), устройства и IoT (3 028), RE-инструменты (741). Данные лежат в data/entries.json, ночной GitHub Action обновляет звёзды, статус архивации и мёртвые ссылки и удаляет пропавшие репозитории. Исключены эксплойты, джейлбрейки, обходы защит, расшифровщики, читы, снятие DRM, решалки капчи и боты для аккаунтов. Автор предупреждает: неофициальные API ломаются при смене на стороне вендора, а их использование может нарушать условия сервиса.</p><p>Скиллы и плагины у тебя уже есть, новое здесь - сам индекс. Агент перед тем, как писать парсер, клиент или обёртку над закрытым сервисом, сначала ищет готовое: ранжирует по звёздам, активности и лицензии, читает README и берёт инструмент. Для твоих задач с Avito, Telegram, умными устройствами это экономит исследование. Первый шаг: скачать один файл на stdlib Python: curl -sL https://raw.githubusercontent.com/alexgaoth/awesome-reverse-engineered/main/plugin/skills/find-reverse-engineered/scripts/re_index.py -o re_index.py, затем python3 re_index.py search tuya local. Либо в Claude Code: /plugin install reverse-engineered --marketplace alexgaoth/awesome-reverse-engineered.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить плагин reverse-engineered (/plugin install reverse-engineered --marketplace alexgaoth/awesome-reverse-engineered) и проверить на задаче с закрытым API, например Avito или умное устройство.</li><li>Добавить в скилл task-framing или feature-build правило: перед написанием клиента или парсера для закрытого сервиса сначала запустить python3 re_index.py search &lt;продукт&gt;.</li><li>Использовать подкоманды re_index.py info и clone (шаллоу-клон в vendor/) в брифе сабагента, который выбирает готовую библиотеку, и смотреть метку здоровья (active/slowing/dormant) до зависимости.</li></ul></div>
+      <a class="source" href="https://github.com/alexgaoth/awesome-reverse-engineered" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>Postgres Weekly</span><span>21.10</span></div>
+      <h2>Вышел Postgres 19 RC1: REPACK CONCURRENTLY, ON CONFLICT DO SELECT, релиз 19 ноября</h2>
+      <div class="gist"><p>PostgreSQL ты уже используешь, поэтому только новое. RC1 вышел 15 октября 2026, RC2 запланирован на 12 ноября, GA — на 19 ноября (если не всплывут проблемы). Автор (Tom Kincaid, EDB) советует держать продакшен на 18 и тестировать 19 вне прода.</p><p>Что осталось в релизе: REPACK — переписывает таблицу, возвращает место и может упорядочить строки по индексу; REPACK CONCURRENTLY позволяет читать и писать почти всё время работы: изменения ловятся через логическое декодирование и применяются в конце. Также есть pg_plan_advice (подсказки планировщику), улучшения autovacuum, синхронизация sequences в логической репликации, ON CONFLICT DO SELECT (upsert возвращает существующие строки) и IGNORE NULLS в оконных функциях. Из беты откатили: SQL property graph, слияние/разбиение партиций, включение/выключение checksums на живом сервере; по данным сообщества — ещё GROUP BY ALL и UPDATE/DELETE ... FOR PORTION OF. Причина — надёжность и предсказуемый график. Август 2026: патч-релиз 18 закрыл 28 CVE (обычно около двух).</p><p>Для тебя: REPACK CONCURRENTLY заменит pg_repack для раздутых таблиц без долгих блокировок, а ON CONFLICT DO SELECT упростит upsert в SQLAlchemy-коде без лишнего SELECT. Первый шаг: поднять postgres:19rc1 в docker-образе или CI и прогнать на копии раздутой таблицы REPACK (CONCURRENTLY) имя_таблицы. Чек-листы автора в доступной части статьи не нашёл.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поднять postgres:19rc1 в отдельном CI-джобе и прогнать наш pytest-набор против него, чтобы заранее увидеть поломки до GA 19 ноября.</li><li>Проверить REPACK (CONCURRENTLY) на копии самой раздутой таблицы и сравнить с нашим текущим способом борьбы с bloat.</li><li>Найти в SQLAlchemy-коде upsert&#x27;ы с ON CONFLICT DO NOTHING + повторный SELECT и проверить, упростит ли их ON CONFLICT DO SELECT.</li><li>Не переводить прод с 18 до GA; в планах миграций учесть, что GROUP BY ALL и FOR PORTION OF в 19 не попали.</li></ul></div>
+      <a class="source" href="https://postgresweekly.com/issues/670" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>FastAPI releases</span><span>21.10</span></div>
+      <h2>FastAPI 0.159.0: модели параметров query, header и cookie можно делать необязательными</h2>
+      <div class="gist"><p>В FastAPI 0.159.0 (релиз 21 октября 2026) одна новая возможность: поддержка опциональных моделей параметров для query, header и cookie (PR #16584, автор @tiangolo). Другие разделы в заметках релиза отсутствуют.</p><p>Модели параметров (Pydantic-модель, которая собирает query, header или cookie в один объект) в FastAPI уже есть, и ты с Pydantic и FastAPI работаешь, так что сама идея тебе знакома. Новое здесь только то, что такую модель теперь можно объявить необязательной. В релизе и в PR нет описания деталей: нет примеров кода и не сказано, что приходит в обработчик, когда параметров нет. PR изменил три страницы документации: query-param-models, header-param-models и cookie-param-models. Судя по заголовку, речь о необязательных моделях, но точное поведение я из источника подтвердить не могу. Автор указал, что PR сделан с помощью Codex и проверен вручную. Бенчмарки CodSpeed показывают, что производительность не изменилась.</p><p>Для твоего кода это пригодится, если есть эндпоинты с группой необязательных фильтров или заголовков. Первый шаг: обнови пакет (pip install -U fastapi==0.159.0) и прочитай три страницы документации выше, затем проверь поведение на тестовом эндпоинте в pytest.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Проверить в pytest, что приходит в обработчик с опциональной моделью query/header/cookie, когда параметров в запросе нет (None или пустая модель), до переноса на неё реальных эндпоинтов</li><li>Найти эндпоинты, где необязательные фильтры или заголовки описаны отдельными аргументами, и прикинуть, какие из них стоит свернуть в опциональную модель</li></ul></div>
+      <a class="source" href="https://github.com/fastapi/fastapi/releases/tag/0.159.0" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s6">
+      <div class="meta"><span class="number">06</span><span>FastAPI releases</span><span>21.10</span></div>
+      <h2>FastAPI 0.158.0: можно объединять несколько Pydantic-моделей форм в одном эндпоинте</h2>
+      <div class="gist"><p>FastAPI 0.158.0 (21 октября 2026) содержит одно изменение: «Add support for combining form models», PR #16577 от @tiangolo. В заметках к релизу больше ничего нет: ни примеров, ни ограничений, ни пунктов о несовместимости. Из самого PR известно немного. Он затрагивает страницу документации «request-form-models» и добавляет пример docs_src/request_form_models/tutorial003_an_py310.py с моделью Preferences(BaseModel), у которой есть поле tags: list[str] = []. Код написан с помощью Codex и проверен вручную, 52 проверки CI прошли, CodSpeed не показал изменений по производительности. В ревью спорили про изменяемое значение по умолчанию []: рецензент просил так не писать, другой ответил, что Pydantic копирует такие значения, так что это вопрос стиля.</p><p>Что именно можно комбинировать и как это выглядит в сигнатуре, на странице не сказано, это я додумывать не буду. FastAPI и Pydantic ты уже используешь, а модели форм (Form с Pydantic-моделью) появились раньше, так что новое здесь только комбинирование. Пригодится, если в эндпоинте с multipart/form-data или urlencoded сейчас приходится вручную собирать поля из нескольких групп. Первый шаг: обновиться до fastapi==0.158.0 и открыть новый пример tutorial003_an_py310.py и страницу request-form-models в документации, чтобы увидеть точный синтаксис, до того как переписывать свои формы.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Обновиться до fastapi==0.158.0 в тестовой ветке и прогнать pytest на эндпоинтах с Form-моделями: в заметках нет пунктов о несовместимости, но и деталей тоже нет.</li><li>Посмотреть docs_src/request_form_models/tutorial003_an_py310.py и найти у нас формы, собранные вручную из нескольких групп полей: возможно, их можно заменить комбинированными моделями.</li></ul></div>
+      <a class="source" href="https://github.com/fastapi/fastapi/releases/tag/0.158.0" target="_blank" rel="noopener">Источник</a>
+    </article>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Codex CLI releases: nothing new for 30 days</li></ul></footer>
+</main>
+
+</body>
+</html>
