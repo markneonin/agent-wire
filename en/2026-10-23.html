@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 23.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">6 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">23.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Codex CLI 0.164.0: /presets slots, inline args for /model and /permissions, credential masking</a></li><li><a href="#s2">Microsoft releases TokenEconomizer, a plugin that cuts coding-agent cost 18–31% by learning from past sessions</a></li><li><a href="#s3">Vercel Labs releases durable-harness: Claude Code, Codex and other coding agents as crash-resumable workflow sessions</a></li><li><a href="#s4">Omnara: open-source (Apache 2.0) backend for durable agents on any model, as an alternative to Claude Managed Agents</a></li><li><a href="#s5">NVIDIA releases OpenShell: an agent sandbox with kernel-level policy and credential injection</a></li></ol>
+<h2 class="section-title">Python and backend</h2><ol class="contents" style="counter-reset: item 5"><li><a href="#s6">FastAPI 0.160.0: extra=&quot;forbid&quot; on parameter models now also rejects fields declared by other parameters</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Codex CLI releases</span><span>23.10</span></div>
+      <h2>Codex CLI 0.164.0: /presets slots, inline args for /model and /permissions, credential masking</h2>
+      <div class="gist"><p>Release rust-v0.164.0 of Codex CLI adds ten numbered /presets slots. They store reusable prompts and slash commands, and you open them from a keyboard menu (#54380, #54381). /model and /permissions now take inline arguments, so model, reasoning effort, speed and permission profile can be set in one command (#54378, #54383). Images can be viewed in the fullscreen transcript on Kitty or Sixel terminals (#54216).</p><p>Also in the release: credential masking in remote Bash/Zsh sessions, including custom providers (#54309, #54432, #56049). When masking is unavailable, unified exec may fall back to the normal mode (#55719). MCP OAuth refresh coordination is on by default (#55701). Enterprise accounts can authenticate MCP connections with Codex account grants. Fixes: a failed compaction no longer leaves partial summaries in history (#53932, #55581), resume finds compressed histories and restores saved thread settings (#54008, #55923), `-c/--config` overrides persist across several subcommand levels (#56022), and queued prompts wait for pending permission choices (#55682). Sandbox checks on macOS are hardened for case-variant paths and replaceable symlinks. The worktree and voice feature flags and transcript_v2 are removed.</p><p>For your setup, Codex is the second opinion in vendor-review and use-codex. What is new for you is mostly what helps those headless calls: inline /model and /permissions arguments and a more reliable `-c` in subcommands. First step: update Codex, try /model with arguments in an interactive session, then save a couple of review prompts in /presets. Check the exact argument syntax in the commands themselves, because the release notes don&#x27;t give it.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Update Codex to 0.164.0 and check that `-c/--config` now persists across subcommands. That may simplify the calls in the use-codex skill.</li><li>Save two or three cross-vendor review prompts in Codex /presets so they open from the menu instead of being retyped.</li><li>Check in vendor-review that compaction and resume in Codex 0.164.0 keep history intact, since a failed compaction used to leave partial summaries.</li></ul></div>
+      <a class="source" href="https://github.com/openai/codex/releases/tag/rust-v0.164.0" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>23.10</span></div>
+      <h2>Microsoft releases TokenEconomizer, a plugin that cuts coding-agent cost 18–31% by learning from past sessions</h2>
+      <div class="gist"><p>TokenEconomizer (Microsoft, Apache-2.0, arXiv 2610.22732, UC Berkeley + MSR) is a plugin for Claude Code, Codex, Copilot CLI and Pi. It reads finished sessions in a repo and uses them to shape later ones. Three mechanisms. Micro-skills: environment facts the agent keeps rediscovering (e.g. no pytest command, but python -m pytest works) are recorded and stated at the start of the next session, with no model call. Tool pruning: a tool unused for five sessions in a row is removed through the agent&#x27;s own settings (toolprune=propose asks approval per change, toolprune restore brings tools back). Failure-loop guard: when a turn loops on a failing edit-and-test cycle far beyond the repo&#x27;s usual turn length, it sends one redirect, then tells you how to interrupt; it never stops the turn itself.</p><p>On SWE-Bench (277 tasks, 6 repos) mean cost per task fell 18.4–30.9% across five agent-model pairs: Claude Code with Sonnet 5 by 23.6%, with Opus 4.8 by 30.9%. Pass@1 rose in four of five. Data stays in ~/.tokeneconomizer. Limits: only Claude Code 2.1.300–2.1.307 was tested; in Claude Code its messages show only in the Ctrl+O transcript and the model may reword them; pruning writes wait for an hour of idle time to avoid breaking the prompt cache.</p><p>You already have observability and settings-cleanup skills, but those are manual; this automates pruning and learned facts. First step: clone the repo, add it as a marketplace by absolute path, install the plugin, run refresh-catalog once, then /tokeneconomizer:status. Check your Claude Code version is in the tested range.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install the plugin on one secondary repo with toolprune=propose and manually review which MCP tools it suggests dropping (codebase-memory, Chrome, RunPod, etc.).</li><li>Run ~/.tokeneconomizer/bin/te microskills (free, from the terminal) to see which environment facts it learned, and move useful ones into project CLAUDE.md files.</li><li>Compare its rule &#x27;unused for five sessions in a row means prune&#x27; with the thresholds in settings-cleanup and borrow the number if it fits.</li><li>Borrow the loop-guard idea for /loop and routines (in loop-design): one redirect, then a prompt to the human, no hard stop.</li></ul></div>
+      <a class="source" href="https://github.com/microsoft/TokenEconomizer" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>23.10</span></div>
+      <h2>Vercel Labs releases durable-harness: Claude Code, Codex and other coding agents as crash-resumable workflow sessions</h2>
+      <div class="gist"><p>durable-harness (Vercel Labs, Apache-2.0, version 0.0.x, API unstable) runs coding agents (Pi, OpenCode, libfx&#x27;s fx, Claude Code, Codex) as durable agents on a Workflow SDK World. Each session is a workflow run: the conversation, the turn in progress, and every model and tool call are recorded in an event log. After a crash the turn resumes from the log on another machine, and a tool call that is unsafe to repeat is never run twice. Commands and files chosen by the model run not on the machine driving the session but in a virtual workspace (virtual()) or in the session&#x27;s own Vercel Sandbox (sandbox()). Claude Code and Codex run only in the session&#x27;s own Sandbox, never in a shared Function. Agents have no tools by default; you add them explicitly.</p><p>Pi quick start: npm install durable-harness @earendil-works/pi-durable @earendil-works/chord @earendil-works/pi-ai just-bash. Then define the agent in lib/agent.ts, serve chatRoute({ open, agent, authorize }) in app/api/chat/route.ts, and wrap the config with withDurableHarness(nextConfig) from durable-harness/next in next.config.ts. Locally it uses the Workflow SDK local World with no setup; on Vercel you get managed storage and queues; self-hosting uses the Postgres World.</p><p>For you: you already have headless claude -p, /schedule and /loop, but none of them resumes a turn from a log after a process dies. This solves that at the infrastructure level, but only for Next.js and Vercel Sandbox. That is heavy for a personal Telegram bot, but useful as a design reference. First step: open github.com/vercel-labs/durable-harness and look at the durable-harness/claude-code module.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Event log plus the rule &quot;never re-run an unsafe tool call&quot; - add a check to loop-design: what happens to a long-running agent if the process dies mid-turn, and which steps must never run twice?</li><li>Model-chosen commands run in a separate sandbox, not on the machine driving the session - add an isolation item to the subagents/loop-design skills for unattended autonomous loops.</li><li>Agents get no tools by default and everything is added explicitly - audit the custom agent files (implementer, test-engineer, etc.): does each have a minimal tools list?</li></ul></div>
+      <a class="source" href="https://github.com/vercel-labs/durable-harness" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>Hacker News</span><span>21.10</span></div>
+      <h2>Omnara: open-source (Apache 2.0) backend for durable agents on any model, as an alternative to Claude Managed Agents</h2>
+      <div class="gist"><p>Omnara is a self-hostable API for running agents, positioned as an alternative to Claude Managed Agents and the OpenAI Agents API. It is Apache 2.0 with about 3.2k stars. Any model works (OpenAI, Anthropic, OpenRouter, Bedrock, LiteLLM, Ollama) as long as the endpoint is compatible with OpenAI Responses/Chat Completions or Anthropic Messages. Agent state is an append-only event log in Postgres. Stateless workers run one loop step and queue the next; a failed step rolls back and retries. An idle agent costs nothing. A daemon, omnarad, is installed on a macOS/Linux machine and connects outward, so no inbound ports or SSH are needed. An agent can use several machines and fail over when one goes offline. It also has cron schedules, Slack/Discord/GitHub integrations, per-tool permissions (auto / approval / blocked), skills, shared memory stores, subagents and MCP. For comparison, Claude Managed Agents charges token rates plus $0.08 per active session-hour. On HN (110 points) commenters doubted the novelty: logs and persistence already exist in chat products, and Codex used JSONL. The author says it is a backend, &quot;Supabase for agents&quot;, with no client included. Local defaults are intentionally insecure.</p><p>For your setup this does not replace Claude Code. It is a layer for agents that must live without your terminal: the Telegram bot, overnight jobs, monitoring. It overlaps partly with /schedule, /loop and Workflow, but adds crash recovery and a choice of model. First step: run it locally with git clone https://github.com/omnara-ai/omnara.git, cd omnara, docker compose -f compose.yaml --profile app up -d, then open http://localhost:8000. Then run npx omnara config --api-url http://localhost:8000/api/v1 --issuer-url http://localhost:8000 and npx omnara login.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run Omnara via Docker Compose and launch one agent from agent.yaml with machine_name pointing at your Mac, to see how the omnarad daemon works without inbound ports.</li><li>Connect its MCP server to Claude Code with claude mcp add --transport http omnara https://app.omnara.com/mcp, then sign in with /mcp. This lets you start long-lived agents from a session.</li><li>Take Omnara&#x27;s per-tool permission model (auto / approval / blocked) as a template for your PreToolUse hooks: one explicit three-level table instead of scattered rules.</li></ul></div>
+      <a class="source" href="https://github.com/omnara-ai/omnara" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>Hacker News</span><span>22.10</span></div>
+      <h2>NVIDIA releases OpenShell: an agent sandbox with kernel-level policy and credential injection</h2>
+      <div class="gist"><p>OpenShell is an Apache 2.0 runtime from NVIDIA (0.1.x line, 18k stars) that runs each agent in an isolated sandbox. The kernel limits files and syscalls, and every network connection passes a policy check before it leaves. The agent never sees real credentials: OpenShell injects them only into requests to approved endpoints, inference included. Any policy widening (a new host with credentials, a new API method) is formally verified first and waits for human review. Components are gateway, supervisor and sandbox; the gateway deploys to Kubernetes via Helm (the CNI must enforce NetworkPolicy). It needs Linux, macOS on Apple Silicon or WSL 2 (experimental), plus Docker, Podman or host virtualization. SDKs exist for Python, TypeScript, Go and Rust. Anonymous telemetry is on by default; disable it with OPENSHELL_TELEMETRY_ENABLED=false.</p><p>The HN discussion&#x27;s main objection: if an agent has any outbound channel, data can leak, and only an air-gapped setup fully closes that. Alternatives mentioned: Anthropic&#x27;s sandbox-runtime, matchlock, iron proxy, Docker sbx.</p><p>For your setup the useful parts are secret injection at the boundary and a network allowlist. Today your keys come through the secrets skill, and Claude Code with permissions skipped, or inside the Telegram bot, reaches the network with no such boundary. First step: curl -LsSf https://raw.githubusercontent.com/NVIDIA/OpenShell/main/install.sh | sh, then openshell sandbox create --name demo. After that, follow the &quot;Run Your First Agent&quot; tutorial (OpenCode on a free OpenRouter model).</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install the project&#x27;s skill: npx skills add NVIDIA/OpenShell. It teaches an agent to write policies and debug the gateway; check what is worth borrowing into our settings-change skill.</li><li>Run background and overnight agents (/schedule, /loop, the Telegram bot) in an openshell sandbox with a network allowlist instead of on the bare host; try it on one routine first.</li><li>Borrow the &quot;key injected at the boundary, agent never sees it&quot; design for the secrets skill: today a secret lands in the process environment, while here it could live only in the proxy.</li><li>Add a rule to loop-design: any widening of agent permissions (new host, new API method) waits for human review, as in OpenShell policies.</li></ul></div>
+      <a class="source" href="https://github.com/NVIDIA/OpenShell" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>    <article class="story" id="s6">
+      <div class="meta"><span class="number">06</span><span>FastAPI releases</span><span>22.10</span></div>
+      <h2>FastAPI 0.160.0: extra=&quot;forbid&quot; on parameter models now also rejects fields declared by other parameters</h2>
+      <div class="gist"><p>You already use FastAPI, so only what changed. Release 0.160.0 (22 October 2026) changes the behavior of query, header, cookie and form parameter models. Previously a model&#x27;s extra setting looked only at its own fields. Now it applies to all submitted fields in the same location (query, headers, cookies, form), including fields declared in other models, in individual parameters, or in dependencies. This matches Pydantic behavior. The change is marked as breaking (PR #16594, by @tiangolo).</p><p>The result depends on extra. With extra=&quot;forbid&quot;, anything not in the model is rejected, even if another parameter or dependency declares it. With extra=&quot;allow&quot;, those fields end up in the model as extras. With extra=&quot;ignore&quot; (the default) they are ignored. So the riskiest case for you: a filters model with extra=&quot;forbid&quot; in query, plus a separate Query parameter or a dependency (say pagination, or an api_key header) on the same endpoint. It used to work and may start returning 422 after the upgrade. The release has no code examples or migration guide. First step: bump fastapi to 0.160.0 on a separate branch and run pytest, and grep for model_config with extra=&quot;forbid&quot; on models used via Query(), Header(), Cookie(), Form().</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Grep for models with extra=&quot;forbid&quot; used in Query/Header/Cookie/Form and check whether the same endpoints have separate parameters or dependencies from the same request location</li><li>Add a pytest case for endpoints with parameter models: a request with a field from a sibling dependency must not return 422</li><li>If you are not ready to migrate, pin fastapi&lt;0.160.0 in dependencies and upgrade deliberately</li></ul></div>
+      <a class="source" href="https://github.com/fastapi/fastapi/releases/tag/0.160.0" target="_blank" rel="noopener">Source</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>
