@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 24.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">24.10.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">vvv: готовые Remotion-шаблоны видео и скилл, который заполняет их фото и текстом</a></li><li><a href="#s2">motion2code: скилл, который по видео пишет зацикленную SVG+GSAP-анимацию и сверяет её с оригиналом покадрово</a></li><li><a href="#s3">Moonshot выпустила Kimi K3.1 Pro и Highspeed: открытая модель 3T с контекстом 1M, веса до 4 ноября</a></li><li><a href="#s4">Antirion: open-source LLM-шлюз на Rust с роутингом, бюджетами и логом каждого запроса</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>24.10</span></div>
+      <h2>vvv: готовые Remotion-шаблоны видео и скилл, который заполняет их фото и текстом</h2>
+      <div class="gist"><p>vvv (Vibe Vision Video, v0.1, MIT, 293 звезды, 4 коммита, создан 22.10.2026) — набор редактируемых Remotion-шаблонов плюс Agent Skill. Идея: сцены, раскладка, тайминги и проверки рендера делаются один раз, а для нового ролика меняются только фото, имена и даты, текст, музыка и формат. Вы описываете фильм одной фразой, агент выбирает шаблон, расставляет фото, пишет текст, рендерит пробник, прогоняет проверки и отдаёт ролик вместе с редактируемым проектом. Есть режим recreate: пересобрать референсное видео из ваших материалов. Шаблонов шесть: Doodle, Album (и вертикальный Album 9:16), DV Story, Comedy, Starter; форматы 16:9 и 9:16. CLI: `vvv.py describe` показывает слоты фото, поля текста и настройки, `validate` ловит плохие входные данные до рендера, `vvv check` меряет формат, звук, кадры и попадание в бит, но часть результата всё равно оценивает человек. Видео и голос не генерируются. Бенчмарка экономии токенов нет, это только заявление авторов. Проверено на Claude Code и Codex, macOS ARM64. Нужны Python 3.9+, Node.js 26, npm.</p><p>У вас уже есть Remotion-пайплайн, montage и ElevenLabs, так что ценность не в самом Remotion, а в схеме: шаблон с описанным контрактом (слоты, поля) и валидацией, которую агент вызывает до дорогого рендера. Первый шаг: `/plugin install vvv --marketplace actionow-ai/vvv`, затем попросить ролик одной фразой и посмотреть вывод `describe` и `validate`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Взять паттерн describe/validate: у наших Remotion-шаблонов вывести список слотов и полей и проверять входные данные дешёвой командой до рендера — добавить в скилл видеопайплайна?</li><li>Добавить в пайплайн автоматический `check` после рендера (формат, звук, попадание в бит) и отдавать человеку только спорное — сделать?</li><li>Поставить `/plugin install vvv --marketplace actionow-ai/vvv` и сравнить его шаблоны и режим recreate с нашим пайплайном на одном ролике.</li></ul></div>
+      <a class="source" href="https://github.com/actionow-ai/vvv" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>24.10</span></div>
+      <h2>motion2code: скилл, который по видео пишет зацикленную SVG+GSAP-анимацию и сверяет её с оригиналом покадрово</h2>
+      <div class="gist"><p>Репозиторий lovisdotio/motion2code (192 звезды, создан 20 октября 2026, MIT) — набор скиллов для кодинг-агентов. Автор исходит из того, что агент «анимирует вслепую»: не видит видео, угадывает тайминги, easing, цвета и текст, а луп прыгает. Поэтому процесс жёстко разбит на шаги. study_video.py берёт кадр каждые 0.25 с, кадры вокруг каждого hard cut, contact sheet, плоскую палитру и оценку лупа (всё в study.json). Агент пишет страницу по контракту window.anim = { tl, duration, seek(t), play(from), pause() }, где seek(t) — чистая функция времени, а последний момент возвращается к первому кадру. frame_diff.py кладёт оригинал и код рядом, считает разницу по времени и выводит пять худших моментов. check_anim.py проверяет контракт, allowlist скриптов, отсутствие растра и видео; с --runtime запускает страницу headless и проверяет ошибки консоли, сетевые запросы, шов лупа, детерминизм seek и автоплей. render_anim.py рендерит точные кадры в MP4/GIF/PNG. Для записи экрана сайта собирает рабочий сайт на GSAP ScrollTrigger. Примеры: 6 клипов по 10–15 с, 24–60 КБ каждый; пересобраны Claude Opus 5.5. Порогов pass/fail и формулы метрики разницы в README нет. Нужны Python 3.9+, ffmpeg, Playwright.</p><p>Своё ревью, скиллы, Remotion и frontend-роутер у тебя уже есть, новое здесь — сам приём: заставить агента «видеть» результат через детерминированный seek(t) и покадровое сравнение. Это применимо к твоему Remotion-пайплайну и анимационным задачам. Первый шаг: claude plugin marketplace add lovisdotio/motion2code, затем claude plugin install motion2code@motion2code, и прогнать на коротком ролике.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Контракт seek(t) как чистая функция времени: добавить в frontend-скилл правило для анимаций, чтобы любой кадр можно было отрендерить и сравнить с референсом.</li><li>frame_diff.py выводит пять худших моментов по разнице с оригиналом: взять этот приём в проверку визуальных задач (скриншоты до/после) в скилле process.</li><li>check_anim.py --runtime ловит ошибки консоли, сетевые запросы и недетерминизм при headless-запуске: оформить как Stop-хук для HTML-артефактов.</li><li>Поставить плагин motion2code и сравнить с нашим Remotion-пайплайном на одном коротком ролике.</li></ul></div>
+      <a class="source" href="https://github.com/lovisdotio/motion2code" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Hacker News</span><span>23.10</span></div>
+      <h2>Moonshot выпустила Kimi K3.1 Pro и Highspeed: открытая модель 3T с контекстом 1M, веса до 4 ноября</h2>
+      <div class="gist"><p>Moonshot выпустила Kimi K3.1 Pro — дообученную версию K3 с заметно большим объёмом post-training, 3T-класс, контекст 1 млн токенов, открытые веса обещаны до 4 ноября 2026 (лицензия не названа). Highspeed — вариант в 2–3 раза быстрее (цифр tokens/s нет). В API: kimi-k3.1-pro и kimi-k3.1-pro-highspeed, есть Zero Data Retention. Цены в блоге нет; в обсуждении HN называют $2 вход / $10 выход за млн токенов. Бенчмарки по их данным: Terminal-Bench 4.0 — 65.7% (Opus 5.5 — 66.4%, GPT-6 Astra — 58.2%); BenchCAD с инструментами 92.7% (Opus 5.5 — 96.2%); доля галлюцинаций на их Hallu Bench Hard 8.3% против 23.4% у K3 (Opus 5.5 — 15.0%). Часть замеров делали в Claude-Code harness. Из данных об обучении для открытых весов убрали киберданные, поэтому кибер-способности слабее закрытых моделей (xdev-bench-hard 81.0% против 33.3% у K3).</p><p>В HN (854 очка) главная жалоба — лимиты подписок: у некоторых одна задача съедала 5-часовой лимит; ещё пишут про многословные рассуждения, из-за которых цена за задачу выше цены за токен. Бенчмаркам верят не все; одни хвалят модель как планировщика при дешёвом исполнителе, другие — «слишком многословна». Для тебя это не замена Opus 5.5 в Claude Code: страница не говорит, что модель работает внутри него. Это дешёвый второй мнений-кандидат, когда выйдут веса. Первый шаг: в Kimi Code выполнить /model и выбрать Kimi K3.1 Pro, либо взять kimi-k3.1-pro в API и прогнать на одной своей задаче.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать kimi-k3.1-pro на одной реальной задаче и сравнить стоимость за задачу (а не за токен) с Sonnet 5.5 — в HN жалуются на многословность.</li><li>Добавить Kimi K3.1 Pro кандидатом в скилл vendor-review как ещё одного рецензента, если дадут доступ через API.</li><li>Когда выйдут веса (до 4 ноября), проверить, помещается ли что-то из семейства на MLX локально, и узнать лицензию.</li></ul></div>
+      <a class="source" href="https://www.kimi.ai/blog/kimi-k3-1-pro" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>24.10</span></div>
+      <h2>Antirion: open-source LLM-шлюз на Rust с роутингом, бюджетами и логом каждого запроса</h2>
+      <div class="gist"><p>Antirion (eliasbiondo/antirion, Apache-2.0, репозиторий создан 17 октября 2026, 180 звёзд) - self-hosted шлюз между приложениями и провайдерами: OpenAI, Anthropic, Gemini, Bedrock, Azure OpenAI, Vertex AI, Mistral, vLLM. Один Rust-бинарник со встроенной консолью. Умеет роутинг (fallback-цепочки, веса, least-cost/least-latency, ретраи, hedging, circuit breaker), бюджеты и лимиты в долларах или токенах на уровне организации, команды, проекта и ключа (soft/hard/с подтверждением), guardrails на PII, секреты, регэкспы, JSON-схемы и права на инструменты, точный и семантический кэш, MCP- и A2A-шлюзы, Prometheus и OTLP. Журнал запросов хранит маршрут, попытки, токены, стоимость и вердикты guardrails.</p><p>Заявленный оверхед: медиана 0,53 мс при 5000 RPS на 4 vCPU (Bifrost 2.2.4 - 19,7 мс, LiteLLM 1.103.1 при такой нагрузке - 100% ошибок). Это замеры самих авторов, harness лежит в bench/. Нативные бинарники только под Linux, на macOS - контейнер или сборка из исходников.</p><p>Для тебя это единая точка учёта расходов на Claude/Codex/Gemini и скрипты с claude -p: виртуальные ключи с бюджетами на каждый пайплайн или ночной агент, fallback между провайдерами. README не упоминает Claude Code и ANTHROPIC_BASE_URL, совместимость нужно проверять; Anthropic SDK направляется на http://localhost:8080. Первый шаг: docker run -p 8080:8080 -p 8081:8081 -v antirion-data:/var/lib/antirion eliasbiondo/antirion, взять admin token из первого запуска и открыть http://localhost:8081/ui/.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поднять Antirion в Docker и прогнать через него один скрипт с claude -p, выставив base URL на http://localhost:8080 с виртуальным ключом - проверить, работает ли это с Claude Code.</li><li>Завести отдельный виртуальный ключ с жёстким дневным бюджетом для ночных агентов и /loop-рутин, чтобы они не выжигали деньги без присмотра.</li><li>Использовать журнал запросов (токены, стоимость, кэш) как источник данных для скилла observability вместо ручной прикидки, куда уходят токены.</li></ul></div>
+      <a class="source" href="https://github.com/eliasbiondo/antirion" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>

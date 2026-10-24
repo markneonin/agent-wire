@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 24.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">24.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">vvv: reusable Remotion video templates plus a skill that fills them with photos and copy</a></li><li><a href="#s2">motion2code: a skill that rebuilds a video as a looping SVG+GSAP animation and checks it frame by frame against the source</a></li><li><a href="#s3">Moonshot releases Kimi K3.1 Pro and Highspeed: open-weight 3T model with 1M context, weights due by Nov 4</a></li><li><a href="#s4">Antirion: open-source Rust LLM gateway with routing, budgets and a per-request log</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>24.10</span></div>
+      <h2>vvv: reusable Remotion video templates plus a skill that fills them with photos and copy</h2>
+      <div class="gist"><p>vvv (Vibe Vision Video, v0.1, MIT, 293 stars, 4 commits, created 2026-10-22) is a set of editable Remotion templates plus an Agent Skill. The idea: scenes, layouts, timing and render checks are built once, and each new film changes only the photos, names and dates, copy, music and format. You describe the film in one sentence; the agent picks a template, places photos, writes copy, renders a sample, runs checks and hands back the film with its editable project. A recreate mode rebuilds a reference video from your own material. There are six templates: Doodle, Album (plus vertical Album 9:16), DV Story, Comedy, Starter; layouts are 16:9 and 9:16. CLI: `vvv.py describe` lists photo slots, copy fields and settings, `validate` catches bad inputs before rendering, and `vvv check` measures format, audio, stills and beat alignment, though a human still judges some results. Video and voice are not generated. The token-saving claim has no benchmark, it is the authors&#x27; assertion. Verified on Claude Code and Codex, macOS ARM64. Needs Python 3.9+, Node.js 26, npm.</p><p>You already have a Remotion pipeline, montage and ElevenLabs, so the value is not Remotion itself but the pattern: a template with a declared contract (slots, fields) and validation the agent runs before the expensive render. First step: `/plugin install vvv --marketplace actionow-ai/vvv`, then ask for a film in one sentence and look at the `describe` and `validate` output.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Borrow the describe/validate pattern: have our Remotion templates expose slots and fields and validate inputs with a cheap command before rendering — add it to the video pipeline skill?</li><li>Add an automatic post-render `check` (format, audio, beat alignment) to the pipeline and leave only the doubtful cases to a human — do it?</li><li>Install `/plugin install vvv --marketplace actionow-ai/vvv` and compare its templates and recreate mode against our pipeline on one film.</li></ul></div>
+      <a class="source" href="https://github.com/actionow-ai/vvv" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>24.10</span></div>
+      <h2>motion2code: a skill that rebuilds a video as a looping SVG+GSAP animation and checks it frame by frame against the source</h2>
+      <div class="gist"><p>lovisdotio/motion2code (192 stars, created 2026-10-20, MIT) is a skill set for coding agents. The author&#x27;s premise is that agents &quot;animate blind&quot;: they can&#x27;t watch the video, so they guess timing, easing, colors and text, and loops jump. The process is split into hard steps. study_video.py grabs a frame every 0.25 s, frames around each hard cut, a contact sheet, the flat palette and a loop score (all in study.json). The agent writes a page under the contract window.anim = { tl, duration, seek(t), play(from), pause() }, where seek(t) is a pure function of time and the last moment returns to the opening frame. frame_diff.py puts source and code side by side, scores the difference per time and lists the worst five moments. check_anim.py checks the contract, the script allowlist and that no raster or video is embedded; with --runtime it runs the page headless and checks console errors, network requests, loop seam, deterministic seek and autoplay. render_anim.py renders exact frames to MP4/GIF/PNG. For screen recordings of websites it builds a working site with GSAP ScrollTrigger. Examples: six 10–15 s clips, 24–60 KB each, rebuilt with Claude Opus 5.5. The README gives no pass/fail thresholds or definition of the diff metric. Needs Python 3.9+, ffmpeg, Playwright.</p><p>You already have review skills, Remotion and a frontend router; what&#x27;s new is the technique itself: make the agent &quot;see&quot; its output through a deterministic seek(t) plus frame-by-frame comparison. It fits your Remotion pipeline and animation tasks. First step: claude plugin marketplace add lovisdotio/motion2code, then claude plugin install motion2code@motion2code, and run it on a short clip.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>seek(t) as a pure function of time: add a rule to the frontend skill for animations so any frame can be rendered and compared to a reference.</li><li>frame_diff.py lists the five worst moments by difference from the source: borrow that for visual-task checks (before/after screenshots) in the process skill.</li><li>check_anim.py --runtime catches console errors, network requests and non-determinism in a headless run: wrap it as a Stop hook for HTML artifacts.</li><li>Install the motion2code plugin and compare it with your Remotion pipeline on one short clip.</li></ul></div>
+      <a class="source" href="https://github.com/lovisdotio/motion2code" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Hacker News</span><span>23.10</span></div>
+      <h2>Moonshot releases Kimi K3.1 Pro and Highspeed: open-weight 3T model with 1M context, weights due by Nov 4</h2>
+      <div class="gist"><p>Moonshot released Kimi K3.1 Pro, a post-trained K3 with substantially more post-training compute: 3T-class, 1M-token context, full open weights promised by Nov 4, 2026 (license not named). Highspeed is a variant 2-3x faster (no tokens/s given). API IDs: kimi-k3.1-pro and kimi-k3.1-pro-highspeed, with Zero Data Retention available. The blog gives no prices; HN commenters cite $2 input / $10 output per million tokens. Reported benchmarks: Terminal-Bench 4.0 65.7% (Opus 5.5 66.4%, GPT-6 Astra 58.2%); BenchCAD with tools 92.7% (Opus 5.5 96.2%); claim-level hallucination on their Hallu Bench Hard 8.3% vs 23.4% for K3 (Opus 5.5 15.0%). Some runs used the Claude-Code harness. Cyber data was removed from training for the open weights, so cyber ability trails closed frontier models (xdev-bench-hard 81.0% vs 33.3% for K3).</p><p>On HN (854 points) the main complaint is subscription limits: some say one task burned a 5-hour limit. Others note verbose reasoning makes per-task cost higher than per-token price suggests. Benchmarks are doubted by some; some praise it as a planner with a cheap implementer, others call it too verbose. For you this is not an Opus 5.5 replacement in Claude Code: the page does not say the model runs inside it. It is a cheap second-opinion candidate once weights land. First step: in Kimi Code run /model and pick Kimi K3.1 Pro, or call kimi-k3.1-pro via the API on one of your own tasks.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run kimi-k3.1-pro on one real task and compare cost per task (not per token) with Sonnet 5.5; HN reports verbose reasoning.</li><li>Add Kimi K3.1 Pro as another reviewer candidate in the vendor-review skill if API access is available.</li><li>When the weights ship (by Nov 4), check the license and whether anything from the family runs locally on MLX.</li></ul></div>
+      <a class="source" href="https://www.kimi.ai/blog/kimi-k3-1-pro" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>24.10</span></div>
+      <h2>Antirion: open-source Rust LLM gateway with routing, budgets and a per-request log</h2>
+      <div class="gist"><p>Antirion (eliasbiondo/antirion, Apache-2.0, repo created 17 Oct 2026, 180 stars) is a self-hosted gateway between apps and providers: OpenAI, Anthropic, Gemini, Bedrock, Azure OpenAI, Vertex AI, Mistral, vLLM. One Rust binary with a built-in console. It does routing (fallback chains, weights, least-cost/least-latency, retries, hedging, circuit breakers), budgets and rate limits in dollars or tokens at org, team, project and key level (soft/hard/approval-gated), guardrails for PII, secrets, regexes, JSON schemas and tool permissions, exact and semantic cache, MCP and A2A gateways, Prometheus and OTLP. The request log records route, attempts, tokens, cost and guardrail verdicts.</p><p>Claimed overhead: 0.53 ms median at 5,000 RPS on 4 vCPUs (Bifrost 2.2.4: 19.7 ms; LiteLLM 1.103.1: 100% errors at that load). These are the authors&#x27; own numbers; the harness is in bench/. Native binaries are Linux-only; on macOS use the container or build from source.</p><p>For you it is a single place to track spend across Claude/Codex/Gemini and your claude -p scripts: virtual keys with budgets per pipeline or overnight agent, fallback between providers. The README does not mention Claude Code or ANTHROPIC_BASE_URL, so compatibility needs testing; Anthropic SDKs point to http://localhost:8080. First step: docker run -p 8080:8080 -p 8081:8081 -v antirion-data:/var/lib/antirion eliasbiondo/antirion, take the admin token printed on first start and open http://localhost:8081/ui/.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run Antirion in Docker and send one claude -p script through it by setting the base URL to http://localhost:8080 with a virtual key, to check whether it works with Claude Code.</li><li>Create a separate virtual key with a hard daily budget for overnight agents and /loop routines so they can&#x27;t burn money unattended.</li><li>Use the request log (tokens, cost, cache status) as a data source for the observability skill instead of estimating by hand where tokens go.</li></ul></div>
+      <a class="source" href="https://github.com/eliasbiondo/antirion" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
