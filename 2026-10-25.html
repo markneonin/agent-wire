@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 25.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">1 новость за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">25.10.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Харнесс GVS5H поднимает Qwen3.8-27B с 66.8% до 92.4% на LiveCodeBench; на HN результат оспаривают</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>25.10</span></div>
+      <h2>Харнесс GVS5H поднимает Qwen3.8-27B с 66.8% до 92.4% на LiveCodeBench; на HN результат оспаривают</h2>
+      <div class="gist"><p>GVS5H (репозиторий slee-persis/GVS5H, код MIT) - метод без дообучения: свежие экземпляры одной модели сами разбивают задачу и координируются через общую файловую систему, где лежат план, заметки и текущее решение (рабочее состояние в runs/ws/). Это «ledger-based zero-shot self-orchestration». Замер на LiveCodeBench: 100 последних сложных задач, pass@1, 11 моделей, прирост до 25.6 п.п. Qwen3.8-27B локально: 66.8% → 92.4%. Qwen3.8 Flash Next в оркестрации: 93.0% против 90.4% у Fable 5 при ~9% стоимости. Авторы связывают выигрыш с декомпозицией и сохранением контекста. Оговорки: для части моделей эффект нулевой или отрицательный; Opus 5 гоняли на старом каркасе одним проходом через OpenRouter, так что сравнение нечестное. В README нет описания ролей и проверки/голосования - это в paper/paper_latest.pdf.</p><p>На HN (около 50 комментариев) результату не верят: старый, вероятно загрязнённый бенчмарк; в оригинале режимы без инструментов, а харнесс добавил агентный цикл с делегированием и запуском Python; нет сравнения с другими харнессами и современными фронтир-моделями. Для тебя это не новый механизм: Workflow, субагенты и context.md уже дают оркестрацию с общим состоянием на диске. Интересно другое: идея, что план/заметки/решение в файлах и свежий воркер на каждый шаг заменяют размер модели. Первый шаг: запустить из codebase/v2-current `escalation/run_bench.py --engine multiagent --only lcb --lcb 100 --parallel 8` (нужен uv и API-ключ; `--engine single` - базовая линия) и сравнить с single на своей модели.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать `--engine single` против `--engine multiagent` на локальной модели (MLX) и увидеть, даёт ли оркестрация прирост именно на ней - у авторов для части моделей эффект нулевой или хуже.</li><li>Прочитать paper/paper_latest.pdf: как устроены роли экземпляров и обмен через plan/notes/solution - и сверить со своим task-context и context.md, нет ли чего позаимствовать.</li><li>Для дешёвых воркеров в Workflow добавить паттерн «свежий экземпляр на шаг, состояние только в файлах плана и заметок» и замерить на своей задаче против одного вызова.</li></ul></div>
+      <a class="source" href="https://github.com/slee-persis/GVS5H" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Import AI: The read operation timed out</li></ul></footer>
+</main>
+
+</body>
+</html>
