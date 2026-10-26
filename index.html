@@ -6,7 +6,7 @@
 <style>body { margin: 0 } img { max-width: 100% }</style>
 </head>
 <body>
-<title>Agent Wire 25.10.2026</title>
+<title>Agent Wire 26.10.2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -67,21 +67,21 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   <header class="masthead">
     <span class="label">1 новость за последние сутки агентной разработки и backend</span>
     <h1>Agent Wire</h1>
-    <span class="label">25.10.2026</span>
+    <span class="label">26.10.2026</span>
   </header>
-  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Харнесс GVS5H поднимает Qwen3.8-27B с 66.8% до 92.4% на LiveCodeBench; на HN результат оспаривают</a></li></ol>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Плагин super-sidebar: боковая панель с деревом агентов и потоком задач для Claude Code и Codex</a></li></ol>
 <h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
   <section class="stories">
 <h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
-      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>25.10</span></div>
-      <h2>Харнесс GVS5H поднимает Qwen3.8-27B с 66.8% до 92.4% на LiveCodeBench; на HN результат оспаривают</h2>
-      <div class="gist"><p>GVS5H (репозиторий slee-persis/GVS5H, код MIT) - метод без дообучения: свежие экземпляры одной модели сами разбивают задачу и координируются через общую файловую систему, где лежат план, заметки и текущее решение (рабочее состояние в runs/ws/). Это «ledger-based zero-shot self-orchestration». Замер на LiveCodeBench: 100 последних сложных задач, pass@1, 11 моделей, прирост до 25.6 п.п. Qwen3.8-27B локально: 66.8% → 92.4%. Qwen3.8 Flash Next в оркестрации: 93.0% против 90.4% у Fable 5 при ~9% стоимости. Авторы связывают выигрыш с декомпозицией и сохранением контекста. Оговорки: для части моделей эффект нулевой или отрицательный; Opus 5 гоняли на старом каркасе одним проходом через OpenRouter, так что сравнение нечестное. В README нет описания ролей и проверки/голосования - это в paper/paper_latest.pdf.</p><p>На HN (около 50 комментариев) результату не верят: старый, вероятно загрязнённый бенчмарк; в оригинале режимы без инструментов, а харнесс добавил агентный цикл с делегированием и запуском Python; нет сравнения с другими харнессами и современными фронтир-моделями. Для тебя это не новый механизм: Workflow, субагенты и context.md уже дают оркестрацию с общим состоянием на диске. Интересно другое: идея, что план/заметки/решение в файлах и свежий воркер на каждый шаг заменяют размер модели. Первый шаг: запустить из codebase/v2-current `escalation/run_bench.py --engine multiagent --only lcb --lcb 100 --parallel 8` (нужен uv и API-ключ; `--engine single` - базовая линия) и сравнить с single на своей модели.</p></div>
-      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать `--engine single` против `--engine multiagent` на локальной модели (MLX) и увидеть, даёт ли оркестрация прирост именно на ней - у авторов для части моделей эффект нулевой или хуже.</li><li>Прочитать paper/paper_latest.pdf: как устроены роли экземпляров и обмен через plan/notes/solution - и сверить со своим task-context и context.md, нет ли чего позаимствовать.</li><li>Для дешёвых воркеров в Workflow добавить паттерн «свежий экземпляр на шаг, состояние только в файлах плана и заметок» и замерить на своей задаче против одного вызова.</li></ul></div>
-      <a class="source" href="https://github.com/slee-persis/GVS5H" target="_blank" rel="noopener">Источник</a>
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>26.10</span></div>
+      <h2>Плагин super-sidebar: боковая панель с деревом агентов и потоком задач для Claude Code и Codex</h2>
+      <div class="gist"><p>claude-super-sidebar (Zafer-Liu, v0.2.0, Apache 2.0, 155 звёзд, создан 20.10.2026) показывает главного агента и субагентов одним деревом. Для каждого видны статус (running, waiting, completed, failed), модель, режим, роль, токены, использование контекста, время и число вызовов инструментов. Раскрываются детали на месте. Ниже идёт поток задач: операции группируются по стадиям, до 30 последних шагов, каждый новый запрос пользователя начинает новый поток. Заявления о проверке помечены как «со слов ассистента», «Operations completed» значит только выполнение инструментов. Всё считается локально, без лишнего вызова LLM.</p><p>В Claude Code это нативная панель плагина: lifecycle-хуки (hooks/register.tsx) плюс парсер по session.messages() и ui.render. Нужен Claude Desktop Code с ранним API панелей и CLI; разработано на engine 2.1.299. Для Codex отдельный локальный дашборд на Node.js 22.18+: раз в 2 секунды читает JSONL из ~/.codex/sessions (формат не стабильный API). Ограничения: извлечение плана в Claude не проверено, нет истории между сессиями, метрики субагентов бывают недоступны, нативная валидация не перепроверялась.</p><p>Для тебя: у тебя много вложенных лидов, фоновых агентов и Workflow, и дерево с токенами и контекстом по каждому узлу закрывает слепое пятно, а твой observability-скилл смотрит это постфактум. Это ранний API, поэтому ставь как эксперимент. Первый шаг: claude plugin marketplace add Zafer-Liu/claude-super-sidebar, затем claude plugin install super-sidebar@super-sidebar, новая сессия и /super-sidebar. Дашборд Codex: npm run codex -- --cwd &quot;/abs/path&quot;, затем http://127.0.0.1:4317.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить плагин super-sidebar и посмотреть на дерево Workflow/task-lead: видно ли токены и контекст по каждому субагенту?</li><li>Подсмотреть их приём: помечать заявления о проверке как «со слов ассистента», а «tools выполнены» отделять от «проверено» — добавить это правило в наш скилл process или Stop-хук?</li><li>Запустить Codex-дашборд на 127.0.0.1:4317 рядом с use-codex и vendor-review, чтобы видеть ход второго мнения вживую.</li></ul></div>
+      <a class="source" href="https://github.com/Zafer-Liu/claude-super-sidebar" target="_blank" rel="noopener">Источник</a>
     </article>
 <h2 class="section-title">Python и backend</h2>
   </section>
-  <footer class="problems"><span>Источники с проблемами</span><ul><li>Import AI: The read operation timed out</li></ul></footer>
+  
 </main>
 
 </body>

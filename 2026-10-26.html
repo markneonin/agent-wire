@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 26.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">1 новость за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">26.10.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Плагин super-sidebar: боковая панель с деревом агентов и потоком задач для Claude Code и Codex</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>26.10</span></div>
+      <h2>Плагин super-sidebar: боковая панель с деревом агентов и потоком задач для Claude Code и Codex</h2>
+      <div class="gist"><p>claude-super-sidebar (Zafer-Liu, v0.2.0, Apache 2.0, 155 звёзд, создан 20.10.2026) показывает главного агента и субагентов одним деревом. Для каждого видны статус (running, waiting, completed, failed), модель, режим, роль, токены, использование контекста, время и число вызовов инструментов. Раскрываются детали на месте. Ниже идёт поток задач: операции группируются по стадиям, до 30 последних шагов, каждый новый запрос пользователя начинает новый поток. Заявления о проверке помечены как «со слов ассистента», «Operations completed» значит только выполнение инструментов. Всё считается локально, без лишнего вызова LLM.</p><p>В Claude Code это нативная панель плагина: lifecycle-хуки (hooks/register.tsx) плюс парсер по session.messages() и ui.render. Нужен Claude Desktop Code с ранним API панелей и CLI; разработано на engine 2.1.299. Для Codex отдельный локальный дашборд на Node.js 22.18+: раз в 2 секунды читает JSONL из ~/.codex/sessions (формат не стабильный API). Ограничения: извлечение плана в Claude не проверено, нет истории между сессиями, метрики субагентов бывают недоступны, нативная валидация не перепроверялась.</p><p>Для тебя: у тебя много вложенных лидов, фоновых агентов и Workflow, и дерево с токенами и контекстом по каждому узлу закрывает слепое пятно, а твой observability-скилл смотрит это постфактум. Это ранний API, поэтому ставь как эксперимент. Первый шаг: claude plugin marketplace add Zafer-Liu/claude-super-sidebar, затем claude plugin install super-sidebar@super-sidebar, новая сессия и /super-sidebar. Дашборд Codex: npm run codex -- --cwd &quot;/abs/path&quot;, затем http://127.0.0.1:4317.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить плагин super-sidebar и посмотреть на дерево Workflow/task-lead: видно ли токены и контекст по каждому субагенту?</li><li>Подсмотреть их приём: помечать заявления о проверке как «со слов ассистента», а «tools выполнены» отделять от «проверено» — добавить это правило в наш скилл process или Stop-хук?</li><li>Запустить Codex-дашборд на 127.0.0.1:4317 рядом с use-codex и vendor-review, чтобы видеть ход второго мнения вживую.</li></ul></div>
+      <a class="source" href="https://github.com/Zafer-Liu/claude-super-sidebar" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
