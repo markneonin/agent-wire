@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 27.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">3 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">27.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Theo (t3dotgg) published tstack: skills that take a PR from change to merge unattended</a></li><li><a href="#s2">pitupitu: an open-source Rust agent that lets you start and unblock Claude Code and Codex by voice from your phone, on your own machines</a></li><li><a href="#s3">Simon Willison evaluated webframe, which runs a web page like a program: fine as a scraper, rough as a sandbox</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>27.10</span></div>
+      <h2>Theo (t3dotgg) published tstack: skills that take a PR from change to merge unattended</h2>
+      <div class="gist"><p>tstack is a t3dotgg repo (MIT, created 2026-10-24, ~1.7k stars, 3 commits) of skills the author uses daily; it works with Claude Code and Codex. The main skill, `full-send` (trigger &quot;full send&quot;), takes a change to a merged PR: it proves the change works, reviews it, files the PR, monitors it and merges. `full-stop` does the same but stops when the PR is ready for you to merge. The chain underneath: `sol-loop` (reviews with GPT Sol in a loop until both agents agree), `file-pr` (short PR that leads with the problem), `babysit-pr` (watches CI and review bots and fixes real findings, using a python3 `pr-wait` script). Also: `takeover` (finish someone else&#x27;s PR, branch or agent thread while keeping their credit), `modernize` (rebases an old PR and decides whether it should still exist), `leaving-pr-comments` (formats comments posted on your behalf). Its `council` gets review from three models from different providers and loops until they agree.</p><p>You already have council, so what is new is the whole PR pipeline: babysit, takeover, modernize. You have feature-kickoff and feature-build, but nothing in your list is an autonomous loop through CI and review bots to merge. It needs an authenticated `gh` and python3. First step: clone the repo and copy the contents of `skills` into `~/.claude/skills/`, starting with `babysit-pr`. The author suggests keeping personal settings (which models sit on the council) in CLAUDE.md so updates don&#x27;t overwrite them.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Copy `babysit-pr` (with its `pr-wait` script) into `~/.claude/skills/` and try it on one PR: it watches CI and bots and fixes real findings - we have no loop like that through to merge</li><li>Add a final step to feature-kickoff in the spirit of `full-stop`: drive the PR to ready-to-merge and stop</li><li>Borrow the `takeover`/`modernize` idea: a skill for finishing an old branch or PR that first decides whether it should still exist and keeps the original author&#x27;s credit</li><li>Borrow the `file-pr` idea: a CLAUDE.md rule that PR descriptions are short and lead with the problem</li></ul></div>
+      <a class="source" href="https://github.com/t3dotgg/tstack" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>27.10</span></div>
+      <h2>pitupitu: an open-source Rust agent that lets you start and unblock Claude Code and Codex by voice from your phone, on your own machines</h2>
+      <div class="gist"><p>pitupitu (klarluft, Apache 2.0, 212 stars, repo created 17 Oct 2026) is a &quot;box agent&quot;: a process on each of your machines (macOS or Linux) that acts as the client for the hosted pitupitu.chat service. You talk by voice from a phone or browser to start, check, or unblock Claude Code and Codex sessions. The cloud handles voice and conversation (the README doesn&#x27;t describe the pipeline, only says &quot;audio is never stored&quot;). The agent dials out over a WebSocket to wss://api.pitupitu.chat/v1/box, so there are no open ports, VPN, or certificates. Sessions run in herdr, a terminal workspace manager for coding agents; the herdr server survives agent restarts, and opening herdr locally shows the same sessions. Your own unmodified claude and codex stay signed in by you; pitupitu never reads their credentials or adds permission flags. The cloud may only request a fixed set of operations: list/open/close workspaces and tabs, start an agent in a pane, send prompts or keys, read a screen, wait, update. No shell, no arbitrary commands. Logs hold metadata only; history is on by default (7 days, newest 300 sessions, prompts cut to 1000 chars, answers to 600).</p><p>For you this is not a replacement for the Telegram bot with Claude Code but a second channel: voice and several machines at once, through a third-party cloud (only the client is open source). Downsides: you must trust pitupitu.chat, and the chain depends on herdr. First step: on a test machine run `brew install klarluft/tap/pitupitu`, then `pitupitu setup` (code or QR sign-in, installs herdr, starts a launchd service) and `pitupitu status`. Read docs/box-link.md first for the allowed operations list.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install pitupitu on one test machine (`pitupitu setup`, `pitupitu status`) and compare the voice channel with our Telegram bot for Claude Code?</li><li>Read docs/box-link.md and calls.rs: a fixed operation list with no shell is a model for limiting what our bot and skills can do. Adopt the pattern?</li><li>Try herdr as a manager for long-lived Claude Code/Codex sessions that survive restarts, instead of hand-managed terminals?</li><li>Copy their pattern of outbound-only connection with a per-machine key for remote access to our agents?</li></ul></div>
+      <a class="source" href="https://github.com/klarluft/pitupitu" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Simon Willison</span><span>26.10</span></div>
+      <h2>Simon Willison evaluated webframe, which runs a web page like a program: fine as a scraper, rough as a sandbox</h2>
+      <div class="gist"><p>webframe is a small Go tool by Jeff Lindsay, built on the glaze library. You point it at a URL or local file, it runs the page in a hidden headless web view, sends console.log() to stdout and exceptions to stderr. It bundles no browser: glaze uses the system engine (WKWebView on macOS, WebKitGTK on Linux, WebView2 on Windows). Simon Willison compares it to his shot-scraper: much smaller and with no Playwright dependency.</p><p>He had Claude Opus 5.5 explore and run webframe, build prototypes and write a report on two uses: as a sandbox, and as a scraper using the patterns of shot-scraper&#x27;s javascript command. Verdict: fast and lightweight, suitable for scraping, performance comparable to shot-scraper. Rough edges: CSP failures, a 0×0 viewport, hanging page loads, missing HTTP metadata, limited browser controls. The page gives no timings and no security details; those are in the report.</p><p>For your setup it is a light alternative to Playwright/Chrome for scripts that just run JS on a page and capture the output. I would not use it to isolate agent code without reading the report first. First step: look at github.com/tractordev/webframe and the report at github.com/simonw/research/tree/main/webframe-evaluation, starting with the sandbox section.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Read the sandbox section of simonw/research/webframe-evaluation before considering webframe as isolation for agent code</li><li>Try webframe instead of Playwright in a simple scraping script (URL → JS → console.log to stdout) and compare it with the current setup on CSP failures and hanging page loads</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Oct/26/webframe-evaluation/" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>

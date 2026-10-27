@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 27.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">3 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">27.10.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Тео (t3dotgg) выложил tstack: набор скиллов, которые доводят PR до мержа без присмотра</a></li><li><a href="#s2">pitupitu: открытый агент на Rust, чтобы голосом с телефона запускать и разблокировать Claude Code и Codex на своих машинах</a></li><li><a href="#s3">Саймон Уиллисон проверил webframe: запуск веб-страницы как программы, годится для скрапинга, как песочница сомнительна</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>27.10</span></div>
+      <h2>Тео (t3dotgg) выложил tstack: набор скиллов, которые доводят PR до мержа без присмотра</h2>
+      <div class="gist"><p>tstack - репозиторий t3dotgg (MIT, создан 2026-10-24, ~1.7k звёзд, 3 коммита) со скиллами, которыми автор пользуется ежедневно; работают в Claude Code и Codex. Главный скилл `full-send` (триггер «full send») берёт изменение и ведёт до смерженного PR: доказывает, что оно работает, прогоняет ревью, заводит PR, следит за ним и мержит. `full-stop` делает то же, но останавливается, когда PR готов к мержу. Внутри цепочка: `sol-loop` (ревью GPT Sol в цикле, пока оба агента не согласятся), `file-pr` (короткий PR, начинающийся с проблемы), `babysit-pr` (следит за CI и ревью-ботами, чинит реальные замечания через скрипт `pr-wait` на python3). Отдельно: `takeover` (доделать чужой PR, ветку или тред агента с сохранением авторства), `modernize` (ребейзит старый PR и решает, нужен ли он вообще), `leaving-pr-comments` (формат комментариев от вашего имени). Свой `council` у них - ревью от трёх моделей разных провайдеров до согласия.</p><p>Совет с `council` у вас уже есть, так что новое - это PR-конвейер целиком: babysit, takeover, modernize. У вас есть feature-kickoff и feature-build, но автономного цикла «CI и ботов-ревьюеров до мержа» в списке нет. Нужны `gh` с авторизацией и python3. Первый шаг: склонировать репозиторий и скопировать содержимое `skills` в `~/.claude/skills/`, начав с `babysit-pr`. Личные настройки (какие модели в council) автор советует держать в CLAUDE.md, чтобы обновления не затирали.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Скопировать `babysit-pr` (со скриптом `pr-wait`) в `~/.claude/skills/` и проверить на одном PR: следит за CI и ботами, чинит реальные замечания - у нас такого цикла до мержа нет</li><li>Добавить в feature-kickoff финальный шаг в духе `full-stop`: довести PR до состояния «готов к мержу» и остановиться</li><li>Взять идею `takeover`/`modernize`: скилл для доделки старой ветки или PR, который сначала решает, нужен ли он ещё, и сохраняет авторство</li><li>Взять идею `file-pr`: правило в CLAUDE.md, что описание PR начинается с проблемы и короткое</li></ul></div>
+      <a class="source" href="https://github.com/t3dotgg/tstack" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>27.10</span></div>
+      <h2>pitupitu: открытый агент на Rust, чтобы голосом с телефона запускать и разблокировать Claude Code и Codex на своих машинах</h2>
+      <div class="gist"><p>pitupitu (klarluft, Apache 2.0, 212 звёзд, репозиторий создан 17 октября 2026) — это «box agent»: процесс, который крутится на каждой вашей машине (macOS или Linux) и служит клиентом к облачному сервису pitupitu.chat. Вы говорите голосом с телефона или из браузера, чтобы запустить, проверить или «разблокировать» сессии Claude Code и Codex. Голос и диалог обрабатывает облако (как именно, README не описывает, заявлено только «аудио не хранится»). Агент сам открывает исходящий WebSocket на wss://api.pitupitu.chat/v1/box, поэтому не нужны открытые порты, VPN и сертификаты. Сессии живут в herdr (терминальный менеджер для кодинг-агентов); herdr-сервер переживает перезапуск агента, и те же сессии видны, если открыть herdr локально. Ваши claude и codex остаются немодифицированными, вы входите в них сами; pitupitu не трогает их креды и не добавляет permission-флаги. Облаку доступен фиксированный набор операций: список/открытие/закрытие workspace и tab, запуск агента в pane, отправка промптов и клавиш, чтение экрана, ожидание, обновление. Шелла и произвольных команд нет. Логи — только метаданные; история по умолчанию включена (7 дней, до 300 сессий, промпт режется до 1000 символов, ответ до 600).</p><p>Для вас это не замена Telegram-боту с Claude Code, а второй канал: голос и несколько машин сразу, но через стороннее облако (код закрытый, на машине только клиент). Минус: нужно доверять pitupitu.chat, а цепочка зависит от herdr. Первый шаг: на тестовой машине выполнить `brew install klarluft/tap/pitupitu`, затем `pitupitu setup` (вход по коду или QR, ставит herdr, поднимает launchd-сервис) и `pitupitu status`. Перед этим прочитать docs/box-link.md со списком разрешённых операций.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить pitupitu на одну тестовую машину (`pitupitu setup`, `pitupitu status`) и сравнить голосовой канал с нашим Telegram-ботом для Claude Code?</li><li>Прочитать docs/box-link.md и calls.rs: фиксированный список операций без шелла — взять как образец ограничения прав для нашего бота и скиллов?</li><li>Попробовать herdr как менеджер долгоживущих сессий Claude Code/Codex, переживающий перезапуски, вместо ручных терминалов?</li><li>Скопировать у них схему «только исходящее соединение, отдельный ключ на машину» для удалённого доступа к нашим агентам?</li></ul></div>
+      <a class="source" href="https://github.com/klarluft/pitupitu" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Simon Willison</span><span>26.10</span></div>
+      <h2>Саймон Уиллисон проверил webframe: запуск веб-страницы как программы, годится для скрапинга, как песочница сомнительна</h2>
+      <div class="gist"><p>webframe — маленький инструмент Джеффа Линдсея на Go (поверх библиотеки glaze): указываешь URL или локальный файл, страница выполняется в скрытом headless web view, console.log() идёт в stdout, исключения — в stderr. Браузер не вшит: glaze берёт системный движок (WKWebView на macOS, WebKitGTK на Linux, WebView2 на Windows). Саймон Уиллисон сравнивает его со своим shot-scraper: намного меньше и без Playwright.</p><p>Он поручил Claude Opus 5.5 изучить и запустить webframe, собрать прототипы и написать отчёт по двум сценариям: песочница и скрапер по паттернам из shot-scraper javascript. Итог: быстро и легко, для скрапинга годится, скорость сопоставима с shot-scraper. Шероховатости: сбои из-за CSP, viewport 0×0, зависающие загрузки страниц, нет HTTP-метаданных, мало управления браузером. Цифр и деталей по безопасности на странице нет, они в отчёте.</p><p>Для твоего сетапа это лёгкая альтернатива Playwright/Chrome для скриптов, где нужно просто выполнить JS на странице и забрать вывод. Но как изоляцию для кода агента без чтения отчёта брать не стоит. Первый шаг: github.com/tractordev/webframe и отчёт github.com/simonw/research/tree/main/webframe-evaluation, посмотреть раздел про песочницу.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Прочитать раздел про песочницу в отчёте simonw/research/webframe-evaluation, прежде чем думать о webframe как изоляции для кода агентов</li><li>Попробовать webframe вместо Playwright в простом скрипте скрапинга (URL → JS → console.log в stdout) и сравнить с текущим решением на CSP и зависаниях загрузки</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Oct/26/webframe-evaluation/" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
