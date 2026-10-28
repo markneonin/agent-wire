@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 28.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">3 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">28.10.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Kinetograph: рендер видео на Rust/GPU без Chrome, совместим с Remotion, есть MCP</a></li><li><a href="#s2">Автор запустил офлайн-агента OpenCode + Ollama + Qwen3.5 9B на Mac и починил баг без сети</a></li></ol>
+<h2 class="section-title">Python и backend</h2><ol class="contents" style="counter-reset: item 2"><li><a href="#s3">ty 0.0.93: в preview появились baseline-файлы диагностик, плюс исправления паники и зависания</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>28.10</span></div>
+      <h2>Kinetograph: рендер видео на Rust/GPU без Chrome, совместим с Remotion, есть MCP</h2>
+      <div class="gist"><p>Kinetograph (v0.2.0, Beta, репозиторий создан 2026-10-23, 234 звезды) - движок программного видео для агентов. Видео пишется на TypeScript с API Remotion (плюс CSS, SVG, Canvas 2D, WebGL, Web Audio). Импорты `remotion` и `@remotion/*` подменяются собственной реализацией, поэтому готовые Remotion-проекты должны идти без правок. Node гоняет код проекта и строит дерево кадра, а Rust-аддон (napi-rs, wgpu + Skia, FFmpeg) рисует кадры на GPU. По README пиксели не попадают в JS, Chrome для рендера не нужен. Цифры на Apple M4 с `--concurrency 4`: вертикальный ролик 33 с (988 кадров) - 24 с, 37 с в 1080p - 13 с, launch-фильм на 1184 кадра со звуком - 26 с. Каждая команда принимает `--json`, есть `still`, `strip` (раскадровка), `inspect --frame N --json`, `studio` и `mcp`. Лицензия PolyForm Small Business (бесплатно для компаний меньше 100 человек и дохода до 1 млн USD), API может меняться.</p><p>У тебя уже есть Remotion-пайплайн и MCP, так что новое здесь - замена Chrome-рендера на нативный и интерфейс, рассчитанный на агента: `still`/`strip`/`inspect` дают агенту посмотреть кадр и дерево сцены без полного рендера. Studio выделяет слои и шлёт агенту выбор, исходные места и скриншот области по ACP; проверен только Claude Code. Первый шаг: на macOS `brew install ffmpeg pkgconf`, собрать репозиторий (`npm ci &amp;&amp; npm run build`) и прогнать один из твоих Remotion-проектов через `npx kinetograph render &lt;index.tsx&gt; --concurrency 4 -o out/x.mp4`, сравнив время и результат с текущим рендером.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать один из наших Remotion-проектов через `npx kinetograph render ... --concurrency 4` и сравнить время и вывод с текущим рендером - стоит ли переходить?</li><li>Добавить в видео-скилл шаг самопроверки агента: `kinetograph strip -n 12` и `inspect --frame N --json` вместо полного рендера на каждую правку.</li><li>Подключить `npx kinetograph mcp` как MCP-сервер к монтажному проекту и посмотреть, заменяет ли он наши скрипты рендера.</li></ul></div>
+      <a class="source" href="https://github.com/0xS4N4TG/kinetograph" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Latent Space</span><span>27.10</span></div>
+      <h2>Автор запустил офлайн-агента OpenCode + Ollama + Qwen3.5 9B на Mac и починил баг без сети</h2>
+      <div class="gist"><p>Статья Rittika Jindal (Latent Space, 27.10.2026): кодинг-агент полностью на ноутбуке без интернета, потому что в предгорьях Гималаев часто пропадает связь. Стек: OpenCode 1.19.4 (агент), Ollama (сервер модели), qwen3.5:9b (загрузка около 6,6–7,6 ГБ; по оценке нужно 12–16 ГБ RAM, а при контексте 64k может понадобиться больше). Ollama запускается так: OLLAMA_HOST=127.0.0.1:11434 OLLAMA_NO_CLOUD=1 OLLAMA_CONTEXT_LENGTH=65536 ollama serve. OpenCode стартует с --pure (без внешних плагинов). В opencode.json model и small_model указывают на локальную модель, baseURL равен http://127.0.0.1:11434/v1, веб-инструменты закрыты, правки и shell идут через запрос разрешения. По карточке Qwen, 9B даёт LiveCodeBench v6 65.6 и BFCL-V4 66.1 (у 4B: 55.8 и 50.3). Это цифры из карточки модели, а не замеры на ноутбуке.</p><p>Проверка скромная: однострочный баг в expense_total.py (надо total += Decimal(amount)), 3 из 5 тестов падали, после правки прошли все 5, тесты агент не менял. Скорость не измерена, крупные репозитории не пробовали. Агент предложил pytest вместо unittest, поэтому автор советует называть точную команду тестов. Это запасной режим без сети, а не замена Claude Code; opencode и локальные модели на MLX у тебя уже есть, так что нового мало. Первый шаг: ollama pull qwen3.5:9b, поднять ollama serve с флагами выше, отключить Wi-Fi и проверить curl --noproxy &#x27;*&#x27; --fail http://127.0.0.1:11434/api/tags. Конфиг лежит в репозитории RittikaJ/opencode-qwen-local-setup.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Скопировать из репозитория RittikaJ/opencode-qwen-local-setup opencode.json (локальный провайдер, закрытые веб-инструменты, запрос разрешений) как офлайн-профиль для opencode?</li><li>Автор проверял офлайн-режим двумя curl: к 127.0.0.1:11434/api/tags должен отвечать, к example.com должен падать. Добавить такую проверку в скилл или скрипт запуска локальной модели?</li><li>Агент взял pytest вместо unittest. Добавить в CLAUDE.md проектов явную команду тестов и правило «не менять тесты, ничего не устанавливать» в промпты для слабых локальных моделей?</li><li>Прогнать qwen3.5:9b через Ollama в нашем скилле vendor-review как бесплатного ревьюера без сети?</li></ul></div>
+      <a class="source" href="https://latent.space/p/offline-coding/" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>ty releases</span><span>28.10</span></div>
+      <h2>ty 0.0.93: в preview появились baseline-файлы диагностик, плюс исправления паники и зависания</h2>
+      <div class="gist"><p>ty — type checker для Python от Astral (авторы ruff и uv). В релизе 0.0.93 от 2026-10-28 главное — preview-функция diagnostic baselines (#27636): она помогает внедрить ty в проект, где уже есть ошибки. В pyproject.toml задаёшь [tool.ty] baseline = &quot;ty-baseline.json&quot;, а командой ty check --update-baseline записываешь текущие диагностики. Дальше совпадающие с baseline диагностики убираются из вывода CLI, а в language server показываются как подсказки (hints). Формат файла в preview может измениться.</p><p>Остальное — исправления. Починена паника при проверке truthiness в цикле (#29759) и зависание при отрицании рекурсивных union из instance-типов (#29652). Поправлены сужение типов строк и int при сравнении с членами enum (#29743), сужение после guard в match (#29558), @override на реализациях overload в stub-файлах (#29470), объединение ограничений у повторяющихся ParamSpec (#29172), а также не создаётся синтетический первичный ключ для абстрактных Django-моделей (#29744). Есть ряд оптимизаций скорости: match по большим union, длинные булевы выражения, а Linux x86-64 сборки оптимизированы через LLVM BOLT.</p><p>Для твоего стека (FastAPI, Pydantic, SQLAlchemy) baseline полезен, если подключаешь ty к старому сервису: CI падает только на новых ошибках, а старый долг не блокирует. Первый шаг: обновить ty до 0.0.93, добавить baseline в [tool.ty], выполнить ty check --update-baseline и закоммитить ty-baseline.json. Раз формат может измениться, после обновления ty файл придётся пересоздать.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Подключить ty к старому сервису через baseline: добавить baseline = &quot;ty-baseline.json&quot; в [tool.ty] и записать долг командой ty check --update-baseline - сделать так?</li><li>Добавить в CI шаг ty check, который падает только на новых диагностиках сверх baseline - настроить?</li><li>Закрепить версию ty (0.0.93) в dev-зависимостях и пересоздавать baseline при обновлении, так как формат в preview может поменяться - добавить это правило в README проекта?</li></ul></div>
+      <a class="source" href="https://github.com/astral-sh/ty/releases/tag/0.0.93" target="_blank" rel="noopener">Источник</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>
