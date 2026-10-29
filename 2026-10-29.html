@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 29.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">29.10.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Floorplan: плагин для Claude Code и Codex рисует интерактивную карту кодовой базы простым языком</a></li><li><a href="#s2">RudderStack открыла DevBox: автономный агент «тикет → draft PR», по одной песочнице на задачу и без реальных ключей внутри</a></li><li><a href="#s3">Ryugi: форк Superpowers, где агент рисует макеты UI и согласует их в браузере до спеки и TDD</a></li><li><a href="#s4">Скилл /effects для Claude Code: накладывает эффекты на говорящую голову с трекингом лица, слои уходят за голову</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>29.10</span></div>
+      <h2>Floorplan: плагин для Claude Code и Codex рисует интерактивную карту кодовой базы простым языком</h2>
+      <div class="gist"><p>Floorplan (haydenschmitty/floorplan, MIT, v0.2.2, создан 27.10.2026, 306 звёзд) — плагин для Claude Code и Codex. Скрипты на чистом Node 18+ без зависимостей собирают файлы, импорты, роуты и веб-запросы; Claude или Codex решает, из каких частей состоит приложение, и описывает каждый файл. Результат — floorplan/index.html: зумируемая карта от всего приложения до одного файла, связи фронтенд-запросов с серверными эндпоинтами (в том числе между репозиториями), вид «от экрана», Ask-строка (отвечает мини-картой и пошаговым разбором), Health check (захардкоженные секреты — показывает где, не значения; эндпоинты без авторизации; неиспользуемые и слишком большие файлы, к каждому есть fix-промпт) и доска Recent work с тем, что изменил ИИ. При обновлении перечитываются только изменённые файлы, большие проекты делятся между параллельными помощниками. API-ключи не нужны, работает на вашей подписке. Папка floorplan/ и секция в CLAUDE.local.md не коммитятся; код, .gitignore и CLAUDE.md не трогаются. Правки architecture.json и descriptions/ переживают обновления. Аналитики нет, сервер слушает только локально.</p><p>У тебя уже есть codebase-memory MCP, скилл code-investigation и артефакты; Floorplan — это скорее визуальный слой для человека, а не память для агента. Новое: Health check с готовыми fix-промптами и сопоставление фронт-запросов с эндпоинтами. Ограничение: Ask-строке нужен Claude Code CLI. Первый шаг: `claude plugin marketplace add haydenschmitty/floorplan`, затем `claude plugin install floorplan@floorplan`, новая сессия и фраза «Make me a floorplan of this app».</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить плагин на один проект и сравнить его Health check (секреты, эндпоинты без авторизации, неиспользуемые файлы) с нашим /code-review: что он находит дополнительно?</li><li>Взять идею «fix-промпт к каждой находке» в наш скилл code-investigation или observability: находка сразу превращается в готовое задание для субагента.</li><li>Попробовать запрос «If I change the users table, what breaks?» как шаблон для анализа влияния изменений перед feature-build и сравнить с ответами codebase-memory.</li><li>Перенять приём «сгенерированное не коммитим»: писать артефакты в CLAUDE.local.md и папку, которая сама себя игнорирует, чтобы не трогать общий CLAUDE.md.</li></ul></div>
+      <a class="source" href="https://github.com/haydenschmitty/floorplan" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>29.10</span></div>
+      <h2>RudderStack открыла DevBox: автономный агент «тикет → draft PR», по одной песочнице на задачу и без реальных ключей внутри</h2>
+      <div class="gist"><p>DevBox (MIT, rudderlabs/devbox, репозиторий создан 27.10.2026) — харнесс, который вы поднимаете у себя: даёте тикет, он планирует, пишет код, гоняет тесты, ревьюит свой diff и открывает draft PR. RudderStack заявляет, что мержит около 35% своих внутренних PR, merge rate 80%. Конвейер: orientation → planning → plan review (гейт: код не пишется, пока план не прошёл) → implementation → self-review → draft PR с «knowledge commit».</p><p>Архитектура: control-plane (хранит задачи, поднимает по одной песочнице на задачу через OpenSandbox, LLM не вызывает), harness внутри песочницы на DeepAgents и iron-proxy между песочницей и GitHub/LLM. В песочнице лежат только заглушки токенов, прокси подменяет их на настоящие на выходе и разрешает запись только в перечисленные репозитории. Ключи хранятся в Keychain/libsecret или в env. Комментарии в PR читаются только от доверенных пользователей (по умолчанию список пуст). Поддержаны OpenAI Responses API и Anthropic Messages API, модель и effort задаются по этапам. Только GitHub; задачи берутся из CLI и Linear; в main не пушит и не мержит. Нужны Docker с 8 ГБ, Bun 1.4.4+, установка около 15 минут.</p><p>Для вас пересечение с Workflow, субагентами и worktree большое, нового тут два: схема «заглушка токена в песочнице, реальный ключ подставляет egress-прокси» и жёсткий гейт ревью плана перед кодом. Ваш скилл secrets решает похожую задачу на стороне Keychain, но не изоляцию. Первый шаг: git clone https://github.com/rudderlabs/devbox.git, cp devbox.config.example.json devbox.config.json, bun run quickstart, затем bun run devbox create &quot;Add a /health endpoint to your-org/your-repo&quot;.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Секреты через прокси: для headless-запусков `claude -p` и ботов отдавать агенту только токен-заглушку, а настоящий подставлять на egress-прокси с белым списком репозиториев на запись — добавить это как вариант в скилл secrets?</li><li>Гейт плана: в feature-build не начинать implementation, пока отдельный ревьюер не пропустил план (как plan review в DevBox) — сделать это жёстким условием, а не рекомендацией?</li><li>Доверенный список авторов: если бот читает комментарии в PR/чатах, принимать только от явного allowlist, по умолчанию пустого — добавить в правила бота?</li><li>Knowledge commit: к draft PR добавлять отдельный коммит с выводами по задаче — попробовать в task-context как финальный шаг?</li></ul></div>
+      <a class="source" href="https://github.com/rudderlabs/devbox" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>29.10</span></div>
+      <h2>Ryugi: форк Superpowers, где агент рисует макеты UI и согласует их в браузере до спеки и TDD</h2>
+      <div class="gist"><p>Ryugi (流儀) — workflow-плагин для кодинг-агентов, форк Superpowers v7.0.0. Цепочка: brainstorm → макеты → спека → TDD → verify; скиллы срабатывают сами. Идея: агент не описывает UI словами, а показывает. Artboard — несколько вариантов дизайна рядом, их можно комментировать, отвечать в терминале (`q1 → b`). Document — дизайн-док с диаграммами, таблицами и кодом: комментарии к предложениям, правки на месте сливаются с правками агента. HTML — одностраничные прототипы с ползунками, значения контролов сохраняются, когда агент переписывает страницу. Verify — скриншоты собранной реализации рядом с утверждённым дизайном: принять или отклонить, отклонённое возвращается исправленным. Library — локальный браузер артефактов: `npx ryugi-artifacts`. Ставится в Claude Code, Gemini CLI, Codex, Cursor, OpenCode и ещё ~10 harness. Лицензия: скиллы MIT, приложение artifacts — AGPL-3.0. Репо создан 19.10.2026, 207 звёзд, 352 коммита. Подробности про спеку, TDD и субагентов на странице не раскрыты (они в docs/workflow.md).</p><p>У тебя уже есть superpowers, review-page, feature-build и plannotator, так что сам цикл «брейншторм → спека → TDD» знаком. Новое здесь — визуальный слой: сравнение вариантов UI рядом, комментарии по фрагментам и финальная сверка скриншота с утверждённым макетом. Первый шаг: `/plugin marketplace add Innei/ryugi`, затем `/plugin install ryugi@ryugi-dev` и в тестовом проекте написать `Let&#x27;s make a react todo list`. Либо просто запусти `npx ryugi-artifacts` и посмотри библиотеку.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить в feature-build/review-page этап Verify: скриншот реализации рядом с утверждённым макетом, принять или отклонить, как в Ryugi.</li><li>Для UI-задач показывать в review-page 2-3 варианта дизайна рядом с ответом вида `q1 → b` в терминале вместо текстового описания.</li><li>Попробовать `npx ryugi-artifacts` как локальную библиотеку артефактов и сравнить с нашими Artifacts и backlog-hub.</li></ul></div>
+      <a class="source" href="https://github.com/Innei/ryugi" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>29.10</span></div>
+      <h2>Скилл /effects для Claude Code: накладывает эффекты на говорящую голову с трекингом лица, слои уходят за голову</h2>
+      <div class="gist"><p>Репозиторий Vibha-Ramprakash/claude-video-effects (MIT, 309 звёзд, 7 коммитов, создан 22.10.2026) — это один скилл для Claude Code. Кидаешь в чат вертикальное видео с собой в кадре и пишешь, например, `/effects orbit from 3 to 6 seconds`. Claude смотрит несколько кадров, составляет план на утверждение, потом рендерит `yourvideo_effects.mp4` рядом с оригиналом, звук не трогает. В заголовке репо «36 эффектов», в README — 45 (orbit, spotlight, comment-box, glass-widgets, tier-list, match-cut и др.); эффекты можно стекать в одном запросе, время задаётся словами, в том числе по фразе из речи.</p><p>Под капотом: трекинг лица OpenCV YuNet, вырезание человека MediaPipe Selfie Segmenter (отсюда слои «за головой»), ffmpeg и Python, 1080p по умолчанию, 4K по запросу. Модели лежат в `models/`, скрипты в `scripts/`, шрифты с лицензиями в `fonts/`. Цифры для графиков и счётчиков нужно давать свои; для orbit, noise, phone-fan, profile-wall нужна папка скриншотов. Звука и субтитров нет.</p><p>Для тебя это не новая механика (скиллы, Remotion и montage у тебя есть), а готовый образец скилла-пайплайна: SKILL.md + скрипты + модели в одном репо, «план на утверждение → рендер». Пригодится как источник приёмов трекинга и маски человека для Remotion. Первый шаг: `git clone https://github.com/Vibha-Ramprakash/claude-video-effects ~/.claude/skills/effects`, перезапустить Claude Code и прогнать `/effects orbit` на коротком клипе.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Взять из репо связку YuNet + MediaPipe Selfie Segmenter и добавить в наш Remotion-пайплайн слой «текст за головой» как отдельный шаг в скилле montage?</li><li>Скопировать структуру скилла (SKILL.md + scripts/ + models/ + fonts/ в одном репо, автоустановка зависимостей при первом запуске) для наших скиллов с тяжёлыми зависимостями?</li><li>Перенять шаг «Claude смотрит несколько кадров и показывает план на утверждение до рендера» в скилл montage перед дорогим рендером?</li></ul></div>
+      <a class="source" href="https://github.com/Vibha-Ramprakash/claude-video-effects" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
