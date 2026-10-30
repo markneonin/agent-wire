@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 30.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">30.10.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Jim Manico выложил skill /threat-model: агент строит модель угроз репозитория со ссылками на файлы и строки</a></li><li><a href="#s2">Spawn: мультиплеерную игру разрабатывает рой агентов на Fable, выкладка в прод каждый час</a></li><li><a href="#s3">Kensaku: локальный поисковик по файлам и скриншотам с OCR и MCP-доступом для агентов</a></li></ol>
+<h2 class="section-title">Python и backend</h2><ol class="contents" style="counter-reset: item 3"><li><a href="#s4">Pydantic 2.14: убрали Python 3.9, добавили 3.15, закрыли две уязвимости</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>30.10</span></div>
+      <h2>Jim Manico выложил skill /threat-model: агент строит модель угроз репозитория со ссылками на файлы и строки</h2>
+      <div class="gist"><p>grim-prompter (MIT, 185 звёзд, создан 28.10.2026) — набор промптов и один skill `threat-model` для Claude Code и Codex CLI. Агент читает репозиторий строго read-only, пишет только в `threat-model/` и обязан давать к каждой находке путь к файлу и строке. Чего не видно в коде, записывается как gap, а не додумывается. Внутри 36 архитектур (Web, API, Microservices, RAG, Agentic AI, OT/ICS, блокчейн и др.) в вариантах quick и deep и 29 методов: STRIDE, PASTA, LINDDUN, STPA, MAESTRO, MITRE ATLAS, ATT&amp;CK, CVSS, DREAD и другие. Deep-прогон идёт в шесть стадий (scope, моделирование, анализ угроз, challenge, план обработки, отчёт), каждая читает файл предыдущей. На выходе `SYSTEM_UNDER_REVIEW.md`, `report.md` и JSON-артефакты. Для MCP-серверов и инструментов агента он сопоставляет tools с backend-учётками и правами, неизвестные права помечает как gap. Режим `change main...feature` сравнивает ветку с сохранённым JSON-базлайном. Ограничения: промпты — черновики; сборки, тесты и сеть только с явного разрешения; план проверки не равен пройденному тесту; отчёты могут быть чувствительными, их не стоит коммитить.</p><p>У вас уже есть вендорное ревью, `/code-review` и subagents, но отдельного security-слоя с моделью угроз нет. Полезнее всего он для ботов с MCP (Telegram, Google Workspace, RunPod) и для проверки веток. Первый шаг: `git clone https://github.com/jmanico/grim-prompter.git ~/grim-prompter`, затем `ln -s ~/grim-prompter/skills/threat-model ~/.claude/skills/threat-model`, новая сессия и `/threat-model quick agentic` в репозитории бота (имя архитектуры сверьте с `catalog.md`).</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить skill `threat-model` симлинком в `~/.claude/skills` и прогнать `/threat-model quick` на репозитории Telegram-бота с MCP-доступами.</li><li>Взять из их runbook правило «неизвестное — в gap, не в догадку» и ссылки file:line для наших скиллов ревью и исследования.</li><li>Добавить в `.gitignore` проектов папку `threat-model/`, раз отчёты могут содержать чувствительные детали.</li><li>Гонять `/threat-model change main...feature` как отдельный шаг перед merge рискованных веток, сохранив JSON-базлайн.</li></ul></div>
+      <a class="source" href="https://github.com/jmanico/grim-prompter" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Simon Willison</span><span>29.10</span></div>
+      <h2>Spawn: мультиплеерную игру разрабатывает рой агентов на Fable, выкладка в прод каждый час</h2>
+      <div class="gist"><p>Джейкоб Сэнсбери (Jacob Sansbury) описал, как устроена компания Spawn: массовая мультиплеерная игра, где игроки промптами меняют мир, а внутриигровой ИИ Савви помогает собирать игры. По его словам, разработкой почти автономно занимается рой агентов на модели Fable. Расход на токены больше $3 млн в месяц, «в 30 раз больше фонда оплаты труда». Агенты правят живой код и выкатывают в прод каждый час, сами читают ошибки, баг-репорты и метрики. Около 60% задач начинается с продакшен-ошибки, жалобы от Савви, странной записи в логе или запроса на фичу. Савви сама заводит баги, агент сортирует их: реальный баг, wontfix или осознанное решение, требующее человека. Большинство превращается в фикс за час.</p><p>Правила: час без релиза считается SEV-0, потому что агент удерживает в контексте лишь несколько часов работы, а частые релизы сохраняют связность. Откат одного сломанного изменения занимает 30 секунд. Мониторы и алерты по логам будят агента-владельца инцидента. Команда специально ломает систему, проверяя пути восстановления. Про модели: Opus 5.5 им не подошёл, а GPT-6 Astra при исправлении замечаний по безопасности отключил фичи, и продукт перестал работать. Саймон Уиллисон сомневается, что подход годится для более ответственного софта.</p><p>Для вашей настройки это ориентир по замыканию цикла: ошибка из прода сама запускает агента. Первый шаг: на одном небольшом проекте повесить на алерт или лог-монитор запуск `claude -p` с триажем (баг, wontfix, нужно решение) и откатом по одному изменению.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Триаж-агент на входящие ошибки: классифицирует на баг / wontfix / решение для человека. Добавить такой скилл к алертам в наших скриптах `claude -p --json-schema`?</li><li>Откат одного изменения вместо всего релиза: каждый фикс агента отдельным коммитом с командой отката за секунды. Завести это правило в CLAUDE.md?</li><li>Правило против «починки отключением»: GPT-6 Astra выключал фичи ради безопасности. Добавить в brief ревью-агентов запрет отключать функциональность и проверку, что фичи работают?</li><li>Монитор логов, который будит агента-владельца инцидента, через `/schedule` или хук. Попробовать на одном проекте?</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>30.10</span></div>
+      <h2>Kensaku: локальный поисковик по файлам и скриншотам с OCR и MCP-доступом для агентов</h2>
+      <div class="gist"><p>Kensaku (yjid/kensaku, MIT, Rust + Tauri + Bun) — бесплатный локальный лаунчер для поиска. Ищет по именам файлов (автор заявляет около 1,3 мс на 100k файлов на Linux), по тексту внутри PDF, DOCX, PPTX, XLSX, EPUB, ODT, RTF, кода и логов, включая CJK, и по тексту на картинках через OCR. OCR по умолчанию PP-OCRv6, есть опциональный движок Indra (около 27 МБ, скачивается по запросу) и запасной Tesseract; на Intel Mac только Tesseract. Есть поиск по смыслу, терпимость к опечаткам, даты вроде «last week» и язык запросов (`type:`, `ext:`, `size:`, `content:`, `re:`). Индексация инкрементальная, без облака и телеметрии. Платформы: Windows, macOS, Linux. Сборки не подписаны, автообновление не подключено, больше всего проверено на Windows. README не говорит, какая модель считает эмбеддинги, и не перечисляет MCP-инструменты по именам. Репозиторию неделя (создан 24 октября 2026), 241 звезда.</p><p>Для агентов: `kensaku-cli mcp` подключается как MCP-сервер, есть HTTP-режим `kensaku-cli serve` на loopback с bearer-токеном. Доступ по умолчанию только на чтение, `reindex` включается явно. Для тебя это способ дать Claude Code поиск по скриншотам, PDF и офисным документам на диске, чего не умеет codebase-memory, который работает по графу кода. Это молодой проект, поэтому сначала проверь, какие инструменты он отдаёт. Первый шаг: скачай релиз, проиндексируй папку со скриншотами и документами, выполни `kensaku-cli search --json &lt;запрос&gt;`, затем добавь в `mcpServers` запись с командой `kensaku-cli mcp`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Подключить `kensaku-cli mcp` в `mcpServers` и посмотреть, какие инструменты он отдаёт: поиск по скриншотам, PDF и DOCX на диске сейчас не закрыт ни одним твоим MCP.</li><li>Использовать `kensaku-cli search --json` в скриптах, которые вызывают `claude -p --json-schema`, как дешёвый локальный поиск по документам перед запуском агента.</li><li>Оставить доступ только на чтение (по умолчанию) и не включать `reindex`, пока не проверишь поведение сервера. Если нужен HTTP, поднимать только `kensaku-cli serve` на loopback с токеном из Keychain через скилл secrets.</li></ul></div>
+      <a class="source" href="https://github.com/yjid/kensaku" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>Pydantic releases</span><span>29.10</span></div>
+      <h2>Pydantic 2.14: убрали Python 3.9, добавили 3.15, закрыли две уязвимости</h2>
+      <div class="gist"><p>Pydantic 2.14.0 вышел 8 октября 2026. Он выбрасывает поддержку Python 3.9 и добавляет 3.15. Закрыты две уязвимости: GHSA-gj4f-r7mf-jjxh (при валидации Fraction принимались огромные экспоненты) и GHSA-955g-x97g-8mcp (в URL с несколькими хостами префикс валидировался повторно).</p><p>Из нового: multiple_of для схем fraction и timedelta, параметр __namespace__ в create_model(), core-схемы ordered-dict и counter. Изменения, которые могут задеть код: NameEmail теперь отвергает переводы строки; multiple_of должен быть положительным; конструкторы enum вызываются в обоих режимах валидации; ser_json_timedelta больше не действует на все datetime-типы при выводе сериализации; model_config больше не мутируется. Остальное — исправления: OverflowError в ByteSize, ошибки ОС в ZoneInfo, исключения в Decimal, JSON Schema для stdlib dataclasses и TypedDict (config, init, kw_only, extra). Авторы пишут, что часть правок считается не ломающей по их политике версий, но перед обновлением их стоит прочитать.</p><p>Pydantic у тебя уже в стеке (FastAPI, SQLModel), так что важно именно это. Если принимаешь от клиентов Fraction, составные URL или email с именем, обновление закрывает дыры. Если схемы и OpenAPI генерируются из dataclass или TypedDict, они могут чуть измениться. Первый шаг: поднять pydantic до 2.14.0 в отдельной ветке, прогнать pytest и сравнить openapi.json до и после. Если сервисы ещё на Python 3.9, сначала нужно обновить интерпретатор.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поднять pydantic до 2.14.0 в ветке и сравнить openapi.json до и после: JSON Schema для dataclass и TypedDict поменялся.</li><li>Поискать в коде Fraction, multi-host URL и NameEmail на входе API: там закрыты уязвимости, добавить тесты на странные значения.</li><li>Проверить, какие сервисы и CI-образы ещё на Python 3.9, и запланировать переход на 3.10+ или выше.</li><li>Найти места с ser_json_timedelta и multiple_of в моделях: поведение у них поменялось.</li></ul></div>
+      <a class="source" href="https://github.com/pydantic/pydantic/releases/tag/v2.14.0" target="_blank" rel="noopener">Источник</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>

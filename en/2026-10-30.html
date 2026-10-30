@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 30.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">30.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Jim Manico released a /threat-model skill: the agent builds a repo threat model with file-and-line citations</a></li><li><a href="#s2">Spawn: a multiplayer game built by a swarm of Fable agents, shipping to production hourly</a></li><li><a href="#s3">Kensaku: a local file and screenshot search tool with OCR and MCP access for agents</a></li></ol>
+<h2 class="section-title">Python and backend</h2><ol class="contents" style="counter-reset: item 3"><li><a href="#s4">Pydantic 2.14 drops Python 3.9, adds 3.15, fixes two vulnerabilities</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>30.10</span></div>
+      <h2>Jim Manico released a /threat-model skill: the agent builds a repo threat model with file-and-line citations</h2>
+      <div class="gist"><p>grim-prompter (MIT, 185 stars, created 2026-10-28) is a set of prompts plus one skill, `threat-model`, for Claude Code and Codex CLI. The agent inspects a repo strictly read-only, writes only under `threat-model/`, and must cite a file and line for every finding. Anything the code doesn&#x27;t show is recorded as a gap, not assumed. It ships 36 architectures (Web, API, Microservices, RAG, Agentic AI, OT/ICS, blockchain and more) in quick and deep variants, and 29 methods: STRIDE, PASTA, LINDDUN, STPA, MAESTRO, MITRE ATLAS, ATT&amp;CK, CVSS, DREAD and others. A deep run has six stages (scope, system modeling, threat analysis, challenge, treatment planning, reporting), each reading the previous stage&#x27;s file. Output is `SYSTEM_UNDER_REVIEW.md`, `report.md` and JSON artifacts. For MCP servers and agent tools it maps tools to backend credentials and permissions, and marks unknown grants as gaps. `change main...feature` compares a branch against a saved JSON baseline. Limits: the prompts are drafts; builds, tests and network need explicit authorization; a verification plan is not a passed test; reports can be sensitive, so keep them out of git.</p><p>You already have vendor review, `/code-review` and subagents, but no dedicated threat-model layer. It fits best on bots with MCP (Telegram, Google Workspace, RunPod) and for checking branches. First step: `git clone https://github.com/jmanico/grim-prompter.git ~/grim-prompter`, then `ln -s ~/grim-prompter/skills/threat-model ~/.claude/skills/threat-model`, start a new session and run `/threat-model quick agentic` in the bot repo (check the architecture name in `catalog.md`).</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Symlink the `threat-model` skill into `~/.claude/skills` and run `/threat-model quick` on the Telegram bot repo with its MCP access.</li><li>Borrow their runbook rule &quot;unknown goes to a gap, not a guess&quot; plus file:line citations for our review and research skills.</li><li>Add `threat-model/` to each project&#x27;s `.gitignore`, since reports can contain sensitive details.</li><li>Run `/threat-model change main...feature` as a separate step before merging risky branches, keeping a JSON baseline.</li></ul></div>
+      <a class="source" href="https://github.com/jmanico/grim-prompter" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Simon Willison</span><span>29.10</span></div>
+      <h2>Spawn: a multiplayer game built by a swarm of Fable agents, shipping to production hourly</h2>
+      <div class="gist"><p>Jacob Sansbury described how Spawn works: a massively multiplayer game where players change the world with prompts and talk to an in-game AI, Savi, that helps build games. He says development is run almost autonomously by a swarm of agents on the Fable model. Token spend is above $3M a month, &quot;30x payroll&quot;. Agents edit live code and ship to production hourly, reading errors, bug reports and metrics themselves. About 60% of work starts from a production error, a Savi bug report, an odd log entry or a feature request. Savi files bugs herself; an agent triages each as a real bug, a wontfix, or intentional design needing a decision. Most become fixes within an hour.</p><p>Rules: an hour without a ship is a SEV-0, because an agent holds only a few hours of work in context and frequent shipping keeps it coherent. A broken change rolls back in 30 seconds, targeting only that change. Monitors and log alerts start or wake an agent that owns the incident. The team deliberately breaks things to test recovery paths. On models: Opus 5.5 reportedly didn&#x27;t meet their needs, and GPT-6 Astra, applying security fixes, disabled features and the product stopped working. Simon Willison doubts this fits higher-stakes software.</p><p>For your setup this is a pattern for closing the loop: a production error starts an agent on its own. First step: on one small project, wire an alert or log monitor to launch `claude -p` for triage (bug, wontfix, needs a decision) and per-change rollback.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>A triage agent for incoming errors: classify as bug / wontfix / needs a human decision. Add this as a skill to the alert scripts built on `claude -p --json-schema`?</li><li>Roll back one change, not the whole release: each agent fix as its own commit with a seconds-fast revert command. Add this rule to CLAUDE.md?</li><li>A rule against fixing by disabling: GPT-6 Astra turned features off for security. Add to review-agent briefs a ban on disabling functionality, plus a check that features still work?</li><li>A log monitor that wakes an incident-owner agent, via `/schedule` or a hook. Try it on one project?</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>30.10</span></div>
+      <h2>Kensaku: a local file and screenshot search tool with OCR and MCP access for agents</h2>
+      <div class="gist"><p>Kensaku (yjid/kensaku, MIT, Rust + Tauri + Bun) is a free local search launcher. It searches file names (the author reports about 1.3 ms across 100k files on Linux), text inside PDF, DOCX, PPTX, XLSX, EPUB, ODT, RTF, code and logs, including CJK, and text in images through OCR. OCR defaults to PP-OCRv6, with an optional Indra engine (about 27 MB, downloaded on demand) and Tesseract as a fallback; Intel Macs use Tesseract only. It also has search by meaning, typo tolerance, natural-language dates like &quot;last week&quot;, and a query language (`type:`, `ext:`, `size:`, `content:`, `re:`). Indexing is incremental, with no cloud and no telemetry. It runs on Windows, macOS and Linux. Builds are unsigned, the auto-updater is not wired up, and Windows has the most testing. The README does not name the embedding model or list the MCP tools by name. The repo is a week old (created 2026-10-24) and has 241 stars.</p><p>For agents: `kensaku-cli mcp` runs as an MCP server, and `kensaku-cli serve` offers HTTP on loopback with a bearer token. Access is read-only by default, and `reindex` must be enabled explicitly. For you this gives Claude Code search over screenshots, PDFs and office documents on disk, which codebase-memory does not cover because it works on the code graph. The project is young, so check which tools it exposes first. First step: download a release, index a folder of screenshots and documents, run `kensaku-cli search --json &lt;query&gt;`, then add an `mcpServers` entry with the command `kensaku-cli mcp`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add `kensaku-cli mcp` under `mcpServers` and check which tools it exposes: none of your current MCP servers covers search over screenshots, PDFs and DOCX on disk.</li><li>Use `kensaku-cli search --json` in scripts that call `claude -p --json-schema`, as a cheap local document lookup before launching an agent.</li><li>Keep the default read-only access and leave `reindex` off until you have checked the server&#x27;s behavior. If you need HTTP, run only `kensaku-cli serve` on loopback and keep the token in Keychain through the secrets skill.</li></ul></div>
+      <a class="source" href="https://github.com/yjid/kensaku" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>Pydantic releases</span><span>29.10</span></div>
+      <h2>Pydantic 2.14 drops Python 3.9, adds 3.15, fixes two vulnerabilities</h2>
+      <div class="gist"><p>Pydantic 2.14.0 came out on 8 October 2026. It drops Python 3.9 and adds 3.15. Two vulnerabilities are fixed: GHSA-gj4f-r7mf-jjxh (Fraction validation accepted huge exponents) and GHSA-955g-x97g-8mcp (the URL prefix was re-validated in multi-host URLs).</p><p>New: multiple_of for the fraction and timedelta schemas, a __namespace__ parameter in create_model(), and the ordered-dict and counter core schemas. Changes that may affect your code: NameEmail now rejects newlines; multiple_of must be positive; enum constructors are called in both validation modes; ser_json_timedelta no longer applies to all datetime types in serialization inference; model_config is no longer mutated. The rest are fixes: OverflowError in ByteSize, OS errors in ZoneInfo, exceptions in Decimal, and JSON Schema for stdlib dataclasses and TypedDict (config, init, kw_only, extra). The maintainers say some changes count as non-breaking under their versioning policy, but you should read them before upgrading.</p><p>You already use Pydantic (FastAPI, SQLModel), so this is a normal upgrade, and the points above are what is new. If you accept Fraction, multi-host URLs or named emails from clients, the upgrade closes those holes. If your schemas and OpenAPI come from dataclasses or TypedDicts, the output may shift slightly. First step: bump pydantic to 2.14.0 on a branch, run pytest, and diff openapi.json before and after. If any service is still on Python 3.9, upgrade the interpreter first.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Bump pydantic to 2.14.0 on a branch and diff openapi.json before and after: JSON Schema for dataclasses and TypedDicts changed.</li><li>Grep for Fraction, multi-host URLs and NameEmail on API inputs, where the vulnerabilities were fixed, and add tests with odd values.</li><li>Check which services and CI images are still on Python 3.9 and plan a move to 3.10+ or newer.</li><li>Find uses of ser_json_timedelta and multiple_of in your models: their behaviour changed.</li></ul></div>
+      <a class="source" href="https://github.com/pydantic/pydantic/releases/tag/v2.14.0" target="_blank" rel="noopener">Source</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>
