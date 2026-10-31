@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 31.10.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">1 story from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">31.10.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">dev-quality-gates: a curated one-tool-per-job list of quality checks, with an adoption prompt for agents</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>31.10</span></div>
+      <h2>dev-quality-gates: a curated one-tool-per-job list of quality checks, with an adoption prompt for agents</h2>
+      <div class="gist"><p>mokevnin/dev-quality-gates (159 stars, created 2026-10-23, CC0) is not an awesome-list but a curated one: one tool per job, with limitations, review date and sources recorded in tools.json. Criteria: the tool must exit non-zero on a violation, run non-interactively, give machine-readable output and safe autofix. Fast Rust-native tools are preferred (Ruff, Oxlint/oxfmt, Mago, rumdl). Categories without a verified pick stay empty (under review: Trivy after a March 2026 compromise, Brakeman over its licence, Semgrep/Opengrep). Picks include Knip, dependency-cruiser, ty, deptry, import-linter, golangci-lint, cargo-deny, squawk (Postgres migrations), oasdiff (API breaking changes), diff-cover (coverage of changed lines), Betterleaks (secrets), OSV-Scanner, lychee, typos, mise for tool versions, hk (~170 ready git-hook steps) and commitlint. The one Claude Code-specific entry is agnix: it lints CLAUDE.md, AGENTS.md, SKILL.md, hooks and MCP configs, exits 1 on errors, and on warnings with --strict.</p><p>The key part for agentic work is docs/adopt.md, written for an agent. From the repo root you ask the agent to read it, pick only fitting entries, show the plan before editing, wire checks into hooks and CI, and verify each check can actually fail. You already have ast-grep (also listed there, for custom rules). New for you: agnix to audit your many skills and hooks, diff-cover, and docs/patterns.md. First step: install agnix and run it over ~/.claude and project CLAUDE.md files, and give docs/adopt.md to an agent in one project.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run agnix over ~/.claude and project CLAUDE.md/SKILL.md/hooks to catch config errors in skills and MCP (exit 1, --strict for warnings) — add it to settings-cleanup?</li><li>Add diff-cover to the testing skill and a Stop hook: fail when changed lines lack test coverage</li><li>Take the adopt.md rule &#x27;verify each check can fail&#x27; into the process/feature-build skills: the agent must show a new gate going red on known-bad code</li><li>Try hk (hk.pkl) with mise for parallel git hooks and pinned tool versions instead of hand-written hooks</li></ul></div>
+      <a class="source" href="https://github.com/mokevnin/dev-quality-gates" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
