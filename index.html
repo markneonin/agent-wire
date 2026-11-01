@@ -6,7 +6,7 @@
 <style>body { margin: 0 } img { max-width: 100% }</style>
 </head>
 <body>
-<title>Agent Wire 31.10.2026</title>
+<title>Agent Wire 01.11.2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -65,23 +65,30 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 </style>
 <main class="page">
   <header class="masthead">
-    <span class="label">1 новость за последние сутки агентной разработки и backend</span>
+    <span class="label">2 новости за последние сутки агентной разработки и backend</span>
     <h1>Agent Wire</h1>
-    <span class="label">31.10.2026</span>
+    <span class="label">01.11.2026</span>
   </header>
-  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Каталог dev-quality-gates: по одному проверенному инструменту на задачу, с промптом для агента</a></li></ol>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">cheap-ag: MCP-сервер, где Opus планирует, а дешёвая модель пишет код в worktree и сдаёт только то, что прошло тесты</a></li><li><a href="#s2">Скилл reanimate для Claude Code разбирает анимацию покадрово, пишет её код и сверяет копию с оригиналом</a></li></ol>
 <h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
   <section class="stories">
 <h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
-      <div class="meta"><span class="number">01</span><span>GitHub</span><span>31.10</span></div>
-      <h2>Каталог dev-quality-gates: по одному проверенному инструменту на задачу, с промптом для агента</h2>
-      <div class="gist"><p>mokevnin/dev-quality-gates (159 звёзд, создан 23.10.2026, CC0) — не awesome-list, а выборочный список: на каждую задачу один инструмент, с записанными ограничениями, датой проверки и источниками в tools.json. Критерии: инструмент обязан завершаться с ненулевым кодом при нарушении, работать без интерактива, давать машиночитаемый вывод и безопасный autofix. Предпочтение быстрым Rust-тулам (Ruff, Oxlint/oxfmt, Mago, rumdl). Там, где нет проверенного выбора, категория остаётся пустой (раздел under review: Trivy после компрометации в марте 2026, Brakeman из-за лицензии, Semgrep/Opengrep). Куски: Knip, dependency-cruiser, ty, deptry, import-linter, golangci-lint, cargo-deny, squawk (миграции Postgres), oasdiff (breaking changes API), diff-cover (покрытие изменённых строк), Betterleaks (секреты), OSV-Scanner, lychee, typos, mise для версий, hk (~170 готовых шагов git-хуков), commitlint. Из Claude Code-специфичного — agnix: линтит CLAUDE.md, AGENTS.md, SKILL.md, хуки и MCP-конфиги, exit 1 на ошибках, на предупреждениях с --strict.</p><p>Главное для агентной разработки: docs/adopt.md — инструкция для агента. Из корня репозитория просишь агента прочитать её, выбрать подходящее, показать план до правок, подключить проверки в хуки и CI и убедиться, что каждая проверка реально может упасть. Для тебя ast-grep уже есть (он тоже в списке как инструмент своих правил). Новое: agnix для аудита твоих многочисленных скиллов и хуков, diff-cover и docs/patterns.md. Первый шаг: поставить agnix и прогнать по ~/.claude и проектным CLAUDE.md, а docs/adopt.md скормить агенту в одном проекте.</p></div>
-      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать agnix по ~/.claude и проектным CLAUDE.md/SKILL.md/хукам: ловить ошибки конфигов скиллов и MCP (exit 1, --strict для предупреждений) — добавить в settings-cleanup?</li><li>Добавить diff-cover в тестовый скилл и Stop-хук: падать, если изменённые строки не покрыты тестами</li><li>Взять правило из adopt.md «проверка должна уметь упасть» в скилл process/feature-build: агент доказывает, что новый гейт краснеет на заведомо плохом коде</li><li>Попробовать hk (hk.pkl) вместе с mise для параллельных git-хуков и закреплённых версий инструментов вместо ручных хуков</li></ul></div>
-      <a class="source" href="https://github.com/mokevnin/dev-quality-gates" target="_blank" rel="noopener">Источник</a>
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>01.11</span></div>
+      <h2>cheap-ag: MCP-сервер, где Opus планирует, а дешёвая модель пишет код в worktree и сдаёт только то, что прошло тесты</h2>
+      <div class="gist"><p>cheap-ag (npm `cheap-agent`, MIT, TypeScript) — MCP-сервер и плагин для Claude Code. Opus формулирует короткую задачу, дешёвая модель (DeepSeek и др. через OpenCode Go, OpenRouter, DeepSeek, Command Code) работает в отдельном git worktree и обязана написать тест, который падает до правки и проходит после. Тесты сервер гоняет сам, не веря отчёту модели. Прошедшая работа ложится незакоммиченной, коммитов и push нет. Если дешёвая модель не справилась, шаг забирает Sonnet (`takeover: &quot;sonnet&quot;`) или сам Opus (`&quot;self&quot;`, до 15 вызовов инструментов). Лимит шагов — `limits.max_turns`, по умолчанию 25.</p><p>Замеры на SWE-bench Verified с Opus 5.5: фича 154k против 57k токенов Opus (−63%), 7 обычных багов 1.6M против 655k (−59%, 7/7 у обоих), 9 сложных 3.0M против 1.3M (−55%, 6/9 против 7/9). Автор честен: на мелких задачах выгоды почти нет, а проверка Opus каждого зелёного результата стоила втрое больше токенов и ничего не нашла. «50x» из заметки — не измерение, цель автора: $20-план как $50–70.</p><p>Для твоего сетапа это тот же паттерн, что worktree на писателя плюс implementer, но с внешним дешёвым исполнителем и жёстким тестовым гейтом. Первый шаг: `npx cheap-agent`, выбрать OpenRouter, вставить ключ, проверить `claude mcp list`, в проекте выполнить `/cheapag:allow`, затем `/cheapag:status` для стоимости.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Правило «дешёвый исполнитель обязан написать тест, красный до правки и зелёный после, а тесты гоняет оркестратор сам» — добавить в скилл feature-build/testing для implementer?</li><li>Не гонять Opus-ревью по каждому зелёному результату: автор намерил 3x токенов без находок — ограничить quality-reviewer случаями с упавшими или отсутствующими тестами?</li><li>Попробовать `/cheapag:hook on` на одном проекте и сравнить расход через `/cheapag:status` с текущим implementer на Sonnet.</li><li>Взять эскалацию «дешёвая модель → Sonnet → Opus с лимитом 15 вызовов» в наши agent-файлы как явную лестницу вместо ручного выбора.</li></ul></div>
+      <a class="source" href="https://github.com/muaaz9329/cheap-ag" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>01.11</span></div>
+      <h2>Скилл reanimate для Claude Code разбирает анимацию покадрово, пишет её код и сверяет копию с оригиналом</h2>
+      <div class="gist"><p>reanimate — скилл для Claude Code (MIT, 548 звёзд, создан 29.10.2026). Берёт анимацию с живого сайта, записи экрана, mp4, gif или Lottie и воссоздаёт её в вашем проекте. Цикл такой: 1) запись в headless-браузере с фиксированным вьюпортом и fps: видео, кадры, CSS и Web Animations, позиции элементов на каждом кадре (для canvas/WebGL — трассировка GPU-вызовов на виртуальных часах); 2) спецификация: строка на элемент и свойство (старт, длительность, from/to, easing, stagger), «?» там, где значение ещё не прочитано; 3) код на том, что уже есть в проекте: CSS, Framer Motion, GSAP или three.js; 4) проверка: копия снимается так же, сравниваются тайминг, easing и пиксели, на выходе листы side-by-side; 5) правка самой большой разницы и пересъёмка, обычно 2–5 раундов, остаток с причинами уходит в отчёт.</p><p>Точность задаётся формулировкой: «clone this animation» — движение в пределах 80 мс; «pixel-perfect» — ещё и вид, ≤2% среднего расхождения пикселей. Заявлено: Vercel toolbar — 417 из 417 кадров идентичны, Resend cube — 0,11% пикселей, большинство клонов 30–90 минут. Нужны Bun 1.1+, macOS/Linux, ~250 МБ при первом запуске (ffmpeg, Chromium), ключи не нужны. Пружины подбираются по перерегулированию, не читаются из кода; сайты за логином и YouTube не записать.</p><p>Для вас новое — не сама генерация, а замкнутый цикл «снять → спецификация → собрать → снять копию → измерить» с числовым порогом; это шаблон для Remotion-пайплайна и любых UI-задач. Первый шаг: `npx skills add NiazMorshed2007/reanimate -g -a claude-code`, затем `/reanimate the hero entrance on https://example.com, into components/Hero.tsx`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Скилл сам проверяет результат числом: ≤80 мс по таймингу, ≤2% пикселей — добавить такой порог «снять копию и измерить» в frontend-скилл для анимаций?</li><li>Спецификация со знаком «?» для ещё не измеренных значений и ограничение в 5 раундов с отчётом об остатке — взять как шаблон в loop-design для циклов fix-until-green?</li><li>Попробовать reanimate на Remotion-пайплайне: снять эталонную анимацию с сайта и получить спецификацию по элементам и свойствам как бриф для сцены?</li></ul></div>
+      <a class="source" href="https://github.com/NiazMorshed2007/reanimate" target="_blank" rel="noopener">Источник</a>
     </article>
 <h2 class="section-title">Python и backend</h2>
   </section>
-  
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Reddit: The read operation timed out</li></ul></footer>
 </main>
 
 </body>

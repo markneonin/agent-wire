@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 01.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">01.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">cheap-ag: an MCP server where Opus plans, a cheap model codes in a worktree, and only test-passing work is delivered</a></li><li><a href="#s2">reanimate, a Claude Code skill, takes an animation apart frame by frame, writes the code and checks the copy against the original</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>01.11</span></div>
+      <h2>cheap-ag: an MCP server where Opus plans, a cheap model codes in a worktree, and only test-passing work is delivered</h2>
+      <div class="gist"><p>cheap-ag (npm `cheap-agent`, MIT, TypeScript) is an MCP server and Claude Code plugin. Opus writes a short task; a cheap model (via OpenCode Go, OpenRouter, DeepSeek or Command Code) works in a separate git worktree and must write a test that fails before its fix and passes after. The server runs the tests itself instead of trusting the model&#x27;s report. Passing work lands uncommitted; it never commits or pushes. If the cheap model can&#x27;t finish a step, Sonnet takes over (`takeover: &quot;sonnet&quot;`) or Opus itself (`&quot;self&quot;`, capped at 15 tool calls). The per-step turn limit is `limits.max_turns`, default 25.</p><p>Benchmarks on SWE-bench Verified with Opus 5.5: one feature 154k vs 57k Opus tokens (−63%), 7 everyday bugs 1.6M vs 655k (−59%, 7/7 both), 9 hardest 3.0M vs 1.3M (−55%, 6/9 alone vs 7/9 with a Sonnet helper). The author admits little gain on tiny tasks, and that having Opus review every green result cost 3x the tokens and caught nothing. The &quot;50x&quot; in the note is not measured; the stated goal is a $20 plan acting like $50–70.</p><p>For your setup it overlaps with worktree-per-writer plus implementer agents, but adds an external cheap executor and a hard test gate. First step: run `npx cheap-agent`, pick OpenRouter, paste the key, check `claude mcp list`, run `/cheapag:allow` in a project, then `/cheapag:status` to see cost.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add the rule &quot;the cheap executor must write a test that is red before and green after, and the orchestrator runs the tests itself&quot; to the feature-build/testing skills for implementer?</li><li>Stop running Opus review on every green result: the author measured 3x tokens with no findings. Limit quality-reviewer to failing or missing tests?</li><li>Try `/cheapag:hook on` in one project and compare cost via `/cheapag:status` against the current Sonnet implementer.</li><li>Copy the escalation ladder cheap model → Sonnet → Opus capped at 15 tool calls into our agent files instead of choosing models by hand.</li></ul></div>
+      <a class="source" href="https://github.com/muaaz9329/cheap-ag" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>01.11</span></div>
+      <h2>reanimate, a Claude Code skill, takes an animation apart frame by frame, writes the code and checks the copy against the original</h2>
+      <div class="gist"><p>reanimate is a Claude Code skill (MIT, 548 stars, created 2026-10-29). It takes an animation from a live site, screen recording, mp4, gif or Lottie file and rebuilds it in your project. The loop: 1) record in a headless browser at a fixed viewport and frame rate: video, frames, CSS and Web Animations, element positions per frame (for canvas/WebGL it traces GPU calls on a virtual clock); 2) write a spec, one row per element and property (start, duration, from/to, easing, stagger), with &quot;?&quot; where a value is not yet read; 3) build with what the project already uses: CSS, Framer Motion, GSAP or three.js; 4) verify: film the copy the same way and compare timing, easing and pixels, producing side-by-side sheets; 5) fix the largest difference and re-film, usually 2 to 5 rounds, with leftovers and reasons going into the report.</p><p>Fidelity follows your wording: &quot;clone this animation&quot; matches motion within 80 ms; &quot;pixel-perfect&quot; also matches appearance, ≤2% mean pixel mismatch. Reported: Vercel toolbar 417 of 417 frames identical, Resend cube 0.11% of pixels differ, most clones 30–90 minutes. Needs Bun 1.1+, macOS or Linux, about 250 MB on first run (ffmpeg, Chromium), no API keys. Springs are fitted from overshoot, not read from source; login pages and YouTube can&#x27;t be recorded.</p><p>What is new for you is not the generation but the closed loop: record, spec, build, film the copy, measure against a numeric threshold. It is a pattern reusable for your Remotion pipeline and any UI work. First step: `npx skills add NiazMorshed2007/reanimate -g -a claude-code`, then `/reanimate the hero entrance on https://example.com, into components/Hero.tsx`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>The skill verifies with numbers: ≤80 ms timing, ≤2% pixels. Add a similar &quot;film the copy and measure&quot; threshold check to the frontend skill for animations?</li><li>Its spec marks unmeasured values with &quot;?&quot; and caps fixing at 5 rounds with a report of leftovers. Borrow this in loop-design for fix-until-green loops?</li><li>Try reanimate on the Remotion pipeline: record a reference animation from a site and use the per-element, per-property spec as a scene brief?</li></ul></div>
+      <a class="source" href="https://github.com/NiazMorshed2007/reanimate" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  <footer class="problems"><span>Sources with problems</span><ul><li>Reddit: The read operation timed out</li></ul></footer>
+</main>
+
+</body>
+</html>

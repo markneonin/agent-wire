@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 01.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">01.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">cheap-ag: MCP-сервер, где Opus планирует, а дешёвая модель пишет код в worktree и сдаёт только то, что прошло тесты</a></li><li><a href="#s2">Скилл reanimate для Claude Code разбирает анимацию покадрово, пишет её код и сверяет копию с оригиналом</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>01.11</span></div>
+      <h2>cheap-ag: MCP-сервер, где Opus планирует, а дешёвая модель пишет код в worktree и сдаёт только то, что прошло тесты</h2>
+      <div class="gist"><p>cheap-ag (npm `cheap-agent`, MIT, TypeScript) — MCP-сервер и плагин для Claude Code. Opus формулирует короткую задачу, дешёвая модель (DeepSeek и др. через OpenCode Go, OpenRouter, DeepSeek, Command Code) работает в отдельном git worktree и обязана написать тест, который падает до правки и проходит после. Тесты сервер гоняет сам, не веря отчёту модели. Прошедшая работа ложится незакоммиченной, коммитов и push нет. Если дешёвая модель не справилась, шаг забирает Sonnet (`takeover: &quot;sonnet&quot;`) или сам Opus (`&quot;self&quot;`, до 15 вызовов инструментов). Лимит шагов — `limits.max_turns`, по умолчанию 25.</p><p>Замеры на SWE-bench Verified с Opus 5.5: фича 154k против 57k токенов Opus (−63%), 7 обычных багов 1.6M против 655k (−59%, 7/7 у обоих), 9 сложных 3.0M против 1.3M (−55%, 6/9 против 7/9). Автор честен: на мелких задачах выгоды почти нет, а проверка Opus каждого зелёного результата стоила втрое больше токенов и ничего не нашла. «50x» из заметки — не измерение, цель автора: $20-план как $50–70.</p><p>Для твоего сетапа это тот же паттерн, что worktree на писателя плюс implementer, но с внешним дешёвым исполнителем и жёстким тестовым гейтом. Первый шаг: `npx cheap-agent`, выбрать OpenRouter, вставить ключ, проверить `claude mcp list`, в проекте выполнить `/cheapag:allow`, затем `/cheapag:status` для стоимости.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Правило «дешёвый исполнитель обязан написать тест, красный до правки и зелёный после, а тесты гоняет оркестратор сам» — добавить в скилл feature-build/testing для implementer?</li><li>Не гонять Opus-ревью по каждому зелёному результату: автор намерил 3x токенов без находок — ограничить quality-reviewer случаями с упавшими или отсутствующими тестами?</li><li>Попробовать `/cheapag:hook on` на одном проекте и сравнить расход через `/cheapag:status` с текущим implementer на Sonnet.</li><li>Взять эскалацию «дешёвая модель → Sonnet → Opus с лимитом 15 вызовов» в наши agent-файлы как явную лестницу вместо ручного выбора.</li></ul></div>
+      <a class="source" href="https://github.com/muaaz9329/cheap-ag" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>01.11</span></div>
+      <h2>Скилл reanimate для Claude Code разбирает анимацию покадрово, пишет её код и сверяет копию с оригиналом</h2>
+      <div class="gist"><p>reanimate — скилл для Claude Code (MIT, 548 звёзд, создан 29.10.2026). Берёт анимацию с живого сайта, записи экрана, mp4, gif или Lottie и воссоздаёт её в вашем проекте. Цикл такой: 1) запись в headless-браузере с фиксированным вьюпортом и fps: видео, кадры, CSS и Web Animations, позиции элементов на каждом кадре (для canvas/WebGL — трассировка GPU-вызовов на виртуальных часах); 2) спецификация: строка на элемент и свойство (старт, длительность, from/to, easing, stagger), «?» там, где значение ещё не прочитано; 3) код на том, что уже есть в проекте: CSS, Framer Motion, GSAP или three.js; 4) проверка: копия снимается так же, сравниваются тайминг, easing и пиксели, на выходе листы side-by-side; 5) правка самой большой разницы и пересъёмка, обычно 2–5 раундов, остаток с причинами уходит в отчёт.</p><p>Точность задаётся формулировкой: «clone this animation» — движение в пределах 80 мс; «pixel-perfect» — ещё и вид, ≤2% среднего расхождения пикселей. Заявлено: Vercel toolbar — 417 из 417 кадров идентичны, Resend cube — 0,11% пикселей, большинство клонов 30–90 минут. Нужны Bun 1.1+, macOS/Linux, ~250 МБ при первом запуске (ffmpeg, Chromium), ключи не нужны. Пружины подбираются по перерегулированию, не читаются из кода; сайты за логином и YouTube не записать.</p><p>Для вас новое — не сама генерация, а замкнутый цикл «снять → спецификация → собрать → снять копию → измерить» с числовым порогом; это шаблон для Remotion-пайплайна и любых UI-задач. Первый шаг: `npx skills add NiazMorshed2007/reanimate -g -a claude-code`, затем `/reanimate the hero entrance on https://example.com, into components/Hero.tsx`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Скилл сам проверяет результат числом: ≤80 мс по таймингу, ≤2% пикселей — добавить такой порог «снять копию и измерить» в frontend-скилл для анимаций?</li><li>Спецификация со знаком «?» для ещё не измеренных значений и ограничение в 5 раундов с отчётом об остатке — взять как шаблон в loop-design для циклов fix-until-green?</li><li>Попробовать reanimate на Remotion-пайплайне: снять эталонную анимацию с сайта и получить спецификацию по элементам и свойствам как бриф для сцены?</li></ul></div>
+      <a class="source" href="https://github.com/NiazMorshed2007/reanimate" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Reddit: The read operation timed out</li></ul></footer>
+</main>
+
+</body>
+</html>
