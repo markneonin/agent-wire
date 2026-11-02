@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 02.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">02.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">uncut: минимальный headless-агент на Go, который никогда не обрезает файлы и вывод команд</a></li><li><a href="#s2">ai-design-check: 87 правил дизайна и чекер без зависимостей для интерфейсов от ИИ-агентов</a></li><li><a href="#s3">Скилл stack-diagram: рисует архитектурную схему стека с официальными логотипами по описанию в одну фразу</a></li><li><a href="#s4">OmniDiff: быстрый структурный diff-инструмент на Rust для git, с JSON-выводом</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>02.11</span></div>
+      <h2>uncut: минимальный headless-агент на Go, который никогда не обрезает файлы и вывод команд</h2>
+      <div class="gist"><p>uncut (Balanov/uncut, MIT, v0.1.1) — один статический бинарник около 7 МБ, 837 строк на Go. Без TUI, телеметрии, плагинов, фоновых агентов, автоповторов и компакции контекста. Четыре инструмента: read_file (файл целиком, UTF-8), write_file, replace (ровно одно вхождение, ноль или несколько — ошибка), run_command (код выхода и полный stdout+stderr). Вся история уходит в модель на каждом вызове. Если ответ оборван лимитом вывода, агент выходит с кодом 3, а не выдаёт обрезок за результат; бинарные файлы и невалидный UTF-8 отклоняются, а не портятся подменой байтов. Коды выхода: 0 успех, 1 ошибка, 2 неверные флаги, 3 обрыв по длине, 4 достигнут --max-steps (по умолчанию 32). Работает с любым OpenAI-совместимым Chat Completions (OpenRouter, Ollama; проверено на qwen3:8b), без стриминга и картинок. Не песочница: команды идут с правами вашего пользователя. Флаги: --json (NDJSON-события), --session файл.jsonl (append-only, возобновление), --cwd, --no-agents, --request-timeout. Цифры бенчмарков в README нет, они в BENCHMARKS.md, которого я не видел; bench/proof.py проверяет только транспорт, не качество модели.</p><p>Для вас это не замена Claude Code, а референс детерминированного headless-слоя для локальных моделей (MLX/Ollama) и пайплайнов вроде git diff | uncut &quot;Review this diff&quot;. Полезны идеи: жёсткие коды выхода на обрезанный ответ и лимит шагов. Первый шаг: скачать uncut-darwin-arm64 из релиза v0.1.1, сверить checksums.txt, затем UNCUT_BASE_URL=http://localhost:11434/v1 UNCUT_MODEL=qwen3:8b uncut &quot;Explain this repository&quot;.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Взять из uncut правило «обрезанный ответ = ошибка»: в наших скриптах с claude -p --json-schema проверять stop_reason и падать с отдельным кодом, а не принимать частичный результат — добавить в скилл loop-design?</li><li>Добавить в скилл loop-design лимит шагов с отдельным кодом выхода (как --max-steps → exit 4) для cron- и fix-until-green-агентов?</li><li>Прогнать uncut на локальной модели через Ollama/OpenAI-совместимый сервер MLX как лёгкий агент для пайплайнов (git diff | uncut ...) и сравнить с opencode?</li><li>Сделать для наших headless-скриптов проверку вроде bench/proof.py: детерминированный фейковый провайдер, который проверяет большие файлы, обрыв и возобновление сессии без API-ключа?</li></ul></div>
+      <a class="source" href="https://github.com/Balanov/uncut" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>02.11</span></div>
+      <h2>ai-design-check: 87 правил дизайна и чекер без зависимостей для интерфейсов от ИИ-агентов</h2>
+      <div class="gist"><p>Репозиторий enmerasoftware/ai-design-check (MIT, 178 звёзд, создан 28 октября 2026) — набор из 87 правил, по которым интерфейс «выглядит сгенерированным», плюс чекер на чистом Node 20+ без зависимостей и без API-ключа. Покрывает веб (.tsx, .jsx, .vue, .svelte, .html, Blade, CSS, i18n JSON), SwiftUI и Jetpack Compose. 50 правил проверяются автоматически, 37 требуют ревью человеком или агентом. Правила на английском и турецком: доступность, типографика, тексты, компоненты, лейаут, анимации, локализация. Для мобильных: отступы вне сетки 4 pt, радиусы вне шкалы, фиксированный текст без Dynamic Type, тап-зоны меньше 44 pt / 48 dp. Классовые правила читают только строки class/className/cn()/clsx()/cva(), поэтому комментарии не срабатывают. Игнор без причины после `--` не засчитывается. Результаты из README: дашборд 266 находок → 0, iOS-приложение 23 → 0. Есть команды inventory, narrow (проверка на 320 px, нужен Chrome), story (видео до/после, Chrome и ffmpeg), system, --write-baseline.</p><p>У тебя уже есть хуки, скиллы и скилл frontend, так что нового тут — готовое содержимое: набор правил и детерминированный чекер. Хук в README: PostToolUse на `Edit|Write|MultiEdit`, команда `npx -y @enmera/ai-design-check hook`; чистые файлы молчат, находки идут в stderr с кодом 2, и агент сразу правит. Скилл `ai-design-fix` по описанию не удаляет контент ради снижения счёта. Первый шаг: `npx @enmera/ai-design-check` в проекте с UI, затем `npx @enmera/ai-design-check --write-baseline`, чтобы видеть только новые находки.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить в .claude/settings.json хук на Edit|Write|MultiEdit с `npx -y @enmera/ai-design-check hook` (exit 2 с находками в stderr) для UI-проектов — как ещё один гейт в quality-gates?</li><li>Подключить RULES.md (node_modules/@enmera/ai-design-check/RULES.md) или список `rules` в скилл frontend как проверочный список для сгенерированного UI?</li><li>Перенять приём из `ai-design-fix`: агент отчитывается числом находок до/после и не удаляет контент ради снижения счёта — добавить это условие в наши скиллы по правке UI?</li><li>Прогнать `narrow page.html --width 320` на странице бота/лендинга, чтобы проверить длинные тексты на узком экране?</li></ul></div>
+      <a class="source" href="https://github.com/enmerasoftware/ai-design-check" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>02.11</span></div>
+      <h2>Скилл stack-diagram: рисует архитектурную схему стека с официальными логотипами по описанию в одну фразу</h2>
+      <div class="gist"><p>caru-ini/stack-diagram — скилл для агентов (Claude Code, Codex, Cursor и др.), созданный 1 ноября 2026, уже 737 звёзд, лицензия MIT. Описываешь стек одним-двумя предложениями (например, Next.js и Hono на Vercel с Neon, Clerk, Stripe и GitHub Actions), агент сам скачивает логотипы, прокладывает линии связей в обход подписей, рендерит схему и проверяет результат перед выдачей.</p><p>Логотипы берутся по очереди из svgl, devicon, gilbarbara/logos или из репозитория самого бренда; иконки AWS — из официального пакета AWS. Они скачиваются при сборке, не вшиты в репозиторий, скрипты их не перекрашивают и не перерисовывают. Форматы: самодостаточный HTML со встроенными шрифтами и логотипами (по умолчанию), PNG, React-компонент без зависимостей и Claude Artifact; есть светлая и тёмная темы. Нужны Python 3.9+ и сеть; для PNG — Playwright с Chromium. Агент может предложить выложить схему в публичную галерею stacks.caru.moe, но только после двойного подтверждения, промпт при этом не отправляется.</p><p>Для твоего сетапа: у тебя уже есть Artifacts и Remotion, а этот скилл закрывает узкую задачу — быстрые схемы архитектуры для README, review-page или описаний тикетов без ручной вёрстки. Первый шаг: `npx skills add caru-ini/stack-diagram`, затем попросить схему своего бота (Telegram + Claude Code + MCP) и посмотреть на HTML.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить `npx skills add caru-ini/stack-diagram` и сгенерировать схему бота (Telegram + Claude Code + MCP-серверы) для manager/ или README.</li><li>Подключить скилл к review-page: вставлять в страницу согласования плана схему архитектуры в виде самодостаточного HTML.</li><li>Перенять приём «рендерить и проверять результат перед выдачей» (проверка наложений подписей и линий) в наши скиллы для визуальных артефактов.</li></ul></div>
+      <a class="source" href="https://github.com/caru-ini/stack-diagram" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>Hacker News</span><span>01.11</span></div>
+      <h2>OmniDiff: быстрый структурный diff-инструмент на Rust для git, с JSON-выводом</h2>
+      <div class="gist"><p>OmniDiff (Rust, AGPL-3.0, v0.3.0, есть платная коммерческая лицензия) — это difftool, который понимает содержимое файлов. Код в 25 языках разбирается через tree-sitter и сравнивается по деревьям (APTED, при вырожденном дереве откат на Myers). Поэтому перенесённая функция показывается как перенос, а не как удаление плюс вставка. Бинарные форматы тоже сравниваются по смыслу: картинки по пикселям, архивы по файлам, шрифты по глифам, PDF по страницам. Скорость на 2302 фикстурах кода: p50 4,2 мс, p99 177 мс. Устойчивость: 99,95% из ~442 тыс. пар «до/после» из ~7500 репозиториев. Сбои — на огромных сгенерированных файлах (в обсуждении автор назвал переполнение стека tree-sitter). По собственным цифрам автора, difftastic идеален на 64% диффов, OmniDiff на 90%. Точность при этом заявленных целей пока не достигла: нулевое расхождение в 60% случаев (--full) и 69,6% (--minimal). Мёрж-конфликты (трёхстороннее слияние) не решены. Внешние PR не принимаются.</p><p>Для вашей связки интересен режим без TTY: --headless включается сам, когда stdout не терминал, есть --mode json (JSON Schema лежит в репозитории) и --exit-code. Агенты и хуки могли бы получать структурный diff вместо построчного шума. Проект сам написан с Claude Code, в репозитории есть AGENTS.md. Первый шаг: brew install ivankovic/omnidiff/omnidiff, затем omnidiff git configure или GIT_EXTERNAL_DIFF=omnidiff git diff (вывод будет текстом, без TUI).</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Попробовать GIT_EXTERNAL_DIFF=omnidiff git diff в большом рефакторинге с переносом кода и сравнить с обычным git diff по размеру и читаемости для ревьюера-сабагента.</li><li>Проверить omnidiff --mode json на реальном diff и решить, стоит ли подмешивать его в скиллы code-review и vendor-review, чтобы ревьюеры видели переносы функций, а не пары удаление/вставка.</li><li>Прогнать omnidiff на изменённых картинках, PDF и архивах (Remotion-кадры, ассеты) как побайтную проверку результата вместо сравнения на глаз.</li></ul></div>
+      <a class="source" href="https://github.com/ivankovic/omnidiff" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>

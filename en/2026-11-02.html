@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 02.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">02.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">uncut: a minimal headless Go coding agent that never truncates files or command output</a></li><li><a href="#s2">ai-design-check: 87 design rules and a zero-dependency checker for UIs built by AI agents</a></li><li><a href="#s3">stack-diagram skill draws an architecture diagram with official logos from a one-sentence stack description</a></li><li><a href="#s4">OmniDiff: a fast structural diff tool in Rust for git, with JSON output</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>02.11</span></div>
+      <h2>uncut: a minimal headless Go coding agent that never truncates files or command output</h2>
+      <div class="gist"><p>uncut (Balanov/uncut, MIT, v0.1.1) is a single static binary of about 7 MB, 837 lines of Go. No TUI, telemetry, plugins, background agents, automatic retries or context compaction. Four tools: read_file (whole UTF-8 file), write_file, replace (exactly one occurrence; zero or several is an error), run_command (exit code plus complete stdout+stderr). The entire history is sent to the model on every call. If a response is cut at the output limit, the agent exits with code 3 instead of passing the partial text off as an answer; binary files and invalid UTF-8 are rejected rather than silently byte-replaced. Exit codes: 0 success, 1 error, 2 bad usage, 3 length cut-off, 4 --max-steps reached (default 32). It works with any OpenAI-compatible Chat Completions endpoint (OpenRouter, Ollama; smoke-tested with qwen3:8b), non-streaming, no images. It is not a sandbox: commands run with your user&#x27;s permissions. Flags: --json (NDJSON events), --session file.jsonl (append-only, resumable), --cwd, --no-agents, --request-timeout. The README gives no benchmark numbers (they are in BENCHMARKS.md, which I did not see); bench/proof.py tests transport only, not model quality.</p><p>For you this is not a Claude Code replacement but a reference for a deterministic headless layer for local models (MLX/Ollama) and pipelines like git diff | uncut &quot;Review this diff&quot;. The useful ideas are hard exit codes on truncated output and on a step limit. First step: download uncut-darwin-arm64 from the v0.1.1 release, verify it against checksums.txt, then run UNCUT_BASE_URL=http://localhost:11434/v1 UNCUT_MODEL=qwen3:8b uncut &quot;Explain this repository&quot;.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Adopt uncut&#x27;s rule that a truncated answer is an error: in our claude -p --json-schema scripts check stop_reason and fail with a distinct exit code instead of accepting partial output. Add it to the loop-design skill?</li><li>Add a step limit with its own exit code (like --max-steps → exit 4) to the loop-design skill for cron and fix-until-green agents?</li><li>Run uncut against a local model via Ollama or an OpenAI-compatible MLX server as a light agent for pipelines (git diff | uncut ...) and compare it with opencode?</li><li>Build a bench/proof.py-style check for our headless scripts: a deterministic fake provider that tests large files, cut-offs and session resume with no API key?</li></ul></div>
+      <a class="source" href="https://github.com/Balanov/uncut" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>02.11</span></div>
+      <h2>ai-design-check: 87 design rules and a zero-dependency checker for UIs built by AI agents</h2>
+      <div class="gist"><p>The repo enmerasoftware/ai-design-check (MIT, 178 stars, created 28 Oct 2026) is a set of 87 design rules for spotting what makes an interface look AI-generated, plus a zero-dependency checker on plain Node 20+ that needs no API key. It covers web (.tsx, .jsx, .vue, .svelte, .html, Blade, CSS, i18n JSON), SwiftUI and Jetpack Compose. 50 rules are checked automatically; 37 need review by a human or an agent. Rules are in English and Turkish and span accessibility, type, copy, components, layout, motion and localisation. Mobile checks include spacing off the 4 pt grid, radii off the scale, fixed text ignoring Dynamic Type, and tap targets under 44 pt / 48 dp. Class rules read only class strings (class/className/cn()/clsx()/cva()), so comments don&#x27;t trigger them. An ignore without a reason after `--` doesn&#x27;t count. Reported results: a dashboard went from 266 findings to 0, an iOS app from 23 to 0. Extra commands: inventory, narrow (320 px render check, needs Chrome), story (before/after video, needs Chrome and ffmpeg), system, --write-baseline.</p><p>You already have hooks, skills and a frontend skill, so what is new is the ready content: a rule set and a deterministic checker. The README&#x27;s hook is a post-edit hook on `Edit|Write|MultiEdit` running `npx -y @enmera/ai-design-check hook`; clean files are silent, findings go to stderr with exit code 2, so the agent fixes them right away. The `ai-design-fix` skill is documented as never deleting content to lower the count. First step: run `npx @enmera/ai-design-check` in a UI project, then `npx @enmera/ai-design-check --write-baseline` to see only new findings.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add a hook to .claude/settings.json on Edit|Write|MultiEdit running `npx -y @enmera/ai-design-check hook` (exit 2 with findings on stderr) for UI projects, as one more gate in quality-gates?</li><li>Wire RULES.md (node_modules/@enmera/ai-design-check/RULES.md) or the `rules` list into the frontend skill as a checklist for generated UI?</li><li>Borrow the `ai-design-fix` pattern: the agent reports findings before/after and never deletes content to lower the count. Add that condition to our UI-fixing skills?</li><li>Run `narrow page.html --width 320` on a bot page or landing to check long text on a narrow screen?</li></ul></div>
+      <a class="source" href="https://github.com/enmerasoftware/ai-design-check" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>02.11</span></div>
+      <h2>stack-diagram skill draws an architecture diagram with official logos from a one-sentence stack description</h2>
+      <div class="gist"><p>caru-ini/stack-diagram is an agent skill (Claude Code, Codex, Cursor and others), created 1 Nov 2026, already 737 stars, MIT licensed. You describe your stack in a sentence or two (e.g. a Next.js and Hono app on Vercel with Neon, Clerk, Stripe and GitHub Actions), and the agent fetches logos, routes connector lines around labels, renders the diagram and checks it before returning it.</p><p>Logos come in order from svgl, devicon, gilbarbara/logos, or the brand&#x27;s own repo; AWS icons come from AWS&#x27;s own package. They are downloaded at build time, not bundled, and the scripts never recolor or redraw them. Outputs: a self-contained HTML file with fonts and logos inlined (default), PNG, a dependency-free React component, or a Claude Artifact; light and dark themes both work. Requires Python 3.9+ and network access; PNG export needs Playwright with Chromium. The agent may offer to post the diagram to the public gallery at stacks.caru.moe, only after two confirmations, and your prompt is not sent.</p><p>For your setup: you already have Artifacts and Remotion, but this covers a narrow job — quick architecture diagrams for READMEs, review-page or tickets without hand-made layout. First step: `npx skills add caru-ini/stack-diagram`, then ask for a diagram of your bot (Telegram + Claude Code + MCP) and inspect the HTML.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install with `npx skills add caru-ini/stack-diagram` and generate a diagram of the bot (Telegram + Claude Code + MCP servers) for manager/ or a README.</li><li>Hook the skill into review-page: embed an architecture diagram as self-contained HTML in plan-approval pages.</li><li>Borrow the &#x27;render and verify before returning&#x27; pattern (checking label/line overlaps) into our skills that produce visual artifacts.</li></ul></div>
+      <a class="source" href="https://github.com/caru-ini/stack-diagram" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>Hacker News</span><span>01.11</span></div>
+      <h2>OmniDiff: a fast structural diff tool in Rust for git, with JSON output</h2>
+      <div class="gist"><p>OmniDiff (Rust, AGPL-3.0, v0.3.0, with a paid commercial license) is a content-aware difftool. Code in 25 languages is parsed with tree-sitter and compared as trees (APTED, falling back to Myers on degenerate trees), so a moved function shows up as a move rather than a deletion plus an insertion. Binary formats are diffed by meaning too: pictures pixel by pixel, archives file by file, fonts glyph by glyph, PDFs page by page. Speed on 2,302 code fixtures: p50 4.2 ms, p99 177 ms. Robustness: 99.95% of ~442k before/after pairs from ~7,500 repos completed. Failures are huge generated files (in the thread the author named a tree-sitter stack overflow). By the author&#x27;s own numbers, difftastic is perfect on 64% of diffs and OmniDiff on 90%. Accuracy goals are not yet met: zero mismatched bytes in 60% of cases (--full) and 69.6% (--minimal). Three-way merge is unsolved. External PRs are not accepted.</p><p>For your setup the useful part is the non-TTY mode: --headless turns on automatically when stdout is not a terminal, and there are --mode json (JSON Schema in the repo) and --exit-code. Agents and hooks could get a structural diff instead of line-level noise. The project itself is built with Claude Code and has an AGENTS.md. First step: brew install ivankovic/omnidiff/omnidiff, then omnidiff git configure or GIT_EXTERNAL_DIFF=omnidiff git diff (output is plain text, no TUI).</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Try GIT_EXTERNAL_DIFF=omnidiff git diff on a large refactor with moved code and compare its size and readability for a reviewer subagent against plain git diff.</li><li>Check omnidiff --mode json on a real diff and decide whether to feed it into the code-review and vendor-review skills, so reviewers see function moves instead of delete/insert pairs.</li><li>Run omnidiff on changed images, PDFs and archives (Remotion frames, assets) as a content-level check of outputs instead of eyeballing them.</li></ul></div>
+      <a class="source" href="https://github.com/ivankovic/omnidiff" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
