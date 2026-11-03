@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 03.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">03.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Skein: Go-бинарник для роя локальных процессов с аварийной остановкой по эпохам и отбраковкой запоздавших результатов</a></li><li><a href="#s2">Verdict: крошечный локальный классификатор, который по выводу команды решает, правда ли она сработала</a></li><li><a href="#s3">Claude Code 2.1.317: предупреждения в /schedule, защита email от утечки, onFailure: &quot;block&quot; для хуков SDK и много исправлений</a></li><li><a href="#s4">Frontier-модель «GPT-6 Astra» читает и правит веса сетей напрямую; в Qwen3.5-0.8B убрала петли и подняла MATH-500 с 7,9% до 48,1%</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>03.11</span></div>
+      <h2>Skein: Go-бинарник для роя локальных процессов с аварийной остановкой по эпохам и отбраковкой запоздавших результатов</h2>
+      <div class="gist"><p>Skein (MIT, v0.2.0, ранний релиз) — control plane для запуска графов задач локальными командами с ограниченной параллельностью. Это не агентный фреймворк и не рантайм моделей: в JSON-манифесте задаются argv-массивы (без неявного shell), зависимости, многопроходные блоки, лимиты воркеров и таймауты на проход. Ядро — epoch fence: `skein stop` увеличивает постоянный счётчик эпохи, сбрасывает очередь и отклоняет результаты, которые приходят из старой эпохи, а не просто помечает задачи отменёнными. Стоп — идемпотентная защёлка на диске, fail-closed, эпохи не переиспользуются. Заодно убивает деревья локальных процессов (Linux, macOS, Windows). Аренда (lease) — fencing-токен, не credential: внешние системы должны проверять его через свой шлюз. Состояние лежит в `.skein/runs/&lt;run-id&gt;/` (report.json, events.jsonl). Статический бинарник, без демона и БД. Заявлено: 160/160 деревьев процессов остановлены, медиана 141.7 мс; граф из 1000 узлов — 1.6–3.3 мс против 0.5–0.9 с у LangGraph (одна машина, Windows). Не покрыто: песочница, подписанные lease, проверка смысла вывода агента, exactly-once побочных эффектов, восстановление после падения.</p><p>Для тебя это скорее идея, чем замена: у тебя Workflow и сабагенты, но запоздавший воркер после отмены или `/loop` может дописать результат в уже устаревшее состояние. Семантика «эпоха + отбраковка поздних результатов» закрывает именно это. Первый шаг: поставить через `curl -fsSL https://raw.githubusercontent.com/Balanov/skein/main/install.sh | sh`, прогнать `skein run --state .skein --workers 2 --include-tasks examples/fanout.json`, потом `skein stop` и `skein status` (ждём `{&quot;stopped&quot;:true,&quot;epoch&quot;:2}`).</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Проверить, что в твоих `claude -p` скриптах и Workflow поздний результат отменённого агента не попадает в итог: добавить в task-context/loop-design правило «номер эпохи/прогона в имени файла результата, чужую эпоху игнорировать».</li><li>Взять идею идемпотентной защёлки стопа: в скилл loop-design добавить файл-флаг stop с проверкой перед каждым шагом и перед записью результата (fail-closed).</li><li>Попробовать skein как раннер для локальных батчей (whisper, MLX, Remotion) с `--workers N` и `skein stop`, который убивает деревья процессов целиком.</li><li>Для writer-агентов в worktree вести events.jsonl по образцу `.skein/runs/&lt;run-id&gt;/` для разбора в скилле observability.</li></ul></div>
+      <a class="source" href="https://github.com/Balanov/skein" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>03.11</span></div>
+      <h2>Verdict: крошечный локальный классификатор, который по выводу команды решает, правда ли она сработала</h2>
+      <div class="gist"><p>Verdict — исследовательское превью от Balanov (репозиторий создан 2026-11-02, 217 звёзд). Это классификатор результата CLI-вызова: на вход команда, exit code, stdout и stderr, на выходе одна из меток success, failure, blocked или unknown. Идея: «exit code 0 — не доказательство», например pytest с «collected 0 items / no tests ran» вернёт 0, но успехом не является.</p><p>Внутри мультиклассовая логистическая регрессия по хешированным символьным 3–5-граммам и словным 1–3-граммам: 196 608 int8-весов, модель 197 KB. Только стандартная библиотека Python, без GPU, сети и телеметрии, медиана инференса 0,54 мс. На 192 отложенных синтетических примерах из 48 семейств CLI точность 93,2% и macro-F1 93,2%, у базовой проверки по exit code 47,9% и 31,9%. Лицензия Apache-2.0, датасет CC0.</p><p>Ограничения важны: корпус синтетический и англоцентричный, на реальных трассах агентов не проверялся, вероятности не откалиброваны, и автор прямо называет инструмент советующим, а не заменой детерминированным проверкам. Он не судит о корректности кода или выполнении задачи. В README нет интеграции с Claude Code и хуками.</p><p>Для твоего сетапа это идея для PostToolUse-хука: ловить «зелёные» Bash-вызовы с пустым или подозрительным выводом (0 тестов, no tests ran). Первый шаг: git clone https://github.com/Balanov/verdict.git &amp;&amp; python -m pip install ., затем printf &#x27;collected 0 items\nno tests ran\n&#x27; | verdict --command &#x27;pytest tests/&#x27; --exit-code 0 и прогнать на своих логах.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Сделать PostToolUse-хук на Bash, который гонит команду, exit code и вывод через verdict и при метке failure/unknown на exit 0 возвращает агенту предупреждение — попробовать на тестовых прогонах?</li><li>Прогнать verdict на накопленных логах сессий и bot-session, чтобы замерить его точность на реальных трассах (автор этого не проверял) до внедрения в хук?</li><li>Добавить в quality-gates правило: «0 тестов собрано» считается провалом, даже если exit code 0, с verdict как мягким вторым сигналом?</li></ul></div>
+      <a class="source" href="https://github.com/Balanov/verdict" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Claude Code releases</span><span>03.11</span></div>
+      <h2>Claude Code 2.1.317: предупреждения в /schedule, защита email от утечки, onFailure: &quot;block&quot; для хуков SDK и много исправлений</h2>
+      <div class="gist"><p>Релиз 2.1.317 (3 ноября 2026) — в основном исправления, но есть несколько заметных изменений. /schedule теперь предупреждает, если новая облачная задача получила коннекторы, которые вы не просили, и подсказывает, как их убрать. Перед вызовом веб- или shell-инструмента, который отправляет email вашего аккаунта в сеть, Claude Code теперь спрашивает разрешение. В хуках Agent SDK появился onFailure: &quot;block&quot;: если callback упал, действие блокируется, а не выполняется.</p><p>Поведение, которое может задеть ваши скрипты: (1) claude -p, запущенный внутри сессии (облачной или на self-hosted runner), раньше использовал ID и транскрипт этой сессии; теперь у него свой. Старое поведение возвращает CLAUDE_CODE_DISABLE_NESTED_SESSION_ID=1. (2) claude -p теперь выходит с кодом 1, а не 0, если из-за полного диска или квоты потерялся транскрипт или запись в ~/.claude.json. (3) Субагенты и тиммейты на другой модели, чем основная, берут сохранённый или дефолтный effort этой модели, а не effort сессии. (4) SendMessage в работающий фоновый агент доходит раньше: его текущая команда уходит в фон, но не останавливается. (5) Read больше не отдаёт заглушку «file unchanged since your last Read» — возвращает содержимое. Также исправлено: Ctrl+C при очистке ввода убивал всех фоновых агентов; Grep/Glob по таймауту выдавали частичный результат как полный; самопланируемые /loop иногда не ставили wakeup; «Prompt is too long» после автокомпакции при большом CLAUDE.md. В OTel добавлены атрибуты anthropic.plan, anthropic.seat_type, anthropic.provider, anthropic.custom_base_url.</p><p>Для вас: сначала проверьте скрипты с claude -p --json-schema, которые вызываются из сессии или бота: при вложенном запуске ID сессии теперь другой, а при сбое записи будет код 1. Первый шаг: обновить Claude Code и прогнать такой скрипт изнутри Telegram-сессии, а в агентах на Sonnet под Opus проверить, какой effort они теперь получают.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать скрипты с claude -p --json-schema изнутри Telegram-сессии после обновления и проверить, что вложенный запуск с новым session ID и код выхода 1 при сбое записи ничего не ломают (при необходимости CLAUDE_CODE_DISABLE_NESTED_SESSION_ID=1)</li><li>Пересмотреть агентские файлы, закреплённые за моделью и effort: субагенты на другой модели теперь берут её сохранённый/дефолтный effort, а не effort сессии — убедиться, что это то, что нужно</li><li>Добавить в скилл loop-design заметку: Grep/Glob по таймауту раньше отдавали частичный результат как полный, и самопланируемый /loop мог не поставить wakeup — после обновления перепроверить свои /loop</li><li>Если пишете хуки на Agent SDK, ставить onFailure: &quot;block&quot; для проверочных callback&#x27;ов, чтобы сбой не пропускал действие</li></ul></div>
+      <a class="source" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.317" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>Hacker News</span><span>02.11</span></div>
+      <h2>Frontier-модель «GPT-6 Astra» читает и правит веса сетей напрямую; в Qwen3.5-0.8B убрала петли и подняла MATH-500 с 7,9% до 48,1%</h2>
+      <div class="gist"><p>В блоге «Sparks of Weight-Space Programming» LLM (GPT-6 Astra) без оптимизатора и градиентов читает сырые веса, рассуждает, что они считают, и пишет новые. Девять экспериментов. По весам определила игру у 4 PPO-политик (MLP, 17 253 веса) и язык у 7M-трансформеров. Одной правкой 3,5% весов починила политику Kinetix: 0 успехов в 256 эпизодах, потом 1024 из 1024. Сети MinAtar (600→32→32→6) написала с нуля без данных. Главный результат: в Qwen3.5-0.8B нашла в MLP слоёв 15 и 19 одно направление, вызывающее зацикливание, и убрала его из 131 072 весов (0,016%). MATH-500 вырос с 7,9% до 48,1%, GSM8K с 13,8% до 67,1%, IFEval с 21,0% до 62,3%, ответы, упёршиеся в лимит 32 768 токенов, упали с 93% до 33,1%.</p><p>Ограничения: авторы называют результаты очень ранними. Gemma 3 270M, которая не зацикливается, не улучшилась. Сикофанта в Gemma по одним весам найти не удалось, получилось только с паттернами внимания (голова 10.2: 85,7% против 0,75%). В Qwen нужно было ~50 прямых проходов. В обсуждении HN (2466 баллов) критики пишут, что это steering-вектор/abliteration под новым названием, «математика» — по сути исправление багa зацикливания, а независимая проверка с Claude на мелких классификаторах давала правки, снижавшие точность. Для твоего сетапа это скорее сигнал, чем инструмент: агент с PyTorch-обвязкой может вести интерпретируемость почти без человека. Первый шаг: открыть логи github.com/RikiyaT/lm_understand-logs (промпты, код, оценки) и модель RikiyaT/Qwen3.5-0.8B-weight-space-programming на Hugging Face; команд запуска в статье нет.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Взять логи lm_understand-logs как образец «агент + песочница + прямые проходы»: у тебя уже есть RunPod и MLX, можно повторить Exp. 8 на локальной Qwen и проверить правку на MATH-500.</li><li>Добавить в скилл loop-design проверку «зацикливание и упор в лимит токенов»: в статье доля ответов у лимита 32 768 упала с 93% до 33,1%, это метрика сбоя, которую дёшево считать.</li><li>Перенять их контрольный приём: после правки гонять контрольную модель, где дефекта нет (у них Gemma), чтобы отличить снятие блока от добавления способности. Оформить как правило в скилле testing.</li></ul></div>
+      <a class="source" href="https://rikiyat.github.io/blog/weight-space-programming/" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
