@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 05.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">05.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">video-director skill: code-rendered video (HTML/Canvas → MP4) with gates and QA scripts</a></li><li><a href="#s2">rea-video: an agent skill that breaks a video down shot by shot into filmed, AI-generated or coded</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>05.11</span></div>
+      <h2>video-director skill: code-rendered video (HTML/Canvas → MP4) with gates and QA scripts</h2>
+      <div class="gist"><p>win4r/video-director (MIT, 330 stars, 8 commits, created 2026-10-28) is a Claude Code skill where the model writes animation in HTML/Canvas/SVG/Three.js/GSAP/Remotion and it is rendered frame by frame to MP4. It ships no shot library. It holds 13 principles with their reasons, per-film dials (clock, continuity, register, text policy), a build contract and a phased workflow with a gate at each phase. Two scripts: check_timeline.py validates the plan (timeline.json) before any code; qa_video.py measures the finished film: hook text size and contrast, frame 0, flashes, cuts, freezes, loop seam, loudness, silences, contact sheets (--beats timeline.json). Evals: 3 briefs with graders. Round 1: 28/28 vs 25/28 without the skill, blind graders 2–1, about 2× time and tokens. Round 2: 30/32 vs 26/32 for the previous skill version, 3–0. One run per configuration; the authors call it &quot;a direction, not a measurement&quot;. Newer sections on characters, revisions and live pages are unevaluated.</p><p>You already have a Remotion pipeline and the montage and quality-gates skills, so what is new is measured checking of what the model cannot watch or hear, plus plan validation before code. Dependencies: ffmpeg, Python with numpy and Pillow, Playwright, optional faster-whisper (you already have whisper). First step: git clone https://github.com/win4r/video-director.git &amp;&amp; cp -R video-director/video-director ~/.claude/skills/, then run python3 video-director/scripts/qa_video.py film.mp4 --out qa/ on any finished clip of yours.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run qa_video.py on finished Remotion-pipeline clips (hook, frame 0, loudness, silences, loop seam) and wire it in as a gate before delivery?</li><li>Take check_timeline.py and the timeline.json template to validate the plan before render in the montage skill?</li><li>Copy the round-2 hook rule: text and call to action on screen by 3 s, sound off, with measured size and contrast — add to our video skills?</li><li>Reuse their evals setup (3 briefs, graders, blind comparison with vs without the skill) for our own skills?</li></ul></div>
+      <a class="source" href="https://github.com/win4r/video-director" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>05.11</span></div>
+      <h2>rea-video: an agent skill that breaks a video down shot by shot into filmed, AI-generated or coded</h2>
+      <div class="gist"><p>rea-video (Apache-2.0, 1492 stars, repo created 2026-10-29) is a toolkit for Claude Code and Codex. The repo ships `.claude-plugin/`, `skills/rea-video/`, `AGENTS.md` and `CLAUDE.md`. It cuts a video into shots, splits the audio into voice, music and effects, and judges how each shot was made: filmed, AI-generated, coded (a Remotion template), screen-recorded, or avatar-driven. It relies on measurable evidence: frame cadence, sensor noise, whole-frame panning, AIGC tags in metadata; for audio it computes BPM and key. Hard evidence outranks visual impression, and conflicts go to the agent for a visual check. Output: a summary such as &quot;41% AI video + 59% code UI, 8 s of real screen recording, library music at 122 BPM&quot;, a remake plan (what to film, generate, code), SRT/ASS captions and `report.html`. The plan respects the target video model&#x27;s limits (clip length, reference count).</p><p>Accuracy, weighted by shot duration: tools only gets 98.3% on the tuning set and 99.6%/98.9% on the holdout. On WeChat re-encoded files it drops to 88.6%; with Gemini vision it is 99.6%, with agent visual review 100%. It needs ffmpeg and Python 3.10+; a vision model (Gemini or Doubao) is optional. Detailed docs are in Chinese for now; the example reports are in English.</p><p>For you: Remotion, montage and image-create already exist in your setup, but reverse analysis of a video does not. First step: tell the agent &quot;Install https://github.com/JuneYaooo/rea-video, then break down this video: /path/to/video.mp4&quot; and compare the report against a clip you know. The agent passes `--lang` to set the report language.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install rea-video as a plugin/skill and run it on your own Remotion clip to check whether it detects &quot;code/template&quot; shots and caption timing correctly.</li><li>Borrow its rule &quot;hard evidence (metadata, frame cadence) outranks visual impression, conflicts go to a visual review&quot; and add it to the montage skill when analyzing references.</li><li>Use the `rea_video/capabilities/` tables (limits of video, image and audio models) as a reference for image-create and video plans: clip length, reference count.</li></ul></div>
+      <a class="source" href="https://github.com/JuneYaooo/rea-video" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>

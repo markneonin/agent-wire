@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 05.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">05.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Скилл video-director: код-видео (HTML/Canvas → MP4) с гейтами и QA-скриптами</a></li><li><a href="#s2">rea-video: навык для агента, который разбирает видео по кадрам на «снято / сгенерировано / написано кодом»</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>05.11</span></div>
+      <h2>Скилл video-director: код-видео (HTML/Canvas → MP4) с гейтами и QA-скриптами</h2>
+      <div class="gist"><p>win4r/video-director (MIT, 330 звёзд, 8 коммитов, создан 28.10.2026) — скилл для Claude Code, где модель пишет анимацию на HTML/Canvas/SVG/Three.js/GSAP/Remotion, а рендер идёт покадрово в MP4. Это не набор шотов, а 13 принципов с обоснованиями, настройки на фильм (clock, continuity, register, text policy), контракт сборки и поэтапный процесс с гейтом на каждой фазе. Два скрипта: check_timeline.py проверяет план (timeline.json) до написания кода; qa_video.py меряет готовый ролик: размер и контраст текста хука, кадр 0, вспышки, склейки, фризы, шов лупа, громкость, паузы, контактные листы (--beats timeline.json). Evals: 3 брифа с грейдерами. Раунд 1: 28/28 против 25/28 без скилла, слепые судьи 2–1, цена ~2× по времени и токенам. Раунд 2: 30/32 против 26/32 для прошлой версии, 3–0. По одному прогону на конфигурацию, авторы сами называют это «направлением, а не измерением». Новые разделы про персонажей, ревизии и live-страницы не проверялись.</p><p>У тебя уже есть Remotion-пайплайн, скиллы montage и quality-gates, поэтому новое здесь — именно измеряемая проверка того, что модель не может посмотреть или послушать сама, плюс валидация плана до кода. Зависимости: ffmpeg, Python с numpy и Pillow, Playwright, опционально faster-whisper (у тебя whisper уже есть). Первый шаг: git clone https://github.com/win4r/video-director.git &amp;&amp; cp -R video-director/video-director ~/.claude/skills/, затем python3 video-director/scripts/qa_video.py film.mp4 --out qa/ на любом своём готовом ролике.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать qa_video.py на готовых роликах Remotion-пайплайна (хук, кадр 0, громкость, паузы, шов лупа) — подключить его как гейт перед выдачей?</li><li>Взять check_timeline.py и шаблон timeline.json: валидировать план ролика до рендера в скилле montage?</li><li>Украсть правило хука из раунда 2: текст и призыв на экране к 3-й секунде, с выключенным звуком, с измеренным размером и контрастом — добавить в наши видео-скиллы?</li><li>Повторить их схему evals (3 брифа, грейдеры, слепое сравнение со скиллом и без) для наших собственных скиллов?</li></ul></div>
+      <a class="source" href="https://github.com/win4r/video-director" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>05.11</span></div>
+      <h2>rea-video: навык для агента, который разбирает видео по кадрам на «снято / сгенерировано / написано кодом»</h2>
+      <div class="gist"><p>rea-video (Apache-2.0, 1492 звезды, репозиторий создан 29.10.2026) — набор для Claude Code и Codex: в репозитории есть `.claude-plugin/`, `skills/rea-video/`, `AGENTS.md`, `CLAUDE.md`. Он режет видео на шоты, разделяет звук на голос, музыку и эффекты и для каждого шота определяет, как его сделали: снято на камеру, сгенерировано ИИ, собрано в коде (шаблон для Remotion), записано с экрана или это аватар. Опирается на измеримые улики: частоту кадров, сенсорный шум, панорамирование всего кадра, AIGC-теги в метаданных; для звука считает BPM и тональность. Жёсткие улики важнее «впечатления»; спорные шоты агент смотрит глазами. Выход: сводка вроде «41% AI-видео + 59% кодового UI, 8 с записи экрана, музыка 122 BPM», план ремейка (что снять, что сгенерировать, что закодить), субтитры в SRT/ASS и `report.html`. План учитывает лимиты видеомоделей (длина клипа, число референсов).</p><p>Точность по длительности шотов: только инструменты — 98,3% на тюнинговой выборке и 99,6%/98,9% на отложенной; после перекодирования в WeChat падает до 88,6%, с Gemini-зрением — 99,6%, с проверкой агентом — 100%. Нужны ffmpeg и Python 3.10+; vision-модель (Gemini или Doubao) опциональна. Подробные доки пока на китайском, примеры отчётов на английском.</p><p>Для тебя: Remotion, montage и image-create уже есть, а такого «обратного» разбора нет. Первый шаг — сказать агенту: «Install https://github.com/JuneYaooo/rea-video, then break down this video: /path/to/video.mp4» и сравнить отчёт на своём ролике (параметр `--lang` задаёт язык отчёта).</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить rea-video как плагин/скилл и прогнать на своём Remotion-ролике: сверить, угадает ли он «код/шаблон» и тайминги субтитров.</li><li>Взять у них правило «жёсткие улики (метаданные, частота кадров) важнее визуального впечатления, спорное уходит на ручной просмотр» и добавить в наш скилл montage при разборе референсов.</li><li>Подключить таблицы `rea_video/capabilities/` (лимиты видео-, картиночных и аудиомоделей) как справочник к image-create и планам видео: длина клипа, число референсов.</li></ul></div>
+      <a class="source" href="https://github.com/JuneYaooo/rea-video" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
