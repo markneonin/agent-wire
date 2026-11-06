@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 06.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">06.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">renderlint: a rendered-UI linter with 40 rules and a Stop hook for Claude Code</a></li><li><a href="#s2">code-review-skill: code review with four probes, JSON evidence and a merge gate derived from JSON</a></li><li><a href="#s3">Codex CLI 0.167.0: agent command center, backend switching, and patch review inside approval prompts</a></li><li><a href="#s4">Poki: a local MCP server that lets Claude Code operate a real iPhone, no jailbreak</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>06.11</span></div>
+      <h2>renderlint: a rendered-UI linter with 40 rules and a Stop hook for Claude Code</h2>
+      <div class="gist"><p>renderlint (npm package @ngocanhnckh/renderlint, MIT, Node 18.17+) opens your app in headless Chromium and finds visual defects that TypeScript and ESLint miss. It has 40 rules: text-overflow, text-clipped, element-overlap, contrast (measured from real pixels, WCAG 2 AA), emoji icons, placeholder-text (undefined, NaN, [object Object], lorem ipsum), broken-image, native-dialog (alert/confirm), tap-target, focus-indicator, console-error, dead-link and more. It renders at phone, tablet and desktop widths, plus dark mode, plus a sweep over 13 widths from 320 to 1920 px. It then reruns the page with longer text, long words and bigger numbers. Anything that breaks only under that stress is reported as a fragile-layout warning. Each finding gives the element, source file and line (React, Vue, Svelte, Astro dev builds), a numbered screenshot and a fix hint. `npx renderlint` exits 1 on errors. A page takes 4-10 seconds; `--no-sweep` speeds it up. Limits: canvas can&#x27;t be inspected, menus and dialogs are only checked via `states` or Playwright, and pages behind a login need an `auth` block.</p><p>The agent integration matters most for your setup. `init` installs a Stop hook (`npx renderlint hook`) that stops Claude from ending its turn while UI errors remain in files it changed (it gives up after 4 attempts). It also writes rules into CLAUDE.md and AGENTS.md and installs three skills: renderlint-setup, renderlint-fix, renderlint-e2e. There is also a Vite plugin and a Playwright wrapper. It is a closed verification loop like your hooks and quality-gates, but for layout. First step: in a test frontend project run `npx -y @ngocanhnckh/renderlint init`, then `npx renderlint explain contrast`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add the Stop hook `npx renderlint hook` to our frontend skill for web UI projects, so the agent can&#x27;t end its turn with layout errors in changed files?</li><li>Wire `npx renderlint --format github` or `--min-coverage` into quality-gates as a UI check next to lint and types?</li><li>Adopt the stress-pass idea (longer text, long words, bigger numbers, 13-width sweep) as a checklist item in the frontend skill and in UI tests?</li><li>Try `init` on one project to see what it writes to CLAUDE.md and how the renderlint-fix and renderlint-e2e skills are worded, and borrow the good phrasing?</li></ul></div>
+      <a class="source" href="https://github.com/ngocanhnckh/renderlint" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>06.11</span></div>
+      <h2>code-review-skill: code review with four probes, JSON evidence and a merge gate derived from JSON</h2>
+      <div class="gist"><p>kyy-logs/code-review-skill (v0.1.1, MIT, created 2026-10-29, 305 stars) is a skill for Claude Code and Codex. It reads the diff, surrounding source, tests and project rules; it builds nothing, runs nothing and never edits code. Four probes, each in a fresh context writing its own JSON: behavior-review (behavior vs contract), test-coverage, repo-guard (repo rules; .java/.ts/.tsx/.vue by default) - these three are required - and optional impact-analysis (callers, contract changes, blast radius). All probes use the same model; the author calls this separation of duties, not independent review.</p><p>Each finding carries location, summary, evidence, severity and status (open/reconciled/wontfix/false-positive). High needs a method signature plus the violated contract, or a concrete code path; unverified hunches are capped at medium. collect-metrics validates the JSON and derives counts; the fact sections of code-review.md are rendered from JSON and re-verified. A failed required probe or an open high finding blocks the merge. Line coverage below line_target (85) blocks; branch coverage is advisory. Results are modest: on 11 Java cases it found 5 of 7 targets with 0 confirmed false positives; no comparison against single-agent review exists.</p><p>You already have /code-review, vendor-review and quality-gates, so what&#x27;s new is the &quot;JSON is the source of truth for the gate&quot; design and the evidence rule. First step: npx -y skills add kyy-logs/code-review-skill --agent claude-code --skill code-review --yes in a test project, then say &quot;Review these changes with code-review&quot;.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Adopt the evidence rule: a high finding in review skills needs a signature plus the violated contract or a code path, otherwise it caps at medium - add this to vendor-review and quality-reviewer?</li><li>JSON-derived gate: have reviewers write findings as JSON with a status, then a script or `claude -p --json-schema` computes the block (open highs) and renders the report&#x27;s fact sections - do this in feature-build?</li><li>Install the skill in a test project and compare its findings on one diff against our /code-review and vendor-review - the author has no such comparison.</li></ul></div>
+      <a class="source" href="https://github.com/kyy-logs/code-review-skill" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Codex CLI releases</span><span>06.11</span></div>
+      <h2>Codex CLI 0.167.0: agent command center, backend switching, and patch review inside approval prompts</h2>
+      <div class="gist"><p>Codex CLI rust-v0.167.0 shipped on November 6. Main item: `codex agents --no-daemon` opens an agent command center. It and the session picker mark unread results (#58238, #58239, #58263, #58264), and tasks are sorted by recency within status groups. From the terminal session picker you can switch between connected backends, and drafts are kept (#58280, #58457). While an approval prompt is open you can expand patch details (#58281). Local image attachments preview while composing, and paths to viewed images are clickable. &quot;Sign in another way&quot; now offers API key and cloud providers. The `gcp_setup_wizard` feature sets up Google Cloud Vertex AI via Application Default Credentials or a credential file. System proxy for macOS/Windows is opt-in under `/experimental`.</p><p>Internals: Guardian review can now review recorded exec calls directly, and PreToolUse hooks run before the direct-review policy checks (#58368). Subagent parent links are persisted before child storage exists, and the subagent picker puts pending approvals first (#58129, #58720). Automatic context compaction now counts retained output from failed responses (#58404). For you this is mostly a second-opinion tool: Codex is already your cross-vendor reviewer and you have your own orchestration in Claude Code. The command center is a different take on the same problem, one screen for all agents and unread results. First step: update Codex and run `codex agents --no-daemon` to see whether it beats your background agents for tracking parallel work.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Update Codex and run `codex agents --no-daemon`, then compare its overview of parallel agents with our background agents and SendMessage</li><li>Borrow the unread-results idea: in a Stop or SessionStart hook, flag which background agents finished but whose result hasn&#x27;t been read yet</li><li>For use-codex and vendor-review: if you want Codex on Vertex AI, enable `gcp_setup_wizard` and check whether it works as a separate backend</li></ul></div>
+      <a class="source" href="https://github.com/openai/codex/releases/tag/rust-v0.167.0" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>06.11</span></div>
+      <h2>Poki: a local MCP server that lets Claude Code operate a real iPhone, no jailbreak</h2>
+      <div class="gist"><p>Poki (JosssphZhou/poki, AGPL-3.0, created 5 Nov 2026, 314 stars, release v0.1.1) lets agents operate a real iPhone. It has two parts: a local MCP server and a standalone terminal Poki Agent, which can also run through iMessage or Telegram. No jailbreak and no extra hardware: a Mac talks to the phone through idevice tools (physical devices, needs USB pairing) or a simulator adapter. The tool list lives in docs/tools.md; the README only shows the example list_devices. Poki remembers past tasks and runs repeats faster.</p><p>Requirements: macOS 15+, Xcode, Node.js 24+, ffmpeg; the prebuilt package is Apple Silicon only. Limits: on physical phones only the Chinese interface is verified, portrait orientation only. Screen contents are sent to the configured model, and if asked to send a message or pay, Poki will do it.</p><p>For you this gives Claude Code hands on mobile: testing iOS apps and running scenarios on the simulator, wired in like your Chrome MCP. Start with the simulator, not your personal phone: git clone, ./bin/setup, npm start, then claude mcp add (exact command is in the README), and call list_devices.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Connect Poki as an MCP next to Chrome MCP, but on the simulator only, and check that list_devices sees it</li><li>If you move to a physical phone: use a separate test iPhone/account and a PreToolUse hook that requires confirmation for sending messages and payments, since Poki does them without asking</li><li>Write a skill modeled on browser-use for iOS: the main session doesn&#x27;t call Poki tools itself and hands the task to a subagent, so screenshots don&#x27;t bloat the context</li></ul></div>
+      <a class="source" href="https://github.com/JosssphZhou/poki" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
