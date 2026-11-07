@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 07.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">07.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Дешёвая модель Jev отдаёт сомнительные случаи Opus и даёт его точность в 4 раза дешевле</a></li><li><a href="#s2">devvm: отдельная Lima-VM на каждую папку проекта для Claude Code, Codex и opencode</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>06.11</span></div>
+      <h2>Дешёвая модель Jev отдаёт сомнительные случаи Opus и даёт его точность в 4 раза дешевле</h2>
+      <div class="gist"><p>Hightouch проверял LLM-судей для identity resolution: нужно найти «пере-склейки», когда в одну личность попали записи разных людей. Бенчмарк: 1000 личностей из синтетического городка (pseudopeople), половина склейки. Opus 5.5: 99,0% точности, $3,86 за 1000, 2,2 с на личность. Дешёвые «решающие» модели отдают оценку уверенности 0–1: Luna 97,3% за $0,10, Jev 95,7% за $0,05, быстрее в 10+ раз. На сложном наборе (опечатки в дате рождения, близнецы, Jr/Sr) Opus 95,1%, Jev и Luna около 89%.</p><p>Гибрид: Jev оценивает всё, а если уверенность в полосе 30–90% (около 22% случаев), решение передаётся Opus. Простой набор: 98,8% за $0,88 против $3,86. Сложный: 95,3% за $2,94 против 95,1% за $5,39 у одного Opus. Luna с Opus дала лишь 91,6%: она переуверена, ошибается при 90–100% уверенности, поэтому ошибки не видны. Jev ошибается около 50%, то есть откалиброван. Ограничения: синтетические данные, одна задача, сложный набор придумали сами авторы. В комментариях HN критикуют калибровку без ECE и спорные метки. Один пишет, что с хорошим Haiku эскалация почти ничего не дала.</p><p>Для твоего сетапа: у тебя уже есть сабагенты на разных моделях и `claude -p --json-schema`, так что новое только в паттерне «дешёвая модель + порог уверенности → эскалация». Первый шаг: в одном скрипте с `claude -p --json-schema` попросить Haiku вернуть поле confidence 0–1, а ниже порога (например, 0,9) переспрашивать Opus, и сравнить цену с «всё на Opus» на 50–100 размеченных примерах. В HN упомянули настройку `/advisor`, где слабая модель сама зовёт сильную; в источнике её нет, это стоит проверить отдельно.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить в наши скрипты на `claude -p --json-schema` поле confidence 0–1 и эскалацию к Opus только в полосе неуверенности, вместо прогона всего через Opus.</li><li>Перед включением замерить калибровку дешёвой модели: смотреть, где она ошибается при уверенности 90–100%. Если там много ошибок, как у Luna, эскалация не сработает.</li><li>Подобрать порог эскалации на размеченной выборке, строя кривую «доля отправленного в Opus – точность – цена», как в статье (полоса 30–90% → 22% случаев).</li></ul></div>
+      <a class="source" href="https://hightouch.com/blog/llm-judges-identity-resolution" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>07.11</span></div>
+      <h2>devvm: отдельная Lima-VM на каждую папку проекта для Claude Code, Codex и opencode</h2>
+      <div class="gist"><p>devvm (MIT, репозиторий создан 6 ноября 2026, 252 звезды) даёт каждой папке проекта свою изолированную VM на базе Lima. Запускаешь `devvm` в папке: он по файлам проекта определяет тулчейны (например, package.json даёт node), показывает, что получит VM, и после подтверждения открывает шелл по тому же пути, что на хосте. Внутри запускаешь `claude`. Первый запуск собирает базовый образ несколько минут, дальше VM стартуют за секунды как копии образа, тулчейны общие и только для чтения. Встроенные слои: docker, nix, desktop; свои создаются через `devvm layer new`.</p><p>Изоляция: VM монтирует только папку проекта, сеть по умолчанию в режиме allowlist (доступны только разрешённые хосты), токены GitHub и Claude Code остаются на хосте. С флагом `--clone` VM работает в собственном клоне репозитория, не трогая рабочее дерево и .git; результат забираешь на хосте через `git fetch devvm` и смотришь `git log -p main..devvm/main`. Авторы сами оговаривают, что полной защиты песочница не даёт. Нужны macOS 13+ или Linux, Lima 2.2+; проверено на Apple silicon и Linux, Intel Mac не тестировался.</p><p>Для твоей схемы (Claude Code в терминале и в Telegram-боте, git worktree на писателя) это способ запускать агента с широкими правами без риска для хоста и секретов: вместо worktree получаешь целую VM с клоном. Агентские настройки, скиллы и MCP переносятся через `devvm agent import`, вход через `devvm agent login claude`. Первый шаг: `brew trust --formula devvmhq/tap/devvm &amp;&amp; brew install devvmhq/tap/devvm`, затем `devvm doctor` и `devvm --clone` в тестовом проекте.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Гонять писателей-сабагентов и бота в Telegram внутри `devvm --clone` вместо git worktree: забирать результат через `git fetch devvm` и ревьюить `git log -p main..devvm/main` — попробовать на одном проекте?</li><li>Пустить автономные циклы (/loop, /schedule, fix-until-green) в VM с allowlist-сетью, чтобы агент без человека не имел доступа к токенам и лишним хостам — добавить это правило в скилл loop-design?</li><li>Перенести окружение в VM через `devvm agent import` и проверить, что скиллы, хуки и MCP (codebase-memory, Telegram) там работают — сделать такой тест?</li><li>Записать в CLAUDE.md правило: опасные эксперименты и сторонний код запускать только в devvm-VM, а секреты оставлять на хосте (скилл secrets)</li></ul></div>
+      <a class="source" href="https://github.com/devvmhq/devvm" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  
+</main>
+
+</body>
+</html>
