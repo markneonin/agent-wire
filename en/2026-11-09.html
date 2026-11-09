@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 09.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">5 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">09.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Simon Willison hides agent-written PR descriptions inside &amp;lt;details&amp;gt; and leads with a short human-written opener</a></li><li><a href="#s2">tinker-ai-skill turns your Claude Code sessions into a dataset and fine-tunes a local model on them via Tinker</a></li><li><a href="#s3">Scott Hanselman released sandbox-mcp: disposable Windows 11 guests from Windows Sandbox for agents, via the sbx CLI and an MCP server</a></li><li><a href="#s4">cc-remote: Claude Code runs on a remote server while Read/Edit/Bash execute on your machine</a></li><li><a href="#s5">Pack of four skills for one person who hands tasks to AI assistants and checks the results</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Simon Willison</span><span>09.11</span></div>
+      <h2>Simon Willison hides agent-written PR descriptions inside &amp;lt;details&amp;gt; and leads with a short human-written opener</h2>
+      <div class="gist"><p>Most changes to Willison&#x27;s projects arrive as PRs opened by Claude Code or Codex. The agent descriptions are accurate but long: several paragraphs facing anyone who opens the PR. His pattern: a short opener on top, written by him or lifted from the agent, and the full agent description inside a collapsed `&lt;details&gt;&lt;summary&gt;` block. The `&lt;summary&gt;` label is the model and often the effort level, e.g. &quot;Claude Opus 5.5 Medium&quot;. He sometimes adds a screenshot.</p><p>Example opener for datasette PR #3042: &quot;`edit-tools.js` (~220KB) was loaded on every table, row and database page, even for users who couldn&#x27;t edit anything.&quot; GitHub Markdown supports these blocks in PR descriptions and comments, but the editor has no button for it, so typing it on mobile is tedious. The trick doesn&#x27;t shorten the text or improve review quality; it only hides detail and shapes the first impression.</p><p>It fits your setup if agents open your PRs (feature-kickoff, the MR step of feature-build): the reader sees at once whether a PR deserves attention. First step: add a rule to the PR description template: &quot;first paragraph is at most 2 sentences on what and why it matters; everything else goes in `&lt;details&gt;&lt;summary&gt;model + effort&lt;/summary&gt;`&quot;.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add an MR description template to the feature-kickoff skill: a 1-2 sentence opener, then the full description inside `&lt;details&gt;&lt;summary&gt;model + effort&lt;/summary&gt;`.</li><li>Have the PR-authoring agent write the opener itself under the rule &quot;the shortest text that gets a human up to speed&quot;, so it can be reused without edits.</li><li>Put the model and effort in `&lt;summary&gt;` (your agent files already pin them) so a reviewer sees which agent produced the PR.</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Nov/9/details-summary/" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>09.11</span></div>
+      <h2>tinker-ai-skill turns your Claude Code sessions into a dataset and fine-tunes a local model on them via Tinker</h2>
+      <div class="gist"><p>drost-ai/tinker-ai-skill (MIT, created 7 Nov 2026) is a 9-step skill with 11 scripts. It takes transcripts from ~/.claude/projects/, copies them with checksums (skipping subagents, tiny sessions and private projects), normalizes them to OpenAI-style messages, strips harness noise, replaces credentials and assigns a random fake identity per session (one constant identity got memorized by the model). It then slices to context length with the model&#x27;s real renderer without splitting a tool call from its result, adds a compacted-context block on continuation slices, holds out whole sessions, trains a LoRA on Tinker, compares base vs checkpoints, merges, and builds a BF16 GGUF for llama.cpp. The author, Migel Tissera, used this for Tess-4-27B and Tess-4.5-27B. November 2026 prices: 1,000 rows (~45M tokens) cost ~$55 on Qwen3.6-35B-A3B and ~$185 on Qwen3.8-27B. Lessons: put the system prompt and tool definitions in every row or tool use regresses; judge by behaviour, not loss (two &quot;collapses&quot; happened while loss fell); serve with the same flags used in training.</p><p>This is a new branch for you: you have many sessions and local MLX models, but no fine-tuning on your own sessions. Claude Code deletes sessions after 30 days by default. First step: set `cleanupPeriodDays: 3650` in ~/.claude/settings.json, clone the repo into ~/.claude/skills/tinker-ai-skill, and run the five-minute dry run on synthetic data (`make_sample_transcript.py`, then `train_tinker.py` without `--train`, which is an offline smoke test).</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Set `cleanupPeriodDays: 3650` in ~/.claude/settings.json so sessions aren&#x27;t deleted after 30 days and the dataset material keeps accumulating.</li><li>Clone the skill into ~/.claude/skills/tinker-ai-skill and run the free offline dry run on synthetic data (no `--train`) to see a row&#x27;s format and token count.</li><li>Borrow their scrubbing scheme: credential replacement, a random identity per session, and failing on any leak; useful for any export of our transcripts, e.g. for the observability skill.</li><li>Adopt their evaluation rule: compare checkpoints and local models by behaviour on held-out sessions, not by loss.</li></ul></div>
+      <a class="source" href="https://github.com/drost-ai/tinker-ai-skill" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>09.11</span></div>
+      <h2>Scott Hanselman released sandbox-mcp: disposable Windows 11 guests from Windows Sandbox for agents, via the sbx CLI and an MCP server</h2>
+      <div class="gist"><p>sandbox-mcp (repo created 2026-11-06, release v1.2.0) runs Windows apps in a disposable Windows 11 guest using Windows Sandbox. It ships a `sbx` CLI and an optional MCP server named `windows-sandbox`, both on one engine. Each run boots a fresh guest, installs or launches the app, captures evidence (screenshots, recordings, errors) and destroys the guest. Results go to `%LOCALAPPDATA%\sandbox-mcp\runs\&lt;timestamp&gt;`.</p><p>MCP tools include `sandbox_run`, `sandbox_exec`, `sandbox_deploy`, `sandbox_screenshot`, `sandbox_ui_tree`, `sandbox_ui_action` (clicks and typing via UI Automation), `sandbox_install_test`, `sandbox_detonate` (untrusted file, network `off|firewall|on`), `sandbox_snapshot` and `sandbox_diff`. The CLI takes `--json` everywhere. Limits: needs Windows 11 24H2+ Pro/Enterprise/Education, only one Sandbox at a time, a logged-in host session, no Store, winget or Terminal in the guest, snapshots take 10–20 seconds. The author warns that output should be treated as untrusted and that Sandbox is not an escape guarantee. The README has no Claude Code section; it gives configs for VS Code, Copilot CLI and Claude Desktop.</p><p>This matters for you only if you test Windows apps: you are on a Mac, so you would need a separate Windows machine. The idea travels, though: an agent checks what it built in a clean environment and sees the result through screenshots and the UI tree. First step on Windows: `git clone https://github.com/shanselman/sandbox-mcp`, `npm ci --omit=dev`, `npm link`, then `sbx doctor` and `sbx run C:\Windows\System32\charmap.exe --open`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>If you get a Windows machine: add the `windows-sandbox` MCP (`node ...\src\server.js`) to Claude Code and run `sandbox_install_test` on your own installer.</li><li>Borrow the pattern of a clean environment per run + `--json` + artifacts in a per-timestamp folder for your own scripts where an agent verifies what it built.</li><li>Add a rule to the quality-gates skill: treat sandbox output (especially from `detonate`) as untrusted, as the author advises.</li></ul></div>
+      <a class="source" href="https://github.com/shanselman/sandbox-mcp" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>09.11</span></div>
+      <h2>cc-remote: Claude Code runs on a remote server while Read/Edit/Bash execute on your machine</h2>
+      <div class="gist"><p>cc-remote (AkaraChen, 338 stars, created 2026-11-01) is an ACP agent built on claude-agent-acp. The `claude` process runs on a server via `ssh -T`, with its built-in file and shell tools disabled. cc-remote supplies local replacements with the same names and inputs (Read, Write, Edit, NotebookEdit, Bash, Glob, Grep), plus local MCP servers from ~/.claude.json and .mcp.json. The model, login/subscription, system prompt, session, web search, subagents, skills and server settings stay on the server. Requirements: passwordless ssh, Claude Code 2.1.248+ on the server, Bun to build. Works with acpc, Zed, paseo.</p><p>Permissions: Read/Glob/Grep never prompt; Bash approvals cover a prefix (`npm test:*`), and commands with `;`, `&amp;`, `|`, redirects or `$(…)` are never auto-approved. Limits: the project&#x27;s `.claude/` (commands, skills, agents, settings) is not sent to the server, checkpoints/rewind can&#x27;t see local edits, LSP, Monitor and worktree tools are disabled, MCP resources and prompts are unavailable. For you this is niche: useful if the model and subscription live on one machine and the code on another, but losing project skills, hooks and worktrees hurts your stack. First step: `git clone https://github.com/AkaraChen/cc-remote &amp;&amp; cd cc-remote &amp;&amp; bun install &amp;&amp; bun run compile &amp;&amp; bun link`, then `echo &lt;server&gt; &gt; ~/.config/cc-remote/host &amp;&amp; cc-remote doctor`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>The Bash approval-by-prefix rule (`npm test:*`) with no auto-approve for `;`, `&amp;`, `|`, redirects, `$(…)`: compare with our PreToolUse hook and add any missing cases?</li><li>The `cc-remote doctor` check (ssh plus remote claude version): build a similar preflight script for bot/RunPod sessions?</li><li>Try cc-remote on a test server, knowing the limits: project `.claude/` isn&#x27;t sent and worktrees are off, so first check that the needed skills live in the server&#x27;s ~/.claude?</li></ul></div>
+      <a class="source" href="https://github.com/AkaraChen/cc-remote" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>GitHub</span><span>09.11</span></div>
+      <h2>Pack of four skills for one person who hands tasks to AI assistants and checks the results</h2>
+      <div class="gist"><p>solo-to-team-skills (author 大冰, v0.9-draft, 350 stars, created 7 Nov 2026) is not software but a set of methods packaged as four skills. dispatch-accept-verify: before handing out a task you write a &quot;待收&quot; (pending) registration line (who does it, who collects it, who checks), then record separately &quot;accepted&quot;, &quot;result received&quot;, &quot;verified&quot;. A task leaves the open list only when verified or cancelled with human authorization. evidence-before-done: no &quot;done&quot; without evidence matching the current version (open the file, rerun a check, repeat the steps); adapted from obra/superpowers. beginner-ops-writing: step-by-step instructions for novices, one step at a time. ops-case-notes: sanitized real cases. Also included: templates/task-register-line.md and examples/walkthrough-meeting-notes/.\n\nThe author states the limits: hooks are empty (`hooks: {}`), there is no automatic dispatch or reminders, so you or the host must check tasks on schedule; there is no controlled experiment, so lower error rates are not proven. Install is documented for Codex and several Chinese hosts; a Claude Code structure exists but is not in the first release.\n\nMostly covered by what you have: task-context, feature-build, process (&quot;don&#x27;t claim done without verification&quot;) and subagents. The one new idea is a ledger of dispatched tasks with three separate statuses. First step: open templates/task-register-line.md and compare it with the context.md in task-context.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add to task-context a table of dispatched tasks with statuses accepted / result received / verified, closing a task only after verification</li><li>Add a &quot;who verifies and how&quot; field to each subagent task line before launch, not after</li></ul></div>
+      <a class="source" href="https://github.com/dabingfy-dot/solo-to-team-skills" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  <footer class="problems"><span>Sources with problems</span><ul><li>Codex CLI releases: nothing new for 30 days</li></ul></footer>
+</main>
+
+</body>
+</html>

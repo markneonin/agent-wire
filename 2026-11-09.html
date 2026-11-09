@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 09.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">5 новостей за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">09.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Саймон Уиллисон прячет длинные PR-описания от агентов под &amp;lt;details&amp;gt;, а сверху оставляет короткий абзац от человека</a></li><li><a href="#s2">Скилл tinker-ai-skill превращает ваши сессии Claude Code в датасет и дообучает на них локальную модель через Tinker</a></li><li><a href="#s3">Scott Hanselman выпустил sandbox-mcp: одноразовая Windows 11 из Windows Sandbox для агента через CLI sbx и MCP</a></li><li><a href="#s4">cc-remote: Claude Code крутится на удалённом сервере, а Read/Edit/Bash выполняются на твоей машине</a></li><li><a href="#s5">Набор из четырёх скиллов для одного человека, который раздаёт задачи ИИ-ассистентам и принимает результат</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Simon Willison</span><span>09.11</span></div>
+      <h2>Саймон Уиллисон прячет длинные PR-описания от агентов под &amp;lt;details&amp;gt;, а сверху оставляет короткий абзац от человека</h2>
+      <div class="gist"><p>Почти все изменения в своих проектах Уиллисон получает как PR, которые открывают Claude Code или Codex. Описания у агентов точные, но длинные: несколько абзацев перед глазами у каждого, кто открыл PR. Его приём: сверху короткий текст, который он пишет сам или берёт у агента, а полное агентское описание лежит в свёрнутом блоке `&lt;details&gt;&lt;summary&gt;`. В `&lt;summary&gt;` он пишет модель и часто уровень effort, например «Claude Opus 5.5 Medium». Иногда добавляет скриншот.</p><p>Пример опенера для PR #3042 в datasette: «`edit-tools.js` (~220KB) was loaded on every table, row and database page, even for users who couldn&#x27;t edit anything.» GitHub Markdown такие блоки поддерживает в описаниях PR и комментариях, но кнопки для них в редакторе нет, на телефоне набирать неудобно. Приём не сокращает текст и не повышает качество ревью, он только прячет детали и задаёт первое впечатление.</p><p>Для вашей связки это полезно, если PR открывают агенты (feature-kickoff, MR в конце feature-build): читателю сразу видно, стоит ли открывать PR. Первый шаг: в шаблон описания PR добавить правило «первый абзац — до 2 предложений про суть и почему это важно, остальное в `&lt;details&gt;&lt;summary&gt;модель + effort&lt;/summary&gt;`».</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>В скилл feature-kickoff добавить шаблон описания MR: короткий опенер на 1-2 предложения, затем полное описание в `&lt;details&gt;&lt;summary&gt;модель + effort&lt;/summary&gt;`.</li><li>Заставлять агента-автора PR самого писать опенер по правилу «самый короткий текст, который вводит в курс дела», чтобы его можно было брать без правки.</li><li>Указывать в `&lt;summary&gt;` модель и effort, с которыми сделан PR (у вас они закреплены в agent-файлах), чтобы при ревью видеть, кто что писал.</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Nov/9/details-summary/" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>09.11</span></div>
+      <h2>Скилл tinker-ai-skill превращает ваши сессии Claude Code в датасет и дообучает на них локальную модель через Tinker</h2>
+      <div class="gist"><p>Репозиторий drost-ai/tinker-ai-skill (MIT, создан 7 ноября 2026) — скилл из 9 шагов, 11 скриптов. Он берёт транскрипты из ~/.claude/projects/, копирует их с чек-суммами (без сабагентов, мелких сессий и приватных проектов), приводит к OpenAI-формату, вычищает шум харнесса, заменяет креды и для каждой сессии подставляет случайную личность (постоянная фейковая личность запоминалась моделью). Дальше нарезка под контекст реальным рендерером без разрыва tool call и результата, блок сжатого контекста на продолжениях, отложенная выборка целыми сессиями, LoRA на Tinker, сравнение базы и чекпойнтов, слияние и BF16 GGUF для llama.cpp. Автор, Migel Tissera, так делал Tess-4-27B и Tess-4.5-27B. Цены на ноябрь 2026: 1000 строк (~45M токенов) — ~$55 на Qwen3.6-35B-A3B, ~$185 на Qwen3.8-27B. Уроки: system prompt и определения тулов нужны в каждой строке, иначе tool use деградирует; оценивать по поведению, а не по loss (два «коллапса» при падающем loss); запускать с теми же флагами, что при обучении.</p><p>Для вас это новая ветка: у вас много сессий и локальные модели на MLX, но дообучения на своих сессиях нет. По умолчанию Claude Code удаляет сессии через 30 дней. Первый шаг: поставить `cleanupPeriodDays: 3650` в ~/.claude/settings.json, затем клонировать репозиторий в ~/.claude/skills/tinker-ai-skill и прогнать пятиминутный сухой прогон на синтетике (`make_sample_transcript.py`, затем `train_tinker.py` без `--train` — это офлайн-проверка).</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить `cleanupPeriodDays: 3650` в ~/.claude/settings.json, чтобы сессии не удалялись через 30 дней и копился материал для датасета.</li><li>Склонировать скилл в ~/.claude/skills/tinker-ai-skill и прогнать офлайн-сухой прогон на синтетике (без `--train`, бесплатно), чтобы увидеть формат строки и число токенов.</li><li>Взять у них схему очистки себе: подмена кредов и случайные личности на сессию, провал при утечке; полезно для любого экспорта наших транскриптов, например для скилла observability.</li><li>Перенять правило оценки: сравнивать чекпойнты и локальные модели по поведению на отложенных сессиях, а не по loss.</li></ul></div>
+      <a class="source" href="https://github.com/drost-ai/tinker-ai-skill" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>09.11</span></div>
+      <h2>Scott Hanselman выпустил sandbox-mcp: одноразовая Windows 11 из Windows Sandbox для агента через CLI sbx и MCP</h2>
+      <div class="gist"><p>sandbox-mcp (репозиторий создан 2026-11-06, релиз v1.2.0) запускает Windows-приложения в одноразовой гостевой Windows 11 через Windows Sandbox. Есть CLI `sbx` и опциональный MCP-сервер `windows-sandbox`, оба на одном движке. Каждый запуск поднимает чистый гость, ставит или запускает приложение, собирает артефакты (скриншоты, запись, ошибки) и уничтожает гостя. Результаты лежат в `%LOCALAPPDATA%\sandbox-mcp\runs\&lt;timestamp&gt;`.</p><p>Инструменты MCP: `sandbox_run`, `sandbox_exec`, `sandbox_deploy`, `sandbox_screenshot`, `sandbox_ui_tree`, `sandbox_ui_action` (клики и ввод через UI Automation), `sandbox_install_test`, `sandbox_detonate` (подозрительный файл, сеть `off|firewall|on`), `sandbox_snapshot` и `sandbox_diff`. В CLI везде есть `--json`. Ограничения: нужна Windows 11 24H2+ Pro/Enterprise/Education, одновременно работает только один Sandbox, нужна залогиненная сессия хоста, в госте нет Store, winget и Terminal, снапшот занимает 10–20 секунд. Автор предупреждает: выход считать недоверенным, от побега из Sandbox он не защищает. В README нет раздела про Claude Code, есть примеры для VS Code, Copilot CLI и Claude Desktop.</p><p>Для тебя это актуально только если тестируешь Windows-приложения: у тебя Mac, так что запуск возможен лишь на отдельной Windows-машине. Идея пригодна и шире: агент проверяет собранное в чистой среде и видит результат по скриншотам и дереву UI. Первый шаг на Windows: `git clone https://github.com/shanselman/sandbox-mcp`, `npm ci --omit=dev`, `npm link`, затем `sbx doctor` и `sbx run C:\Windows\System32\charmap.exe --open`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Если появится Windows-машина: подключить `windows-sandbox` MCP (`node ...\src\server.js`) в Claude Code и прогнать `sandbox_install_test` на своём установщике.</li><li>Взять паттерн «чистая среда на каждый запуск + `--json` + артефакты в папку по timestamp» для своих скриптов, где агент проверяет собранное.</li><li>Добавить в скилл quality-gates правило: вывод из песочницы (особенно `detonate`) считать недоверенным, как советует автор.</li></ul></div>
+      <a class="source" href="https://github.com/shanselman/sandbox-mcp" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>09.11</span></div>
+      <h2>cc-remote: Claude Code крутится на удалённом сервере, а Read/Edit/Bash выполняются на твоей машине</h2>
+      <div class="gist"><p>cc-remote (AkaraChen, 338 звёзд, создан 2026-11-01) — ACP-агент на базе claude-agent-acp. Процесс `claude` запускается на сервере через `ssh -T`, а его встроенные файловые и shell-инструменты отключены: вместо них cc-remote подставляет локальные аналоги с теми же именами и входами (Read, Write, Edit, NotebookEdit, Bash, Glob, Grep) и локальные MCP-серверы из ~/.claude.json и .mcp.json. На сервере остаются модель, логин/подписка, системный промпт, сессия, web search, сабагенты, скиллы и серверные настройки. Нужны ssh без пароля, Claude Code 2.1.248+ на сервере и Bun для сборки. Работает с acpc, Zed, paseo.</p><p>Права: Read/Glob/Grep без вопросов; Bash одобряется по префиксу (`npm test:*`), команды с `;`, `&amp;`, `|`, редиректами, `$(…)` никогда не одобряются автоматически. Ограничения: `.claude/` проекта (команды, скиллы, агенты, настройки) на сервер не уходит, checkpoints/rewind не видят локальные правки, LSP, Monitor и worktree отключены, MCP-ресурсы и промпты недоступны. Для тебя это скорее нишевая вещь: полезна, если модель и подписка на одной машине, а код на другой. Но потеря проектных скиллов, хуков и worktree бьёт по твоему стеку. Первый шаг: `git clone https://github.com/AkaraChen/cc-remote &amp;&amp; cd cc-remote &amp;&amp; bun install &amp;&amp; bun run compile &amp;&amp; bun link`, затем `echo &lt;server&gt; &gt; ~/.config/cc-remote/host &amp;&amp; cc-remote doctor`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Правило Bash-аппрува по префиксу (`npm test:*`) и запрет автоодобрения для `;`, `&amp;`, `|`, редиректов, `$(…)` — свериться с нашим PreToolUse-хуком и добавить недостающие случаи?</li><li>Проверка `cc-remote doctor` (ssh + версия удалённого claude) — сделать похожий preflight-скрипт для бота/RunPod-сессий?</li><li>Попробовать cc-remote на тестовом сервере, зная ограничения: проектный `.claude/` не едет на сервер, worktree отключены — сначала проверить, что нужные скиллы лежат в серверном ~/.claude?</li></ul></div>
+      <a class="source" href="https://github.com/AkaraChen/cc-remote" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>GitHub</span><span>09.11</span></div>
+      <h2>Набор из четырёх скиллов для одного человека, который раздаёт задачи ИИ-ассистентам и принимает результат</h2>
+      <div class="gist"><p>solo-to-team-skills (автор 大冰, v0.9-draft, 350 звёзд, создан 7 ноября 2026) — это не софт, а набор методик в виде четырёх скиллов. dispatch-accept-verify: перед выдачей задачи пишется строка регистрации «待收» (кто делает, кто принимает, кто проверяет), дальше отдельно фиксируются «принято», «результат получен», «проверено». Задача уходит из открытого списка только после проверки или отмены с разрешения человека. evidence-before-done: нельзя сказать «готово» без доказательства, относящегося к текущей версии (открыть файл, перезапустить проверку, повторить шаги); адаптация из obra/superpowers. beginner-ops-writing: инструкции для новичка по одному шагу. ops-case-notes: обезличенные реальные случаи. Есть шаблон templates/task-register-line.md и пример examples/walkthrough-meeting-notes/.\n\nОграничения автор указывает сам: hooks пустые (`hooks: {}`), автодиспетчеризации и напоминаний нет, проверять задачи надо вручную или средствами хоста; контролируемого эксперимента нет, так что снижение ошибок не доказано. Установка описана для Codex и ещё нескольких китайских хостов; для Claude Code структура есть, но в первый релиз не вошла.\n\nУ тебя это в основном закрыто: task-context, feature-build, process («не говори готово без проверки») и субагенты. Новое только одно: журнал выданных задач с тремя раздельными статусами. Первый шаг: открыть templates/task-register-line.md и сравнить с context.md в task-context.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить в task-context таблицу выданных задач со статусами «принято / результат получен / проверено» и правилом: закрывать только после проверки</li><li>В строку задачи для субагента добавлять поле «кто и чем проверяет» до запуска, а не после</li></ul></div>
+      <a class="source" href="https://github.com/dabingfy-dot/solo-to-team-skills" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Codex CLI releases: nothing new for 30 days</li></ul></footer>
+</main>
+
+</body>
+</html>
