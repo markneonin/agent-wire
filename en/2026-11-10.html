@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 10.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">10.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Claude Code 2.1.321: Fable 5.2 becomes the default Fable model, --settings for remote-control, and a batch of sandbox and hook fixes</a></li><li><a href="#s2">Claude Fable 5.2 merges duplicated code when the prompt says the code is its own</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Claude Code releases</span><span>09.11</span></div>
+      <h2>Claude Code 2.1.321: Fable 5.2 becomes the default Fable model, --settings for remote-control, and a batch of sandbox and hook fixes</h2>
+      <div class="gist"><p>v2.1.321 shipped on 9 November 2026. It adds Claude Fable 5.2 (`claude-fable-5-2`), now the default Fable model: 1M context, $8/$40 per Mtok, $0.20/Mtok cache reads. Saved Fable 5.1 picks move to `fable` (immediately on Pro/Max, on Team/Enterprise once the org allows it); `/model claude-fable-5-1` switches back. The other new item: `claude remote-control --settings &lt;file&gt;` applies a settings file to every session it starts; if the file changes, no new session starts until you restart `remote-control`.</p><p>The rest is fixes. Security: MCP OAuth no longer sends refresh tokens to another host on a redirect; a read-only Bash command no longer runs outside the sandbox without a prompt; deny rules now apply to `cp`/`mv` into a directory, including `/bin/cp`; Bash permission checks no longer judge a write from the wrong folder. Hooks: a PreToolUse `ask` is no longer lost when another hook&#x27;s `defer` finishes first, a large hook output no longer points to another hook&#x27;s file, and `PreToolUse` `mcp_tool` hooks with an answer over 16 MiB now refuse the call. Also: `claude -p` on Linux now prints an error and exits 1 when NFS losses drop transcript lines; fast mode tries standard speed on the same model first; several Bash commands sent at once no longer run in the wrong folder; background command notifications over 1,000 characters show only the start and end, saving context; headless sessions reload skills when files change (turn off with `CLAUDE_CODE_PLUGIN_DIR_WATCH=0`). For you the hook, sandbox and `-p` fixes matter most, since they touch your PreToolUse hooks and headless scripts. First step: update, run `/model` to confirm Fable 5.2 appears, and check that your PreToolUse hooks using `ask`/`defer` behave as expected.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Re-check PreToolUse hooks: an `ask` is no longer lost when another hook&#x27;s `defer` finishes first, so verify our ask/defer hooks behave as intended after the update</li><li>In `claude -p` scripts, handle the new exit code 1 when transcript lines are lost (NFS) and check it in wrappers</li><li>Try `claude remote-control --settings &lt;file&gt;` for the Telegram bot sessions: one settings file for every session it starts (restart remote-control after editing the file)</li><li>Run `/model` and decide whether to move the most expensive agents to Fable 5.2 ($8/$40, $0.20/Mtok cache reads, 1M context); compare against Opus 5.5 on one task</li></ul></div>
+      <a class="source" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.321" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Simon Willison</span><span>10.11</span></div>
+      <h2>Claude Fable 5.2 merges duplicated code when the prompt says the code is its own</h2>
+      <div class="gist"><p>Simon Willison quoted the &quot;Say who owns the code&quot; section of Anthropic&#x27;s &quot;Prompting Claude Fable 5.2&quot; docs (10 Nov 2026). The point: the model responds closely to what the prompt says about who owns the code. If ownership is not mentioned, or the code is framed as someone else&#x27;s, then on small coding tasks it adds to the existing structure, even when that means repeating code.</p><p>The recommended sentence: &quot;This codebase is yours: what it&#x27;s for and how it&#x27;s built are your call, and you&#x27;ll keep building on it.&quot; With it, the model merged repeated code in about half of the tries; without it, in under one in ten. This is Anthropic&#x27;s measurement on small tasks, not a guarantee.</p><p>For your setup it is a one-line change: if you want agents to clean up duplication as they go, put the sentence in CLAUDE.md or the implementer brief. If you want a minimal diff in legacy or third-party code, leave it out and limit the scope explicitly. First step: add the sentence to an implementer brief on one feature and compare the diff with a normal run. Source: platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-2#say-who-owns-the-code</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add the code-ownership sentence to the implementer agent brief (subagents skill) for your own projects where merging duplicates is wanted</li><li>Add an explicit switch in the feature-build skill: &quot;this code is yours&quot; for own repos versus &quot;minimal diff&quot; for third-party or legacy code</li><li>Run an A/B on one task with duplicated code (with and without the sentence) and compare the diffs through quality-reviewer</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Nov/10/prompting-claude-fable-52/" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  <footer class="problems"><span>Sources with problems</span><ul><li>Codex CLI releases: nothing new for 30 days</li></ul></footer>
+</main>
+
+</body>
+</html>

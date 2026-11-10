@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 10.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">10.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Claude Code 2.1.321: модель Fable 5.2 по умолчанию, --settings для remote-control и россыпь фиксов безопасности песочницы и хуков</a></li><li><a href="#s2">Claude Fable 5.2 рефакторит дубли, если в промпте сказано, что код его собственный</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Claude Code releases</span><span>09.11</span></div>
+      <h2>Claude Code 2.1.321: модель Fable 5.2 по умолчанию, --settings для remote-control и россыпь фиксов безопасности песочницы и хуков</h2>
+      <div class="gist"><p>Вышла v2.1.321 (9 ноября 2026). Добавлена Claude Fable 5.2 (`claude-fable-5-2`) — теперь модель Fable по умолчанию: контекст 1M, $8/$40 за Mtok, чтение кэша $0.20/Mtok. Сохранённый выбор Fable 5.1 переедет на `fable` (на Pro/Max сразу, на Team/Enterprise — когда организация разрешит); вернуться можно через `/model claude-fable-5-1`. Второе новое: `claude remote-control --settings &lt;file&gt;` применяет файл настроек ко всем стартуемым сессиям; при изменении файла новые сессии не стартуют, пока не перезапустишь `remote-control`.</p><p>Остальное — фиксы. Безопасность: MCP OAuth больше не отправляет refresh-токены на другой хост при редиректе; read-only Bash-команда не выходит из песочницы без запроса; deny-правила теперь работают для `cp`/`mv` в каталог, включая `/bin/cp`; проверки путей для Bash чинят запись «из не той папки». Хуки: потерянный `ask` от PreToolUse при раннем `defer` другого хука, перепутанный вывод большого хука, `PreToolUse` `mcp_tool` с ответом &gt;16 MiB теперь отклоняет вызов. Ещё: `claude -p` на Linux при потере строк транскрипта (NFS) теперь печатает ошибку и выходит с кодом 1; fast mode сначала пробует обычную скорость на той же модели; Bash-несколько-команд-подряд больше не бегут в чужой папке; уведомления фоновых команд длиннее 1000 символов показывают только начало и конец (экономия контекста); в headless перечитываются навыки при изменении файлов (отключается `CLAUDE_CODE_PLUGIN_DIR_WATCH=0`). Для тебя важнее всего фиксы хуков, песочницы и `-p`: они затрагивают твои PreToolUse-хуки и headless-скрипты. Первый шаг: обновиться, затем `/model` и проверить, что Fable 5.2 появилась и что твои PreToolUse-хуки с `ask`/`defer` ведут себя ожидаемо.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Пересмотреть hook-и PreToolUse: теперь `ask` не теряется при `defer` другого хука — проверить, что наши хуки с ask/defer ведут себя как задумано после обновления</li><li>В скриптах с `claude -p` учесть новый код выхода 1 при потере строк транскрипта и проверять его в обёртках</li><li>Попробовать `claude remote-control --settings &lt;file&gt;` для Telegram-бот-сессий: одним файлом задать настройки всем стартуемым сессиям (после правки файла перезапускать remote-control)</li><li>Прогнать `/model` и решить, переводить ли самых дорогих агентов на Fable 5.2 ($8/$40, кэш $0.20/Mtok, 1M контекста) — сравнить на одной задаче с Opus 5.5</li></ul></div>
+      <a class="source" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.321" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Simon Willison</span><span>10.11</span></div>
+      <h2>Claude Fable 5.2 рефакторит дубли, если в промпте сказано, что код его собственный</h2>
+      <div class="gist"><p>Simon Willison процитировал раздел «Say who owns the code» из документации Anthropic «Prompting Claude Fable 5.2» (10 ноября 2026). Суть: модель сильно реагирует на то, чей код, по словам промпта. Если про владение ничего не сказано или код описан как чужой, на небольших coding-задачах она достраивает существующую структуру, даже когда это значит повторять код.</p><p>Рекомендованная фраза: «This codebase is yours: what it&#x27;s for and how it&#x27;s built are your call, and you&#x27;ll keep building on it.» С ней модель объединяла повторяющийся код примерно в половине попыток, без неё меньше чем в одной из десяти. Это замер Anthropic на малых задачах, не гарантия.</p><p>Для тебя это правка в одном месте: если хочешь, чтобы агент чистил дубли по ходу, добавь фразу в CLAUDE.md или бриф implementer. Если нужен минимальный diff в чужом или легаси-коде, наоборот не пиши её и явно ограничь объём. Первый шаг: вставить фразу в бриф implementer на одной фиче и сравнить diff с обычным прогоном. Оригинал: platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-2#say-who-owns-the-code</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить фразу про владение кодом в бриф агента implementer (скилл subagents) для своих проектов, где нужен рефакторинг дублей</li><li>Сделать в скилле feature-build явный переключатель: «код наш» для своих репозиториев и «минимальный diff» для чужого или легаси-кода</li><li>Прогнать A/B на одной задаче с дублями (с фразой и без) и сравнить diff через quality-reviewer</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Nov/10/prompting-claude-fable-52/" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Codex CLI releases: nothing new for 30 days</li></ul></footer>
+</main>
+
+</body>
+</html>
