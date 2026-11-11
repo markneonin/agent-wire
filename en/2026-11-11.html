@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 11.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">11.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Chrome, Edge, Firefox and MDN ship Modern Web Guidance 1.0: a skill and CLI that steer coding agents to native web APIs</a></li><li><a href="#s2">Gemini 4 Carbon is open to everyone at $2/$10 per million tokens, price doubles December 1</a></li><li><a href="#s3">maxagent: hooks for Claude Code and Codex that surface checked &quot;atoms&quot; of experience and record new ones</a></li></ol>
+<h2 class="section-title">Python and backend</h2><ol class="contents" style="counter-reset: item 3"><li><a href="#s4">Python 3.16.0 alpha 2 is out: faster uuid4/uuid7, richer re, quicker startup</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>10.11</span></div>
+      <h2>Chrome, Edge, Firefox and MDN ship Modern Web Guidance 1.0: a skill and CLI that steer coding agents to native web APIs</h2>
+      <div class="gist"><p>Modern Web Guidance (GoogleChrome/modern-web-guidance, Apache-2.0) is a set of 203 real-world use-case guides covering 250 web features (CSS 140, HTML/DOM 36, JS/APIs 74), shipped as a skill (markdown files in skills/modern-web-guidance/guides/) plus a CLI. The premise: models trained on legacy code know an API exists but still write old patterns. Guides on Popover API, view transitions, anchor positioning, container queries, scheduler.yield and similar are pulled into context. Commands: `npx modern-web-guidance@latest install | search &quot;...&quot; | retrieve &quot;&lt;id&gt;&quot; | legacy-scan .`. Plugin manifests exist for Claude, Codex, Cursor, Gemini and others. From the HN thread: on ~200 tasks with ~1,700 Playwright/AST assertions, pass rate rose from 55% to 92%; legacy-scan was trained on 30k repos (92% precision); search takes ~10 ms. Downsides: one user reported ~$5 of tokens per run, legacy-scan found only 2–3 issues for commenters, some features are Chrome-only (critics compare it to IE6), and the guides&#x27; tone is overly imperative.</p><p>For you this is a ready-made external skill to sit under your frontend router: it targets exactly the &quot;agent writes old-style code&quot; problem, and the guides are pruned by evals to skip what models already know. It partly overlaps your frontend skill (that one is routing and design; this adds fresh platform APIs). Watch token cost and Safari/Firefox support: check the support table in each guide. First step: in a test web project run `npx modern-web-guidance@latest legacy-scan .`, then `npx modern-web-guidance@latest install`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Wire modern-web-guidance into the frontend router as a skill, but load guides on demand via `search`/`retrieve` per task rather than all at once, to avoid the reported ~$5 token cost per run.</li><li>Add a CLAUDE.md rule for web projects: check the support table in a guide and write a Firefox/Safari fallback before using a native feature, instead of obeying the guides&#x27; &quot;DO use&quot; literally.</li><li>Run `legacy-scan .` on older web projects as a cheap deterministic audit and add it to quality-gates as an optional step.</li></ul></div>
+      <a class="source" href="https://github.com/GoogleChrome/modern-web-guidance" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Simon Willison</span><span>10.11</span></div>
+      <h2>Gemini 4 Carbon is open to everyone at $2/$10 per million tokens, price doubles December 1</h2>
+      <div class="gist"><p>Simon Willison released llm-gemini 0.36, a plugin for his llm tool, adding Gemini 4 Carbon. The model was announced two weeks ago for &quot;a subset of cyber defenders&quot; and opened to everyone on November 10, 2026. Launch price is $2 per million input tokens and $10 per million output, the same as GPT-6.1 Sol and Claude Sonnet 5.5. On December 1 the price is scheduled to double to $4 / $20, matching Opus 5.5.</p><p>Also from the post: thinking effort is adjustable (low, medium, high), with medium as the default. The author compared SVG pelicans at all three levels. In Antigravity IDE he gave it a Three.js task (a mech walking through New York using OpenStreetMap data); a second prompt was needed to get a standalone HTML file with no external dependencies. An update says Antigravity&#x27;s /swarm feature built a playable pelican game, available in AI Studio. The post gives no model IDs, commands or limits.</p><p>For you: you already have Gemini CLI and Antigravity, so this is a reason to run Carbon as an extra reviewer in vendor-review and use-antigravity while the price is half. First step: update the plugin (`llm install -U llm-gemini`) and check `llm models` for the exact ID.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add Gemini 4 Carbon to the vendor-review skill as a reviewer and compare it with Codex on the same diff before December 1, while it costs $2/$10.</li><li>In use-antigravity and the Gemini skills, set thinking effort explicitly (default is medium) and note which level to use for which tasks.</li><li>If the price becomes $4/$20 after December 1 (same as Opus 5.5), recheck whether Carbon still belongs in cheap tasks like summarisation.</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Nov/10/llm-gemini/" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>11.11</span></div>
+      <h2>maxagent: hooks for Claude Code and Codex that surface checked &quot;atoms&quot; of experience and record new ones</h2>
+      <div class="gist"><p>maxagent (MIT, Node 18+, 220 stars, created 8 Nov 2026) installs a shared workspace (default ~/maxagent) into Claude Code, Codex, Antigravity and OpenClaw: AGENTS.md, experience/, projects/, sync.md, inbox/. Experience is stored as short checked recipes called atoms (format in experience/_spec.md). Hooks surface a relevant atom at three points: when the user sends a message, before a command runs, and after an error. Agents write atoms themselves as they work; the README doesn&#x27;t detail how. Your own atoms can block a command known to fail; shared atoms from downloaded packs are advisory only: at most one per message, shown only when your own shelf has nothing relevant. Packs are JSON files on GitHub Releases with sha256 and precomputed int8 vectors; the client verifies the checksum and scans the text for download-and-run commands, attempts to rewrite agent rules, secret exfiltration, destructive commands and hidden characters, rejecting the whole pack on any hit. Meaning search pulls multilingual-e5-small (~270 MB) and needs Python, otherwise keyword-only. Separately, maxagent-bridge is an MCP server for your own Chrome via an unpacked extension and Native Messaging, with per-agent approval, a site blocklist, an action log and a stop button. The README gives no effectiveness benchmarks.</p><p>You already have auto memory, CLAUDE.md, skills and Chrome automation, so what&#x27;s new is automatic hook-driven delivery of experience at those triggers (especially after an error and before a command) and the vetting of imported packs. First step: `npx maxagent init`, then `npx maxagent doctor`. Try it on a separate project first: the installer edits agent hooks and rules (with backups), and `npx maxagent uninstall` reverts it.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>An after-error hook that searches a base of short checked recipes by the error text and feeds the match to the agent: build one on top of our auto memory?</li><li>A PreToolUse hook that blocks a command our own notes record as failing (own entries only, never imported ones): add it?</li><li>Use the atom format (title, first step, check) from experience/_spec.md as a template for entries in our skills and memory?</li><li>If we ever import third-party rule or skill packs, copy their vetting: sha256 plus a scan for download-and-run, rule rewriting and hidden characters: add it to quality-gates?</li></ul></div>
+      <a class="source" href="https://github.com/vzroslieigry/maxagent" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>Python Insider</span><span>10.11</span></div>
+      <h2>Python 3.16.0 alpha 2 is out: faster uuid4/uuid7, richer re, quicker startup</h2>
+      <div class="gist"><p>On November 10, 2026 the second of seven alphas of Python 3.16 was released (release team: Savannah Ostrowski, Ned Deily, Steve Dower, Julien Palard). It is for testing only, not for production.</p><p>What&#x27;s new: uuid4() and uuid7() now have C implementations, about 15-30x faster in microbenchmarks. re gains nested character sets, set operations (intersection, difference) and matching by Unicode properties such as uppercase letters. Interpreter startup is faster, with optimizations to garbage collection and built-in object construction. Error messages are improved. ssl adds Encrypted Client Hello (needs OpenSSL 4.0+). Builds for tvOS, watchOS and visionOS exist but are outside the PEP 11 tiers. Schedule (PEP 826): alpha 3 on December 15, 2026, beta 1 (feature freeze) on May 4, 2027, RC1 on July 27, 2027, final on October 5, 2027.</p><p>For your stack: if you generate UUIDs as PostgreSQL primary keys or as message ids in Kafka/Celery, hot paths will benefit, and uuid7 gives time-ordered keys. Faster startup helps CLIs and workers. First step: download https://www.python.org/downloads/release/python-3160a2/ and run your pytest suite in a separate environment; report bugs at https://github.com/python/cpython/issues.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run our pytest suite on 3.16.0a2 in a separate venv or an allow-failure CI job to catch dependency breakage early</li><li>Benchmark uuid4()/uuid7() on 3.15 vs 3.16a2 on our hot paths (id generation for Kafka/Celery messages) and decide whether to move to uuid7 for PostgreSQL keys</li><li>Put December 15, 2026 (alpha 3) and May 4, 2027 (beta 1) in the calendar as compatibility-check checkpoints</li></ul></div>
+      <a class="source" href="https://blog.python.org/2026/11/python-3160-alpha-2-is-now-available/" target="_blank" rel="noopener">Source</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>
