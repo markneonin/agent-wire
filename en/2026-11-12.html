@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 12.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">5 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">12.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Atuin 18.24 adds Threads: sync and search of Claude Code, Codex and other agent sessions across machines</a></li><li><a href="#s2">AWS releases an official local AWS API emulator in Rust (aws/aws-emulator)</a></li><li><a href="#s3">lot-map: a Claude Code plugin that shows a live map of agent activity beside the chat</a></li><li><a href="#s4">work-mode plugin for Claude Code: session modes auto, out, wrap plus hook-based gates</a></li></ol>
+<h2 class="section-title">Python and backend</h2><ol class="contents" style="counter-reset: item 4"><li><a href="#s5">Postgres 18 benchmark: a random UUIDv4 primary key cuts inserts to ~0.65 of UUIDv7 once the index outgrows memory</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>11.11</span></div>
+      <h2>Atuin 18.24 adds Threads: sync and search of Claude Code, Codex and other agent sessions across machines</h2>
+      <div class="gist"><p>Atuin (the shell history tool) 18.24+ adds Threads: it records, indexes and syncs coding-agent sessions the way it already does for shell history. Supported: Claude Code, Codex, Pi, Omp and OpenCode. You can search a session, resume it on another machine, or fork it into a different agent while keeping context. Capture is opt-in. Sync runs on Atuin&#x27;s append-only log engine with end-to-end encryption: use their hosted server, self-host, or stay fully local. An MCP server lets agents search past sessions themselves, finding abandoned attempts and why they were dropped, or an earlier incident investigation. Team session sharing is still in development. From the HN thread (79 comments): it syncs &quot;pretty much everything&quot;, including possible secrets; people ask to disable sync for Threads only; Claude Code web sessions are unsupported; Claude deletes local sessions after 30 days, which Threads preserves.</p><p>For you this is not orchestration but memory across sessions and machines: you have codebase-memory and task-context, but no search over past transcripts and no moving a session to another machine. Risk: transcripts contain tokens, and you run a bot and keys in Keychain, so check the local-only mode first. First step: `curl --proto &#x27;=https&#x27; --tlsv1.2 -LsSf https://setup.atuin.sh | sh`, then `atuin resume` and `atuin mcp install claude`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install Atuin and connect the MCP with `atuin mcp install claude`, so the agent searches past sessions (why a path was dropped) instead of relying only on manual task-context.</li><li>Enable Threads in local-only mode first and verify that secrets in transcripts don&#x27;t leave the machine; self-host the sync server if you sync across machines.</li><li>Add a step to the task-framing or process skill: search past sessions via the atuin MCP before investigating a bug that may have been looked at already.</li></ul></div>
+      <a class="source" href="https://blog.atuin.sh/threads-agent-sessions/" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Hacker News</span><span>11.11</span></div>
+      <h2>AWS releases an official local AWS API emulator in Rust (aws/aws-emulator)</h2>
+      <div class="gist"><p>aws/aws-emulator is a local emulator of AWS APIs that needs no AWS account and makes no calls to AWS. It is meant for development and CI, not production or security testing. There is no GUI: it serves an endpoint and you point the AWS CLI or an SDK at it via environment variables. It has one crate per service under services/, and the router serves HTTPS on 127.0.0.1:9297 with a self-signed certificate. An embedded mode for Rust tests runs an isolated instance per test, with no endpoint or certificates. License is CC0-1.0 (vendor/ is Apache 2.0). It takes no PRs, only issues. Telemetry is on by default; turn it off with `aws-emulator --telemetry off` or `EMULATOR_TELEMETRY=off`.</p><p>Limits: the README lists no supported services; per-service fidelity scores are on release pages. A commenter&#x27;s HN table shows DynamoDB ~69%, Lambda ~53%, EC2 ~40%, Athena ~22%. IAM, bucket and KMS policies and cross-account behavior are not reliably emulated, so a request AWS would deny may pass locally. State resets only by restarting the process. Skeptics noted ~29,000 commits in under a month; an Amazon employee said the project will be maintained.</p><p>For you: agents can run integration tests against cloud APIs without keys or bills. There is an `aws-emulator` skill for agents (needs AWS CLI 2.35.0+). First step: `aws agent-toolkit add-skill --skill-name aws-emulator --region us-east-1`; on Linux install the package and run `aws-emulator`, on macOS use Docker.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install the `aws-emulator` skill with `aws agent-toolkit add-skill` and check whether the agent can start the emulator itself in a project that uses an AWS SDK</li><li>Add a CLAUDE.md rule for AWS projects: integration tests run against the local emulator, but IAM and policy checks must not be trusted to it (it emulates them unreliably)</li><li>Set `EMULATOR_TELEMETRY=off` in session env or a SessionStart hook if you adopt the emulator</li></ul></div>
+      <a class="source" href="https://github.com/aws/aws-emulator" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>12.11</span></div>
+      <h2>lot-map: a Claude Code plugin that shows a live map of agent activity beside the chat</h2>
+      <div class="gist"><p>lot-map (alexeyw/lot-map, MIT, created 2026-11-09, 462 stars) is a Claude Code plugin that draws a pane beside the chat with 10 stations: You, Model, Memory, Files, Shell, Network, Browser, Agents, Skills, Hooks. Every tool call, model step, hook and skill sends a pulse from the centre to its station. It also shows a route through the last stations (each leg stays 40 s, then fades over 20 s), concurrent calls with a count like ×3, a red dot for errors, background tasks lit until they report ending, dots circling Agents for subagents, a context ring (amber at 70%, red at 90%), and a feed of the last 16 rows. It runs on hooks, makes no network requests, reads no files and calls no model; across sessions it keeps only the last model used per folder. Labels hold names only: last two path parts, URL host, command description.</p><p>Limits: tested on Claude Code 2.1.321 and macOS, needs at least 144 columns (otherwise type /lot-map), shell commands are labelled by name (python -c shows as Shell), and the marketplace follows main, so read the diff before updating. For you it is cheap visibility into Workflow runs, nested leads and background agents: you see what is actually active, where it stalls, and when context nears 70%. You have observability (ccobs), but that is not a live pane. First step: claude plugin install lot-map --marketplace alexeyw/lot-map, then start a new session; language: echo &#x27;{&quot;language&quot;:&quot;ru&quot;}&#x27; | claude plugin configure lot-map@lot-map --values-stdin.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install lot-map and run one Workflow session with subagents to see whether parallel branches (×N) and stuck background tasks are visible.</li><li>Borrow the context thresholds, amber at 70% and red at 90%: add a similar warning to our Stop or UserPromptSubmit hook?</li><li>Since the marketplace tracks main, read the diff before each update: pin a version or add this rule to the settings-change skill?</li></ul></div>
+      <a class="source" href="https://github.com/alexeyw/lot-map" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>12.11</span></div>
+      <h2>work-mode plugin for Claude Code: session modes auto, out, wrap plus hook-based gates</h2>
+      <div class="gist"><p>The plugin (MIT, 177 stars, created 2026-11-08) sets a per-session mode with /work-mode; modes combine (/work-mode auto wrap). auto: the model proceeds on reversible work (file edits, local commits, tests) and parks irreversible items (outgoing messages, installs, secrets, deletes, payments, permissions, production) on a pending list reported once at the end; actions needing confirmation run last, back to back. out: batch work that can be spot-checked goes to a background subagent or an external CLI (codex exec, gemini, claude -p) while the main thread verifies. It includes a read gate: after 20,000 characters of raw output in one turn, the next Read, Grep, cat/jq or WebFetch is refused until the model delegates or declares why it reads inline (logged to ~/.claude/state/tempo-inline/). wrap: converge, no new branches, list only new decisions with a label and recommendation. The mode is re-reminded every 8th prompt. A second plugin, work-mode-gates, turns &quot;ask&quot; into &quot;deny with a hint&quot; under auto: no new SUMMARY/REPORT/NOTES*.md files, a safe git commit gate, and a Stop hook that blocks unlabeled decisions and permission-seeking closing offers.</p><p>You already have subagents, Workflow, /loop and hooks, so what&#x27;s new is the idea of a session mode that switches hook behavior, plus the read gate, which pushes bulk reading out of the main context to delegates. First step: /plugin install work-mode --marketplace danyuchn/claude-work-mode, then /work-mode out in a long session with logs. Needs Claude Code 2.1.314+.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add a read gate to our PreToolUse hook: after ~20,000 characters of raw reads in a turn, refuse Read/Grep/WebFetch until a subagent is called or a reason is declared</li><li>Create a session-mode state file (like ~/.claude/state/tempo/&lt;session_id&gt;) that our hooks read, so under auto an &#x27;ask&#x27; becomes a &#x27;deny with a next-step hint&#x27;</li><li>Add a Stop hook that blocks closing offers like &#x27;shall I...?&#x27; and unlabeled decisions, so the end of a turn is one list of decisions with recommendations</li><li>Add a &#x27;pending irreversible list&#x27; mode to the Telegram bot session: outbound messages and payments queue up and are shown in one block at the end</li></ul></div>
+      <a class="source" href="https://github.com/danyuchn/claude-work-mode" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>Postgres Weekly</span><span>11.11</span></div>
+      <h2>Postgres 18 benchmark: a random UUIDv4 primary key cuts inserts to ~0.65 of UUIDv7 once the index outgrows memory</h2>
+      <div class="gist"><p>Nikolay Samokhvalov (PostgresAI) ran pgbench on Postgres 18.6 (16 clients, one single-row insert per transaction, tables of 50–100M rows). While the PK index fits in memory (under 512 MiB) there is almost no difference: UUIDv4 runs at 0.95–1.10 of UUIDv7. Once the index exceeds shared_buffers, UUIDv4 drops to 0.62–0.69 of an ordered key (13.9k/s vs 21.7k/s for UUIDv7 and 23.5k/s for int8), writes 1.5–1.9× more WAL (1,324 B per insert vs 744 B, due to full-page images) and bloats the index: 3,996 MiB vs 3,012 for UUIDv7, with leaf fill 68% vs 90%. The cause: an ordered key always writes to the rightmost leaf, while a random one hits any leaf, so the whole index becomes the working set. Point lookups by id cost the same, but order by id desc limit 100 takes 32 ms vs 1 ms. UUIDv7 and int8 insert at about the same rate.</p><p>uuidv7() pitfalls: the id exposes creation time; it has 62 random bits vs 122, so it is not a token; with client-side generation and skewed clocks the index was only 69% full, so generate on the server; on Postgres 17 uuid_extract_timestamp() returns NULL for v7. For SQLAlchemy/FastAPI, if your PK is uuid4 today: changing the default needs no table rewrite, but old values stay v4 and the middle of the index is expected to stay about half full (the author&#x27;s estimate, not measured). First step: SET lock_timeout = &#x27;500ms&#x27;; ALTER TABLE events ALTER COLUMN id SET DEFAULT uuidv7(); — after testing on a copy of the table.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Find PKs with default=uuid4 in SQLAlchemy/SQLModel models and compare each index size with shared_buffers and RAM: below the threshold there is no difference, above it the losses start</li><li>Run the pg_stat_io query (client backend, writes/evictions) and check pg_stat_bgwriter.maxwritten_clean in prod: growth means backends are doing eviction writes themselves</li><li>For new tables use server_default=uuidv7() (generated on the server, not in Python) or bigint identity; compare I/O on a table copy under load, then run ALTER ... SET DEFAULT</li><li>Replace order by id desc with order by created_at wherever id is UUIDv4, and check whether anything uses it to find the latest rows</li></ul></div>
+      <a class="source" href="https://postgresweekly.com/issues/673" target="_blank" rel="noopener">Source</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>
