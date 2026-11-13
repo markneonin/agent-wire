@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 13.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">5 новостей за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">13.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Claude Code 2.1.323: экспериментальный Code Mode (Claude пишет JavaScript для вызова инструментов), engines в плагинах и ужесточение прав Bash</a></li><li><a href="#s2">cook: скилл для долгих визуальных сборок, где агент итерирует до совпадения с референсами</a></li><li><a href="#s3">Google выпустил в Antigravity модель Gemini 4 Hydrogen и режим Orchestrator, который переключает Carbon и Hydrogen внутри одной задачи</a></li><li><a href="#s4">antiglaude: локальный шлюз, который пускает Claude Code на модели Google Antigravity через ненадёжный обход</a></li></ol>
+<h2 class="section-title">Python и backend</h2><ol class="contents" style="counter-reset: item 4"><li><a href="#s5">Ruff 0.17.5: новое правило ASYNC401, B008 не трогает frozen dataclass, несколько фиксов автоисправлений</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Claude Code releases</span><span>12.11</span></div>
+      <h2>Claude Code 2.1.323: экспериментальный Code Mode (Claude пишет JavaScript для вызова инструментов), engines в плагинах и ужесточение прав Bash</h2>
+      <div class="gist"><p>Релиз от 12 ноября, в нём 262 пункта. Главное новое: Code Mode, экспериментальный opt-in, где Claude вместо отдельных вызовов инструментов пишет JavaScript, который эти инструменты вызывает. Включение и отключение для организации описаны на code.claude.com/docs/en/code-mode. Эту страницу я открыть не смог (404), поэтому как именно устроено выполнение, какие есть ограничения и какая переменная или настройка его включает, не знаю.</p><p>Остальное: в plugin.json появился engines[&quot;claude-code&quot;], плагины вне указанного диапазона версий не ставятся, не обновляются и не грузятся. `claude plugin validate` теперь проверяет типы в TypeScript-модуле хуков плагина (предупреждения, с --strict падает). Добавлены CLAUDE_CODE_DISABLE_AGENT_PROGRESS_SUMMARIES=1 и heartbeat раз в 30 секунд для долгих хуков в `claude -p`. Лимит сообщений между своими сессиями вырос с ~20 до 100 000. Неизвестный ID модели теперь считается с окном 1M вместо 200K (CLAUDE_CODE_DISABLE_1M_CONTEXT=1 вернёт 200K). Много правок прав Bash: правило `Bash(NODE_ENV*)` теперь спрашивает, deny/ask-правила ловят команды через sudo/env, sandbox в worktree блокирует `git worktree add/move/remove`, при невалидном --settings с ключом sandbox `claude -p` останавливается, а не работает без sandbox. Для тебя: Code Mode ближе всего к твоему Workflow, но это другой механизм (код вызывает инструменты внутри одной сессии). Первый шаг: открыть доку Code Mode, когда страница станет доступна, и проверить свои allow-правила Bash с `*` в значении переменной (теперь есть startup-предупреждение).</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Проверить свои allow-правила Bash на `*` в значении переменной и на wildcard вида `Bash(ls*)`: теперь они спрашивают или дают предупреждение при старте</li><li>Если у вас есть хуки или скрипты на `claude -p` с --settings и sandbox: убедиться, что JSON валиден, иначе запуск теперь остановится</li><li>В собственных плагинах (plannotator, runpod и т.д.) добавить engines[&quot;claude-code&quot;] в plugin.json и прогнать `claude plugin validate --strict`</li><li>Если `/usage` или шапка шумят от субагентов в Workflow: попробовать CLAUDE_CODE_DISABLE_AGENT_PROGRESS_SUMMARIES=1, чтобы убрать лишние запросы на сводки</li></ul></div>
+      <a class="source" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.323" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>13.11</span></div>
+      <h2>cook: скилл для долгих визуальных сборок, где агент итерирует до совпадения с референсами</h2>
+      <div class="gist"><p>Leonxlnx/cook (268 звёзд, создан 31.10.2026, MIT) — скилл для задач, где результат должен совпасть с референс-картинками или видео: 3D-миры на three.js, ролики, игры, UI. Ты даёшь цели, планку и время, агент один раз задаёт все вопросы с дефолтами и дальше работает без тебя, хоть ночь. Цикл: каждый референс становится «шотом» (видео разбирается покадрово), на каждое измерение (композиция, свет, цвет, материалы, детали, движение) ставится числовая планка, например 99.9% для кадров и не ниже 9/10 для видео. Рендерятся кадры в тех же ракурсах, склеиваются рядом с референсом, оценивают их критики с нулевым контекстом, исправляется самое слабое, раунд пишется в cook/ROUNDS.md. Твоя собственная оценка результата калибрует баллы критиков, потому что модели завышают себе оценки. Для демо минимум 8 часов (2 часа — «что-то не так»), есть темп под лимиты подписки. Кадры шлются после каждого раунда без остановки, финальный рендер только после одобрения. Пример: Athenaion — около 45 часов, 55 субагентов (до 12 параллельно), ~45k строк JS, ~11M токенов, 4K на встроенной Radeon 780M.</p><p>Параллели с твоим сетапом: Workflow, субагенты, /loop, loop-design и task-context уже закрывают оркестрацию и состояние. Нового тут: паттерн «критики без контекста + калибровка по твоей оценке», сравнение рядом с референсом и жёсткий минимум времени против ранней остановки. Первый шаг: npx skills add Leonxlnx/cook, затем /cook build this ... match the 9 attached references. Для сравнения нужны Node 18+ и ffmpeg: node scripts/side-by-side.mjs --out compare.jpg ref1.png render1.png.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Критики без контекста с калибровкой по твоей оценке: добавить в loop-design правило, что самооценку агента сверяют с твоей эталонной оценкой.</li><li>Скрипт side-by-side.mjs (референс слева, рендер справа) — подключить к Remotion-пайплайну и скиллу montage для проверки кадров.</li><li>Минимальное время и журнал раундов cook/ROUNDS.md — взять как защиту от преждевременной остановки в долгих /loop и /schedule задачах.</li><li>Правило «стоп-гейт только на кадрах»: слать скриншоты после каждого раунда без паузы, финал только после одобрения — добавить в визуальные задачи скилла frontend.</li></ul></div>
+      <a class="source" href="https://github.com/Leonxlnx/cook" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Hacker News</span><span>12.11</span></div>
+      <h2>Google выпустил в Antigravity модель Gemini 4 Hydrogen и режим Orchestrator, который переключает Carbon и Hydrogen внутри одной задачи</h2>
+      <div class="gist"><p>Google (блог Antigravity, 12 ноября 2026) раскатывает Gemini 4 Hydrogen: модель для повседневной агентной работы. Индекс Artificial Analysis 51 (у Argon 50, на максимальном уровне 54), Terminal-Bench 4.1 даёт 57% против 18,2% у 3.8 Flash. Четыре уровня reasoning: low, medium, high (по умолчанию) и новый xhigh.</p><p>Orchestrator — новый пункт в списке моделей. Он внутри одной задачи переключает Gemini 4 Carbon и Hydrogen: Carbon читает код и планирует (только чтение), Hydrogen правит файлы, обновляет пакеты, гоняет тесты. Если Hydrogen упирается в проблему, задача возвращается к Carbon, и тот чинит план. На Terminal-Bench 4.1 это почти уровень Carbon при в среднем на 24% меньшей квоте и на 19% быстрее. Раньше на неделе вышли Carbon и команда /swarm (параллельные агенты в нескольких worktree). Antigravity SDK позволяет собрать такую связку программно; в демо Hydrogen сортирует issues и пишет код, Carbon делает крупные рефакторинги и проверки безопасности. Доступ: Hydrogen для Google AI Pro и Ultra, Orchestrator (Carbon) только для Ultra, Orchestrator (Argon) для Pro и Ultra. Цен и лимитов в статье нет. В обсуждении HN: планировщик + дешёвый исполнитель уже делают advisor mode у Anthropic и пайплайн GitHub; Antigravity ругают за быстрый расход квоты Pro; один комментатор сообщил о 60% экономии, когда Opus делегирует дешёвым моделям DeepSeek.</p><p>Для вас это не новая идея: у вас есть сабагенты с моделью и effort на каждого, task-lead и /swarm-подобный Workflow, плюс скилл use-antigravity для agy -p. Новое только паттерн «сильная модель читает и планирует, дешёвая правит, при сбое возврат к планировщику». Первый шаг: проверить, что агент-исполнитель (medium или low) при провале тестов возвращает задачу ведущему, а не чинит сам.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить в скилл subagents правило эскалации: исполнитель (low/medium) при повторном провале тестов возвращает задачу ведущему на перепланирование, а не чинит вслепую.</li><li>Разделить права по фазам, как в Orchestrator: агент разведки и планирования только читает, правки и тесты делает отдельный агент. Закрепить в agent-файлах.</li><li>Замерить в своих Workflow экономию квоты и времени от связки «сильный планировщик + дешёвый исполнитель» против одной сильной модели, как это сделали на Terminal-Bench (-24% квоты, -19% времени).</li></ul></div>
+      <a class="source" href="https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>13.11</span></div>
+      <h2>antiglaude: локальный шлюз, который пускает Claude Code на модели Google Antigravity через ненадёжный обход</h2>
+      <div class="gist"><p>antiglaude (168 звёзд, создан 2026-11-03, MIT, PyPI, Python 3.10+) — локальный прокси на 127.0.0.1:8080. Принимает запросы Claude Code (POST /v1/messages, Anthropic Messages API) и OpenAI-совместимых клиентов (/v1/chat/completions), переводит их в вызовы Google Cloud Code/Antigravity и возвращает ответ обратно. Модели: claude-sonnet-4-6 (по умолчанию), claude-opus-4-6-thinking, gemini-3-flash, gemini-2.5-pro; неизвестное имя модели уходит на самую сильную доступную, а в ответе подставляется имя из запроса. Внутри: чистка JSON Schema (propertyNames, anyOf, const), которые дают HTTP 400 на tool calls; автообновление токена (живёт около 60 минут) по refresh-данным, вытащенным из локального состояния приложения; SSE-heartbeat против обрывов; бэкофф по лимитам; TUI с квотой, матрицей моделей и журналом запросов; LaunchAgent на macOS. Минусы по README: нет аутентификации (любой локальный процесс ходит в шлюз), «скруббинг идентичности» для обхода фильтров, подписи моделей в таблице путаные (sonnet-4-6 назван Claude 3.7), лимит 1500 запросов/день виден только в примере дашборда. Автор сам предупреждает: Google банит аккаунты на неофициальных прокси, нужен отдельный одноразовый аккаунт.</p><p>Для тебя это в основном любопытство: у тебя Opus 5.5 и Sonnet 5.5 напрямую, плюс agy -p для задач на подписке Google AI Pro официальным путём. Полезны идеи: подмена ANTHROPIC_BASE_URL и CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1 для списка моделей в /model, и нормализация схем инструментов под чужой бэкенд. Если пробовать, то только на burner-аккаунте: uvx antiglaude start, затем antiglaude setup-claude (он перезаписывает ~/.claude/settings.json, сначала сделай копию).</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Проверить, что ANTHROPIC_BASE_URL + CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1 заполняют /model чужими моделями, и описать это в скилле use-antigravity как возможный путь для шлюза.</li><li>Если решишь пробовать: сначала скопировать ~/.claude/settings.json, поднять uvx antiglaude start на отдельном аккаунте и проверить командой make status.</li></ul></div>
+      <a class="source" href="https://github.com/sksarvesh007/antiglaude" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>ruff releases</span><span>12.11</span></div>
+      <h2>Ruff 0.17.5: новое правило ASYNC401, B008 не трогает frozen dataclass, несколько фиксов автоисправлений</h2>
+      <div class="gist"><p>Ruff 0.17.5 вышел 12 ноября 2026. Стабильные изменения: B008 (вызов функции в значении аргумента по умолчанию) теперь игнорирует создание frozen dataclass, что убирает ложные срабатывания; исправлены автофиксы B010 (setattr со скобками), PYI034, UP031 (дублировал закрывающую скобку), ICN001 (затенение имён при замене алиасов импорта), а также фиксы, добавляющие или убирающие keyword-аргумент со значением в скобках. Ruff больше не падает при записи в закрытый stderr-пайп. Ещё 18 PR с ускорениями.</p><p>В preview: ASYNC401 (pytest-raises-exception-group), PLE0211 (no-method-argument), RUF202 (renamed-rule), RUF101 расширен на другие suppression-комментарии; автофикс G004 (f-строки в логах) помечен как unsafe; FURB103 не предлагает фикс, если write вложен в выражение. Для твоего стека на FastAPI/Pydantic самое заметное — B008: если в Depends/Field-подобных дефолтах используешь frozen dataclass, предупреждения исчезнут. ASYNC401 полезен для asyncio-тестов с ExceptionGroup под pytest. Первый шаг: обновиться (`pip install -U ruff` или `uv tool upgrade ruff`; установочный скрипт: `curl --proto &#x27;=https&#x27; --tlsv1.2 -LsSf https://releases.astral.sh/github/ruff/releases/download/0.17.5/ruff-installer.sh | sh`), прогнать `ruff check` и посмотреть, что изменилось по B008. Для превью: `ruff check --preview --select ASYNC401,PLE0211`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать `ruff check --preview --select ASYNC401,PLE0211` по asyncio-тестам и классам, чтобы оценить новые правила до включения в конфиг</li><li>Убрать из pyproject.toml `per-file-ignores`/`noqa` для B008, которые стояли только из-за frozen dataclass в дефолтах, и проверить, что их больше не нужно</li><li>Если в CI стоит `--fix` с G004, не полагаться на автофикс: теперь он unsafe и требует `--unsafe-fixes`</li></ul></div>
+      <a class="source" href="https://github.com/astral-sh/ruff/releases/tag/0.17.5" target="_blank" rel="noopener">Источник</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>
