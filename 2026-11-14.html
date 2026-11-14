@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 14.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">14.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Parcha выпустила AgentRun: open-source платформа поверх Claude Code/Codex, где агент сам копит заметки, скиллы и workflow</a></li></ol>
+<h2 class="section-title">Python и backend</h2><ol class="contents" style="counter-reset: item 1"><li><a href="#s2">FastAPI 0.162.6 отказался от Python 3.10</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>12.11</span></div>
+      <h2>Parcha выпустила AgentRun: open-source платформа поверх Claude Code/Codex, где агент сам копит заметки, скиллы и workflow</h2>
+      <div class="gist"><p>AgentRun (Apache-2.0, Parcha Labs) — серверная обвязка над готовым харнессом: Claude Code, Codex, OpenCode или pi. Даёт три вещи: самообучение, durable-запуски (пережили рестарт сервера; если runner умер, другой подхватывает run через 30 с, готовые шаги не повторяются) и control plane (аппрувалы, лимиты трат, единая консоль). Хранилище — SQLite или Postgres. Агент запускается в песочнице Docker, Daytona, Modal или E2B, есть также desktop, phone и browser (Browserbase, Kernel).</p><p>Самообучение включается `&quot;learning&quot;: true`. После run агент получает ещё один ход и предлагает, что сохранить. Код проверяет предложение, потом судит один grader, принятое коммитится в git-папку агента. Рискованные правила ждут одобрения, секреты и номера счетов отбрасываются. Три вида записей: заметки, скиллы (пишутся только из успешных run) и learned workflows. После 3 использований скилла агента просят набросать workflow, его прогоняют вхолостую и только потом оставляют. Цифры вендорские: стоимость на мерчанта упала с $0.89 до $0.12 (≈7x) при передаче подхода сильной модели дешёвой. В обсуждении HN (134 очка) сомневаются в проверке выученного и в сравнении с Greptile (1.6x багов). Также заметили, что агенты обходят лимиты времени фоновыми процессами. Веб-консоль в OSS слабая, подписки Claude/ChatGPT пока не поддерживаются.</p><p>Для вашего сетапа сам оркестратор не нужен: Workflow, субагенты, /schedule и скиллы у вас уже есть. Новое — конвейер «run → ретроспектива → проверка → скилл → детерминированный workflow» и отзыв записей через git. Первый шаг: `npx @parcha/agentrun` (Node 24.22.3+, порт 7340), затем `npx @parcha/agentrun template eval DIR` на шаблоне `code-review` и посмотреть Learning tab.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Скилл-кандидаты: добавить в Stop-хук один дополнительный ход «что сохранить из этого run», а проверку и запись в скилл делать только после успешного завершения, как в AgentRun?</li><li>Правило «скилл, использованный 3 раза, → черновик детерминированного скрипта/workflow с dry-run» добавить в settings-cleanup или loop-design?</li><li>Фильтр перед сохранением выученного: отбрасывать секреты, внешние пути и номера счетов, а рискованные правила отправлять на ручное одобрение. Добавить в хук авто-памяти?</li><li>Для повторяющихся задач (applybot, классификация) попробовать схему «сильная модель выработала подход, дешёвая исполняет» и замерить стоимость на кейс?</li></ul></div>
+      <a class="source" href="https://github.com/Parcha-ai/agentrun/blob/main/README.md" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>FastAPI releases</span><span>13.11</span></div>
+      <h2>FastAPI 0.162.6 отказался от Python 3.10</h2>
+      <div class="gist"><p>В релизе FastAPI 0.162.6 (13 ноября 2026) убрана поддержка Python 3.10 — это единственное breaking change на странице релиза, PR #16737 от @tiangolo. Других пунктов (фичи, фиксы) в тексте релиза нет.</p><p>Там же упомянут официальный skill для coding-агентов: он помогает им использовать новые возможности и рекомендуемые паттерны именно для установленной у вас версии FastAPI. Ставится командой `uvx library-skills` в проекте.</p><p>Для вас: FastAPI у вас уже есть, так что важно только одно — на Python 3.10 обновиться до этой версии не получится. Если сервисы или Docker-образы ещё на 3.10, зафиксируйте версию FastAPI ниже 0.162.6 или переведите окружение на более новый Python (проверьте также совместимость Celery, SQLAlchemy и остальных зависимостей). Первый шаг: выполните `python --version` в CI и в образах, а затем `uvx library-skills` в одном из проектов.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Проверить версию Python во всех сервисах и образах и закрепить `fastapi&lt;0.162.6` там, где ещё 3.10</li><li>Попробовать `uvx library-skills` в одном проекте и посмотреть, что skill даёт агентам для установленной версии FastAPI</li><li>Добавить в CI проверку, что минимальная версия Python совпадает с требованием новой версии FastAPI</li></ul></div>
+      <a class="source" href="https://github.com/fastapi/fastapi/releases/tag/0.162.6" target="_blank" rel="noopener">Источник</a>
+    </article>
+  </section>
+  
+</main>
+
+</body>
+</html>
