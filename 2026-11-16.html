@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 16.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">16.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Anthropic перестроила Projects в Claude Code: координатор раздаёт цель параллельным облачным потокам</a></li><li><a href="#s2">Agweb: браузер на WebKit для macOS, которым агенты управляют из shell и не крадут фокус</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>14.11</span></div>
+      <h2>Anthropic перестроила Projects в Claude Code: координатор раздаёт цель параллельным облачным потокам</h2>
+      <div class="gist"><p>Анонс на странице датирован 17 сентября 2026, на HN его обсуждают в ноябре. Проект теперь принимает цель, а не только папку с контекстом. У каждого проекта есть координатор, он разбивает цель, раскидывает брифы по новым или существующим потокам-воркерам, проверяет результаты и собирает итог. Каждый поток — облачная сессия Claude Code в своей ветке и копии репозитория; пересечения решаются обычными merge-конфликтами. Потоки сами могут делить работу через subagents, loops и workflows, открывают PR и гоняют тесты. У проекта общая память (причины решений, смены планов) и библиотека файлов и артефактов. Можно выбрать модель и effort для координатора и воркеров, видеть расход по проекту и править частоту check-in. Пример из статьи: убрать v1-эндпоинт в API, web и mobile: поток на репозиторий, затем отчёт, какие PR мягдить первыми. Бета для части Pro/Max без старых проектов, лист ожидания claude.com/form/projects. Локальный запуск обещан «очень скоро». В обсуждении Boris Cherny из Anthropic заявил: накладные расходы координатора менее 10% токенов. Критика: облако без локальных файлов, слабый координатор по умолчанию, один запрос породил семь субагентов и съел лимит Max, мало видимости.</p><p>Для тебя это в основном UX поверх того, что уже есть: Workflow, worktree-писатели, task-lead и SendMessage. Нового три вещи: общая память проекта между потоками, мобильное управление и работа без твоего компьютера. Пока всё в облаке, а твоя настройка завязана на локальные хуки и MCP, так что это не замена. Первый шаг: встать в лист ожидания на claude.com/form/projects или открыть claude.ai/projects и прогнать задачу «миграция через несколько репозиториев».</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Из примера с v1-эндпоинтом: в скилл feature-build/task-lead для задач на несколько репозиториев добавить финальный отчёт «какие PR мёржить первыми» — добавить?</li><li>Из жалоб на семь субагентов на простой запрос: добавить в скилл subagents или хук потолок на число параллельных воркеров и оценку расхода до запуска?</li><li>Лист ожидания claude.com/form/projects: попробовать общую память проекта на одной реальной задаче и сравнить с нашим tasks/&lt;slug&gt;/context.md</li></ul></div>
+      <a class="source" href="https://claude.com/resources/articles/projects-redesigned" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Hacker News</span><span>14.11</span></div>
+      <h2>Agweb: браузер на WebKit для macOS, которым агенты управляют из shell и не крадут фокус</h2>
+      <div class="gist"><p>Agweb — одно окно на системном WebKit (macOS 26+), которым агенты управляют командой `agweb`, похожей на playwright-cli. Автор запускал несколько агентов, и окна Chrome от Playwright отбирали фокус клавиатуры, а headless блокировали сайты. У каждого агента свой workspace (`-w`) со своими вкладками, дашборд на ⌘D показывает все вкладки и последнюю команду каждого агента. Клики и ввод — нативные события macOS. Именованный профиль (`-p work`) хранит логины и может быть общим. Ответ на действие описывает, что изменилось (сеть, строки, диалоги, загрузки, ошибки консоли), поэтому второй snapshot обычно не нужен; есть `snapshot --diff`, `find`, `text` (статья в markdown), `video-start` (запись в MP4). `fill --secret-cmd` вводит пароль из 1Password/Bitwarden CLI, не показывая его агенту; `ask` передаёт вкладку человеку для MFA или капчи. Пять простаивающих страниц: 590 МБ и 0% CPU против 1,6 ГБ у Playwright Chrome. Лимиты: только WebKit, нет CDP, `route` мокает лишь fetch/XHR, часть рекламы на YouTube проходит. В HN ругают отсутствие Linux и общий профиль: logout у одного агента ломает остальных.</p><p>У тебя уже есть Claude in Chrome и Playwright-скрипты (Avito). Новое — параллельные агенты без фокуса и без общего окна, с экономией токенов на diff-ответах и скрытыми секретами. Первый шаг: скачать Agweb.dmg из Releases репозитория paul-nameless/agweb, затем в меню Help поставить CLI и skill для Claude Code (или `agweb install-cli` и `agweb install-skill`) и проверить `agweb -w task open &lt;url&gt;` и `agweb -w task snapshot`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Попробовать agweb вместо Playwright в скриптах Avito: отдельный `-w` workspace на агента, без окон Chrome поверх работы</li><li>Использовать `fill --secret-cmd` вместо нашего скилла secrets для логинов в браузере: пароль не попадает в транскрипт</li><li>Взять паттерн «ответ на действие содержит diff изменений» и `ask` (передача вкладки человеку для MFA/капчи) в наши браузерные скиллы</li><li>Проверить `agweb install-skill` и сравнить его skill с нашим browser-use</li></ul></div>
+      <a class="source" href="https://github.com/paul-nameless/agweb" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Python Insider: [Errno 54] Connection reset by peer</li><li>GitHub: Command &#x27;[&#x27;gh&#x27;, &#x27;api&#x27;, &#x27;-X&#x27;, &#x27;GET&#x27;, &#x27;search/repositories&#x27;, &#x27;-f&#x27;, &#x27;q=topic:claude-code created:&gt;2026-11-02 stars:&gt;=150&#x27;, &#x27;-f&#x27;, &#x27;sort=stars&#x27;, &#x27;-f&#x27;, &#x27;per_page=20&#x27;]&#x27; returned non-zero exit status 1.</li></ul></footer>
+</main>
+
+</body>
+</html>
