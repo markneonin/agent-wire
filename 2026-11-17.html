@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 17.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">3 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">17.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">lend: агент на удалённой VM запускает команды на ноутбуке после Touch ID, секреты не покидают ноутбук</a></li><li><a href="#s2">Скилл для Claude Code: пошаговая разгонка скорости локального LLM-сервера с замерами и стабильностью</a></li><li><a href="#s3">OpenCode выпустил Browse: MCP-сервер и расширение, которое даёт агенту ваш настоящий Chromium-браузер</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>17.11</span></div>
+      <h2>lend: агент на удалённой VM запускает команды на ноутбуке после Touch ID, секреты не покидают ноутбук</h2>
+      <div class="gist"><p>lend (blog.antonio.cx, Hacker News, 100 очков, 57 комментариев) встаёт перед SSH-агентом: на VM пробрасывается его сокет вместо настоящего. Запрос (команда или SSH-подпись) идёт на ноутбук в `lend agent`, проверяется по локальной политике (по умолчанию deny), затем подтверждается, обычно Touch ID (`biometric:inline`). Одобренная команда выполняется локально, stdout, stderr и код возврата возвращаются агенту. Правило называет исполняемый файл и может ограничивать подкоманды через `args_prefix`. `secret_reader` (например `op read`) подставляет секрет в env (`GH_TOKEN`) только в одобренную команду, VM значения не видит. SSH-ключи фильтруются по отпечатку, `max_signatures` ограничивает число подписей за сессию. Есть lease: одобрение на время или число использований для точно той же команды. Команды: `lend ssh --config policy.json -- host`, `lend mcp` (инструмент `run_local_command` с обязательной причиной), `lend exec --reason`, `lend doctor`, `lend pause --all`, `lend history`, `lend approve` (маршрутизирует запросы разрешений, например `PermissionRequest` hook Claude Code, на ноутбук). Ограничения: нет песочницы, одобрение shell, `env` или `op` даёт широкий доступ; stdin в запросе не виден; нет PTY; биометрия только macOS; проект ранний. В комментариях критикуют: диалог даёт мало контекста, агент может выпустить новые токены, секреты утекают в транскрипты. Альтернативы: отдельный аккаунт агента, короткоживущие токены, прокси с подменой плейсхолдеров.</p><p>Для тебя: близкое у тебя уже есть в скилле secrets (Keychain/Vault по алиасу без вывода) и PreToolUse-хуках, но схемы «агент на удалённой машине, секреты и подпись остаются дома, подтверждение на устройстве» нет. Актуально, если гоняешь агентов на RunPod или VM. Первый шаг: `brew install antoniomika/tap/lend`, затем `lend doctor` и `lend ssh --config policy.json -- host` с политикой на один `gh`-подкомандный префикс.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Для агентов на RunPod/VM поставить lend и прогнать `lend ssh --config policy.json -- host` с политикой на один префикс `args_prefix`, секрет через `secret_reader` из твоего Keychain.</li><li>Подключить `lend approve` к `PermissionRequest` hook Claude Code, чтобы запросы разрешений от удалённых сессий приходили на ноутбук с Touch ID.</li><li>Добавить в скилл secrets правило из статьи: не одобрять shell, `env`, `op` как команды, только узкие префиксы, и лимит `max_signatures` для SSH-ключей.</li></ul></div>
+      <a class="source" href="https://blog.antonio.cx/running-agents-with-lend" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>17.11</span></div>
+      <h2>Скилл для Claude Code: пошаговая разгонка скорости локального LLM-сервера с замерами и стабильностью</h2>
+      <div class="gist"><p>sybil-solutions/inference-optimisation-skill (MIT, создан 16 ноября 2026, 408 звёзд) — скилл, который ведёт агента по оптимизации локального сервера: декод, спекулятивный декодинг, prefill, размер KV, старт и TTFT. Процедура из шести шагов: посчитать теоретический потолок (байты на токен / пропускная способность, FLOPs, лимит KV), менять одно за раз, мерить против чередующихся контрольных запусков, логировать все результаты, включая неудачи, проверить поиск в длинном контексте (needle), собрать чистый зафиксированный билд. Изменение принимается, только если лучше обоих соседних контролей и ничего не просело больше чем на 3%. Перед словом «лучший» нужен needle-тест и параллельный soak на полном KV.</p><p>Внутри: SKILL.md (процедура, правила остановки), references/ (подгружаются по требованию), scripts/ на стандартной библиотеке: bench.py для любого OpenAI-совместимого сервера, ceiling.py, queue.sh (A/B с чередованием), mem.sh. Движки: vLLM, SGLang, llama.cpp, ExLlama. Примеры: Intel Arc B390 43.6→53 tok/s, старт 113→43 с; Arc Pro B70 91.2 tok/s на vLLM против 25.0 на llama.cpp Q4_K_M; RTX 3090 96–141 tok/s; 4×H200 229 tok/s. Шум одного замера ±5–10%; результаты привязаны к железе, Apple MLX в результатах нет.</p><p>Для тебя: прямой пользы для MLX мало, но это готовый образец цикла «потолок → один рычаг → контроль → лог» и полезен для RunPod-запусков llama.cpp. Первый шаг: git clone https://github.com/sybil-solutions/inference-optimisation-skill, затем cp -r inference-optimisation-skill/skills/inference-optimisation ~/.claude/skills/ и прогнать bench.py на своём локальном сервере.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Правило приёмки «лучше обоих соседних контролей и не хуже чем на 3% по остальному» добавить в loop-design для циклов с замерами</li><li>Взять bench.py (любой OpenAI-совместимый сервер) для замеров локальных моделей на MLX и llama.cpp на RunPod вместо ручных прогонов</li><li>В use-runpod добавить needle-тест длинного контекста и soak на полном KV перед тем, как считать конфиг рабочим</li></ul></div>
+      <a class="source" href="https://github.com/sybil-solutions/inference-optimisation-skill" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Hacker News</span><span>16.11</span></div>
+      <h2>OpenCode выпустил Browse: MCP-сервер и расширение, которое даёт агенту ваш настоящий Chromium-браузер</h2>
+      <div class="gist"><p>OpenCode Browse — это MCP-сервер плюс расширение для Chromium-браузеров (Chrome, Edge, Brave, Arc, Helium, Vivaldi, Opera). Агент работает в вашем реальном профиле: с открытыми вкладками, логинами и расширениями, без API-ключей. Его вкладки открываются в фоне, в свёрнутых группах. Умеет читать страницы, кликать, печатать, делать скриншоты, записывать вкладки и сетевой трафик. Для логина, 2FA и оплаты агент возвращает вкладку вам и продолжает после кнопки Continue. Можно «одолжить» агенту уже открытую вкладку и ограничить его списком сайтов. Работает с Claude Code, Codex, Cursor, Zed и OpenCode. Цен и лимитов на странице нет.</p><p>В обсуждении на HN (224 очка, 119 комментариев) отмечают: соединение расширения часто отваливается, Firefox и Safari не поддерживаются, CDP-браузер могут определить как бота, а залогиненный профиль открывает путь для prompt injection со страниц, поэтому советуют отдельный профиль. Больше споров о самом OpenCode V2 (нет запросов разрешений, ломающиеся конфиги), к Browse это не относится. Для вас это аналог claude-in-chrome, который у вас уже есть, но не привязанный к Claude. Новое здесь: ограничение по сайтам и запись сети и вкладок. Первый шаг: `npm install -g @opencode/browse &amp;&amp; browse install`, затем подключить к Claude Code как MCP и сравнить с claude-in-chrome на одной задаче с логином.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить `npm install -g @opencode/browse &amp;&amp; browse install` и сравнить с claude-in-chrome на задаче с логином (например, avito-скилл)</li><li>Взять идею ограничения агента списком сайтов: добавить в browser-use скилл или хук правило, на какие домены агенту можно заходить</li><li>Завести отдельный Chrome-профиль для агентов, чтобы prompt injection со страниц не добрался до основных аккаунтов</li></ul></div>
+      <a class="source" href="https://opencode.ai/product/browse" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Codex CLI releases: nothing new for 30 days</li></ul></footer>
+</main>
+
+</body>
+</html>
