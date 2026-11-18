@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 18.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">6 новостей за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">18.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Команда Claude Code описала, как проверяет код, который на 90% пишет сам Claude</a></li><li><a href="#s2">rust-anything: постепенный перенос приложения на Rust с проверкой по записанному поведению оригинала</a></li><li><a href="#s3">Simon Willison и Prime Radiant выпустили три внешние песочницы для кода, который запускают агенты</a></li><li><a href="#s4">Навык antialgorithm заставляет Claude назвать свой первый, самый средний вариант и уйти от него</a></li><li><a href="#s5">Microsoft выпустила MAI Code 2 и Code 2 Flash: кодовые модели, в Copilot по 50% цены</a></li></ol>
+<h2 class="section-title">Python и backend</h2><ol class="contents" style="counter-reset: item 5"><li><a href="#s6">uv 0.13.9: меньше lock-файл, фикс `uv lock --locked`, защита от подмены имени пакета в индексе</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>17.11</span></div>
+      <h2>Команда Claude Code описала, как проверяет код, который на 90% пишет сам Claude</h2>
+      <div class="gist"><p>Эдди Османи (claude.dev, 16 ноября 2026) разбирает, как команда Claude Code проверяет работу агентов: около 90% их кода пишет и ревьюит Claude. Идея: без петель проверки можно вести 1–2 агентов, с ними — десятки и сотни. Отдельный грейдер по рубрике дал до +10 пунктов успеха на генерации структурированных файлов.</p><p>Конкретика. Три типа тестов: E2E (агенту дают «руки и глаза» через скилл `verify` в `.claude/skills/`, CDP, симуляторы), property-тесты (fast-check, Hypothesis, proptest: round-trip, инварианты, идемпотентность, эквивалентность) и дифференциальные (старая система как оракул, список одобренных отличий). Чек-лист из 39 пунктов с триггерами по диффу: запускаются 3–10 подходящих. REVIEW.md читается с базовой ветки, а не из PR, чтобы изменение не правило свой чекер. После трёх неудачных раундов Claude зовёт человека. Коммит-гейт работает в режимах off/observe/enforce; после двух блокировок третий коммит пропускается. Правила из промахов: паттерн в ≥2 PR, три агента пытаются его опровергнуть; либо replay: три баг-искателя, находят ≥2 — баг обнаружим. Флаки-тесты нельзя ретраить или глушить sleep. В HN критикуют цену: дешёвые детерминированные проверки (линтеры, Playwright) надо ставить первыми.</p><p>Для твоего сетапа: скиллы, хуки, ревью и /loop у тебя уже есть, новое — дисциплина вокруг них. Первый шаг: добавить в Stop-хук запись способа проверки в коммит и запустить гейт в режиме observe, который только логирует, что заблокировал бы.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Коммит-гейт в режиме observe: хук логирует коммиты без /code-review или /verify, а enforce включать после проверки ложных срабатываний. Сделать?</li><li>Читать правила ревью (REVIEW.md, гейты) с базовой ветки, а не из изменений, чтобы PR не правил свой чекер, в нашем cross-vendor review и quality-gates.</li><li>Правило в CLAUDE.md: флаки-тесты не ретраить и не глушить sleep; не найден корень — удалить тест и записать причину. Плюс лимит: три провала проверки — стоп и зовём человека.</li><li>Скилл `verify` на проект, который поднимает приложение и гоняет сценарий, плюс property-тесты (Hypothesis) для парсеров и миграций. Завести для одного проекта?</li></ul></div>
+      <a class="source" href="https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>18.11</span></div>
+      <h2>rust-anything: постепенный перенос приложения на Rust с проверкой по записанному поведению оригинала</h2>
+      <div class="gist"><p>rust-anything (GitHub, создан 2026-11-16) — CLI и MCP-сервер, который ведёт агента через переписывание кода на Rust по одному куску. Работает с CLI, HTTP-серверами и библиотеками на TypeScript/JS, Python, C, Go, Ruby, Java (PHP и C# в preview). Шаги: `profile` находит горячий код на реальной нагрузке, `analyze` даёт список единиц, порядок и риски, `bridge` генерирует Rust-крейт с обёрткой, чтобы вызывающий код не менялся, `record` прогоняет оригинал на сгенерированных граничных случаях и сохраняет выводы. Rust пишет сам агент или человек в `port.rs`; `diff` проигрывает все записи против порта, `bench` меряет скорость, `gate` требует fmt, clippy, тесты, аудит unsafe и покрытие error-путей. Для целых приложений: `app record`/`app replay`, Rust-«парадная дверь» пересылает непортированные команды оригиналу, `app lift` убирает оригинал в конце. Заявлено до 20x на горячих путях, 38 251 случай без расхождений; пример: поиск x18n по 50 000 ключей — 20x, slugify на Python — 17x, Go — 4x, Java — 3x. Но порт по-функционально часто медленнее JIT: 29 функций x18n вышли медленнее TS, нужен батчинг.</p><p>Ограничения: «прошёл» значит совпал с записанными случаями; regex-движки различаются, формат float должен совпасть точно, время, память, конкурентность и побочные эффекты не сравниваются. Код не переписывается автоматически. Для тебя это готовый образец «агентной миграции с оракулом»: запись поведения оригинала + replay как критерий готовности, то, что хорошо ложится на твои loop-design и quality-gates. Первый шаг: `cargo install rust-anything &amp;&amp; rust-anything setup` (регистрирует MCP и скилл в Claude Code, Codex, Gemini CLI), затем `rust-anything profile` на небольшом скрипте.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Паттерн «записать поведение оригинала, потом replay как критерий готовности» добавить в loop-design/quality-gates для любых рефакторингов и миграций, не только Rust</li><li>Взять идею «парадной двери»: новый код стоит перед старым и пересылает непортированное, `app lift` убирает старое в конце — оформить как скилл для постепенных переписываний</li><li>Поставить `rust-anything setup` и проверить на одном горячем скрипте из ботов (`profile` → `analyze`), с батчингом, а не по-функционально</li></ul></div>
+      <a class="source" href="https://github.com/erkamyaman/rust-anything" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Simon Willison</span><span>17.11</span></div>
+      <h2>Simon Willison и Prime Radiant выпустили три внешние песочницы для кода, который запускают агенты</h2>
+      <div class="gist"><p>Simon Willison вместе с Prime Radiant описал паттерн «external sandbox»: агент работает снаружи, а весь код, который он исполняет, уходит в отдельную песочницу по localhost API. Цель — безопаснее пробовать локальные модели, чтобы ошибка или prompt injection не навредили машине. Три реализации с одним и тем же API: external-sandbox-v86 (Node.js, Alpine Linux в WebAssembly через v86), external-sandbox-container (Python, Alpine в Apple Containers) и external-sandbox-quicksand (Python, библиотека Microsoft Quicksand с QEMU и Alpine). Все лежат в github.com/prime-radiant-inc. Pi, Claude Code или Codex настраивают так, чтобы вызовы исполнения кода шли в песочницу.</p><p>Есть опциональный HTTP/HTTPS allow-list прокси, который ограничивает, на какие хосты может ходить код агента. Есть подмена учётных данных: авторизованные API-вызовы работают, а секрет агенту не отдаётся. Есть веб-интерфейс, где политику прокси меняют на ходу: разрешённые адреса, JSON-редактор политики, лог недавней активности. Цифр производительности и готовых команд установки на странице нет, детали в блоге Prime Radiant.</p><p>Для тебя это актуально, потому что ты гоняешь локальные модели на MLX и запускаешь агентов через Telegram-бота. Первый шаг: склонировать external-sandbox-container (у тебя macOS) и посмотреть README, как направить туда исполнение команд из Claude Code.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Склонировать external-sandbox-container и проверить, можно ли направить в него Bash-вызовы Claude Code для сессии Telegram-бота</li><li>Взять идею allow-list прокси: разрешать агенту ходить только на нужные хосты, а правила менять в рантайме</li><li>Взять подмену учётных данных: чтобы секреты из skill secrets не попадали в контекст агента, а подставлялись снаружи песочницы</li></ul></div>
+      <a class="source" href="https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>18.11</span></div>
+      <h2>Навык antialgorithm заставляет Claude назвать свой первый, самый средний вариант и уйти от него</h2>
+      <div class="gist"><p>mankidev/antialgorithm — навык для Claude Code для творческих задач: названия, тексты, сюжеты, идеи игр, постеры, UI. Идея: модель сначала называет свой первый, самый усреднённый вариант, потом отходит от него по причине, взятой из проекта. Создан 2026-11-14, 286 звёзд, 9 коммитов, MIT.</p><p>Внутри три скрипта. seed.py бросает случайную стартовую точку, если запрос скудный: для визуала метод, цвета, раскладка, шрифт; для текста голос и регистр; для идей глагол, ограничение, масштаб, давление (системный random, одинаковые промпты стартуют из разных мест). rough.py «ручной» вид для SVG: дрожание линий и букв, сбитые интервалы; только для печати, краски, штампа, туши. check.py рендерит SVG в полном и иконочном размере и ловит текст за краем, под фигурой, низкий контраст, мелкий кегль. Нужны Python 3, а для check.py ещё numpy, Pillow и rsvg-convert или cairosvg. Бенчмарков нет; в демо нижний ряд постеров выбран из примерно дюжины прогонов, то есть не типичный результат. Подробности техники лежат в SKILL.md, его страница не показала.</p><p>Для тебя это полезно в frontend-скилле и генерации картинок: там модель тоже выдаёт усреднённое. Идея seed.py (случайная затравка вместо одинаковой первой мысли) легко переносится в твои скиллы. Первый шаг: git clone https://github.com/mankidev/antialgorithm ~/.claude/skills/antialgorithm и прогнать один и тот же запрос на постер SVG 400x600 с навыком и без.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить в скилл frontend случайную затравку в духе seed.py (метод, палитра, раскладка, шрифт), чтобы лендинги не сходились к одному виду?</li><li>Подключить check.py (рендер SVG в полном и иконочном размере, контраст, выход текста за край) как автопроверку для SVG-артефактов и постеров?</li><li>В image-create и human-writing требовать сначала назвать «первый средний вариант» и отойти от него по причине из проекта?</li></ul></div>
+      <a class="source" href="https://github.com/mankidev/antialgorithm" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>Hacker News</span><span>17.11</span></div>
+      <h2>Microsoft выпустила MAI Code 2 и Code 2 Flash: кодовые модели, в Copilot по 50% цены</h2>
+      <div class="gist"><p>Microsoft AI представила две собственные кодовые модели. MAI Code 2 — для повседневных enterprise-задач: отладка, многофайловая реализация, работа по всему репозиторию, UI. MAI Code 2 Flash — для массовой работы: объяснения кода, точечные правки, рутинные фиксы. Плюс MAI Work Flash для Microsoft 365 и Fabric IQ.</p><p>Цифры от самой Microsoft (среднее по DeepSWE 1.1, Terminal Bench 2.1, SWE-Atlas, FrontierCode v1.1, макс. reasoning effort, GitHub Copilot CLI без сабагентов): Code 2 — 98% качества GPT 6.1 Sol за 40% цены и 96% Claude Opus 5.5 за 5% цены. Flash сравним с GPT-6 Luna и Claude Haiku 5.5 за 65% и 20% их цены. Абсолютных цен нет, контекст не указан. Доступны в GitHub Copilot (сейчас промо-цена 50%), Flash — в закрытом превью Foundry; OpenRouter, Vercel, Hermes, Open Code, Kilo обещаны позже. Веса закрыты. Microsoft сама пишет, что модели не тюнились под сложные и очень длинные агентные задачи.</p><p>В обсуждении HN скептики: сравнение с max-effort версиями, не контролируемые харнессы, по одной таблице модель уступает Qwen и DeepSeek. Один пользователь в Copilot сказал, что отличий от Opus не заметил на сборке Python и Azure Bicep. Другая команда ушла из Copilot из-за лимитов кредитов.</p><p>Для тебя: ничего срочного, Opus 5.5 остаётся основным. Это кандидат на дешёвого исполнителя или второй мнение для vendor-review, когда появится в opencode или OpenRouter. Первый шаг: когда придёт в Open Code, прогнать одну свою рутинную задачу и сравнить с Sonnet 5.5 по цене и результату.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить MAI Code 2 в скилл vendor-review как ещё одного ревьюера, когда появится в opencode/OpenRouter.</li><li>Прогнать A/B на одной рутинной задаче: Code 2 Flash против Haiku 5.5 по цене и качеству, прежде чем менять модель в агентных файлах low/medium.</li></ul></div>
+      <a class="source" href="https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>    <article class="story" id="s6">
+      <div class="meta"><span class="number">06</span><span>uv releases</span><span>17.11</span></div>
+      <h2>uv 0.13.9: меньше lock-файл, фикс `uv lock --locked`, защита от подмены имени пакета в индексе</h2>
+      <div class="gist"><p>Вышел uv 0.13.9 (2026-11-17). Производительность: lock-файл стал меньше и читается быстрее, потому что повторяющиеся условия в environment markers вынесены в общие (#23184). Исправления: `uv lock --locked` больше не отклоняет lock-файл, где одинаковые platform markers записаны в разной форме (#23185); значения маркеров с апострофами теперь экранируются правильно (#23185); uv отвергает wheel, который индекс выдаёт под другим именем пакета (#23261); при сбое определения musl-интерпретатора сообщается, какой именно не вернул версию (#23213). Preview-функции: поддержка PEP 832 redirect-файлов `.venv` для project-окружений (#21822) и `http2-keep-alive`, который закрывает зависшие HTTP/2-соединения с активными запросами (#23236). Минимальная версия Rust для сборки uv теперь 1.98 (#23263).</p><p>Для твоих FastAPI/Celery-проектов это в основном обычное обновление инструмента: `uv lock --locked` в CI реже будет падать из-за ложных расхождений в маркерах, а diff lock-файла после пересборки может заметно измениться (меньше повторов), это ожидаемо. Проверка имени пакета у wheel — небольшая защита цепочки поставок при работе с приватным индексом. Первый шаг: `uv self update`, затем `uv lock` в одном проекте и посмотреть diff; для зависающих загрузок с HTTP/2 можно попробовать preview-флаг `http2-keep-alive`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Обновить uv (`uv self update`) и прогнать `uv lock --locked` в CI одного сервиса: проверить, что ложные падения из-за маркеров ушли</li><li>Закоммитить пересобранный lock-файл отдельным коммитом, чтобы diff от факторизации маркеров не смешивался с изменениями зависимостей</li><li>Если сборки в CI иногда зависают на загрузке пакетов, включить preview `http2-keep-alive` на одном пайплайне</li></ul></div>
+      <a class="source" href="https://github.com/astral-sh/uv/releases/tag/0.13.9" target="_blank" rel="noopener">Источник</a>
+    </article>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Reddit: HTTP Error 404: Not Found</li></ul></footer>
+</main>
+
+</body>
+</html>
