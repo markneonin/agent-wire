@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 19.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">19.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><p class="empty">Nothing worth reading today.</p>
+<h2 class="section-title">Python and backend</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">FastAPI 0.164.0 adds configurable request body size limits</a></li><li><a href="#s2">FastAPI 0.165.0 adds configurable form parsing limits</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>
+<h2 class="section-title">Python and backend</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>FastAPI releases</span><span>18.11</span></div>
+      <h2>FastAPI 0.164.0 adds configurable request body size limits</h2>
+      <div class="gist"><p>FastAPI 0.164.0 (PR #16781 by @tiangolo) adds configurable request body size limits. The release page itself has just that one line; the details below come from the PR description. A max_body_size setting can be set on the app, on routers and on individual path operations. A separate optional form_limits setting with max_fields, max_files and max_part_size limits form parsing. By default bodies are unlimited until max_body_size is set; form_limits defaults match Starlette&#x27;s existing form parser defaults (the actual values are not given in the source). What response a client gets when a limit is exceeded was not stated in what I read. Docs: /advanced/request-body-limits/.</p><p>For your backend this is protection against oversized uploads and forms with huge numbers of fields, without custom middleware or an nginx-only limit. You can set a global cap on the app and raise it only on the file-upload endpoint. FastAPI had no built-in equivalent before, so this is new for you. First step: upgrade to 0.164.0, set max_body_size on the app or a router, and write a test that checks which status is returned when the limit is exceeded.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Set max_body_size on the app as a global ceiling, and raise it only on file-upload endpoints via the path operation.</li><li>For form endpoints, set form_limits (max_fields, max_files, max_part_size) explicitly instead of relying on implicit Starlette defaults.</li><li>Add a pytest test for exceeding the limit: check the response status and that the handler is not called, since the source doesn&#x27;t specify this.</li></ul></div>
+      <a class="source" href="https://github.com/fastapi/fastapi/releases/tag/0.164.0" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>FastAPI releases</span><span>18.11</span></div>
+      <h2>FastAPI 0.165.0 adds configurable form parsing limits</h2>
+      <div class="gist"><p>FastAPI 0.165.0 (released 18 Nov 2026) lists one feature: configurable form parsing limits (PR #16784 by @tiangolo). The release notes and the PR page don&#x27;t name the parameters, defaults or show example code. The only pointer is that the PR changes the docs page advanced/request-body-limits, which probably describes the setup. I couldn&#x27;t open that page, so I&#x27;m not quoting parameter names or numbers.</p><p>The release also mentions an official FastAPI skill for coding agents that helps them use new features and recommended patterns for the installed version. Install it in a project with uvx library-skills (see the Develop with AI docs).</p><p>Why it matters: if your FastAPI services have endpoints with Form/UploadFile, form parsing limits protect against oversized or too many fields and files. First step: upgrade to 0.165.0, read advanced/request-body-limits in the docs, and check which defaults now apply to your forms so the upgrade doesn&#x27;t break uploads.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run tests for Form/UploadFile endpoints on 0.165.0 to check whether default limits changed behavior</li><li>Install uvx library-skills in a FastAPI project and see what the skill recommends for the installed version</li><li>Read advanced/request-body-limits and set explicit form limits on endpoints that accept uploads</li></ul></div>
+      <a class="source" href="https://github.com/fastapi/fastapi/releases/tag/0.165.0" target="_blank" rel="noopener">Source</a>
+    </article>
+  </section>
+  <footer class="problems"><span>Sources with problems</span><ul><li>Reddit: HTTP Error 404: Not Found</li><li>ruff releases: [Errno 54] Connection reset by peer</li><li>ty releases: &lt;urlopen error [Errno 60] Operation timed out&gt;</li><li>Pydantic releases: &lt;urlopen error [Errno 60] Operation timed out&gt;</li><li>GitHub: Command &#x27;[&#x27;gh&#x27;, &#x27;api&#x27;, &#x27;-X&#x27;, &#x27;GET&#x27;, &#x27;search/repositories&#x27;, &#x27;-f&#x27;, &#x27;q=topic:ai-agents created:&gt;2026-11-05 stars:&gt;=150&#x27;, &#x27;-f&#x27;, &#x27;sort=stars&#x27;, &#x27;-f&#x27;, &#x27;per_page=20&#x27;]&#x27; returned non-zero exit status 1.</li></ul></footer>
+</main>
+
+</body>
+</html>
