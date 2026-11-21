@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 21.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">21.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">agent-crop: локальный хронометраж агента и разбор потерь времени с записью выводов обратно в скиллы</a></li><li><a href="#s2">Claude Code 2.1.330: циклы и расписания до 30 дней, строже `rm`, фиксы worktree и MCP, встроенные графики easel</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>21.11</span></div>
+      <h2>agent-crop: локальный хронометраж агента и разбор потерь времени с записью выводов обратно в скиллы</h2>
+      <div class="gist"><p>agent-crop (npm `agent-crop-dsh`, MIT, 178 звёзд, репо создан 2026-11-14) — плагин для DSH, Claude Code и Codex. Через хуки он пишет в `~/.agentcrop/data/events.jsonl` факты: имя инструмента и успех/провал каждого вызова, время конца хода (`stop`) и следующего сообщения (`prompt`). Пауза до 15 минут считается `user_wait`, дольше или вне рабочих часов — `idle_gap` и исключается. Есть сигналы повторов (`tool_churn`, `rework_signal`), жёлтый/красный таймаут с подталкиванием агента и обязательным отчётом `blocked`. Тексты разговоров не хранятся, ничего не уходит в сеть.</p><p>Агент сам заполняет суждения: `phase`, `summary`, `cause`, `next`, `category` из фиксированных девяти значений (serial-wait, repeat-pitfall, design-churn, decision-batching, tool-misuse, no-evidence, spec-drift, human-wait, other). Самоотчёт не считается выводом, пока не сверен с замерами. Пример автора: из-за многоподкомандной CLI агент гонял `help`, категория tool-misuse, после дописанной страницы Skill задача сократилась с ~10 минут до 30 секунд (автор сам говорит, что это не полноценная оценка). Расход 100–300 символов на ход. Ограничения: пороги здоровья не откалиброваны, при меньше 3 сессий вывода нет, `type`/`difficulty` часто пусты.</p><p>Для твоего сетапа: общий Observability через ccobs у тебя уже есть, новое здесь — цикл «замер → категория потери → правка скилла/инструкции → проверка эффекта» и тон подталкивания. Первый шаг: поставить для Claude Code по `docs/INSTALL.md` (там MCP-инструменты `crop_health`, `crop_update`) и через неделю посмотреть `crop health --days 7`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Взять фиксированный enum причин потерь (tool-misuse, repeat-pitfall, spec-drift и т.д.) и добавить в наш ccobs/скилл observability классификацию каждого разбора — добавить?</li><li>Правило «агент обязан отчитаться о `blocked` с `cause` и `category` при превышении порога времени» — завести как Stop/UserPromptSubmit хук с таймером в наших хуках?</li><li>Паттерн «повторные `help`/ошибки одной CLI → дописать страницу в скилл» оформить как еженедельный шаг в settings-cleanup: искать tool_churn и закрывать скиллом?</li><li>Проверить правило «самоотчёт агента не вывод, пока не сверен с замерами» и добавить его в loop-design для автоматических циклов?</li></ul></div>
+      <a class="source" href="https://github.com/oriliz/agent-crop" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Claude Code releases</span><span>20.11</span></div>
+      <h2>Claude Code 2.1.330: циклы и расписания до 30 дней, строже `rm`, фиксы worktree и MCP, встроенные графики easel</h2>
+      <div class="gist"><p>Релиз от 20 ноября, около 150 изменений. Главное: `/loop` и повторяющиеся scheduled tasks теперь живут до 30 дней (было 7), пока сессия работает, и сообщают, когда закончатся; уже созданные задачи по-прежнему кончаются на 7 днях. Больше команд `rm` на корень, home, папку верхнего уровня или рабочую папку просят подтверждение, а там, где отвечать некому, отклоняются. Skills с настройкой `model` (кроме `context: fork`) оставляют subagents, forks, compaction и `/recap` на модели сессии. Prompt-хуки принимают алиасы `haiku` и `sonnet` в поле `model`. Для `deniedMcpServers` запись по имени скрывает только названный коннектор claude.ai; чтобы заблокировать все на этом URL, нужно запретить точный URL. Добавлен easel: встроенный мод, который рисует графики по запросу и под результатами MCP-метрик (Pro/Max, Team/Enterprise где доступно, macOS и Linux; отключается в `/config`). Исправлено: `ExitWorktree` удалял worktree, который использовала другая сессия; MCP-сервер, объявленный субагентами, закрывался, когда завершался один из них; потеря настроек при параллельной записи; `/rewind` восстанавливал старую версию файла; `subagent` под `opusplan`/`haiku` запускал свои subagents на plan-модели; после sleep первый промпт ждал 3 минуты; WebFetch зависал на минуты; `claude -p` на полном диске выходил с кодом 0, теперь 1 с ошибкой. Также: `claude auth login` для организаций из Enterprise Admin Console, `/workflows` и `/fork` в VS Code.</p><p>Для твоей настройки это в основном совпадает с тем, что ты уже гоняешь (worktree на writer, вложенные leads, `/loop`, `/schedule`, SessionStart-хуки), так что почти всё здесь баги, которые ты мог ловить. Первый шаг: обновиться и перепроверить свои `/loop` и cron-агентов: лимит 7 дней мог обрывать долгие циклы. Заодно посмотреть, что ваши pinned-модели в skills и agents ведут себя иначе (`model` в skill теперь не переключает subagents и compaction), и что хуки с `rm` не упираются в новые подтверждения.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Перепроверить долгие `/loop` и `/schedule`-задачи: лимит вырос до 30 дней, но старые задачи всё ещё кончаются на 7 днях, их надо пересоздать</li><li>Пройтись по своим skills с полем `model`: теперь subagents, forks, compaction и `/recap` остаются на модели сессии, поправить скиллы, где это рассчитывали иначе</li><li>Проверить хуки и скрипты с `rm` в корень, home или рабочую папку: теперь они просят подтверждение или отклоняются без человека</li><li>В prompt-хуках можно ставить `model: haiku` или `sonnet` алиасом: упростить конфиги хуков</li></ul></div>
+      <a class="source" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.330" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Reddit: HTTP Error 404: Not Found</li><li>PyCoder&#x27;s Weekly: [Errno 54] Connection reset by peer</li><li>uv releases: [Errno 54] Connection reset by peer</li><li>Hacker News: [Errno 54] Connection reset by peer</li></ul></footer>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 21.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">2 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">21.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">agent-crop: local timing of coding agents and a review loop that writes lessons back into skills</a></li><li><a href="#s2">Claude Code 2.1.330: loops and schedules run up to 30 days, stricter `rm` approval, worktree and MCP fixes, built-in easel charts</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>21.11</span></div>
+      <h2>agent-crop: local timing of coding agents and a review loop that writes lessons back into skills</h2>
+      <div class="gist"><p>agent-crop (npm `agent-crop-dsh`, MIT, 178 stars, repo created 2026-11-14) is a plugin for DSH, Claude Code and Codex. Hooks write facts to `~/.agentcrop/data/events.jsonl`: tool name and success/failure of each call, end-of-turn time (`stop`) and next-message time (`prompt`). A gap of up to 15 minutes counts as `user_wait`; longer or off-hours gaps are `idle_gap` and excluded. It flags repeats (`tool_churn`, `rework_signal`), and yellow/red timeouts inject a nudge and require the agent to report a `blocked` phase. Conversation text is not stored and nothing is uploaded.</p><p>The agent fills in the judgments itself: `phase`, `summary`, `cause`, `next`, and a `category` from a fixed nine-value enum (serial-wait, repeat-pitfall, design-churn, decision-batching, tool-misuse, no-evidence, spec-drift, human-wait, other). Self-reports are not treated as conclusions until checked against the measured times and failure counts. The author&#x27;s example: a CLI with many subcommands made the agent loop on `help` (tool-misuse); after the agent wrote the missing Skill page, the task dropped from ~10 minutes to 30 seconds (the author admits this is not a full evaluation). Cost is 100–300 characters per turn. Limits: health thresholds are uncalibrated, fewer than 3 sessions gives no conclusion, `type`/`difficulty` are often empty.</p><p>For your setup: you already have general observability via ccobs. What is new is the loop of measure, classify the loss, edit a skill or instruction, then verify the effect, plus the nudge tone. First step: install for Claude Code following `docs/INSTALL.md` (it adds MCP tools `crop_health` and `crop_update`) and after a week run `crop health --days 7`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Adopt the fixed enum of loss causes (tool-misuse, repeat-pitfall, spec-drift, etc.) and add classification of each review to our ccobs/observability skill?</li><li>Add a rule that the agent must report `blocked` with `cause` and `category` when a time threshold is exceeded, as a Stop/UserPromptSubmit hook with a timer in our hooks?</li><li>Turn the pattern &#x27;repeated `help`/errors on one CLI → write a skill page&#x27; into a weekly step in settings-cleanup: look for tool_churn and close it with a skill?</li><li>Add the principle &#x27;an agent self-report is not a conclusion until checked against measurements&#x27; to loop-design for unattended loops?</li></ul></div>
+      <a class="source" href="https://github.com/oriliz/agent-crop" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Claude Code releases</span><span>20.11</span></div>
+      <h2>Claude Code 2.1.330: loops and schedules run up to 30 days, stricter `rm` approval, worktree and MCP fixes, built-in easel charts</h2>
+      <div class="gist"><p>Released 20 November, about 150 changes. Main points: `/loop` and recurring scheduled tasks now run up to 30 days (previously 7) while their session keeps running, and say when they end; tasks created earlier still end at 7 days. More `rm` commands aimed at root, home, a top-level folder or the working folder ask for approval, and are refused where nobody can answer. Skills run with a `model` setting (except `context: fork` skills) keep the session&#x27;s model for subagents, forks, compaction and `/recap`. Prompt hooks accept aliases such as `haiku` or `sonnet` in `model`. In `deniedMcpServers`, a name entry now hides only the named claude.ai connector; to block everything at that URL, deny the exact URL. Added easel: a built-in mod that draws charts on request and under MCP metrics results (Pro/Max, Team/Enterprise where available, macOS and Linux; turn off in `/config`). Fixed: `ExitWorktree` deleted a worktree another running session was using; an MCP server declared by subagents was shut down when one subagent finished; user settings lost on concurrent saves; `/rewind` restoring an older file version; a subagent&#x27;s own subagents running on the plan-mode model under `opusplan`/`haiku`; the first prompt after sleep waiting three minutes; WebFetch freezing for minutes; `claude -p` exiting 0 on a full disk (now exit 1 with an error). Also: `claude auth login` for organizations in the Enterprise Admin Console, `/workflows` and `/fork` in VS Code.</p><p>For your setup this mostly overlaps with what you already run (worktree per writer, nested leads, `/loop`, `/schedule`, SessionStart hooks), so most of it is bug fixes you may have hit. First step: update and recheck your `/loop` and cron agents, since the 7-day cap may have cut long loops. Also check that models pinned in skills and agents still behave as expected (`model` in a skill no longer switches subagents or compaction), and that your hooks don&#x27;t trip over the new `rm` approvals.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Recheck long-running `/loop` and `/schedule` tasks: the cap is now 30 days, but tasks created earlier still end at 7 days and need recreating</li><li>Audit your skills with a `model` field: subagents, forks, compaction and `/recap` now stay on the session model, so fix skills that relied on the old behavior</li><li>Check hooks and scripts that run `rm` on root, home or the working folder: they now ask for approval or are refused when nobody can answer</li><li>Prompt hooks accept `model: haiku` or `sonnet` aliases: simplify the hook configs</li></ul></div>
+      <a class="source" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.330" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  <footer class="problems"><span>Sources with problems</span><ul><li>Reddit: HTTP Error 404: Not Found</li><li>PyCoder&#x27;s Weekly: [Errno 54] Connection reset by peer</li><li>uv releases: [Errno 54] Connection reset by peer</li><li>Hacker News: [Errno 54] Connection reset by peer</li></ul></footer>
+</main>
+
+</body>
+</html>
