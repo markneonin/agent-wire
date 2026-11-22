@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 22.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">3 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">22.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Thinking Machines выпустила открытую Inkling 2 Mini: MoE на 26.4B с циклом слоёв, 20 ГБ, запускается на ноутбуке</a></li><li><a href="#s2">Inkling-2-Mini (26.4B MoE) сжали до 5.4 ГБ для Apple Silicon: HumanEval 71% против 93% у оригинала</a></li><li><a href="#s3">OpenComputer: open-source (Apache 2.0) аналог Devin — @Computer в Slack запускает Claude Code/Codex/OpenCode на своей VM и отдаёт PR</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>20.11</span></div>
+      <h2>Thinking Machines выпустила открытую Inkling 2 Mini: MoE на 26.4B с циклом слоёв, 20 ГБ, запускается на ноутбуке</h2>
+      <div class="gist"><p>Thinking Machines Lab 20 ноября 2026 опубликовала Inkling 2 Mini с открытыми весами. Это MoE на 26.4B параметров (3.4B активных), «зацикленный» трансформер: средние слои прогоняются три раза на токен, так что из 24 хранимых слоёв получается 48 применений. Модель думает глубже, не печатая больше токенов. Память около 20 ГБ, обучение и инференс в основном в NVFP4.</p><p>Цифры из статьи (самоотчёт): SWE-bench Verified 79.2%, SWE-bench Pro v2 Hard 77.9%, Terminal Bench v2.1 71.6%, MCP Atlas 82.7%, BrowseComp 79.0% (с компактификацией). Лидер среди открытых моделей до 100B на DeepSWE v1.1 (48.2%). Слабые места: многоходовой чат и инструкции с множеством ограничений (MultiChallenge 50.0%, ComplexConstraints 33.4%, ниже Qwen3.8-27B), знания фактов на уровне моделей того же размера, поэтому ставка на поиск и тулы. Внутренний замер деструктивных действий: 10.2%.</p><p>Для твоего сетапа: основной агент остаётся на Opus/Sonnet 5.5, но это кандидат на локальную дешёвую модель для массовых подзадач (суммаризация, извлечение, тул-вызовы) рядом с MLX-моделями. Цена и API в статье не указаны. Первый шаг: на Mac с 32+ ГБ RAM поднять через Ollama (поддержка заявлена, точных команд нет) или квантованный GGUF от Unsloth через llama.cpp и прогнать на своих задачах с `claude -p --json-schema`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Скачать квантованный GGUF (Unsloth) или Ollama-версию и прогнать на 5-10 реальных задачах из наших скриптов с `claude -p --json-schema`, сравнив с текущей локальной MLX-моделью.</li><li>Добавить Inkling 2 Mini как кандидата в cross-vendor review и в роль дешёвого исполнителя для суммаризации и извлечения, где сейчас идёт Gemini/Antigravity или Haiku.</li><li>Для тул-ориентированных задач проверить её на наших MCP-серверах (codebase-memory, Telegram): в статье заявлено MCP Atlas 82.7%, но слабые инструкции со многими ограничениями, так что промпты держать короткими.</li></ul></div>
+      <a class="source" href="https://thinkingmachines.ai/news/inkling-2-mini/" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Hacker News</span><span>21.11</span></div>
+      <h2>Inkling-2-Mini (26.4B MoE) сжали до 5.4 ГБ для Apple Silicon: HumanEval 71% против 93% у оригинала</h2>
+      <div class="gist"><p>LookAtMyQuant — набор MLX-квантизаций модели thinkingmachines/Inkling-2-Mini: MoE на 26.4B параметров, 5.4B активных, 128 экспертов с top-8, слои 6–17 прогоняются трижды. Текстовые веса в BF16 занимают 18.89 ГБ, авторы сделали шесть сборок от 3.9 до 12.8 ГБ. Сборка на 5.4 ГБ — это 1.65 бита на вес, метод «SQYFR v2»: эксперты и 130–144 attention-проекций обучаются совместно на ответах учителя, плюс финальная подгонка масштабов.\n\nРезультаты против BF16: GSM8K 87.0% против 96.5%, HumanEval 71.3% против 92.7%, vision 4/4. На Apple M5 Max: префилл 1807 tok/s, декод 75.3 tok/s, с драфтером (около 179 МБ) медианно 124.4 tok/s, активная память 5.33 ГБ. Ограничения: код заметно просел, выборки малые (200, 164 и 4 задачи), лицензия на веса в README не указана, MIT только у кода.\n\nДля тебя это не про Claude Code, а про локальные модели на MLX: уже есть, но для кода 71% HumanEval слабоват, годится скорее для дешёвых задач вроде суммаризации или извлечения. Первый шаг: pip install git+https://github.com/ShinMegamiBoson/lookatmyquant.git, затем lamq generate shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-5.4GB --drafter shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-drafter -p &quot;...&quot; --stats.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать 5.4GB-сборку через lamq с --stats на твоём Mac и сравнить tok/s и качество с текущими локальными MLX-моделями.</li><li>Использовать её только для дешёвых фоновых задач (суммаризация, извлечение), а не для кода: HumanEval 71.3% против 92.7%.</li><li>Перед использованием проверить лицензию весов на Hugging Face: в README её нет.</li></ul></div>
+      <a class="source" href="https://github.com/ShinMegamiBoson/lookatmyquant" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Hacker News</span><span>20.11</span></div>
+      <h2>OpenComputer: open-source (Apache 2.0) аналог Devin — @Computer в Slack запускает Claude Code/Codex/OpenCode на своей VM и отдаёт PR</h2>
+      <div class="gist"><p>diggerhq выложили OpenComputer: пишешь @Computer в треде Slack, агент работает на своей «машине», команда может смотреть и править ход работы, результат приходит как pull request. Своего агента нет: внутри запускаются твои Claude Code, Codex или OpenCode (можно со своей подпиской ChatGPT/Codex). Архитектура: одна VM (минимум одна на организацию) с шлюзом «Calvin», каждая сессия изолирована rootless Podman; состояние пишется на локальный диск и после каждого хода бэкапится в git, так что сессию можно продолжить на другой VM. Slack-события принимают Cloudflare Workers и Durable Objects, VM сама подключается по websocket, нужен только исходящий трафик. Есть web UI, CLI, API. Лимиты: только Slack (Discord и T3 Code в планах), self-host только в облаке команды (AWS/GCP/Azure, см. SELFHOSTING.md), зависимость от Cloudflare; локальные модели не поддерживаются. Бенчмарки авторов (PR в 3.3 раза быстрее Devin: 56 с против 185 с; первый push 24 с против 62 с) никем не проверены. Облако: 3 дня бесплатно, 600 минут работы.</p><p>Для тебя это не новый инструмент, а паттерн: Claude Code как серверный воркер в чате команды. Свой Claude Code в Telegram-боте у тебя уже есть, так что ценность в деталях: песочница на Podman и снапшот состояния сессии в git после каждого хода. Первый шаг: открыть SELFHOSTING.md в github.com/diggerhq/opencomputer и посмотреть, как устроены сессия и её восстановление. Запускать целиком не обязательно.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Из OpenComputer: после каждого хода бэкапить состояние сессии бота в git, чтобы продолжать на другой машине. Добавить такое в bot-session.sh?</li><li>Изолировать сессии Telegram-бота в rootless Podman, как у OpenComputer, вместо общего окружения. Посмотреть?</li></ul></div>
+      <a class="source" href="https://github.com/diggerhq/opencomputer" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Reddit: HTTP Error 404: Not Found</li><li>Real Python: [Errno 54] Connection reset by peer</li><li>GitHub: Command &#x27;[&#x27;gh&#x27;, &#x27;api&#x27;, &#x27;-X&#x27;, &#x27;GET&#x27;, &#x27;search/repositories&#x27;, &#x27;-f&#x27;, &#x27;q=topic:claude-code created:&gt;2026-11-08 stars:&gt;=150&#x27;, &#x27;-f&#x27;, &#x27;sort=stars&#x27;, &#x27;-f&#x27;, &#x27;per_page=20&#x27;]&#x27; returned non-zero exit status 1.</li></ul></footer>
+</main>
+
+</body>
+</html>

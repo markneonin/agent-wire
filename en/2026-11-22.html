@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 22.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">3 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">22.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Thinking Machines releases open-weights Inkling 2 Mini: a 26.4B looped MoE, 20 GB, runs on a laptop</a></li><li><a href="#s2">Inkling-2-Mini (26.4B MoE) squeezed to 5.4 GB for Apple Silicon: HumanEval 71% vs 93% for the original</a></li><li><a href="#s3">OpenComputer: Apache 2.0 open-source Devin alternative — @Computer in Slack runs Claude Code/Codex/OpenCode on your own VM and returns a PR</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>20.11</span></div>
+      <h2>Thinking Machines releases open-weights Inkling 2 Mini: a 26.4B looped MoE, 20 GB, runs on a laptop</h2>
+      <div class="gist"><p>On November 20, 2026 Thinking Machines Lab published Inkling 2 Mini with open weights. It is a 26.4B-parameter MoE (3.4B active) built as a looped transformer: the middle layers run three times per token, so 24 stored layers give 48 layer applications. The model reasons more without writing more tokens. Memory footprint is about 20 GB, trained and served mostly in NVFP4.</p><p>Reported numbers (self-reported): SWE-bench Verified 79.2%, SWE-bench Pro v2 Hard 77.9%, Terminal Bench v2.1 71.6%, MCP Atlas 82.7%, BrowseComp 79.0% (with compaction). It leads open-weights models under 100B on DeepSWE v1.1 (48.2%). Weak spots: multi-turn chat and many-constraint instructions (MultiChallenge 50.0%, ComplexConstraints 33.4%, behind Qwen3.8-27B), and factual knowledge is on par with same-size models, so it leans on search and tools. Internal destructive-action rate: 10.2%.</p><p>For your setup: the main agent stays on Opus/Sonnet 5.5, but this is a candidate for a cheap local model for bulk subtasks (summaries, extraction, tool calls) next to your MLX models. Pricing and API are not given in the article. First step: on a Mac with 32+ GB RAM, run it via Ollama (support is stated, exact commands are not) or the Unsloth quantized GGUF with llama.cpp, and test it on your own tasks through `claude -p --json-schema`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Download the quantized GGUF (Unsloth) or the Ollama build and run it on 5-10 real tasks from our scripts via `claude -p --json-schema`, comparing against the current local MLX model.</li><li>Add Inkling 2 Mini as a candidate in the cross-vendor review skill and as a cheap worker for summarization and extraction, where Gemini/Antigravity or Haiku is used now.</li><li>Test it against our MCP servers (codebase-memory, Telegram) for tool-heavy work: the article claims MCP Atlas 82.7%, but it is weak on many-constraint instructions, so keep prompts short.</li></ul></div>
+      <a class="source" href="https://thinkingmachines.ai/news/inkling-2-mini/" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>Hacker News</span><span>21.11</span></div>
+      <h2>Inkling-2-Mini (26.4B MoE) squeezed to 5.4 GB for Apple Silicon: HumanEval 71% vs 93% for the original</h2>
+      <div class="gist"><p>LookAtMyQuant is a set of MLX quantizations of thinkingmachines/Inkling-2-Mini: a 26.4B-parameter MoE with 5.4B active, 128 experts with top-8 routing, and layers 6–17 looped three times. The BF16 text weights take 18.89 GB; the authors made six builds from 3.9 to 12.8 GB. The 5.4 GB build stores 1.65 bits per weight using &quot;SQYFR v2&quot;: all experts and 130–144 attention projections are trained jointly on the teacher&#x27;s rollouts, followed by a final scale polish.\n\nResults versus BF16: GSM8K 87.0% vs 96.5%, HumanEval 71.3% vs 92.7%, vision 4/4. On an Apple M5 Max: prefill 1,807 tok/s, decode 75.3 tok/s, median 124.4 tok/s with a drafter (about 179 MB), active RAM 5.33 GB. Limits: code quality drops noticeably, the eval sets are small (200, 164 and 4 tasks), the README states no license for the weights (MIT covers only the code).\n\nThis isn&#x27;t about Claude Code but about local MLX models, which you already run. At 71% HumanEval it&#x27;s weak for coding; it fits cheap jobs like summarizing or extraction. First step: pip install git+https://github.com/ShinMegamiBoson/lookatmyquant.git, then lamq generate shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-5.4GB --drafter shinmegamiboson/Inkling-2-Mini-LookAtMyQuant-drafter -p &quot;...&quot; --stats.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run the 5.4GB build through lamq with --stats on your Mac and compare tok/s and quality with your current local MLX models.</li><li>Use it only for cheap background jobs (summarizing, extraction), not for code: HumanEval is 71.3% vs 92.7%.</li><li>Check the weights&#x27; license on Hugging Face before using it: the README doesn&#x27;t state one.</li></ul></div>
+      <a class="source" href="https://github.com/ShinMegamiBoson/lookatmyquant" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>Hacker News</span><span>20.11</span></div>
+      <h2>OpenComputer: Apache 2.0 open-source Devin alternative — @Computer in Slack runs Claude Code/Codex/OpenCode on your own VM and returns a PR</h2>
+      <div class="gist"><p>diggerhq released OpenComputer: you mention @Computer in a Slack thread, the agent works on its own computer, the team can watch and steer it, and the result arrives as a pull request. It ships no agent of its own: it runs your Claude Code, Codex or OpenCode (you can bring your ChatGPT/Codex subscription). Architecture: one or more VMs per organization run a gateway called &quot;Calvin&quot;, and each session is isolated with rootless Podman. State goes to local disk and is backed up to git after every turn, so a session can resume on another VM. Slack events come in through Cloudflare Workers and Durable Objects; the VM dials out over a websocket, so it needs only outbound network. There is a web UI, CLI and API. Limits: Slack only (Discord and T3 Code planned), self-hosting means your own cloud account (AWS/GCP/Azure, see SELFHOSTING.md), it depends on Cloudflare, and local models are not supported. The authors&#x27; benchmarks (PR 3.3x faster than Devin: 56s vs 185s; first push 24s vs 62s) are not independently verified. The cloud offer is a 3-day trial with 600 work minutes.</p><p>For you this is a pattern, not a new tool: Claude Code as a server-side worker in a team chat. You already run Claude Code inside a Telegram bot, so the value is in the details: Podman sandboxing and snapshotting session state to git after every turn. First step: read SELFHOSTING.md in github.com/diggerhq/opencomputer to see how a session and its resume are built. You don&#x27;t need to deploy the whole thing.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>OpenComputer backs up session state to git after every turn so a session can resume on another machine. Add that to bot-session.sh?</li><li>Isolate Telegram bot sessions in rootless Podman, as OpenComputer does, instead of a shared environment. Worth a look?</li></ul></div>
+      <a class="source" href="https://github.com/diggerhq/opencomputer" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  <footer class="problems"><span>Sources with problems</span><ul><li>Reddit: HTTP Error 404: Not Found</li><li>Real Python: [Errno 54] Connection reset by peer</li><li>GitHub: Command &#x27;[&#x27;gh&#x27;, &#x27;api&#x27;, &#x27;-X&#x27;, &#x27;GET&#x27;, &#x27;search/repositories&#x27;, &#x27;-f&#x27;, &#x27;q=topic:claude-code created:&gt;2026-11-08 stars:&gt;=150&#x27;, &#x27;-f&#x27;, &#x27;sort=stars&#x27;, &#x27;-f&#x27;, &#x27;per_page=20&#x27;]&#x27; returned non-zero exit status 1.</li></ul></footer>
+</main>
+
+</body>
+</html>
