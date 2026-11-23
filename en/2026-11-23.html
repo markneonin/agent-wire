@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 23.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">5 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">23.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">A template repo runs up to 20 Claude Code agents on Android emulators and iOS simulators in GitHub Actions and collects bug reports</a></li><li><a href="#s2">fast-anything profiles an app, has your agent port only the hot functions to Rust, and verifies them against recorded real calls</a></li><li><a href="#s3">Measured: returning to a Claude Code chat after the cache expires costs ~10x a new chat; fix with /compact before a break or /clear plus 3 lines</a></li><li><a href="#s4">skill-distill: Claude Code turns a good session into a skill that a cheaper open-weight model can follow to redo the task</a></li></ol>
+<h2 class="section-title">Python and backend</h2><ol class="contents" style="counter-reset: item 4"><li><a href="#s5">ty 0.0.108: mismatched-type-name split into eight rules, many speedups</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>23.11</span></div>
+      <h2>A template repo runs up to 20 Claude Code agents on Android emulators and iOS simulators in GitHub Actions and collects bug reports</h2>
+      <div class="gist"><p>mobile-agent-testers (pierridotite, MIT, created 2026-11-16) is a template repo: a workflow builds your app and starts one emulator/simulator per persona, each with its own Claude Code agent. You write no tests. The agent plays a persona (phone model, OS, font size, dark mode, language, location), uses the app like a new user or follows your brief, and writes a report with numbered screenshots. Three tools: see the screen with tap coordinates, gestures, typing; plus an accessibility check on every screen (unnamed controls, touch targets under 48 dp / 44 pt). 20 ready personas (14 languages, RTL, tablets). Supports Flutter, React Native, Expo, Kotlin, Swift, KMP, Capacitor. Reports are encrypted with your key; Claude groups duplicates locally.</p><p>README numbers: LocalSend, 20 phones, 69 min, $4.62 — 103 reports became 46 distinct bugs, 29 found by one agent only, 34 not about text size or accessibility. AnkiDroid, 10 Android, under 10 min, $4.69. Roughly $0.15–0.55 per phone. Limits: free runners allow about 20 jobs, 5 on macOS; on a plan with a 5-hour limit, 20 agents can exhaust it in ~15 minutes, so batches of 6–10 are advised; agents sometimes misread screens. You have no mobile testers, but the &quot;personas in parallel + report dedup&quot; pattern is close to your workflows. If you ship a mobile app, first step: `gh repo create my-testers --public --template pierridotite/mobile-agent-testers --clone &amp;&amp; cd my-testers &amp;&amp; ./setup.sh`, then `gh workflow run agent-testers.yml` (demo, ~20 min).</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Personas (model, language, font size, dark mode) as a matrix of parallel agents: build such a matrix into our synthetic-survey or a UI review via Workflow?</li><li>Agents write reports, then Claude merges duplicates and shows how many personas hit each bug (103 reports → 46). Add this dedup step to our multi-agent reviews (vendor-review, council)?</li><li>The `bug_report=owner/repo#123` mode has an agent reproduce an issue on a device. Make a skill that takes an issue and has an agent reproduce it before the fix?</li><li>README rule on subscription limits: 20 agents burn a 5-hour limit in ~15 minutes, batches of 6–10. Record a parallelism ceiling in loop-design / subagents?</li></ul></div>
+      <a class="source" href="https://github.com/pierridotite/mobile-agent-testers" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>23.11</span></div>
+      <h2>fast-anything profiles an app, has your agent port only the hot functions to Rust, and verifies them against recorded real calls</h2>
+      <div class="gist"><p>fast-anything (MIT, npm @el4cteo/fast-anything and crates.io, repo created 2026-11-21) replaces &quot;rewrite it all in Rust&quot; with a loop. scan -- &lt;cmd&gt; profiles the app and ranks functions by time spent and portability; port records up to 500 real calls, creates a one-function Rust crate and a TASK.md for the agent; verify release-builds it and replays every recorded call plus derived edge cases (NaN, ±inf, -0.0, empty and non-ASCII inputs, inputs 16× larger, shrunk slices). A port is enabled only if every case matches: floats within 1e-9, errors where the original errors. A correct port that is slower per call is also rejected. enable swaps Rust in as one marked block, disable removes it byte for byte, FAST_ANYTHING_DISABLE=1 runs the original. Supports Python 3.10+ (PyO3), Node/Bun/Deno (napi-rs), Ruby, Java, Go, PHP, C/C++, C#, R. README numbers: Python fuzzy dedupe 4.91s → 42ms (116×), TS 20×, PHP 55×, Ruby 14×, Java 3×. Porting the outermost loop is better, so the Rust boundary is crossed once. Only deterministic top-level functions over plain data qualify.</p><p>You already have agent orchestration, so the new part is the ready-made profile → port → equivalence-proof loop over recorded traffic, plus an MCP server with 8 tools (fast_scan, fast_port, fast_verify, fast_enable, fast_disable, fast_bench, fast_report, fast_status). It could help with slow Python scripts in bot/ and countries/. First step: npm i -g @el4cteo/fast-anything, then fast-anything go --agent claude -- python app.py; or claude mcp add fast-anything -- fast-anything mcp.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>It accepts a port only if all recorded calls and derived edge cases match, and rejects a correct but slower port. Add this &quot;replay recorded calls + edge inputs&quot; check to our refactoring and quality-gates skills?</li><li>Enable and rollback as one marked block (disable restores the file byte for byte, plus an env var to run the original). Adopt this pattern for our automated edits to the bot scripts?</li><li>Run fast-anything scan -- python on the slowest script in bot/ (e.g. watch.py) and look at the hot-function ranking before porting anything.</li><li>Hook up its MCP (claude mcp add fast-anything -- fast-anything mcp) and try fast_scan and fast_bench from our agents.</li></ul></div>
+      <a class="source" href="https://github.com/EL4CTEO/fast-anything" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>23.11</span></div>
+      <h2>Measured: returning to a Claude Code chat after the cache expires costs ~10x a new chat; fix with /compact before a break or /clear plus 3 lines</h2>
+      <div class="gist"><p>The repo inevolin/claude-code-usage-analysis (MIT, 160 stars, created 2026-11-13) measures what happens when the Claude Code prompt cache expires. The cache lasts 1 hour on Pro/Max/Ultra and 5 minutes on an API key. Method: 13 live runs on an API key, Opus 5.5, medium effort, Claude Code 2.1.325. Cache-weighted units: input 1, 5-minute write 1.25, 1-hour write 2, read 0.05, output 5. The 1-hour figures are calculated, not measured.</p><p>Results relative to a new session: returning inside the cache window ≈1.51x; after expiry ≈9.83x (mean of 5 runs; calculated 1-hour equivalent 11.0x); /compact before a break ≈2.5x; /compact after a break ≈9.7x, so it doesn&#x27;t help; /clear plus 3 lines (Goal, Done, Next) ≈1x. Disabling a built-in tool broke the cache (22x, n=2), while changing effort, editing CLAUDE.md or adding an MCP server barely mattered (0.95–1.08x). Long tool output bloats context: +64% for a long log over six turns (n=2). The author states many findings are n=1–2, the compaction model failed validation, and subagents were not measured.</p><p>For your setup: you run long sessions, including the Telegram bot one, so the pre-break rule applies directly. First step: copy skills/claude-code-usage-check into ~/.claude/skills/ and run /claude-code-usage-check, or run python3 -m cc_usage_study.analyze ~/.claude/projects --summary --sessions --calls -o report.json (it reads metadata only).</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run the analyzer over ~/.claude/projects to see how much cache-expiry returns actually cost in our sessions, including the bot.</li><li>Add a CLAUDE.md rule: before a break longer than the cache window run /compact; after a break run /clear and write three lines Goal, Done, Next (we already have task-context to reference).</li><li>Add a check to settings-cleanup or a hook: pipe long logs through tail -50 in Bash, and don&#x27;t change the built-in tool set mid-session.</li><li>For cron and headless claude -p scripts: start a fresh session each run and carry state in a notes file instead of resuming.</li></ul></div>
+      <a class="source" href="https://github.com/inevolin/claude-code-usage-analysis" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>23.11</span></div>
+      <h2>skill-distill: Claude Code turns a good session into a skill that a cheaper open-weight model can follow to redo the task</h2>
+      <div class="gist"><p>skill-distill (sybil-solutions, repo created 2026-11-21, 470 stars) is itself a skill for Claude Code or Codex. The teacher (a frontier model) reads a successful session and writes a skill for a student (an open-weight model in another harness). Then it loops: the student starts in tmux on a fresh copy of the starting state with the original prompt and the skill; its output is compared with the reference; the teacher finds the first point where the student went wrong and fixes the skill there; three trials per version until the output matches. Finally you review the reference and the student&#x27;s best results side by side and accept the skill yourself.</p><p>Anti-cheating rules: the student&#x27;s global context and skills are disabled where possible; the skill may not contain the finished output or a script that produces it; checks are validated on the reference first, and a check that fails on the reference counts as broken. Scripts: distill.py (init, trial, status, wait, evidence, verdict, ledger, report, accept), extract_session.py, capture_web.py (screenshots of web results via Chromium). Adapters: omp tested, Codex tested as teacher, Claude Code as student written, pi and opencode untested. The README has no benchmarks or success rates, only finished runs in examples/. Claude Code as a student needs ANTHROPIC_BASE_URL pointing at a compatible server; opencode logs have no parser yet.</p><p>For you: you already have skills, subagents, MLX and RunPod, but no verified way to move a routine task from Opus to a cheap local model. First step: git clone https://github.com/sybil-solutions/skill-distill, then ln -s &quot;$PWD/skill-distill/skills/skill-distill&quot; ~/.claude/skills/skill-distill (needs tmux, git, Python 3.10+). After a good session ask: &quot;distill this session into a skill for opencode with &lt;model&gt; on my local server&quot;.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Pick one repeated task (e.g. the avito or market-pulse skill) and run distill against a local MLX model via opencode to see which routine sessions can move off Opus.</li><li>Adopt the rule &quot;a check is validated on the reference first; if it fails on the reference it is broken&quot; in our quality-gates and testing skills.</li><li>Add to the subagents skill the loop &quot;fix the instructions at the first point where the executor went wrong, run 3 trials per version&quot; instead of rewriting the whole prompt.</li><li>Forbid putting the finished output or a script that produces it into a brief for a weaker model, so the test measures instruction-following rather than copying.</li></ul></div>
+      <a class="source" href="https://github.com/sybil-solutions/skill-distill" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>ty releases</span><span>22.11</span></div>
+      <h2>ty 0.0.108: mismatched-type-name split into eight rules, many speedups</h2>
+      <div class="gist"><p>ty 0.0.108 (2026-11-22), Astral&#x27;s type checker, is out. Breaking change: the mismatched-type-name rule is replaced by eight separate rules (#29957). mismatched-newtype-name, mismatched-typevar-name, mismatched-paramspec-name, mismatched-typevartuple-name, mismatched-typeddict-name and mismatched-type-alias-name warn by default. mismatched-enum-name and mismatched-namedtuple-name are off by default and only check names when ty can infer a single string literal. Configuration, CLI flags and suppression comments must be rewritten with the new names. ty now also recognizes TypeVar, ParamSpec, NewType and similar definitions even when the name is known only at runtime: it warns that it can&#x27;t verify the name but keeps using the type. The uv-metadata diagnostic is renamed to project-manager (#30528).</p><p>ParamSpec fixes: forwarding arguments through an unpacked tuple, false errors with lambdas in nested calls, and a # ty: ignore on invalid-paramspec for *args no longer lets the error reappear on **kwargs. There is also a large batch of speed and memory work: overloaded calls (e.g. boto3.client(&quot;s3&quot;)), field checks for Pydantic models and dataclasses, enums, TypedDicts, big literal unions, the LSP (completions, hints, highlighting), and ty check --output-format gitlab.</p><p>For your stack: if pyproject.toml or any # ty: ignore[mismatched-type-name] still uses the old rule name, the config will break after the upgrade. First step: run grep -rn &quot;mismatched-type-name&quot; . , replace it with the needed rules from the eight, then run ty check. Pydantic and SQLAlchemy projects should see a speedup.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Grep for mismatched-type-name in pyproject.toml and # ty: ignore comments and replace with the new rules across our repos?</li><li>Enable mismatched-enum-name and mismatched-namedtuple-name (off by default) if we want stricter name checks in our models?</li><li>Upgrade ty to 0.0.108 and time ty check on Pydantic-heavy projects before and after?</li></ul></div>
+      <a class="source" href="https://github.com/astral-sh/ty/releases/tag/0.0.108" target="_blank" rel="noopener">Source</a>
+    </article>
+  </section>
+  <footer class="problems"><span>Sources with problems</span><ul><li>Reddit: HTTP Error 404: Not Found</li></ul></footer>
+</main>
+
+</body>
+</html>

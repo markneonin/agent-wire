@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 23.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">5 новостей за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">23.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Шаблон репозитория запускает до 20 Claude Code агентов на эмуляторах Android и симуляторах iOS в GitHub Actions и собирает баг-репорты</a></li><li><a href="#s2">fast-anything: профилирует приложение, портирует в Rust только горячие функции через агента и проверяет их на записанных вызовах</a></li><li><a href="#s3">Замер: возврат в чат после истечения кэша Claude Code стоит ~10x нового чата, лечится /compact до паузы или /clear плюс 3 строки</a></li><li><a href="#s4">skill-distill: Claude Code превращает удачную сессию в скилл, по которому дешёвая open-weight модель повторяет задачу</a></li></ol>
+<h2 class="section-title">Python и backend</h2><ol class="contents" style="counter-reset: item 4"><li><a href="#s5">ty 0.0.108: правило mismatched-type-name разбито на восемь, много ускорений</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>23.11</span></div>
+      <h2>Шаблон репозитория запускает до 20 Claude Code агентов на эмуляторах Android и симуляторах iOS в GitHub Actions и собирает баг-репорты</h2>
+      <div class="gist"><p>mobile-agent-testers (pierridotite, MIT, создан 2026-11-16) — шаблон репозитория: workflow собирает приложение и поднимает по одному эмулятору/симулятору на персону, в каждом работает свой Claude Code агент. Тестов писать не надо: агент играет персону (модель телефона, ОС, размер шрифта, тёмная тема, язык, локаль), проходит приложение как новый пользователь или по вашему brief и пишет отчёт с пронумерованными скриншотами. Три инструмента: экран с координатами тапов, жесты, ввод текста; плюс accessibility-проверка на каждом экране (контролы без имени, цели меньше 48 dp / 44 pt). Готовых персон 20 (14 языков, RTL, планшеты). Поддерживаются Flutter, React Native, Expo, Kotlin, Swift, KMP, Capacitor. Отчёты шифруются вашим ключом, дубли склеивает Claude локально.</p><p>Цифры из README: LocalSend, 20 телефонов, 69 мин, $4.62 — 103 отчёта сжались в 46 багов, 29 нашёл один агент, 34 не про шрифты и доступность. AnkiDroid, 10 Android, меньше 10 мин, $4.69. Примерно $0.15–0.55 за телефон. Лимиты: на бесплатных раннерах около 20 джобов, 5 из них macOS; на подписке с 5-часовым лимитом 20 агентов выедают его за ~15 минут, советуют пачки по 6–10; агенты иногда неверно читают экран. У вас нет мобильных тестеров, а паттерн «персоны параллельно + дедуп отчётов» близок к вашим workflows. Если делаете мобильное приложение — первый шаг: `gh repo create my-testers --public --template pierridotite/mobile-agent-testers --clone &amp;&amp; cd my-testers &amp;&amp; ./setup.sh`, затем `gh workflow run agent-testers.yml` (демо, ~20 минут).</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Персоны (модель, язык, размер шрифта, тёмная тема) как матрица параллельных агентов — сделать такую матрицу в нашем synthetic-survey или для ревью UI через Workflow?</li><li>Агенты дают отчёт, а Claude склеивает дубли и показывает, сколько персон поймали каждый баг (103 отчёта → 46). Добавить такой шаг дедупа в наши мультиагентные ревью (vendor-review, council)?</li><li>Режим `bug_report=owner/repo#123`: агент воспроизводит баг из issue на устройстве. Сделать скилл, который берёт issue и просит агента воспроизвести его перед фиксом?</li><li>Правило из README про лимит подписки: 20 агентов сжигают 5-часовой лимит за ~15 минут, партии по 6–10. Записать потолок параллелизма в loop-design / subagents?</li></ul></div>
+      <a class="source" href="https://github.com/pierridotite/mobile-agent-testers" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>23.11</span></div>
+      <h2>fast-anything: профилирует приложение, портирует в Rust только горячие функции через агента и проверяет их на записанных вызовах</h2>
+      <div class="gist"><p>fast-anything (MIT, npm @el4cteo/fast-anything и crates.io, репозиторий создан 21.11.2026) ставит на место «переписать всё на Rust» другую схему: scan -- &lt;cmd&gt; профилирует приложение и ранжирует функции по времени и портируемости; port записывает до 500 реальных вызовов, создаёт крейт на одну функцию и TASK.md для агента; verify собирает релиз и прогоняет все записанные вызовы плюс краевые случаи (NaN, ±inf, -0.0, пустые и не-ASCII входы, входы в 16 раз больше, урезанные срезы). Порт включается только при полном совпадении: float в пределах 1e-9, ошибки там же, где у оригинала. Порт, который верен, но медленнее на вызов, тоже отклоняется. enable ставит Rust одним помеченным блоком, disable убирает побайтно, FAST_ANYTHING_DISABLE=1 запускает оригинал. Поддерживаются Python 3.10+ (PyO3), Node/Bun/Deno (napi-rs), Ruby, Java, Go, PHP, C/C++, C#, R. Замеры из README: Python fuzzy dedupe 4,91 с → 42 мс (116×), TS 20×, PHP 55×, Ruby 14×, Java 3×. Выгоднее портировать внешний цикл, чтобы граница в Rust пересекалась один раз. Подходят только детерминированные функции верхнего уровня на простых данных.</p><p>Для вас новое здесь не агент-оркестрация (она у вас есть), а готовый контур «профиль → порт → доказательство эквивалентности на записанном трафике» и MCP из 8 инструментов (fast_scan, fast_port, fast_verify, fast_enable, fast_disable, fast_bench, fast_report, fast_status). Пригодится для медленных Python-скриптов в bot/ и countries/. Первый шаг: npm i -g @el4cteo/fast-anything, затем fast-anything go --agent claude -- python app.py; либо claude mcp add fast-anything -- fast-anything mcp.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Он принимает порт, только если все записанные вызовы и производные краевые случаи совпали, и отклоняет верный, но более медленный порт. Добавить такой «replay записанных вызовов + краевые входы» в наши скиллы рефакторинга и quality-gates?</li><li>Включение и откат одним помеченным блоком (disable возвращает файл побайтно, плюс переменная окружения для запуска оригинала). Перенять этот паттерн для наших автоматических правок скриптов бота?</li><li>Прогнать fast-anything scan -- python на самом медленном скрипте в bot/ (например watch.py) и посмотреть ранжирование горячих функций, прежде чем что-то портировать.</li><li>Подключить его MCP (claude mcp add fast-anything -- fast-anything mcp) и вызывать fast_scan и fast_bench из наших агентов на пробу.</li></ul></div>
+      <a class="source" href="https://github.com/EL4CTEO/fast-anything" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>23.11</span></div>
+      <h2>Замер: возврат в чат после истечения кэша Claude Code стоит ~10x нового чата, лечится /compact до паузы или /clear плюс 3 строки</h2>
+      <div class="gist"><p>Репозиторий inevolin/claude-code-usage-analysis (MIT, 160 звёзд, создан 13.11.2026) измеряет, что происходит при истечении prompt-кэша Claude Code. Кэш живёт 1 час на Pro/Max/Ultra и 5 минут на API-ключе. Методика: 13 живых прогонов на API-ключе, Opus 5.5, medium effort, Claude Code 2.1.325. Единицы с учётом кэша: input 1, запись 5 мин 1.25, запись 1 ч 2, чтение 0.05, output 5. Цифры для 1 часа расчётные, не измеренные.</p><p>Результаты относительно нового сессии: возврат в окне кэша ≈1.51x; после истечения ≈9.83x (среднее по 5 прогонам; расчёт для 1 часа 11.0x); /compact до паузы ≈2.5x; /compact после паузы ≈9.7x, то есть не помогает; /clear плюс 3 строки (Goal, Done, Next) ≈1x. Отключение встроенного инструмента сломало кэш (22x, n=2), а смена effort, правка CLAUDE.md и добавление MCP-сервера почти не влияли (0.95–1.08x). Длинный вывод инструментов раздувает контекст: +64% для длинного лога за шесть ходов (n=2). Автор честно пишет, что много выводов на n=1–2, модель компакции валидацию не прошла, субагенты не измерялись.</p><p>Для вашей схемы: у вас много длинных сессий, в том числе в Telegram-боте, так что правило перед паузой применимо напрямую. Первый шаг: скопировать skills/claude-code-usage-check в ~/.claude/skills/ и запустить /claude-code-usage-check, либо python3 -m cc_usage_study.analyze ~/.claude/projects --summary --sessions --calls -o report.json (читает только метаданные).</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать анализатор по ~/.claude/projects и посмотреть, сколько реально уходит на возвраты после истечения кэша в наших сессиях, включая бот.</li><li>Добавить в CLAUDE.md правило: перед паузой дольше окна кэша делать /compact, после паузы /clear и три строки Goal, Done, Next (у нас уже есть task-context, можно сослаться на него).</li><li>Добавить в skill settings-cleanup или хук проверку: длинные логи в Bash пропускать через tail -50, не менять набор встроенных инструментов посреди сессии.</li><li>Для cron и headless-скриптов с claude -p: каждый запуск свежей сессией, состояние в файле заметок, а не через resume.</li></ul></div>
+      <a class="source" href="https://github.com/inevolin/claude-code-usage-analysis" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>23.11</span></div>
+      <h2>skill-distill: Claude Code превращает удачную сессию в скилл, по которому дешёвая open-weight модель повторяет задачу</h2>
+      <div class="gist"><p>skill-distill (sybil-solutions, репозиторий создан 21.11.2026, 470 звёзд) сам является скиллом для Claude Code или Codex. Учитель (сильная модель) читает удачную сессию и пишет скилл для ученика (open-weight модель в другом харнесе). Дальше цикл: ученик стартует в tmux на свежей копии исходного состояния с исходным промптом и скиллом; результат сравнивается с эталоном; учитель находит первую точку, где ученик ошибся, и правит скилл именно там; по три прогона на версию, пока результат не совпадёт. В конце человек смотрит эталон и лучшие результаты ученика рядом и принимает скилл вручную.</p><p>Защита от жульничества: у ученика отключён глобальный контекст и скиллы харнеса (где возможно); в скилл нельзя класть готовый результат или скрипт, который его выдаёт; проверки сначала валидируются на эталоне, и если проверка не проходит на эталоне, она считается сломанной. Скрипты: distill.py (init, trial, status, wait, evidence, verdict, ledger, report, accept), extract_session.py, capture_web.py (скриншоты веб-результата через Chromium). Адаптеры: omp протестирован, Codex как учитель протестирован, Claude Code как ученик написан, pi и opencode не тестировались. Бенчмарков и процентов успеха в README нет, только примеры в examples/. Claude Code как ученик требует ANTHROPIC_BASE_URL на совместимый сервер; парсера логов opencode пока нет.</p><p>Для тебя: у тебя уже есть скиллы, subagents, MLX и RunPod, но нет способа перенести рутинную задачу с Opus на дешёвую локальную модель с проверкой. Первый шаг: git clone https://github.com/sybil-solutions/skill-distill, затем ln -s &quot;$PWD/skill-distill/skills/skill-distill&quot; ~/.claude/skills/skill-distill (нужны tmux, git, Python 3.10+). В конце удачной сессии попросить: «distill this session into a skill for opencode with &lt;модель&gt; on my local server».</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Взять одну повторяющуюся задачу (например, скилл avito или market-pulse) и прогнать distill на локальной MLX-модели через opencode, чтобы понять, какие рутинные сессии можно снять с Opus.</li><li>Перенять правило «проверка сначала валидируется на эталоне, и если на эталоне она падает, она сломана» в наши скиллы quality-gates и testing.</li><li>Добавить в скиллы с subagents правило «правим инструкцию в первой точке, где исполнитель ошибся, и гоняем по 3 прогона на версию», вместо переписывания всего промпта целиком.</li><li>Запретить в brief для слабой модели класть готовый результат или скрипт, который его выдаёт, чтобы проверка шла по следованию инструкции, а не по копированию.</li></ul></div>
+      <a class="source" href="https://github.com/sybil-solutions/skill-distill" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>ty releases</span><span>22.11</span></div>
+      <h2>ty 0.0.108: правило mismatched-type-name разбито на восемь, много ускорений</h2>
+      <div class="gist"><p>Вышел ty 0.0.108 (22.11.2026), тайп-чекер от Astral. Ломающее изменение: правило mismatched-type-name заменено восемью отдельными (#29957): mismatched-newtype-name, mismatched-typevar-name, mismatched-paramspec-name, mismatched-typevartuple-name, mismatched-typeddict-name, mismatched-type-alias-name дают предупреждение по умолчанию; mismatched-enum-name и mismatched-namedtuple-name выключены и проверяют имя, только если ty выводит одну строковую константу. Конфиг, флаги CLI и комментарии подавления нужно переписать под новые имена. Также ty теперь распознаёт TypeVar, ParamSpec, NewType и т.п., даже если имя известно только в рантайме: предупреждает, что имя не проверить, но тип использует. Диагностика uv-metadata переименована в project-manager (#30528).</p><p>Исправлены ошибки с ParamSpec (пересылка аргументов через распакованный tuple, ложные ошибки с lambda в вложенных вызовах), подавление invalid-paramspec на *args больше не «всплывает» на **kwargs. Огромный блок оптимизаций скорости и памяти: перегруженные вызовы (например boto3.client(&quot;s3&quot;)), проверки полей Pydantic-моделей и dataclass, enum, TypedDict, большие union литералов, LSP (автодополнение, подсказки, подсветка), вывод ty check --output-format gitlab.</p><p>Для вашего стека: если в pyproject.toml или в # ty: ignore[mismatched-type-name] есть старое имя правила, после обновления конфиг сломается. Первый шаг: выполнить grep -rn &quot;mismatched-type-name&quot; . и заменить на нужные из восьми правил, затем запустить ty check. Проекты на Pydantic/SQLAlchemy заметят прирост скорости.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Найти grep-ом mismatched-type-name в pyproject.toml и # ty: ignore и заменить на новые правила — сделать это в наших репозиториях?</li><li>Включить mismatched-enum-name и mismatched-namedtuple-name (по умолчанию выключены), если хотим строже проверять имена в наших моделях?</li><li>Обновить ty до 0.0.108 и замерить время ty check на Pydantic-проектах до и после?</li></ul></div>
+      <a class="source" href="https://github.com/astral-sh/ty/releases/tag/0.0.108" target="_blank" rel="noopener">Источник</a>
+    </article>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Reddit: HTTP Error 404: Not Found</li></ul></footer>
+</main>
+
+</body>
+</html>
