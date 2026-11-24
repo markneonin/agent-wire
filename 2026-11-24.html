@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 24.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">6 новостей за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">24.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Nari Labs выложила Qwen3.8-27B в 3 битах (10 GB), который на их бенчмарках держится на уровне BF16</a></li><li><a href="#s2">agent-sim запускает iOS-симулятор на обычном Linux x86-64, и агент тестирует приложение без Mac</a></li><li><a href="#s3">AWS выложил codekb: семантический поиск и граф вызовов по многим репозиториям через MCP</a></li><li><a href="#s4">safe-anything: сканер уязвимостей на Rust, который проверяет и конфиги AI-агентов (hooks, skills, MCP)</a></li><li><a href="#s5">open-diagram: Python-библиотека архитектурных схем, которая сама падает с LayoutError при кривой раскладке</a></li></ol>
+<h2 class="section-title">Python и backend</h2><ol class="contents" style="counter-reset: item 5"><li><a href="#s6">Astral: как защитить Python-проект и GitHub Actions от атак на цепочку поставок — хеши, lock-файлы, cooldown</a></li></ol>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Hacker News</span><span>23.11</span></div>
+      <h2>Nari Labs выложила Qwen3.8-27B в 3 битах (10 GB), который на их бенчмарках держится на уровне BF16</h2>
+      <div class="gist"><p>NariQ - квантизация Qwen3.8-27B (vision-language) в 3.0 / 2.5 / 2.0 бита на вес: 10.12 / 8.44 / 6.75 GB против 53.8 GB в BF16. Метод - trellis-coded PTQ на базе QTIP, калибровка на реальных трассах кодинг-агентов; vision tower остаётся в BF16, MTP-модуля пока нет. По собственным замерам авторов (Claude Code как harness): DeepSWE 41.0 против 39.8 у BF16, Terminal-Bench 2.1 63.8 против 62.6, AIME 98.3 против 97.7. 2.5 bpw чуть слабее на Terminal-Bench (60.2), 2 bpw заметно хуже (DeepSWE 28.6). Лицензия Apache-2.0.</p><p>Ограничения серьёзные: нужен форк nari-llama.cpp, Ollama/LM Studio/stock llama.cpp не грузят; быстро только на NVIDIA (RTX PRO 6000: ~89 tok/s при 4K и ~71 при 64K), на M3 Pro всего ~3.8 tok/s. На 24 GB влезает ~135K контекста. В обсуждении HN: сравнение с Unsloth снято с графиков и на другом harness, часть выигрыша может быть от harness, а не от модели. Для тебя это скорее справка: твои MLX-модели на Маке на таком не поедут, но для RunPod/Linux с NVIDIA это способ гонять 27B-агента на одной 24 GB карте. Первый шаг: на GPU-поде `curl -fsSLO https://github.com/nari-labs/nari-llama.cpp/releases/download/b12431-nariv0/run.sh &amp;&amp; bash run.sh 3.0`, затем llama-server с `--temp 1.0 --top-p 0.95 --top-k 20 --min-p 0`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Проверить через runpod-скилл, что NariQ 3.0bpw на 24 GB карте (L4/A10, ~135K контекста) тянет Claude Code как локальный бэкенд для дешёвых фоновых задач, и сравнить с Sonnet на 3-5 своих задачах.</li><li>Авторы калибровали квант на реальных трассах кодинг-агентов и мерили на DeepSWE и Terminal-Bench 2.1 - взять эти два бенчмарка как образец для оценки локальных моделей в нашем скилле vendor-review.</li><li>Добавить в use-runpod заметку: форк nari-llama.cpp, `run.sh 3.0`, флаги сэмплинга `--temp 1.0 --top-p 0.95 --top-k 20 --min-p 0`, `-c 131072` для 24 GB.</li></ul></div>
+      <a class="source" href="https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>24.11</span></div>
+      <h2>agent-sim запускает iOS-симулятор на обычном Linux x86-64, и агент тестирует приложение без Mac</h2>
+      <div class="gist"><p>agent-sim (Developing-Gamer, 270 звёзд, создан 21.11.2026, Apache-2.0, автор честно пишет, что проект ранний и с шероховатостями) гоняет симулятор iOS от Apple на Linux без Mac и GPU. Под капотом x86Sim (запускает arm64-рантайм симулятора на x86-64), Darling как слой ядра macOS, dynarmic для трансляции ARM и CPU-Vulkan от Mesa с metal2vulkan для Metal. Агент ставит .ipa, читает экран как текст (`snapshot`, есть `--json`), нажимает `tap` по ref элемента, тексту или координатам, плюс `type`, `scroll`, `swipe`, `screenshot`, `logs`, `record`. Каждое действие возвращает новое состояние экрана. Есть пул телефонов (`pool up/take/release`) и трансляция в браузер (`serve --listen`, H.264 по WebSocket).</p><p>Цифры из README: загрузка 12–30 с, касание около 14 мс, скролл около 55 fps на Zen 5. Три телефона занимают 6,8 ГБ с KSM против 8,7 ГБ без него. Нужны Ubuntu 24.04, 8+ CPU, 16 ГБ RAM, 60 ГБ диска; setup около 30 минут и качает 8 ГБ рантайма от Apple. Ограничение: сборки должны быть нешифрованными (не из App Store: нужен Ad Hoc, Development, Enterprise или simulator build). Полный список проблем в KNOWN_ISSUES.md, которого на странице нет.</p><p>Для тебя: это готовый MCP-сервер, так что Claude Code получит глаза и руки для iOS-приложений на RunPod или любом Linux-боксе, без Mac. Подходит для проверки мобильных фич в цикле fix-until-green. Первый шаг: поставить через `install.sh` из репозитория на Ubuntu 24.04, выполнить `agent-sim setup`, `agent-sim up`, `agent-sim snapshot`, затем подключить `agent-sim mcp` как MCP-сервер.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поднять agent-sim на RunPod-поде с Ubuntu 24.04 (8+ CPU, 16 ГБ, 60 ГБ) и подключить `agent-sim mcp` к Claude Code как ещё один MCP-сервер рядом с Chrome</li><li>Взять из репозитория `SKILL.md` как основу своего скилла для iOS-тестов: `snapshot` → `tap` по ref → снова `snapshot`</li><li>Использовать `pool take/release` для параллельных субагентов, по одному телефону на агента в worktree</li><li>Проверить заранее, что у приложения есть simulator build или Ad Hoc .ipa, так как App Store сборки не запустятся</li></ul></div>
+      <a class="source" href="https://github.com/Developing-Gamer/agent-sim" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>24.11</span></div>
+      <h2>AWS выложил codekb: семантический поиск и граф вызовов по многим репозиториям через MCP</h2>
+      <div class="gist"><p>awslabs/codekb (создан 2026-11-12, 169 звёзд) — сервис «понимания кода» сразу по многим репозиториям, для людей и агентов. Один контейнер отдаёт веб-UI, REST API и MCP-сервер. Всё работает в вашем AWS-аккаунте: Bedrock (LLM, Guardrail, эмбеддинги Titan V2), S3 Vectors, S3, KMS для Git-токенов.</p><p>Пайплайн: добавляете «space» (Git URL или zip) → Tree-sitter разбирает символы и строит граф вызовов → LLM описывает каждую функцию (Guardrail маскирует секреты и PII), Titan делает эмбеддинги → семантический поиск по смыслу, затем обход callers/callees. Обновление инкрементальное: перепарсятся только изменённые файлы, затронутые вызывающие функции переописываются; при сбое остаётся прошлая версия. «Hyperspaces» группируют связанные репозитории; есть чат-агент Agent Hopper с режимом Impact Analysis. MCP-клиенты: Kiro и Claude Code. Лимиты: снимок одной ветки/тега на одном коммите, без истории; до 10 000 файлов, файлы &gt;10 МБ пропускаются, клон до 5 минут, 32 фоновых задачи (CODEKB_PIPELINE_POOL_SIZE). Бенчмарков в README нет.</p><p>Для вас это пересекается с codebase-memory MCP (граф кода), новое здесь — межрепозиторный поиск по смыслу и привязка к Bedrock/AWS, так что без AWS-аккаунта смысла мало. Первый шаг: прочитать docs/local.md в репозитории (одиночный локальный запуск, нужен доступ к Claude на Bedrock и Titan Text Embeddings V2) и подключить его MCP к Claude Code.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Если есть AWS: поднять codekb локально по docs/local.md и подключить MCP к Claude Code рядом с codebase-memory — сравнить на задаче через несколько репозиториев.</li><li>Взять приём «LLM описывает каждую функцию бизнес-языком, эмбеддинг описаний, потом обход графа вызовов» — добавить в скилл code-investigation шаг поиска по смыслу перед grep.</li><li>Взять Impact Analysis (кто затронут изменением по callers) как шаг в feature-build перед правкой общих функций — добавить?</li></ul></div>
+      <a class="source" href="https://github.com/awslabs/codekb" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>24.11</span></div>
+      <h2>safe-anything: сканер уязвимостей на Rust, который проверяет и конфиги AI-агентов (hooks, skills, MCP)</h2>
+      <div class="gist"><p>safe-anything (erkamyaman, MIT, 100% Rust, репозиторий создан 22.11.2026) — CLI-сканер без конфига и аккаунта. Ищет SQL/command-инъекции, XSS, eval, path traversal, SSRF, небезопасную десериализацию, слабую криптографию (9 языков + SQL), утёкшие секреты (в выводе маскируются), проблемы Docker, GitHub Actions, Kubernetes, Terraform, nginx, Android/iOS, а зависимости из lock-файлов сверяет с OSV.dev. Всего 75 правил с CWE/OWASP. На Juice Shop: 67 находок в 1195 файлах за ~0,03 с на M4; на express: 0 из 216 файлов. Самое шумное правило — code.xss-inner-html.</p><p>Для нас интересен блок AI-конфигов: он разбирает настройки Claude Code, Codex, Cursor, Gemini, OpenCode, MCP, hooks и skills. Ловит bypassPermissions, заранее разрешённый Bash, незапиненные npx/uvx/docker MCP-серверы, токены MCP открытым текстом, `curl | sh` в hooks, skills, читающие ~/.ssh, и невидимый Unicode в инструкциях. Ограничения: это поиск паттернов без трассировки данных, чистый скан не значит безопасный код. Единственный сетевой вызов — OSV.dev (имена и версии пакетов), отключается `--offline`. У нас уже есть quality-gates и vendor-review, но проверки именно агентского конфига нет, а у нас много своих skills и hooks. Первый шаг: `npx safe-anything .` в корне репозитория с .claude, затем `safe-anything --list-rules`, чтобы увидеть правила для агентов.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать `npx safe-anything .` по репозиторию с .claude (hooks, skills, settings) и разобрать находки по агентским правилам</li><li>Добавить `safe-anything --offline --fail-on high` как проверку в скилл quality-gates или pre-commit: код выхода 1 при high/critical</li><li>Подключить `safe-anything mcp` как MCP-сервер (tools `scan`, `list_rules`) и проверять им сторонние skills и плагины перед установкой</li></ul></div>
+      <a class="source" href="https://github.com/erkamyaman/safe-anything" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s5">
+      <div class="meta"><span class="number">05</span><span>GitHub</span><span>24.11</span></div>
+      <h2>open-diagram: Python-библиотека архитектурных схем, которая сама падает с LayoutError при кривой раскладке</h2>
+      <div class="gist"><p>open-diagram (MIT, создан 2026-11-18, 372 звезды, 37 коммитов) — Python-библиотека для плотных архитектурных диаграмм, рассчитанная на агентов (Claude, Codex, Cursor) и людей. Схема описывается коротким скриптом: Diagram, Panel, Tile, d.right_of(...) для размещения, d.link(a, b, kind=, label=) для связей. d.save(&quot;name&quot;) пишет SVG и PNG, печатает сводку и бросает LayoutError, если нашёл проблемы: блоки слишком близко, линия пересекает панель. В сообщении названы конкретные блоки и подсказан фикс: via_x/via_y для маршрута линии, сдвинуть блок или cross_ok=True. Автоматически раскладку библиотека не чинит, только сообщает.</p><p>Ширина подписей считается по метрикам и кернингу шрифта (Inter в комплекте), текст рисуется контурами, поэтому SVG одинаково открывается в браузере, PowerPoint, Keynote и Figma. Подписи вынесены в списки в начале скрипта. Есть импорт JSON и Mermaid, CLI, GitHub Action, иконки облаков и шаблоны; PNG требует Chrome, Chromium или Edge (переменная CHROME).</p><p>Для тебя это готовый цикл «агент рисует, проверка падает, агент правит»: ошибка с именами блоков заменяет разглядывание картинки. Полезно для схем в spec/review-page и README. Первый шаг: pip install open-diagram, затем claude mcp add с uvx для open-diagram-mcp (точная команда в README) и прогнать python3 examples/&lt;name&gt;.py.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Подключить open-diagram-mcp через claude mcp add (uvx) и дать диаграммы субагенту, чтобы схемы в review-page строились кодом, а не рисовались вручную</li><li>Добавить в скилл review-page правило: схема архитектуры собирается через open-diagram, и save() должен проходить без LayoutError до показа владельцу</li><li>Взять приём «самопроверка с именованными блоками в ошибке» для наших скриптов: падать с текстом, где указан объект и подсказан фикс, чтобы агент сам чинил в цикле</li></ul></div>
+      <a class="source" href="https://github.com/lukendeasy/open-diagram" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>    <article class="story" id="s6">
+      <div class="meta"><span class="number">06</span><span>Astral blog</span><span>23.11</span></div>
+      <h2>Astral: как защитить Python-проект и GitHub Actions от атак на цепочку поставок — хеши, lock-файлы, cooldown</h2>
+      <div class="gist"><p>Astral (23.11.2026) собрала практики против двух сценариев: у мейнтейнера взломали аккаунт или CI и выпустили вредоносный релиз, либо взломан сам сервер раздачи. Версий мало, нужны хеши: они защищают от файлов, добавленных в старый релиз PyPI (до 14 дней), от force-push тегов и от MITM с поддельными TLS-сертификатами. uv.lock уже хранит хеши всех файлов. Для Actions: ссылаться на полный commit SHA с версией в комментарии (`actions/checkout@3d3c42e... # v7.0.1`), конвертировать через pinact, обновлять Dependabot/Renovate, в настройках GitHub можно разрешить только pinned-экшены. Публикацию в PyPI делать через Trusted Publishing (OIDC, `id-token: write`, `uv publish`), релизный workflow закрыть environment с approval. zizmor линтит CI: mutable-теги, опасные триггеры `pull_request_target`, `workflow_run`, `issue_comment`. Cooldown: PyPI снимает большинство малварных пакетов за 24 часа, поэтому не ставим релизы моложе нескольких дней.</p><p>Про uv.lock и Dependabot вы, скорее всего, знаете; новое здесь — cooldown, закрепление инструментов в CI и запрет сборки из sdist. Вместо `uvx nox` лучше `uv add --group nox nox` и `uv run --only-group nox --isolated nox -s ...`, плюс `UV_LOCKED=1` в `env` workflow. Скрипты с PEP 723 лочатся через `uv lock --script foo.py`. Первый шаг: в `pyproject.toml` добавить `[tool.uv] exclude-newer = &quot;3d&quot;`, а в `.github/dependabot.yml` — `cooldown: default-days: 3`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить в pyproject.toml `[tool.uv] exclude-newer = &quot;3d&quot;` и cooldown `default-days: 3` в dependabot.yml — не ставить свежие релизы первые дни</li><li>Прогнать pinact по workflow-файлам и включить в GitHub «только pinned actions», а zizmor добавить в CI</li><li>Заменить `uvx &lt;tool&gt;` в CI на `uv add --group` + `uv run --only-group ... --isolated` и поставить `UV_LOCKED=1` в env</li><li>Включить `no-build = true` в [tool.uv], исключения через `no-binary-package`, если зависимости позволяют</li></ul></div>
+      <a class="source" href="https://astral.sh/blog/securing-from-supply-chain-attacks" target="_blank" rel="noopener">Источник</a>
+    </article>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Reddit: HTTP Error 404: Not Found</li></ul></footer>
+</main>
+
+</body>
+</html>
