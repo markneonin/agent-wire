@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 25.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">3 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">25.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Claude Code 2.1.332: скиллы из MCP-серверов (бета) и хук PreSkillShellCommand</a></li><li><a href="#s2">shrink-anything: CLI удаляет мёртвый код, файлы и зависимости, оставляя только те срезы, после которых тесты проходят</a></li><li><a href="#s3">gridlines: скилл для выравнивания интерфейса, который рисует направляющие и находит элементы мимо линии</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Claude Code releases</span><span>25.11</span></div>
+      <h2>Claude Code 2.1.332: скиллы из MCP-серверов (бета) и хук PreSkillShellCommand</h2>
+      <div class="gist"><p>В релизе от 25 ноября MCP-серверы теперь могут отдавать скиллы (бета). В меню `/` они показываются как `server:skill`, а остальные скиллы называются по-старому. Ещё появился хук `PreSkillShellCommand`: он может отклонить inline-шелл-команды скилла или команды, пока они загружаются. На 2.1.331 и старше настройки с этим именем при старте открывают диалог, так что обновляйте все машины сразу.</p><p>Остальное по большей части исправления. Починены зависания при бесконечном выводе хука и при заваленном stdout локального MCP-сервера: Ctrl+C раньше не срабатывал. Вывод хука длиннее ~50 000 символов теперь обрезается, а чтение именованного канала (например, `.env` от залоченного менеджера секретов) падает через 20 секунд. CLAUDE.md и rules больше не отправляются повторно при входе в worktree в `.claude/worktrees`. PreToolUse-хук теперь показывает причину запроса подтверждения на Read, Grep, Glob, Edit и Write. `/permissions` отвергает правила, которые не сработают при следующем старте, например `rm -rf` без имени инструмента. Для OpenTelemetry добавлено событие `assistant_response` (включается `OTEL_LOG_ASSISTANT_RESPONSES=1`). Ещё `computer-use` стал зарезервированным именем скилла на Mac с включённым computer use.</p><p>Для вас важно, что у вас много своих скиллов и хуков, а worktree вы используете на каждого писателя. Первый шаг: обновиться и проверить, что нет скилла с именем `computer-use`. Затем посмотреть, как ваш MCP-сервер (например, codebase-memory) мог бы отдавать скиллы, и попробовать хук `PreSkillShellCommand` на скиллах с inline-шеллом.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Добавить хук `PreSkillShellCommand` в settings.shared.json, который режет опасные inline-шелл-команды в чужих скиллах и плагинах (plannotator, superpowers), но сначала обновить все машины до 2.1.332, иначе на 2.1.331 откроется диалог.</li><li>Проверить, нет ли у нас скилла или команды `computer-use`: на Mac с computer use он перестанет грузиться, переименовать.</li><li>Попробовать отдавать скиллы прямо из собственных MCP-серверов (codebase-memory, runpod) как `server:skill`, вместо копирования в ~/.claude/skills.</li><li>Если свои хуки пишут длинные логи, учесть обрезку вывода хука на ~50 000 символов, а в OpenTelemetry-фильтрах проверить `service.name` у desktop-сессий (теперь `claude-code-desktop`).</li></ul></div>
+      <a class="source" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.332" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>25.11</span></div>
+      <h2>shrink-anything: CLI удаляет мёртвый код, файлы и зависимости, оставляя только те срезы, после которых тесты проходят</h2>
+      <div class="gist"><p>shrink-anything (MIT, npm @el4cteo/shrink-anything и crates.io, репозиторий создан 23.11.2026, 218 звёзд) чистит кодовую базу от мёртвого кода, неиспользуемых файлов, зависимостей и ассетов. Команда `scan` только показывает кандидатов, `cut -- &lt;проверка&gt;` удаляет их и запускает вашу проверку. Если она падает, пачка делится пополам, пока не найдётся ломающий срез, и его возвращают. Срез остаётся, только если проверка вернула 0 и прогнано не меньше тестов, чем раньше. Изменённые файлы сначала разбираются парсером языка, тесты не трогаются, `undo` восстанавливает файлы побайтно. Мёртвый код ищется подсчётом упоминаний имени, а не графом вызовов: режут, только если все упоминания внутри самого определения. Может пропустить мёртвое, но не должен выдумать. Публичные методы, экспорты библиотек и ассеты из public/ идут агенту или под `--aggressive`. Заявлено: демо на TypeScript −45% строк, статический сайт 913→398 КБ, −46% токенов для чтения. Без тестов доверять срезам нельзя.</p><p>У вас уже есть ast-grep, code-review, quality-gates и MCP с графом кода, но автоматической чистки «срез и откат по тестам» нет. Агенты накапливают код, и это закрывает именно такой случай. Первый шаг: `npm i -g @el4cteo/shrink-anything`, затем `shrink-anything doctor` и `shrink-anything scan` в проекте с хорошими тестами (например, invest/ или bot/). Потом `shrink-anything go --agent claude -- &lt;ваша команда тестов&gt;`. Есть и плагин: `/plugin marketplace add EL4CTEO/shrink-anything`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Прогнать `shrink-anything scan` и `cut` на invest/ или bot/ (там есть тесты) и посмотреть, сколько мёртвого кода найдёт.</li><li>Взять их правило приёмки среза: код выхода 0 и не меньше тестов, чем было. Добавить его в скилл quality-gates, чтобы упавший или опустевший набор тестов не считался зелёным.</li><li>Подключить MCP `claude mcp add shrink-anything -- shrink-anything mcp` или плагин и вызывать чистку после больших агентских фич как отдельный шаг feature-build.</li><li>Использовать `shrink-anything report` (Markdown и SVG для PR) как вложение в ревью после чистки.</li></ul></div>
+      <a class="source" href="https://github.com/EL4CTEO/shrink-anything" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>25.11</span></div>
+      <h2>gridlines: скилл для выравнивания интерфейса, который рисует направляющие и находит элементы мимо линии</h2>
+      <div class="gist"><p>pritamux/gridlines (создан 2026-11-21, 235 звёзд, MIT, всего 2 коммита) — скилл для «прохода по выравниванию». Принцип из README: сначала нарисуй линии, потом двигай элементы. Скилл рисует вертикальные направляющие по интерфейсу (сайдбар, тулбар, панель, меню, таблица), находит элементы, которые не попали на свою линию, и правит их padding, чтобы у всего был небольшой набор общих краёв.</p><p>Состав: SKILL.md (процесс и правила), probe.js (выполняется на странице, меряет реальные края «чернил» текста, иконок и контролов, рисует линии, выдаёт список промахов), audit.mjs (headless Chromium через Playwright, делает снимок 2x с линиями и JSON-отчёт; путь к Playwright задаётся через PW_DIR), examples/sidebar.html с четырьмя подложенными промахами. Пример отчёта: «MISS y56 trailing: 15px vs 12px». probe.js можно вставить в консоль любой страницы и вызвать window.__gridlines(). Правила основаны на переработке сайдбара Linear от Karri Saarinen и главе про layout в Apple HIG. Разделы «How it works» и «The rules» в README — картинки, их текст я не прочитал; поддержка агентов кроме папки скиллов Claude Code не указана.</p><p>Для твоей связки: у тебя есть скилл frontend и Claude in Chrome, но мерная проверка выравнивания (пиксели вместо «на глаз») — новое. Первый шаг: `npx skills add pritamux/gridlines`, затем `/gridlines` на странице examples/sidebar.html, чтобы увидеть четыре промаха.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить скилл (`npx skills add pritamux/gridlines`) и подключить его из роутера frontend как шаг «выравнивание» после вёрстки.</li><li>Взять идею probe.js (измерять края текста и иконок в DOM и выдавать отчёт «MISS ... 15px vs 12px») и сделать такую проверку частью quality-gates для UI-проектов.</li><li>Добавить в правила frontend принцип «сначала нарисуй направляющие, потом двигай элементы»: агент сначала получает измеренный отчёт и только потом правит padding.</li></ul></div>
+      <a class="source" href="https://github.com/pritamux/gridlines" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Reddit: HTTP Error 404: Not Found</li></ul></footer>
+</main>
+
+</body>
+</html>

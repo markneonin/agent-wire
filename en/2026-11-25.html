@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 25.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">3 stories from the last day of agentic development and backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">25.11.2026</span>
+  </header>
+  <h2 class="section-title">Agentic development</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">Claude Code 2.1.332: skills from MCP servers (beta) and a PreSkillShellCommand hook</a></li><li><a href="#s2">shrink-anything: a CLI that deletes dead code, files and dependencies and keeps only the cuts after which tests still pass</a></li><li><a href="#s3">gridlines: a skill that draws guide lines down a UI and finds items that miss their line</a></li></ol>
+<h2 class="section-title">Python and backend</h2><p class="empty">Nothing worth reading today.</p>
+  <section class="stories">
+<h2 class="section-title">Agentic development</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>Claude Code releases</span><span>25.11</span></div>
+      <h2>Claude Code 2.1.332: skills from MCP servers (beta) and a PreSkillShellCommand hook</h2>
+      <div class="gist"><p>The 25 November release lets MCP servers provide skills (beta). In the `/` menu they show as `server:skill`, and other skills keep their names. There is also a new `PreSkillShellCommand` hook event. It can refuse the inline shell commands of a skill or command as it loads. On 2.1.331 and older, a settings file that names it opens a dialog at start, so update every machine at once.</p><p>Most of the rest is fixes. Freezes are fixed when a hook prints output without end or a local MCP server floods stdout (Ctrl+C was ignored before). Hook output over about 50,000 characters is now shortened, and a read of a named pipe (for example a `.env` mounted by a locked secrets manager) fails after 20 seconds. CLAUDE.md and rules are no longer sent twice after a session moves into a worktree under `.claude/worktrees`. A PreToolUse hook&#x27;s reason for asking now shows on Read, Grep, Glob, Edit and Write prompts. `/permissions` refuses rules that would be skipped at the next start, such as `rm -rf` with no tool name. OpenTelemetry gets an `assistant_response` event (on with `OTEL_LOG_ASSISTANT_RESPONSES=1`). `computer-use` is now a reserved skill name on Macs with computer use on.</p><p>This matters for you because you have many skills and hooks and use a worktree per writer. First step: update, and check that you have no skill named `computer-use`. Then look at how one of your MCP servers (for example codebase-memory) could ship skills, and try the `PreSkillShellCommand` hook on skills that use inline shell.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Add a `PreSkillShellCommand` hook to settings.shared.json that blocks risky inline shell commands in third-party skills and plugins (plannotator, superpowers). Update every machine to 2.1.332 first, or 2.1.331 will open a dialog.</li><li>Check whether we have a skill or command named `computer-use`: on a Mac with computer use on it stops loading, so rename it.</li><li>Try shipping skills from our own MCP servers (codebase-memory, runpod) as `server:skill`, instead of copying them into ~/.claude/skills.</li><li>If our hooks write long logs, account for the ~50,000-character cut on hook output, and check OpenTelemetry filters for the desktop `service.name`, which is now `claude-code-desktop`.</li></ul></div>
+      <a class="source" href="https://github.com/anthropics/claude-code/releases/tag/v2.1.332" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>25.11</span></div>
+      <h2>shrink-anything: a CLI that deletes dead code, files and dependencies and keeps only the cuts after which tests still pass</h2>
+      <div class="gist"><p>shrink-anything (MIT, npm @el4cteo/shrink-anything and crates.io, repo created 2026-11-23, 218 stars) removes dead code, unused files, dependencies and assets from a codebase. `scan` only lists candidates; `cut -- &lt;check&gt;` deletes them and runs your check. If it fails, the batch is split until the breaking cut is found and put back. A cut stays only if the check exits 0 and at least as many tests run as before. Edited files are first parsed with the language&#x27;s own parser, tests are never modified, and `undo` restores files byte for byte. Dead code is found by counting name mentions, not by a call graph: it cuts only when every mention is inside the definition itself. It may miss dead code but should not invent it. Public methods, library exports and assets in public/ go to your agent or need `--aggressive`. Claimed results: TypeScript demo −45% lines, static site 913→398 KB, −46% tokens to read. With no tests, the cuts can&#x27;t be trusted.</p><p>You already have ast-grep, code-review, quality-gates and a code-graph MCP, but nothing that automatically cuts and rolls back against your tests. Agents pile up code, and this targets that. First step: `npm i -g @el4cteo/shrink-anything`, then `shrink-anything doctor` and `shrink-anything scan` in a project with solid tests (say invest/ or bot/). Then `shrink-anything go --agent claude -- &lt;your test command&gt;`. A plugin exists too: `/plugin marketplace add EL4CTEO/shrink-anything`.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Run `shrink-anything scan` and `cut` on invest/ or bot/ (they have tests) and see how much dead code it finds.</li><li>Borrow their acceptance rule for a cut: exit code 0 and no fewer tests than before. Add it to the quality-gates skill so a failing or emptied test suite never counts as green.</li><li>Hook it up via MCP (`claude mcp add shrink-anything -- shrink-anything mcp`) or the plugin, and run the cleanup as a separate feature-build step after large agent-written features.</li><li>Use `shrink-anything report` (Markdown and SVG for a PR) as an attachment to the review after a cleanup.</li></ul></div>
+      <a class="source" href="https://github.com/EL4CTEO/shrink-anything" target="_blank" rel="noopener">Source</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>25.11</span></div>
+      <h2>gridlines: a skill that draws guide lines down a UI and finds items that miss their line</h2>
+      <div class="gist"><p>pritamux/gridlines (created 2026-11-21, 235 stars, MIT, only 2 commits) is a skill for alignment passes. The README&#x27;s principle: draw the lines first, then move the items. It draws vertical guide lines down an interface (sidebar, toolbar, panel, menu, table), finds items that miss their line, and fixes their padding so everything shares a small set of edges.</p><p>Contents: SKILL.md (process and rules), probe.js (runs in the page, measures the ink edges of text, icons and controls, draws guides, lists misses), audit.mjs (headless Chromium via Playwright, saves a 2x capture with guides plus a JSON report; the Playwright folder is set through PW_DIR), and examples/sidebar.html with four planted misses. A sample report line: &quot;MISS y56 trailing: 15px vs 12px&quot;. You can also paste probe.js into any page&#x27;s console and call window.__gridlines(). The rules draw on Karri Saarinen&#x27;s redraw of the Linear sidebar and Apple&#x27;s HIG layout chapter. The &quot;How it works&quot; and &quot;The rules&quot; sections of the README are images, so I could not read their text; support for agents beyond Claude Code&#x27;s skills folder is not stated.</p><p>For your setup: you have the frontend skill and Claude in Chrome, but a measured alignment check (pixels instead of eyeballing) is new. First step: `npx skills add pritamux/gridlines`, then run `/gridlines` on examples/sidebar.html to see the four misses.</p></div>
+      <div class="take"><span class="label">Take for your setup</span><ul><li>Install the skill (`npx skills add pritamux/gridlines`) and call it from the frontend router as an alignment step after layout work.</li><li>Borrow the probe.js idea (measure text and icon edges in the DOM and output a report like &quot;MISS ... 15px vs 12px&quot;) and make it part of quality-gates for UI projects.</li><li>Add the principle &quot;draw the guides first, then move items&quot; to the frontend rules: the agent gets a measured report before it edits any padding.</li></ul></div>
+      <a class="source" href="https://github.com/pritamux/gridlines" target="_blank" rel="noopener">Source</a>
+    </article>
+<h2 class="section-title">Python and backend</h2>
+  </section>
+  <footer class="problems"><span>Sources with problems</span><ul><li>Reddit: HTTP Error 404: Not Found</li></ul></footer>
+</main>
+
+</body>
+</html>
