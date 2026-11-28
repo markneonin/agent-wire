@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body { margin: 0 } img { max-width: 100% }</style>
+</head>
+<body>
+<title>Agent Wire 28.11.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* one reading column: masthead, contents, then stories as numbered dispatches */
+:root {
+  --bg: #f5f6f8;
+  --paper: #ffffff;
+  --ink: #1b2130;
+  --muted: #5b6475;
+  --rule: #d9dde5;
+  --accent: #2f55d4;
+  --warn: #a2560f;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --paper: #181c25; --ink: #e4e7ee; --muted: #9aa3b5; --rule: #2a303d; --accent: #8ea6ff; --warn: #e3a35f;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.08rem; line-height: 1.6; }
+.page { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 2.5rem 4rem; display: grid; gap: 2.5rem; }
+.page, .stories, .story, .take, .gist { grid-template-columns: minmax(0, 1fr); }
+.story { overflow-wrap: anywhere; }
+.masthead { display: grid; gap: .35rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+.label { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1; margin: 0; letter-spacing: -.02em; }
+.contents { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: item; }
+.contents li { counter-increment: item; display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; min-width: 0; }
+.contents li::before { content: counter(item, decimal-leading-zero); font-family: var(--mono); color: var(--accent); font-size: .85rem; padding-top: .2rem; }
+.contents a { color: var(--ink); text-decoration: none; font-family: var(--display); font-weight: 600; line-height: 1.3; }
+.contents a:hover, .contents a:focus-visible { color: var(--accent); }
+.stories { display: grid; gap: 1.25rem; }
+.story { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; display: grid; gap: .6rem; min-width: 0; scroll-margin-top: 1rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.meta .number { color: var(--accent); font-weight: 500; }
+.story h2 { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; margin: 0; text-wrap: balance; }
+.story p { margin: 0; overflow-wrap: anywhere; }
+.story .gist { display: grid; gap: .75rem; }
+.take { display: grid; gap: .3rem; border-left: 3px solid var(--accent); padding-left: .9rem; }
+.take ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .25rem; }
+.source { font-family: var(--mono); font-size: .8rem; color: var(--accent); text-decoration: none; overflow-wrap: anywhere; justify-self: start; }
+.source:hover, .source:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--display); font-size: 1.1rem; margin: 0; padding-top: .5rem; border-top: 2px solid var(--ink); text-transform: uppercase; letter-spacing: .04em; }
+.empty { color: var(--muted); font-style: italic; }
+.problems { border-top: 1px solid var(--rule); padding-top: 1rem; display: grid; gap: .3rem; font-family: var(--mono); font-size: .78rem; color: var(--warn); }
+.problems ul { margin: 0; padding-left: 1.1rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<main class="page">
+  <header class="masthead">
+    <span class="label">4 новости за последние сутки агентной разработки и backend</span>
+    <h1>Agent Wire</h1>
+    <span class="label">28.11.2026</span>
+  </header>
+  <h2 class="section-title">Агентная разработка</h2><ol class="contents" style="counter-reset: item 0"><li><a href="#s1">rsrc: CLI, через который агент читает X, Reddit, YouTube и другие площадки, плохо видимые веб-поиску</a></li><li><a href="#s2">Clipy: открытый рекордер экрана, который превращает видео в текстовый файл со скриншотами для ИИ-агентов</a></li><li><a href="#s3">PopAgent: локальный веб-интерфейс для pi, Codex, Claude Code, OpenCode и DSH, где ход агента можно поправить на лету</a></li><li><a href="#s4">v2: версии для видеопроектов, которые делают с кодинг-агентами, включая футаж и рендеры</a></li></ol>
+<h2 class="section-title">Python и backend</h2><p class="empty">Сегодня ничего достойного нет.</p>
+  <section class="stories">
+<h2 class="section-title">Агентная разработка</h2>    <article class="story" id="s1">
+      <div class="meta"><span class="number">01</span><span>GitHub</span><span>28.11</span></div>
+      <h2>rsrc: CLI, через который агент читает X, Reddit, YouTube и другие площадки, плохо видимые веб-поиску</h2>
+      <div class="gist"><p>rsrc отдаёт по каждой команде один JSON: текст, автор, дата, вовлечённость. Источники: X (посты, треды, ответы, ленты, поиск), Reddit, Hacker News, YouTube (с транскриптами), публичные посты LinkedIn с комментариями, App Store с отзывами. Только чтение, без API-ключей, MIT. Выдача каждой площадки свежая, без общего ранжирования и кэша. Коды выхода: 0 — есть результаты, 66 — пусто, 2 — ошибка аргументов или настройки, 1 — сбой (rate_limited, blocked, not_found). Автор заявляет: на X и Reddit в 2–12 раз быстрее Agent-Reach, в 264 прогонах ни одного ложного успеха, в тесте на пяти темах минимум по 4 URL на тему, пропущенных веб-поиском. Это раннее ПО одного автора, на живых источниках проверено только на macOS. Маршруты неофициальные и могут сломаться. X, Reddit и LinkedIn ограничивают автоматический доступ, аккаунт могут лимитировать.</p><p>Тебе это даёт одну команду для этих площадок, дополняющую веб-поиск, помимо Claude in Chrome. Поиску в X нужна твоя сессия: Ego Lite, куки auth_token и ct0 в ~/.config/rsrc/x.env (права 600 или строже) либо экспериментальный rsrc x connect через Chrome. Поиску и живым тредам Reddit нужен Ego Lite; без него reddit read берёт публичный архив Arctic Shift. Начни без логина (Python 3.11+, uv): uv tool install git+https://github.com/SamuelZ12/research-sources, затем rsrc check hn appstore.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Подключить скилл rsrc (npx skills add SamuelZ12/research-sources) и вызывать его из твоего deep-research в паре с веб-поиском?</li><li>Добавить транскрипты YouTube через rsrc youtube read в ресёрч? Нужны yt-dlp и deno: brew install yt-dlp deno.</li><li>Перенять в своих скриптах для агентов контракт rsrc: отдельный код 66 для пустой выдачи и именованные ошибки при сбое, чтобы сбой не сошёл за «ничего не найдено»?</li><li>Если подключать X, записать в скилл правило: мало запросов, а порядок поиска с x-graphql после сбоя может перейти на твой аккаунт?</li></ul></div>
+      <a class="source" href="https://github.com/SamuelZ12/research-sources" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s2">
+      <div class="meta"><span class="number">02</span><span>GitHub</span><span>28.11</span></div>
+      <h2>Clipy: открытый рекордер экрана, который превращает видео в текстовый файл со скриншотами для ИИ-агентов</h2>
+      <div class="gist"><p>Clipy (Apache-2.0, репозиторий от 22 ноября, 274 звезды) записывает экран и голос. Людям достаётся ссылка, агенту — `recording.arec`: Markdown с расшифровкой, кликами, ключевыми моментами, таймкодами и скриншотами (формат AREC 1.4). Моменты выбирают локальные правила по выделениям, рисункам, кликам и паузам курсора. Опциональная модель ловит реплики вроде «вот тут ломается», ffmpeg снимает по кадру на момент. Речь распознаётся локально (Apple speech на macOS, иначе Parakeet или Whisper), для YouTube и Loom есть их субтитры. Десктоп только для macOS и Windows, на Linux лишь CLI.</p><p>Whisper у тебя уже есть. Новое — готовый путь «видео → контекст агента»: `/watch` принимает YouTube, Loom или локальный файл вместе с вопросом. На macOS агент может и сам записывать выбранное окно и ставить метки. Нужно запущенное приложение, первая запись требует твоего согласия. С Ollama или LM Studio и локальной расшифровкой всё остаётся на машине. Облачная модель получает текст, подписи кликов и ограниченную выборку событий мыши и клавиатуры, но не видео и скриншоты. Облачная расшифровка отправляет аудио провайдеру. Первый шаг в Claude Code: `/plugin marketplace add clipy-recorder/clipy`, `/plugin install watch@clipy`, затем `/watch ./demo.mov summarize this`.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>Поставить плагин `watch@clipy`, чтобы агент разбирал видео по запросу вроде «list every bug the speaker points out» по ссылке Loom или локальному файлу?</li><li>Попробовать отдавать агенту баги записью с голосом: `clipy record --local --max 120`, а потом путь к `recording.arec`, который напечатает команда?</li><li>Добавить в скилл проверки UI на macOS запись прогона: `clipy session start --local --source mac-screen`, `clipy mark &quot;...&quot;` на каждом шаге, `clipy session stop --local`?</li><li>Для приватных экранов закрепить в настройке Clipy локальную расшифровку и `CLIPY_MODEL_PROVIDER=ollama` с `CLIPY_MODEL`, чтобы данные не уходили облачным провайдерам?</li></ul></div>
+      <a class="source" href="https://github.com/clipy-recorder/clipy" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s3">
+      <div class="meta"><span class="number">03</span><span>GitHub</span><span>28.11</span></div>
+      <h2>PopAgent: локальный веб-интерфейс для pi, Codex, Claude Code, OpenCode и DSH, где ход агента можно поправить на лету</h2>
+      <div class="gist"><p>PopAgent (MIT) показывает в диалоге рассуждения агента, вызовы инструментов, изменённые файлы, токены и стоимость. Базы данных нет: сессии остаются файлами самого движка. Поправка на лету нативная только у pi (движок по умолчанию). У Claude Code, Codex, OpenCode и DSH это «stop-and-resend»: ход останавливается, и поправка отправляется заново. Claude Code подключён по ACP через `claude-code-acp`: сессии общие с CLI `claude`, инструменты подтверждаются по каждому вызову, есть выбор модели, но нет уровней reasoning и сабагентов. Панель сабагентов только у pi. Также есть задачи по cron с таймзоной, голос, граф плана, Web Push и PWA, управление приложениями macOS.</p><p>Твой Claude Code тут получит веб-окно и доступ с телефона, но с урезанными возможностями; работу твоих скиллов и хуков в этом режиме прочитанный текст не описывает. Интереснее это как общий интерфейс для нескольких движков. По умолчанию слушает только 127.0.0.1; для удалённого доступа нужны `-H 0.0.0.0` и пароль, заданный на самой машине, а 3 неудачных входа блокируют на 30 минут. Первый шаг: при Node ≥ 22.19 выполни `npm -g install pop-agent`, затем `pop-agent`. Есть и `.dmg` для Apple Silicon, но с ad-hoc подписью, поэтому Gatekeeper может не пустить первый запуск.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>В PopAgent запуски по расписанию не пишут в файлы, пока это явно не разрешено в задаче: сделать такое правило для твоих `claude -p` и cron-агентов в skill loop-design?</li><li>Там ход, превысивший лимит watchdog, прерывается и записывается как неудачный: проверить, что так же ведут себя твои фоновые и headless-запуски?</li></ul></div>
+      <a class="source" href="https://github.com/duzhenxun/pop-agent" target="_blank" rel="noopener">Источник</a>
+    </article>
+    <article class="story" id="s4">
+      <div class="meta"><span class="number">04</span><span>GitHub</span><span>28.11</span></div>
+      <h2>v2: версии для видеопроектов, которые делают с кодинг-агентами, включая футаж и рендеры</h2>
+      <div class="gist"><p>v2 (лицензия MIT) хранит версии видеопроекта, над которым работают Claude Code, Codex или другой агент. Код и текст идут в git, а футаж, музыка и рендеры в собственное хранилище v2. По README, любая версия восстанавливается в точности. `v2 init` настраивает проект и учит агента сохранять версию после каждой правки вместе с промптом, который её вызвал. `v2 log` показывает версии. `v2 diff` открывает их в браузере: можно посмотреть одну, сравнить две и оставить для агента комментарии с таймкодами. `v2 restore 3` возвращает версию 3 как новую. `v2 push` загружает проект на v2.video и выдаёт приватную ссылку. Нужны git и ffmpeg, установщик рассчитан на macOS и Linux. README не объясняет, как устроено хранилище, что меняет `init`, как комментарии доходят до агента, кто может открыть ссылку и есть ли лимиты.</p><p>Git у тебя есть, новое для твоих Remotion и `montage` здесь другое: общая история кода и медиа, привязанная к промптам, и визуальное сравнение версий. Первый шаг: `curl -fsSL https://v2.video/install.sh | sh`, затем `v2 init`. Скрипт стоит сначала прочитать, а `init` запустить на копии проекта и посмотреть, что изменилось. `v2 push` отправляет проект на внешний сервис, для локальной пробы он не нужен. Релизы подписаны, `v2 update` проверяет подпись перед заменой. Для сборки из исходников нужны Go и Node 24, `go install` не работает.</p></div>
+      <div class="take"><span class="label">Что взять себе</span><ul><li>В v2 каждая версия хранится с промптом, который её вызвал. Добавить в скилл `montage` сохранение версии после каждой правки через v2?</li><li>`v2 diff` сравнивает две версии в браузере и принимает комментарии с таймкодами. Попробовать это как этап ревью роликов из `montage` и Remotion, заодно проверив, как комментарии доходят до агента?</li></ul></div>
+      <a class="source" href="https://github.com/agentnativeinc/v2" target="_blank" rel="noopener">Источник</a>
+    </article>
+<h2 class="section-title">Python и backend</h2>
+  </section>
+  <footer class="problems"><span>Источники с проблемами</span><ul><li>Codex CLI releases: nothing new for 30 days</li><li>Reddit: HTTP Error 404: Not Found</li></ul></footer>
+</main>
+
+</body>
+</html>
